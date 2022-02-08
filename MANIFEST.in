@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include money_management_backend *.css
+recursive-include money_management_backend *.csv
+recursive-include money_management_backend *.html
+recursive-include money_management_backend *.ico
+recursive-include money_management_backend *.js
+recursive-include money_management_backend *.json
+recursive-include money_management_backend *.md
+recursive-include money_management_backend *.png
+recursive-include money_management_backend *.py
+recursive-include money_management_backend *.svg
+recursive-include money_management_backend *.txt
+recursive-exclude money_management_backend *.pyc
