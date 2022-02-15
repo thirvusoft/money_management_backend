@@ -1,0 +1,548 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "TS Asset : .####",
+ "creation": "2022-01-18 09:13:39.521629",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "ts_asset_type",
+  "ts_movable_type",
+  "ts_property_type",
+  "section_break_4",
+  "section_break_10",
+  "ts_vehicle_type",
+  "ts_vehicle_name",
+  "ts_vehicle_number",
+  "ts_vehicle_image",
+  "ts_veh_bill_img",
+  "ts_veh_digital",
+  "section_break_16",
+  "section_break_13",
+  "appliance_name",
+  "purchase_rate",
+  "purchase_date_and_time",
+  "purchase_bill_image",
+  "purchase_shop_name",
+  "appliance_image",
+  "appliance_type",
+  "warranty_date",
+  "section_break_22",
+  "section_break_23",
+  "cash_details",
+  "cash_in_date",
+  "cash_in",
+  "cash_out_date",
+  "cash_out_amount",
+  "cash_out_purpose",
+  "section_break_30",
+  "function_details_section",
+  "function_category",
+  "function_name",
+  "function_date",
+  "person_name",
+  "relative_category",
+  "upload_invetation",
+  "gift_details_section",
+  "gift_purchased",
+  "gift_type",
+  "amount_given",
+  "gift_name",
+  "gift_by",
+  "catering_details_section",
+  "catering_name",
+  "catering_phone_number",
+  "catering_cost",
+  "purchased_price",
+  "total_price",
+  "section_break_50",
+  "type",
+  "metal_model",
+  "quantity_type",
+  "measured_quantity",
+  "ts_pur_rate",
+  "ts_pur_date",
+  "bill_image",
+  "ts_pur_sh_name",
+  "ts_pur_sh_place",
+  "location_column",
+  "location",
+  "area_type",
+  "area_measured",
+  "image",
+  "document_type",
+  "document_image",
+  "registration_date",
+  "payment_mode",
+  "purchase_cost",
+  "latitude",
+  "longitude",
+  "section_break_24",
+  "ts_remark"
+ ],
+ "fields": [
+  {
+   "fieldname": "ts_asset_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Select Asset Type",
+   "options": "\nMovable\nProperty",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.ts_asset_type==\"Movable\"",
+   "fieldname": "ts_movable_type",
+   "fieldtype": "Link",
+   "label": "Select Movable Type",
+   "options": "TS Movable List"
+  },
+  {
+   "depends_on": "eval:doc.ts_asset_type==\"Property\"",
+   "fieldname": "ts_property_type",
+   "fieldtype": "Link",
+   "label": "Property Type",
+   "options": "TS Property"
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_10",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.ts_movable_type==(\"Vehicle\")",
+   "fieldname": "ts_vehicle_type",
+   "fieldtype": "Select",
+   "label": "Vehicle Type",
+   "options": "\nTwo Wheeler\nFour Wheeler\nHeavy Vehicle"
+  },
+  {
+   "depends_on": "eval:doc.ts_movable_type==(\"Vehicle\")",
+   "fieldname": "ts_vehicle_name",
+   "fieldtype": "Data",
+   "label": "Vehicle Name"
+  },
+  {
+   "depends_on": "eval:doc.ts_movable_type==\"Vehicle\"",
+   "fieldname": "ts_vehicle_number",
+   "fieldtype": "Data",
+   "label": "Vehicle Number"
+  },
+  {
+   "depends_on": "eval:doc.ts_movable_type==\"Vehicle\"",
+   "fieldname": "ts_vehicle_image",
+   "fieldtype": "Table",
+   "label": "Add Vehicle Image",
+   "options": "TS Vehicle Image"
+  },
+  {
+   "depends_on": "eval:doc.ts_movable_type==\"Vehicle\"",
+   "fieldname": "ts_veh_bill_img",
+   "fieldtype": "Table",
+   "label": "Add Vehicle Bill Image",
+   "options": "TS Vehicle Bill Documents"
+  },
+  {
+   "depends_on": "eval:doc.ts_movable_type==\"Vehicle\"",
+   "fieldname": "ts_veh_digital",
+   "fieldtype": "Table",
+   "label": "Add  Vehicle Digital Documents",
+   "options": "TS Vehicle Digital Documents"
+  },
+  {
+   "fieldname": "section_break_16",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_13",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.ts_movable_type==\"Home Appliances\"",
+   "fieldname": "appliance_name",
+   "fieldtype": "Data",
+   "label": "Appliance Name"
+  },
+  {
+   "depends_on": "eval:doc.ts_movable_type==\"Home Appliances\"",
+   "fieldname": "purchase_rate",
+   "fieldtype": "Currency",
+   "label": "Purchase Rate"
+  },
+  {
+   "depends_on": "eval:doc.ts_movable_type==\"Home Appliances\"",
+   "fieldname": "purchase_date_and_time",
+   "fieldtype": "Datetime",
+   "label": "Purchase Date and Time"
+  },
+  {
+   "depends_on": "eval:doc.ts_movable_type==\"Home Appliances\"",
+   "fieldname": "purchase_bill_image",
+   "fieldtype": "Attach Image",
+   "label": "Purchase Bill Image"
+  },
+  {
+   "depends_on": "eval:doc.ts_movable_type==\"Home Appliances\"",
+   "fieldname": "purchase_shop_name",
+   "fieldtype": "Data",
+   "label": "purchase Shop Name"
+  },
+  {
+   "depends_on": "eval:doc.ts_movable_type==\"Home Appliances\"",
+   "fieldname": "appliance_image",
+   "fieldtype": "Attach Image",
+   "label": "Appliance Image"
+  },
+  {
+   "depends_on": "eval:doc.ts_movable_type==\"Home Appliances\"",
+   "fieldname": "appliance_type",
+   "fieldtype": "Select",
+   "label": "Appliance Type",
+   "options": "\nWarranty\nNon-Warranty"
+  },
+  {
+   "depends_on": "eval:(doc.ts_movable_type==\"Home Appliances\"&&doc.appliance_type==\"Warranty\")",
+   "fieldname": "warranty_date",
+   "fieldtype": "Date",
+   "label": "Warranty Date"
+  },
+  {
+   "fieldname": "section_break_22",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_23",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.ts_movable_type==\"Liquid Cash\"",
+   "fieldname": "cash_details",
+   "fieldtype": "Select",
+   "label": "Cash Details",
+   "options": "Cash In\nCash Out"
+  },
+  {
+   "depends_on": "eval:(doc.ts_movable_type==\"Liquid Cash\"&&doc.cash_details==\"Cash In\")",
+   "fieldname": "cash_in_date",
+   "fieldtype": "Date",
+   "label": "Cash in Date"
+  },
+  {
+   "depends_on": "eval:(doc.ts_movable_type==\"Liquid Cash\"&&doc.cash_details==\"Cash In\")",
+   "fieldname": "cash_in",
+   "fieldtype": "Currency",
+   "label": "Cash In Amount"
+  },
+  {
+   "depends_on": "eval:(doc.ts_movable_type==\"Liquid Cash\"&&doc.cash_details==\"Cash Out\")",
+   "fieldname": "cash_out_date",
+   "fieldtype": "Date",
+   "label": "Cash Out Date"
+  },
+  {
+   "depends_on": "eval:(doc.ts_movable_type==\"Liquid Cash\"&&doc.cash_details==\"Cash Out\")",
+   "fieldname": "cash_out_amount",
+   "fieldtype": "Currency",
+   "label": "Cash Out Amount"
+  },
+  {
+   "depends_on": "eval:(doc.ts_movable_type==\"Liquid Cash\"&&doc.cash_details==\"Cash Out\")",
+   "fieldname": "cash_out_purpose",
+   "fieldtype": "Data",
+   "label": "Cash Out Purpose"
+  },
+  {
+   "fieldname": "section_break_30",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "function_details_section",
+   "fieldtype": "Section Break",
+   "label": "FUNCTION DETAILS"
+  },
+  {
+   "depends_on": "eval:doc.ts_movable_type==\"Function\"",
+   "fieldname": "function_category",
+   "fieldtype": "Select",
+   "label": "Function Category",
+   "options": "\nVisiting\nOrganize"
+  },
+  {
+   "depends_on": "eval:doc.ts_movable_type==\"Function\"",
+   "fieldname": "function_name",
+   "fieldtype": "Data",
+   "label": "Function Name"
+  },
+  {
+   "depends_on": "eval:doc.ts_movable_type==\"Function\"",
+   "fieldname": "function_date",
+   "fieldtype": "Date",
+   "label": "Function Date"
+  },
+  {
+   "depends_on": "eval:(doc.ts_movable_type==\"Function\"&&doc.function_category==\"Visiting\")",
+   "fieldname": "person_name",
+   "fieldtype": "Data",
+   "label": "Person Name"
+  },
+  {
+   "depends_on": "eval:(doc.ts_movable_type==\"Function\"&&doc.function_category==\"Visiting\")",
+   "fieldname": "relative_category",
+   "fieldtype": "Data",
+   "label": "Relative Category"
+  },
+  {
+   "depends_on": "eval:(doc.ts_movable_type==\"Function\")",
+   "fieldname": "upload_invetation",
+   "fieldtype": "Attach Image",
+   "label": "Upload Invetation"
+  },
+  {
+   "fieldname": "gift_details_section",
+   "fieldtype": "Section Break",
+   "label": "GIFT DETAILS"
+  },
+  {
+   "depends_on": "eval:(doc.ts_movable_type==\"Function\"&&doc.function_category==\"Visiting\")",
+   "fieldname": "gift_purchased",
+   "fieldtype": "Select",
+   "label": "Gift Purchased",
+   "options": "Purchase\nNot Purchase"
+  },
+  {
+   "depends_on": "eval:((doc.ts_movable_type==\"Function\"&&doc.function_category==\"Visiting\"&&doc.gift_purchased==\"Purchase\")||(doc.ts_movable_type==\"Function\"&&doc.function_category==\"Organize\"))",
+   "fieldname": "gift_type",
+   "fieldtype": "Select",
+   "label": "Gift Type",
+   "options": "\nCash\nThings"
+  },
+  {
+   "depends_on": "eval:(doc.ts_movable_type==\"Function\"&&doc.function_category==\"Organize\"&&doc.gift_type==\"Cash\")",
+   "fieldname": "amount_given",
+   "fieldtype": "Currency",
+   "label": "Amount Given"
+  },
+  {
+   "depends_on": "eval:(doc.ts_movable_type==\"Function\"&&doc.function_category==\"Organize\"&&doc.gift_type==\"Things\")",
+   "fieldname": "gift_name",
+   "fieldtype": "Data",
+   "label": "Gift Name"
+  },
+  {
+   "depends_on": "eval:(doc.ts_movable_type==\"Function\"&&doc.function_category==\"Organize\")",
+   "fieldname": "gift_by",
+   "fieldtype": "Data",
+   "label": "Gift By"
+  },
+  {
+   "bold": 1,
+   "fieldname": "catering_details_section",
+   "fieldtype": "Section Break",
+   "label": "CATERING DETAILS"
+  },
+  {
+   "depends_on": "eval:(doc.ts_movable_type==\"Function\"&&doc.function_category==\"Organize\")",
+   "fieldname": "catering_name",
+   "fieldtype": "Data",
+   "label": "Catering Name"
+  },
+  {
+   "depends_on": "eval:(doc.ts_movable_type==\"Function\"&&doc.function_category==\"Organize\")",
+   "fieldname": "catering_phone_number",
+   "fieldtype": "Int",
+   "label": "Catering Phone Number"
+  },
+  {
+   "depends_on": "eval:(doc.ts_movable_type==\"Function\"&&doc.function_category==\"Organize\")",
+   "fieldname": "catering_cost",
+   "fieldtype": "Currency",
+   "label": "Catering Cost"
+  },
+  {
+   "depends_on": "eval:(doc.ts_movable_type==\"Function\"&&doc.function_category==\"Organize\")",
+   "fieldname": "purchased_price",
+   "fieldtype": "Currency",
+   "label": "Purchased Price"
+  },
+  {
+   "depends_on": "eval:(doc.ts_movable_type==\"Function\"&&doc.function_category==\"Organize\")",
+   "fieldname": "total_price",
+   "fieldtype": "Currency",
+   "label": "Total Price "
+  },
+  {
+   "fieldname": "section_break_50",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.ts_movable_type==\"Precious Metal\"",
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "label": "Material type",
+   "options": "Gold\nSilver\nPlatinum\nDiamond"
+  },
+  {
+   "depends_on": "eval:doc.ts_movable_type==\"Precious Metal\"",
+   "fieldname": "metal_model",
+   "fieldtype": "Select",
+   "label": "Metal Model",
+   "options": "Bangle\nRing\nChain"
+  },
+  {
+   "depends_on": "eval:doc.ts_movable_type==\"Precious Metal\"",
+   "fieldname": "quantity_type",
+   "fieldtype": "Select",
+   "label": "Quantity Type",
+   "options": "Kilogram\nGram\nPavan"
+  },
+  {
+   "depends_on": "eval:doc.ts_movable_type==\"Precious Metal\"",
+   "fieldname": "measured_quantity",
+   "fieldtype": "Float",
+   "label": "Measured Quantity"
+  },
+  {
+   "depends_on": "eval:doc.ts_movable_type==\"Precious Metal\" || doc.ts_movable_type==\"Vehicle\"",
+   "fieldname": "ts_pur_rate",
+   "fieldtype": "Currency",
+   "label": "Purchase Rate"
+  },
+  {
+   "depends_on": "eval:doc.ts_movable_type==\"Precious Metal\" || doc.ts_movable_type==\"Vehicle\"",
+   "fieldname": "ts_pur_date",
+   "fieldtype": "Date",
+   "label": "Purchase Date"
+  },
+  {
+   "depends_on": "eval:(doc.ts_movable_type==\"Precious Metal\"||doc.ts_movable_type==\"Function\"&&doc.function_category==\"Organize\")",
+   "fieldname": "bill_image",
+   "fieldtype": "Attach Image",
+   "label": "Bill Image"
+  },
+  {
+   "depends_on": "eval:doc.ts_movable_type==\"Precious Metal\" || doc.ts_movable_type==\"Vehicle\"",
+   "fieldname": "ts_pur_sh_name",
+   "fieldtype": "Data",
+   "label": "Purchase Shop Name"
+  },
+  {
+   "depends_on": "eval:doc.ts_movable_type==\"Precious Metal\" || doc.ts_movable_type==\"Vehicle\"",
+   "fieldname": "ts_pur_sh_place",
+   "fieldtype": "Data",
+   "label": "Purchase Shop Place"
+  },
+  {
+   "bold": 1,
+   "depends_on": "ts_property_type",
+   "fieldname": "location_column",
+   "fieldtype": "Section Break",
+   "label": "Location"
+  },
+  {
+   "depends_on": "eval:doc.ts_property_type == \"Agriculture Land\" || \"Commercial Land\"||\"Residential Land\"",
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location"
+  },
+  {
+   "depends_on": "eval:doc.ts_property_type == \"Agriculture Land\" || \"Commercial Land\"||\"Residential Land\"",
+   "fieldname": "area_type",
+   "fieldtype": "Select",
+   "label": "Area Measurement",
+   "options": "Acre\nsq.ft"
+  },
+  {
+   "depends_on": "eval:doc.ts_property_type == \"Agriculture Land\" || \"Commercial Land\"||\"Residential Land\"",
+   "fieldname": "area_measured",
+   "fieldtype": "Float",
+   "label": "Area Measured"
+  },
+  {
+   "depends_on": "eval:doc.ts_property_type == \"Agriculture Land\" || \"Commercial Land\"||\"Residential Land\"",
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "label": "Land Image"
+  },
+  {
+   "depends_on": "eval:doc.ts_property_type == \"Agriculture Land\" || \"Commercial Land\"||\"Residential Land\"",
+   "fieldname": "document_type",
+   "fieldtype": "Select",
+   "label": "Document Type",
+   "options": "Patta\nChitta\nPanchayat Tax Receipt"
+  },
+  {
+   "depends_on": "eval:doc.ts_property_type == \"Agriculture Land\" || \"Commercial Land\"||\"Residential Land\"",
+   "fieldname": "document_image",
+   "fieldtype": "Attach Image",
+   "label": "Document Image"
+  },
+  {
+   "depends_on": "eval:doc.ts_property_type == \"Agriculture Land\" || \"Commercial Land\"||\"Residential Land\"",
+   "fieldname": "registration_date",
+   "fieldtype": "Datetime",
+   "label": "Registration Date"
+  },
+  {
+   "depends_on": "eval:doc.ts_property_type == \"Agriculture Land\" || \"Commercial Land\"||\"Residential Land\"",
+   "fieldname": "payment_mode",
+   "fieldtype": "Select",
+   "label": "Payment Mode",
+   "options": "Cash\nOnline\nBoth"
+  },
+  {
+   "depends_on": "eval:doc.ts_property_type == \"Agriculture Land\" || \"Commercial Land\"||\"Residential Land\"",
+   "fieldname": "purchase_cost",
+   "fieldtype": "Currency",
+   "label": "Purchase Cost"
+  },
+  {
+   "depends_on": "eval:doc.ts_movable_type==\"Precious Metal\"",
+   "fieldname": "latitude",
+   "fieldtype": "Data",
+   "label": "Latitude"
+  },
+  {
+   "depends_on": "eval:doc.ts_movable_type==\"Precious Metal\"",
+   "fieldname": "longitude",
+   "fieldtype": "Data",
+   "label": "Longitude"
+  },
+  {
+   "fieldname": "section_break_24",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.ts_movable_type==\"Precious Metal\" || doc.ts_movable_type==\"Vehicle\"",
+   "fieldname": "ts_remark",
+   "fieldtype": "Text",
+   "label": "Remarks"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2022-02-10 09:15:48.468756",
+ "modified_by": "Administrator",
+ "module": "Money Management Backend",
+ "name": "TS Asset",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}
