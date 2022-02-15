@@ -58,7 +58,7 @@ app_license = "MIT"
 
 # before_install = "money_management_backend.install.before_install"
 # after_install = "money_management_backend.install.after_install"
-after_install = "money_management_backend.money_management_backend.custom.py.defaults.create_ts_movable_list"
+# after_install = "money_management_backend.custom.py.defaults.create_ts_movable"
 
 # Desk Notifications
 # ------------------
