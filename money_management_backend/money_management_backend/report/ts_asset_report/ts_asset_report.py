@@ -392,7 +392,7 @@ def get_data(filters):
 	if 'ts_movable_type' in filters:
 		conditions['ts_movable_type'] = filters['ts_movable_type']
 		if filters['ts_movable_type'] == 'Precious Metal':
-			fields =  ['type', 'metal_model', 'quantity_type']
+			fields =  ['type', 'metal_model', 'quantity_type','measured_quantity','ts_pur_rate','ts_pur_date','ts_pur_sh_name','ts_pur_sh_place']
 		if filters['ts_movable_type'] == 'Vehicle':
 			fields =  ['ts_vehicle_type','ts_vehicle_name','ts_vehicle_number']
 		if filters['ts_movable_type'] == 'Liquid Cash':
