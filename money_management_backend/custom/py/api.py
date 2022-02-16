@@ -30,7 +30,7 @@ def login():
 	try:
 		frappe.db.begin()
 		login_manager = LoginManager()
-		login_manager.authenticate(req.mobile_no, req.password)
+		login_manager.authenticate(req.username, req.password)
 		token = generate_token(login_manager.user)
 		frappe.local.response.http_status_code = 200
 		frappe.local.response["message"] = "Logged In"
@@ -100,6 +100,8 @@ def create_asset_doc(doc):
 			a.total_price=doc["total_price"]
 	a.insert()
 
+
+@frappe.whitelist()
 def get_all(movable_type):
 	if movable_type == "Precious Metal":
 		fields = ['type','metal_model','quantity_type','measured_quantity','ts_pur_rate','ts_pur_sh_name','ts_pur_sh_place','ts_pur_date']
