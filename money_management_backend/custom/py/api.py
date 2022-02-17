@@ -30,7 +30,7 @@ def login():
 	try:
 		frappe.db.begin()
 		login_manager = LoginManager()
-		login_manager.authenticate(req.username, req.password)
+		login_manager.authenticate(req.email, req.password)
 		token = generate_token(login_manager.user)
 		frappe.local.response.http_status_code = 200
 		frappe.local.response["message"] = "Logged In"
