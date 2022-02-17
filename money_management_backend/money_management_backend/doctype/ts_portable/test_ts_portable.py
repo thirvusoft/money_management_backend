@@ -4,5 +4,5 @@
 # import frappe
 import unittest
 
-class TestTSMovableList(unittest.TestCase):
+class TestTSPortable(unittest.TestCase):
 	pass
