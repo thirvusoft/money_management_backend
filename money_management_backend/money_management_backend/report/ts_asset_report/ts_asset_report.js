@@ -9,15 +9,15 @@ frappe.query_reports["TS Asset Report"] = {
 			"label" : __("Select Asset Type"),
 			"fieldtype" : "Select",
 			"reqd":1,
-			"options" : ['Movable','Property'],
+			"options" : ['Portable','Property'],
 		},
 		{
-			"fieldname" :"ts_movable_type",
-			"label" : __("Select Movable Type"),
+			"fieldname" :"ts_portable_type",
+			"label" : __("Select Portable Type"),
 			"fieldtype" : "Link",
-			"options" : "TS Movable List",
-			"default": frappe.defaults.get_user_default("Select Movable Type"),
-			depends_on:'eval:doc.ts_asset_type=="Movable"'
+			"options" : "TS Portable",
+			"default": frappe.defaults.get_user_default("Select Portable Type"),
+			depends_on:'eval:doc.ts_asset_type=="Portable"'
 		},
 	
 		{

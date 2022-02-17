@@ -15,9 +15,9 @@
    "wildcard_filter": 0
   },
   {
-   "fieldname": "ts_movable_type",
+   "fieldname": "ts_portable_type",
    "fieldtype": "Link",
-   "label": "Select Movable Type",
+   "label": "Select Portable Type",
    "mandatory": 0,
    "wildcard_filter": 0
   }

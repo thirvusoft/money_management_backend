@@ -11,8 +11,8 @@ def execute(filters=None):
 
 def get_columns(filters):
 	columns = []
-	if 'ts_movable_type' in filters:
-		if filters['ts_movable_type'] == 'Precious Metal':
+	if 'ts_portable_type' in filters:
+		if filters['ts_portable_type'] == 'Precious Metal':
 			columns = [
 				{
 					"label": ("Material type"),
@@ -66,7 +66,7 @@ def get_columns(filters):
 					"width": 200
 				}
 			]
-		if filters['ts_movable_type'] == 'Vehicle':
+		if filters['ts_portable_type'] == 'Vehicle':
 			columns = [{
 					"label": (" Vehicle Type"),
 					"fieldtype": "Select",
@@ -86,7 +86,7 @@ def get_columns(filters):
 					"fieldname": "ts_vehicle_number",
 					"width": 200
 				}]
-		if filters['ts_movable_type'] == 'Liquid Cash':
+		if filters['ts_portable_type'] == 'Liquid Cash':
 			columns = [
 				{
 					"label": (" Cash Details"),
@@ -107,7 +107,7 @@ def get_columns(filters):
 					"fieldname": "cash_in",
 					"width": 200
 				}]
-		if filters['ts_movable_type'] == 'Home Appliances':
+		if filters['ts_portable_type'] == 'Home Appliances':
 			columns = [
 				{
 					"label": ("Appliance Name"),
@@ -153,7 +153,7 @@ def get_columns(filters):
 					"width": 200
 				}
 				]
-		if filters['ts_movable_type'] == 'Function':
+		if filters['ts_portable_type'] == 'Function':
 			columns = [
 				{
 					"label": ("Function Category"),
@@ -389,17 +389,17 @@ def get_columns(filters):
 def get_data(filters):
 	conditions = {"ts_asset_type":filters['ts_asset_type']}
 	fields = []
-	if 'ts_movable_type' in filters:
-		conditions['ts_movable_type'] = filters['ts_movable_type']
-		if filters['ts_movable_type'] == 'Precious Metal':
+	if 'ts_portable_type' in filters:
+		conditions['ts_portable_type'] = filters['ts_portable_type']
+		if filters['ts_portable_type'] == 'Precious Metal':
 			fields =  ['type', 'metal_model', 'quantity_type','measured_quantity','ts_pur_rate','ts_pur_date','ts_pur_sh_name','ts_pur_sh_place']
-		if filters['ts_movable_type'] == 'Vehicle':
+		if filters['ts_portable_type'] == 'Vehicle':
 			fields =  ['ts_vehicle_type','ts_vehicle_name','ts_vehicle_number']
-		if filters['ts_movable_type'] == 'Liquid Cash':
+		if filters['ts_portable_type'] == 'Liquid Cash':
 			fields =  ['cash_details','cash_in_date','cash_in']
-		if filters['ts_movable_type'] == 'Home Appliances':
+		if filters['ts_portable_type'] == 'Home Appliances':
 			fields =  ['appliance_name','purchase_rate','purchase_date_and_time','purchase_bill_image','purchase_shop_name','appliance_type','warranty_date']
-		if filters['ts_movable_type'] == 'Function':
+		if filters['ts_portable_type'] == 'Function':
 			fields =  ['function_category', 'function_name','function_date','person_name','relative_category','gift_purchased','gift_type','amount_given','gift_by','catering_name','catering_phone_number','catering_cost','purchased_price','total_price']
 
 	if 'ts_property_type' in filters:

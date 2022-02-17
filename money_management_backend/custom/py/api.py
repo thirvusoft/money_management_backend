@@ -60,8 +60,8 @@ def create_asset_doc(doc):
 	doc = json.loads(doc)
 	a = frappe.new_doc("TS Asset")
 	a.ts_asset_type = doc['ts_asset_type']
-	if doc.get('ts_asset_type', None)=="Movable":
-		if doc.get('ts_movable_type', None) =="Precious Metal":
+	if doc.get('ts_asset_type', None)=="Portable":
+		if doc.get('ts_portable_type', None) =="Precious Metal":
 			a.metal_model=doc.get("metal_model", None)
 			a.quantity_type=doc.get("quantity_type", None)
 			a.measured_quantity=doc.get("measured_quantity", None)
@@ -69,15 +69,15 @@ def create_asset_doc(doc):
 			a.ts_pur_sh_name=doc.get("ts_pur_sh_name", None)
 			a.ts_pur_sh_place=doc.get("ts_pur_sh_place", None)
 			a.ts_pur_date =doc.get("ts_pur_date", None)
-		if doc.get('ts_movable_type', None) =="Vehicle":
+		if doc.get('ts_portable_type', None) =="Vehicle":
 			a.ts_vehicle_type=doc.get("ts_vehicle_type", None)
 			a.ts_vehicle_name=doc.get("ts_vehicle_name", None)
 			a.ts_vehicle_number=doc.get("ts_vehicle_number", None)
-		if doc.get('ts_movable_type', None) =="Liquid Cash":
+		if doc.get('ts_portable_type', None) =="Liquid Cash":
 			a.cash_details=doc.get("cash_details", None)
 			a.cash_in_date=doc.get("cash_in_date", None)
 			a.cash_in=doc.get("cash_in", None)
-		if doc.get('ts_movable_type', None) =="Home Appliances":
+		if doc.get('ts_portable_type', None) =="Home Appliances":
 			a.appliance_name=doc.get("appliance_name", None)
 			a.purchase_rate=doc.get("purchase_rate", None)
 			a.purchase_date_and_time=doc.get("purchase_date_and_time", None)
@@ -85,7 +85,7 @@ def create_asset_doc(doc):
 			a.purchase_shop_name=doc.get("purchase_shop_name", None)
 			a.appliance_type=doc.get("appliance_type", None)
 			a.warranty_date=doc.get("warranty_date", None)
-		if doc.get('ts_movable_type', None) =="Function":
+		if doc.get('ts_portable_type', None) =="Function":
 			a.function_category=doc.get("function_category", None)
 			a.function_name=doc.get("function_name", None)
 			a.function_date=doc.get("function_date", None)
@@ -104,20 +104,20 @@ def create_asset_doc(doc):
 
 
 @frappe.whitelist()
-def get_all(movable_type):
-	if movable_type == "Precious Metal":
+def get_all(Portable_type):
+	if Portable_type == "Precious Metal":
 		fields = ['type','metal_model','quantity_type','measured_quantity','ts_pur_rate','ts_pur_sh_name','ts_pur_sh_place','ts_pur_date']
-	if movable_type == "Vehicle":
+	if Portable_type == "Vehicle":
 		fields = ['ts_vehicle_type','ts_vehicle_name','ts_vehicle_number']
-	if movable_type == "Liquid Cash":
+	if Portable_type == "Liquid Cash":
 		fields = ['cash_details','cash_in_date','cash_in']
-	if movable_type == "Home Appliances":
+	if Portable_type == "Home Appliances":
 		fields = ['appliance_name','purchase_rate','purchase_date_and_time','purchase_bill_image','purchase_shop_name','appliance_type','warranty_date']
-	if movable_type == "Function":
+	if Portable_type == "Function":
 		fields = ['function_category', 'function_name','function_date','person_name','relative_category','gift_purchased','gift_type','amount_given','gift_by','catering_name','catering_phone_number','catering_cost','purchased_price','total_price']
 	final_data=frappe.get_all(
 		'TS Asset',
-		filters = {'ts_movable_type': movable_type}, fields=fields)
+		filters = {'ts_portable_type': Portable_type}, fields=fields)
 	return final_data
 
 @frappe.whitelist()
@@ -131,8 +131,8 @@ def get_asset_categorywise_total_entries():
 			asset_type_key = 'ts_property_type'
 			entries = frappe.get_list('TS Asset', {'ts_asset_type':req.asset_type}, ['ts_property_type'])
 		if req.asset_type == 'Portable':
-			asset_type_key = 'ts_movable_type'
-			entries = frappe.get_list('TS Asset', {'ts_asset_type':req.asset_type}, ['ts_movable_type'])
+			asset_type_key = 'ts_portable_type'
+			entries = frappe.get_list('TS Asset', {'ts_asset_type':req.asset_type}, ['ts_Portable_type'])
 		for entry in entries:
 			if not {entry['ts_property_type']:0} in final_data:
 				final_data.append({entry['ts_property_type']:0})
