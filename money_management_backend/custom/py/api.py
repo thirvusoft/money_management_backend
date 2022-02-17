@@ -116,3 +116,32 @@ def get_all(movable_type):
 		'TS Asset',
 		filters = {'ts_movable_type': movable_type}, fields=fields)
 	return final_data
+
+@frappe.whitelist()
+def get_asset_categorywise_total_entries():
+	req = frappe.local.form_dict
+	try:
+		frappe.db.begin()
+		final_data = []
+		asset_type_key = ''
+		if req.asset_type == 'Property':
+			asset_type_key = 'ts_property_type'
+			entries = frappe.get_list('TS Asset', {'ts_asset_type':req.asset_type}, ['ts_property_type'])
+		if req.asset_type == 'Portable':
+			asset_type_key = 'ts_movable_type'
+			entries = frappe.get_list('TS Asset', {'ts_asset_type':req.asset_type}, ['ts_movable_type'])
+		for entry in entries:
+			if not {entry['ts_property_type']:0} in final_data:
+				final_data.append({entry['ts_property_type']:0})
+		for data in final_data:
+			data[ list(data.keys())[0]] = frappe.db.count('TS Asset', {asset_type_key: list(data.keys())[0]})
+
+		frappe.local.response.http_status_code = 200
+		frappe.local.response["message"] = final_data
+		frappe.db.commit()
+	except:
+		frappe.db.rollback()
+		frappe.local.response.http_status_code = 500
+		frappe.local.response["message"] = 'Unable to fetch records'
+	finally:
+		return build_response('json')
