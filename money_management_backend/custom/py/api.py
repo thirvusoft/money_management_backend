@@ -19,7 +19,6 @@ def generate_token(user):
 def get_profile(current_user):
 	user_doc = frappe.get_doc("User", current_user)
 	return {
-			"mobile_no": user_doc.mobile_no,
 			"email": user_doc.email,
 			"full_name": user_doc.full_name
 		}
