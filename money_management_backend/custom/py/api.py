@@ -2,7 +2,7 @@
 import frappe
 from frappe.auth import LoginManager
 from frappe.utils.response import build_response
-from frappe.utils import getdate, nowdate
+import json
 def generate_token(user):
 	user_details = frappe.get_doc("User", user)
 	api_key = user_details.api_key
@@ -55,48 +55,51 @@ def login():
 	finally:
 		return build_response('json')
 
+@frappe.whitelist()
 def create_asset_doc(doc):
+	doc = json.loads(doc)
 	a = frappe.new_doc("TS Asset")
-	if doc['ts_asset_type']=="Movable":
-		if doc['ts_movable_type'] =="Precious Metal":
-			a.metal_model=doc["metal_model"]
-			a.quantity_type=doc["quantity_type"]
-			a.measured_quantity=doc["measured_quantity"]
-			a.ts_pur_rate=doc["ts_pur_rate"]
-			a.ts_pur_sh_name=doc["ts_pur_sh_name"]
-			a.ts_pur_sh_place=doc["ts_pur_sh_place"]
-			a.ts_pur_date =doc["ts_pur_date"]
-		if doc['ts_movable_type'] =="Vehicle":
-			a.ts_vehicle_type=doc["ts_vehicle_type"]
-			a.ts_vehicle_name=doc["ts_vehicle_name"]
-			a.ts_vehicle_number=doc["ts_vehicle_number"]
-		if doc['ts_movable_type'] =="Liquid Cash":
-			a.cash_details=doc["cash_details"]
-			a.cash_in_date=doc["cash_in_date"]
-			a.cash_in=doc["cash_in"]
-		if doc['ts_movable_type'] =="Home Appliances":
-			a.appliance_name=doc["appliance_name"]
-			a.purchase_rate=doc["purchase_rate"]
-			a.purchase_date_and_time=doc["purchase_date_and_time"]
-			a.purchase_bill_image=doc["purchase_bill_image"]
-			a.purchase_shop_name=doc["purchase_shop_name"]
-			a.appliance_type=doc["appliance_type"]
-			a.warranty_date=doc["warranty_date"]
-		if doc['ts_movable_type'] =="Function":
-			a.function_category=doc["function_category"]
-			a.function_name=doc["function_name"]
-			a.function_date=doc["function_date"]
-			a.person_name=doc["person_name"]
-			a.relative_category=doc["relative_category"]
-			a.gift_purchased=doc["gift_purchased"]
-			a.gift_type=doc["gift_type"]
-			a.amount_given=doc["amount_given"]
-			a.gift_by=doc["gift_by"]
-			a.catering_name=doc["catering_name"]
-			a.catering_phone_number=doc["catering_phone_number"]
-			a.catering_cost=doc["catering_cost"]
-			a.purchased_price=doc["purchased_price"]
-			a.total_price=doc["total_price"]
+	a.ts_asset_type = doc['ts_asset_type']
+	if doc.get('ts_asset_type', None)=="Movable":
+		if doc.get('ts_movable_type', None) =="Precious Metal":
+			a.metal_model=doc.get("metal_model", None)
+			a.quantity_type=doc.get("quantity_type", None)
+			a.measured_quantity=doc.get("measured_quantity", None)
+			a.ts_pur_rate=doc.get("ts_pur_rate", None)
+			a.ts_pur_sh_name=doc.get("ts_pur_sh_name", None)
+			a.ts_pur_sh_place=doc.get("ts_pur_sh_place", None)
+			a.ts_pur_date =doc.get("ts_pur_date", None)
+		if doc.get('ts_movable_type', None) =="Vehicle":
+			a.ts_vehicle_type=doc.get("ts_vehicle_type", None)
+			a.ts_vehicle_name=doc.get("ts_vehicle_name", None)
+			a.ts_vehicle_number=doc.get("ts_vehicle_number", None)
+		if doc.get('ts_movable_type', None) =="Liquid Cash":
+			a.cash_details=doc.get("cash_details", None)
+			a.cash_in_date=doc.get("cash_in_date", None)
+			a.cash_in=doc.get("cash_in", None)
+		if doc.get('ts_movable_type', None) =="Home Appliances":
+			a.appliance_name=doc.get("appliance_name", None)
+			a.purchase_rate=doc.get("purchase_rate", None)
+			a.purchase_date_and_time=doc.get("purchase_date_and_time", None)
+			a.purchase_bill_image=doc.get("purchase_bill_image", None)
+			a.purchase_shop_name=doc.get("purchase_shop_name", None)
+			a.appliance_type=doc.get("appliance_type", None)
+			a.warranty_date=doc.get("warranty_date", None)
+		if doc.get('ts_movable_type', None) =="Function":
+			a.function_category=doc.get("function_category", None)
+			a.function_name=doc.get("function_name", None)
+			a.function_date=doc.get("function_date", None)
+			a.person_name=doc.get("person_name", None)
+			a.relative_category=doc.get("relative_category", None)
+			a.gift_purchased=doc.get("gift_purchased", None)
+			a.gift_type=doc.get("gift_type", None)
+			a.amount_given=doc.get("amount_given", None)
+			a.gift_by=doc.get("gift_by", None)
+			a.catering_name=doc.get("catering_name", None)
+			a.catering_phone_number=doc.get("catering_phone_number", None)
+			a.catering_cost=doc.get("catering_cost", None)
+			a.purchased_price=doc.get("purchased_price", None)
+			a.total_price=doc.get("total_price", None)
 	a.insert()
 
 
