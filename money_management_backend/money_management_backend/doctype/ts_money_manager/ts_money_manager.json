@@ -1,0 +1,322 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "Asset.###",
+ "creation": "2022-02-22 12:03:33.528682",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "ts_entry_type",
+  "ts_asset_type",
+  "section_break_3",
+  "ts_precious_metal",
+  "ts_precious_metal_type",
+  "ts_quality",
+  "ts_quantity_type",
+  "ts_quantity",
+  "section_break_8",
+  "ts_vehicle_type",
+  "ts_vehicle_name",
+  "ts_vehicle_number",
+  "ts_vehicle_documents",
+  "ts_insurance_date",
+  "ts_fc_due_date",
+  "ts_puc_expiry_date",
+  "section_break_12",
+  "type_the_home_appliance_name",
+  "model_name",
+  "service_due_date",
+  "amc_renewal_date",
+  "select_the_warranty_date",
+  "section_break_17",
+  "ts_agri_machinery_name",
+  "ts_agri_machinery_usage",
+  "ts_machinery_service_date",
+  "ts_agri_machinery_location",
+  "section_break_27",
+  "ts_land_location",
+  "ts_area_type",
+  "ts_land_area",
+  "ts_land_documents",
+  "ts_registered_date",
+  "section_break_29",
+  "ts_purchase_date",
+  "ts_purchase_rate",
+  "ts_purchase_person_name",
+  "ts_purchase_shop_address",
+  "ts_bill_documents",
+  "ts_images",
+  "ts_notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "ts_entry_type",
+   "fieldtype": "Select",
+   "label": "Select the Type of Entry",
+   "options": "\nAsset\nLiability\nIncome\nExpense\nOthers"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Asset\"",
+   "fieldname": "ts_asset_type",
+   "fieldtype": "Select",
+   "label": "Select the Asset Type",
+   "options": "\nPrecious Metal\nVehicle\nHome Appliances\nAgri Machinery\nAgri Land\nCommercial Land\nResidential Land"
+  },
+  {
+   "fieldname": "section_break_3",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:((doc.ts_entry_type==\"Asset\") && (doc.ts_asset_type==\"Precious Metal\"))",
+   "fieldname": "ts_precious_metal",
+   "fieldtype": "Link",
+   "label": "Select the Precious Metal",
+   "options": "TS Precious Metal List"
+  },
+  {
+   "depends_on": "eval:((doc.ts_entry_type==\"Asset\") && (doc.ts_asset_type==\"Precious Metal\"))",
+   "fieldname": "ts_precious_metal_type",
+   "fieldtype": "Select",
+   "label": "Select the Precious Metal Type ",
+   "options": "\nRing\nBangle\nCoin\nNecklace"
+  },
+  {
+   "depends_on": "eval:((doc.ts_entry_type==\"Asset\") && (doc.ts_asset_type==\"Precious Metal\"))",
+   "fieldname": "ts_quality",
+   "fieldtype": "Select",
+   "label": "Select the Quality",
+   "options": "\n24 Karat\n22 Karat"
+  },
+  {
+   "depends_on": "eval:((doc.ts_entry_type==\"Asset\") && (doc.ts_asset_type==\"Precious Metal\"))",
+   "fieldname": "ts_quantity_type",
+   "fieldtype": "Select",
+   "label": "Select the Qantity Type",
+   "options": "\nGram\nKilogram\nPavan"
+  },
+  {
+   "depends_on": "eval:((doc.ts_entry_type==\"Asset\") && (doc.ts_asset_type==\"Precious Metal\"))",
+   "fieldname": "ts_quantity",
+   "fieldtype": "Data",
+   "label": "Type the Quantity"
+  },
+  {
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:((doc.ts_entry_type==\"Asset\") && (doc.ts_asset_type==\"Vehicle\"))",
+   "fieldname": "ts_vehicle_type",
+   "fieldtype": "Select",
+   "label": "Select the Vehicle Type",
+   "options": "\nTwo Wheeler\nFour Wheeler\nHeavy Vehicles"
+  },
+  {
+   "depends_on": "eval:((doc.ts_entry_type==\"Asset\") && (doc.ts_asset_type==\"Vehicle\"))",
+   "fieldname": "ts_vehicle_name",
+   "fieldtype": "Data",
+   "label": "Type the vehicle Name"
+  },
+  {
+   "depends_on": "eval:((doc.ts_entry_type==\"Asset\") && (doc.ts_asset_type==\"Vehicle\"))",
+   "fieldname": "ts_vehicle_number",
+   "fieldtype": "Data",
+   "label": "Type the Vehicle Number"
+  },
+  {
+   "depends_on": "eval:((doc.ts_entry_type==\"Asset\") && (doc.ts_asset_type==\"Vehicle\"))",
+   "fieldname": "ts_vehicle_documents",
+   "fieldtype": "Table",
+   "label": "Vehicle Documents",
+   "options": "TS Vehicle Documents"
+  },
+  {
+   "depends_on": "eval:((doc.ts_entry_type==\"Asset\") && (doc.ts_asset_type==\"Vehicle\"))",
+   "fieldname": "ts_insurance_date",
+   "fieldtype": "Date",
+   "label": "Select the Insurance Due Date"
+  },
+  {
+   "depends_on": "eval:((doc.ts_entry_type==\"Asset\") && (doc.ts_asset_type==\"Vehicle\"))",
+   "fieldname": "ts_fc_due_date",
+   "fieldtype": "Date",
+   "label": "Select the FC Due Date"
+  },
+  {
+   "depends_on": "eval:((doc.ts_entry_type==\"Asset\") && (doc.ts_asset_type==\"Vehicle\"))",
+   "fieldname": "ts_puc_expiry_date",
+   "fieldtype": "Data",
+   "label": "Select the PUC Expiry Date"
+  },
+  {
+   "fieldname": "section_break_12",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:((doc.ts_entry_type==\"Asset\") && (doc.ts_asset_type==\"Home Appliances\"))",
+   "fieldname": "type_the_home_appliance_name",
+   "fieldtype": "Data",
+   "label": "Type the Home Appliance Name"
+  },
+  {
+   "depends_on": "eval:((doc.ts_entry_type==\"Asset\") && (doc.ts_asset_type==\"Home Appliances\"))",
+   "fieldname": "model_name",
+   "fieldtype": "Data",
+   "label": "Type the Model Name"
+  },
+  {
+   "depends_on": "eval:((doc.ts_entry_type==\"Asset\") && (doc.ts_asset_type==\"Home Appliances\"))",
+   "fieldname": "service_due_date",
+   "fieldtype": "Data",
+   "label": "Select the Service Due Date"
+  },
+  {
+   "depends_on": "eval:((doc.ts_entry_type==\"Asset\") && (doc.ts_asset_type==\"Home Appliances\"))",
+   "fieldname": "amc_renewal_date",
+   "fieldtype": "Data",
+   "label": "Select the AMC Renewal Date"
+  },
+  {
+   "depends_on": "eval:((doc.ts_entry_type==\"Asset\") && (doc.ts_asset_type==\"Home Appliances\"))",
+   "fieldname": "select_the_warranty_date",
+   "fieldtype": "Data",
+   "label": "Select the Warranty Date"
+  },
+  {
+   "fieldname": "section_break_17",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:((doc.ts_entry_type==\"Asset\") && (doc.ts_asset_type==\"Agri Machinery\"))",
+   "fieldname": "ts_agri_machinery_name",
+   "fieldtype": "Data",
+   "label": "Type the Name"
+  },
+  {
+   "depends_on": "eval:((doc.ts_entry_type==\"Asset\") && (doc.ts_asset_type==\"Agri Machinery\"))",
+   "fieldname": "ts_agri_machinery_usage",
+   "fieldtype": "Data",
+   "label": "Type the Usage"
+  },
+  {
+   "depends_on": "eval:((doc.ts_entry_type==\"Asset\") && (doc.ts_asset_type==\"Agri Machinery\"))",
+   "fieldname": "ts_machinery_service_date",
+   "fieldtype": "Date",
+   "label": "Select the Service Due Date"
+  },
+  {
+   "depends_on": "eval:((doc.ts_entry_type==\"Asset\") && (doc.ts_asset_type==\"Agri Machinery\"))",
+   "fieldname": "ts_agri_machinery_location",
+   "fieldtype": "Data",
+   "label": "Type the Location"
+  },
+  {
+   "fieldname": "section_break_27",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Asset\" && ((doc.ts_asset_type==\"Agri Land\") || (doc.ts_asset_type==\"Commercial Land\") || (doc.ts_asset_type==\"Residential Land\"))",
+   "fieldname": "ts_land_location",
+   "fieldtype": "Data",
+   "label": "Type the Land Location"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Asset\" && ((doc.ts_asset_type==\"Agri Land\") || (doc.ts_asset_type==\"Commercial Land\") || (doc.ts_asset_type==\"Residential Land\"))",
+   "fieldname": "ts_area_type",
+   "fieldtype": "Select",
+   "label": "Select the Area Type",
+   "options": "\nAcre\nSq.ft"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Asset\" && ((doc.ts_asset_type==\"Agri Land\") || (doc.ts_asset_type==\"Commercial Land\") || (doc.ts_asset_type==\"Residential Land\"))",
+   "fieldname": "ts_land_area",
+   "fieldtype": "Data",
+   "label": "Type the area"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Asset\" && ((doc.ts_asset_type==\"Agri Land\") || (doc.ts_asset_type==\"Commercial Land\") || (doc.ts_asset_type==\"Residential Land\"))",
+   "fieldname": "ts_land_documents",
+   "fieldtype": "Table",
+   "label": "Land Documents",
+   "options": "TS Land Documents"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Asset\" && ((doc.ts_asset_type==\"Agri Land\") || (doc.ts_asset_type==\"Commercial Land\") || (doc.ts_asset_type==\"Residential Land\"))",
+   "fieldname": "ts_registered_date",
+   "fieldtype": "Date",
+   "label": "Select the Registered Date"
+  },
+  {
+   "fieldname": "section_break_29",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Asset\" && ((doc.ts_asset_type==\"Precious Metal\") || (doc.ts_asset_type==\"Vehicle\") || (doc.ts_asset_type==\"Home Appliances\") || (doc.ts_asset_type==\"Agri Machinery\")  || (doc.ts_asset_type==\"Agri Land\") || (doc.ts_asset_type==\"Commercial Land\") || (doc.ts_asset_type==\"Residential Land\"))",
+   "fieldname": "ts_purchase_date",
+   "fieldtype": "Date",
+   "label": "Purchase Date"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Asset\" && ((doc.ts_asset_type==\"Precious Metal\") || (doc.ts_asset_type==\"Vehicle\") || (doc.ts_asset_type==\"Home Appliances\") || (doc.ts_asset_type==\"Agri Machinery\")  || (doc.ts_asset_type==\"Agri Land\") || (doc.ts_asset_type==\"Commercial Land\") || (doc.ts_asset_type==\"Residential Land\"))",
+   "fieldname": "ts_purchase_rate",
+   "fieldtype": "Data",
+   "label": "Purchase Rate"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Asset\" && ((doc.ts_asset_type==\"Agri Machinery\")  || (doc.ts_asset_type==\"Agri Land\") || (doc.ts_asset_type==\"Commercial Land\") || (doc.ts_asset_type==\"Residential Land\"))\n\n",
+   "fieldname": "ts_purchase_person_name",
+   "fieldtype": "Data",
+   "label": "Purchased Person Name"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Asset\" && ((doc.ts_asset_type==\"Precious Metal\") || (doc.ts_asset_type==\"Vehicle\") || (doc.ts_asset_type==\"Home Appliances\") || (doc.ts_asset_type==\"Agri Machinery\"))",
+   "fieldname": "ts_purchase_shop_address",
+   "fieldtype": "Data",
+   "label": "Purchased Shop Address"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Asset\" && ((doc.ts_asset_type==\"Precious Metal\") || (doc.ts_asset_type==\"Vehicle\") || (doc.ts_asset_type==\"Home Appliances\") || (doc.ts_asset_type==\"Agri Machinery\")  || (doc.ts_asset_type==\"Agri Land\") || (doc.ts_asset_type==\"Commercial Land\") || (doc.ts_asset_type==\"Residential Land\"))",
+   "fieldname": "ts_bill_documents",
+   "fieldtype": "Table",
+   "label": "Bill Documents",
+   "options": "TS Bill Document"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Asset\" && ((doc.ts_asset_type==\"Precious Metal\") || (doc.ts_asset_type==\"Vehicle\") || (doc.ts_asset_type==\"Home Appliances\") || (doc.ts_asset_type==\"Agri Machinery\")  || (doc.ts_asset_type==\"Agri Land\") || (doc.ts_asset_type==\"Commercial Land\") || (doc.ts_asset_type==\"Residential Land\"))",
+   "fieldname": "ts_images",
+   "fieldtype": "Table",
+   "label": "Images",
+   "options": "TS Images"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Asset\" && ((doc.ts_asset_type==\"Precious Metal\") || (doc.ts_asset_type==\"Vehicle\") || (doc.ts_asset_type==\"Home Appliances\") || (doc.ts_asset_type==\"Agri Machinery\")  || (doc.ts_asset_type==\"Agri Land\") || (doc.ts_asset_type==\"Commercial Land\") || (doc.ts_asset_type==\"Residential Land\"))",
+   "fieldname": "ts_notes",
+   "fieldtype": "Data",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2022-02-23 11:19:22.846777",
+ "modified_by": "Administrator",
+ "module": "Money Management Backend",
+ "name": "TS Money Manager",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}
