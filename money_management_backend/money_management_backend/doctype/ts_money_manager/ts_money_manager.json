@@ -72,8 +72,7 @@
    "depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Gold\", \"Silver\", \"Platinum\", \"Diamond\"], doc.ts_asset_subtype)",
    "fieldname": "ts_quality",
    "fieldtype": "Select",
-   "label": "Select the Quality",
-   "options": "\n24 Karat\n22 Karat"
+   "label": "Select the Quality"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Gold\", \"Silver\", \"Platinum\", \"Diamond\"], doc.ts_asset_subtype)",
@@ -275,7 +274,7 @@
    "fieldname": "ts_asset_subtype",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Select the Subtype Type",
+   "label": "Select the Subtype",
    "options": "TS Asset Subtype"
   },
   {
@@ -293,7 +292,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-02-23 21:45:16.069533",
+ "modified": "2022-02-24 12:13:10.061594",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Money Manager",
