@@ -2,11 +2,11 @@ from . import __version__ as app_version
 
 app_name = "money_management_backend"
 app_title = "Money Management Backend"
-app_publisher = "Thirvusoft"
-app_description = "money_management_backend"
+app_publisher = "saheeth"
+app_description = "to manage our income ,expenses ,etc..."
 app_icon = "octicon octicon-file-directory"
 app_color = "grey"
-app_email = "thirvusoft@gmail.com"
+app_email = "saheeth@gmail.com"
 app_license = "MIT"
 
 # Includes in <head>

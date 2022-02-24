@@ -9,9 +9,9 @@ from money_management_backend import __version__ as version
 setup(
 	name="money_management_backend",
 	version=version,
-	description="money_management_backend",
-	author="Thirvusoft",
-	author_email="thirvusoft@gmail.com",
+	description="to manage our income ,expenses ,etc...",
+	author="saheeth",
+	author_email="saheeth@gmail.com",
 	packages=find_packages(),
 	zip_safe=False,
 	include_package_data=True,

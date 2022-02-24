@@ -1,6 +1,6 @@
 ## Money Management Backend
 
-money_management_backend
+to manage our income ,expenses ,etc...
 
 #### License
 
