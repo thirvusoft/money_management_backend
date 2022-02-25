@@ -270,12 +270,12 @@
    "label": "Notes"
   },
   {
-   "depends_on": "eval:doc.ts_entry_type==\"Asset\"",
+   "depends_on": "eval:in_list([\"Asset\",\"Liability\",\"Income\",\"Expense\",\"Others\"],doc.ts_entry_type)",
    "fieldname": "ts_asset_subtype",
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Select the Subtype",
-   "options": "TS Asset Subtype"
+   "options": "TS Subtype"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Machinery\"], doc.ts_asset_subtype)",
@@ -292,7 +292,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-02-24 12:13:10.061594",
+ "modified": "2022-02-25 07:44:14.245165",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Money Manager",
