@@ -1,37 +1,38 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2022-02-22 08:08:40.744257",
+ "autoname": "field:ts_subtype",
+ "creation": "2022-02-25 09:47:02.372447",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "type",
-  "name1",
+  "ts_subentry_type",
+  "ts_subtype",
   "icon"
  ],
  "fields": [
   {
-   "depends_on": "eval:doc.type != \"others\"",
-   "fieldname": "type",
+   "fieldname": "ts_subentry_type",
    "fieldtype": "Select",
-   "label": "Type",
-   "options": "Asset\nLiability\nIncome\nExpense\nOthers"
+   "label": "Type the Entry Type",
+   "options": "\nAsset\nLiability\nIncome\nExpense\nOthers"
   },
   {
-   "fieldname": "name1",
+   "fieldname": "ts_subtype",
    "fieldtype": "Data",
-   "label": "Name"
+   "label": "Type the Subtype",
+   "unique": 1
   },
   {
    "fieldname": "icon",
-   "fieldtype": "Read Only",
+   "fieldtype": "Data",
    "label": "Icon"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-02-23 13:27:02.694944",
+ "modified": "2022-02-25 09:47:02.372447",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Subtype",
@@ -50,6 +51,7 @@
    "write": 1
   }
  ],
+ "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC"
 }

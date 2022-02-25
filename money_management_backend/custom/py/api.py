@@ -56,17 +56,17 @@ def login():
 
 
 @frappe.whitelist(allow_guest=True)
-def daily_entry_submit(a,b,c):
-	doc=frappe.new_doc("TS Asset Subtype")
+def daily_entry_submit(a, b, c):
+	doc=frappe.new_doc("TS Subtype")
 	doc.update(
 		{
 		"ts_subentry_type":a,
 		"ts_subtype":b,
 		"icon":c
-		})
+		}),
 	try:
-			doc.insert(ignore_permissions=True)
-			frappe.db.commit()
-			return "Successfully Submitted"
+		doc.insert(ignore_permissions=True)
+		frappe.db.commit()
+		return "Successfully Submitted"
 	except:
-			return "Failed to Submit"
+		return "Failed to Submit"

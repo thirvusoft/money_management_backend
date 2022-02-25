@@ -37,3 +37,4 @@ frappe.ui.form.on('TS Money Manager', {
         });
 	}
 })
+

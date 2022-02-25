@@ -46,7 +46,21 @@
   "ts_purchase_shop_address",
   "ts_bill_documents",
   "ts_images",
-  "ts_notes"
+  "ts_notes",
+  "section_break_41",
+  "ts_debt_date",
+  "ts_debt_creditor_name",
+  "ts_debt_credit_amount",
+  "ts_interest_rate",
+  "ts_repay_debt_date",
+  "ts_debt_bond_upload",
+  "section_break_47",
+  "ts_emi_start_date",
+  "ts_emi_end_date",
+  "ts_emi_product",
+  "ts_emi_creditor_name",
+  "ts_emi_amount",
+  "ts_emi_bond_document"
  ],
  "fields": [
   {
@@ -288,11 +302,93 @@
    "fieldname": "ts_machinery_usage",
    "fieldtype": "Data",
    "label": "Type the Usage"
+  },
+  {
+   "fieldname": "section_break_41",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.ts_asset_subtype==\"Debt\"",
+   "fieldname": "ts_debt_date",
+   "fieldtype": "Date",
+   "label": "Debt Bought Date"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.ts_asset_subtype==\"Debt\"",
+   "fieldname": "ts_interest_rate",
+   "fieldtype": "Int",
+   "label": "Interest Rate"
+  },
+  {
+   "fieldname": "section_break_47",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.ts_asset_subtype==\"EMI\"",
+   "fieldname": "ts_emi_start_date",
+   "fieldtype": "Date",
+   "label": "EMI Start Date"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.ts_asset_subtype==\"Debt\"",
+   "fieldname": "ts_debt_creditor_name",
+   "fieldtype": "Data",
+   "label": "Creditor Name"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.ts_asset_subtype==\"Debt\"",
+   "fieldname": "ts_debt_credit_amount",
+   "fieldtype": "Int",
+   "label": "Credited Amount"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.ts_asset_subtype==\"EMI\"",
+   "fieldname": "ts_emi_creditor_name",
+   "fieldtype": "Data",
+   "label": "Creditor Name"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.ts_asset_subtype==\"EMI\"",
+   "fieldname": "ts_emi_end_date",
+   "fieldtype": "Date",
+   "label": "EMI End Date"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.ts_asset_subtype==\"EMI\"",
+   "fieldname": "ts_emi_product",
+   "fieldtype": "Data",
+   "label": "EMI Product Name"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.ts_asset_subtype==\"EMI\"",
+   "fieldname": "ts_emi_amount",
+   "fieldtype": "Data",
+   "label": "EMI Amount"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.ts_asset_subtype==\"EMI\"",
+   "fieldname": "ts_emi_bond_document",
+   "fieldtype": "Table",
+   "label": "Bond Documents",
+   "options": "TS EMI Bond Document"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.ts_asset_subtype==\"Debt\"",
+   "fieldname": "ts_debt_bond_upload",
+   "fieldtype": "Table",
+   "label": "Debt Bond Documents",
+   "options": "TS Bond Document"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.ts_asset_subtype==\"Debt\"",
+   "fieldname": "ts_repay_debt_date",
+   "fieldtype": "Date",
+   "label": "Debt Repay Date"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-02-25 07:44:14.245165",
+ "modified": "2022-02-25 10:43:28.263530",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Money Manager",
