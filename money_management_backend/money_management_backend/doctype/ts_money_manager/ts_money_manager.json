@@ -54,13 +54,15 @@
   "ts_interest_rate",
   "ts_repay_debt_date",
   "ts_debt_bond_upload",
+  "ts_debt_notes",
   "section_break_47",
   "ts_emi_start_date",
   "ts_emi_end_date",
   "ts_emi_product",
   "ts_emi_creditor_name",
   "ts_emi_amount",
-  "ts_emi_bond_document"
+  "ts_emi_bond_document",
+  "ts_emi_notes"
  ],
  "fields": [
   {
@@ -384,11 +386,21 @@
    "fieldname": "ts_repay_debt_date",
    "fieldtype": "Date",
    "label": "Debt Repay Date"
+  },
+  {
+   "fieldname": "ts_debt_notes",
+   "fieldtype": "Data",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "ts_emi_notes",
+   "fieldtype": "Data",
+   "label": "Notes"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-02-25 10:43:28.263530",
+ "modified": "2022-02-25 16:25:03.698832",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Money Manager",
