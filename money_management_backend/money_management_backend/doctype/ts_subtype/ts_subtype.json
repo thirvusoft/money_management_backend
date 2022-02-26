@@ -7,32 +7,32 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "ts_subentry_type",
+  "ts_type",
   "ts_subtype",
-  "icon"
+  "icon_code"
  ],
  "fields": [
   {
-   "fieldname": "ts_subentry_type",
-   "fieldtype": "Select",
-   "label": "Type the Entry Type",
-   "options": "\nAsset\nLiability\nIncome\nExpense\nOthers"
-  },
-  {
    "fieldname": "ts_subtype",
    "fieldtype": "Data",
-   "label": "Type the Subtype",
+   "label": "Subtype",
    "unique": 1
   },
   {
-   "fieldname": "icon",
+   "fieldname": "ts_type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "\nAsset\nLiability\nIncome\nExpense\nOthers"
+  },
+  {
+   "fieldname": "icon_code",
    "fieldtype": "Data",
-   "label": "Icon"
+   "label": "Icon Binary Code"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-02-25 09:47:02.372447",
+ "modified": "2022-02-26 10:07:31.259864",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Subtype",

@@ -1,6 +1,8 @@
 // Copyright (c) 2022, Thirvusoft and contributors
 // For license information, please see license.txt
 
+
+
 frappe.ui.form.on('TS Money Manager', {
 	ts_asset_subtype: function(frm) {
 		if (frm.doc.ts_asset_subtype == "Gold")
@@ -28,10 +30,10 @@ frappe.ui.form.on('TS Money Manager', {
 frappe.ui.form.on('TS Money Manager', {
 	ts_entry_type:function(frm) {
 	    frm.set_query("ts_asset_subtype", function() {
-           let a=frm.doc.ts_entry_type;
+           let entry=frm.doc.ts_entry_type;
             return {
                 filters: [
-                    ['ts_subentry_type','=',a]
+                    ['ts_subentry_type','=',entry]
                 ]
             };
         });

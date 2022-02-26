@@ -1,35 +1,35 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2022-02-25 10:34:59.848209",
+ "creation": "2022-02-22 13:36:12.925090",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "ts_document",
+  "ts_bill_document",
   "ts_notes"
  ],
  "fields": [
+  {
+   "fieldname": "ts_bill_document",
+   "fieldtype": "Attach",
+   "in_list_view": 1,
+   "label": "Bill Document"
+  },
   {
    "fieldname": "ts_notes",
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Notes"
-  },
-  {
-   "fieldname": "ts_document",
-   "fieldtype": "Attach",
-   "in_list_view": 1,
-   "label": "Document"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2022-02-26 21:39:52.224080",
+ "modified": "2022-02-26 10:08:59.975455",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
- "name": "TS EMI Bond Document",
+ "name": "TS Bill Document",
  "owner": "Administrator",
  "permissions": [],
  "sort_field": "modified",

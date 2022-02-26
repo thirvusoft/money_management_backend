@@ -1,12 +1,12 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2022-02-25 10:34:59.848209",
+ "creation": "2022-02-23 08:31:07.956697",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "ts_document",
+  "ts_documents",
   "ts_notes"
  ],
  "fields": [
@@ -17,21 +17,22 @@
    "label": "Notes"
   },
   {
-   "fieldname": "ts_document",
+   "fieldname": "ts_documents",
    "fieldtype": "Attach",
    "in_list_view": 1,
-   "label": "Document"
+   "label": "Documents"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2022-02-26 21:39:52.224080",
+ "modified": "2022-02-26 21:23:24.484044",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
- "name": "TS EMI Bond Document",
+ "name": "TS Land Documents",
  "owner": "Administrator",
  "permissions": [],
+ "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC"
 }

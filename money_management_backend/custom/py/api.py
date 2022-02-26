@@ -1,3 +1,4 @@
+from pydoc import doc
 import frappe
 from frappe.auth import LoginManager
 from frappe.utils.response import build_response
@@ -35,7 +36,8 @@ def login():
 		frappe.local.response["token"] = token
 		frappe.local.response["data"] = get_profile(login_manager.user)
 		frappe.db.commit()
-	
+		
+		
 	except frappe.AuthenticationError:
 		frappe.db.rollback()
 		frappe.local.response.http_status_code = 401
@@ -55,6 +57,9 @@ def login():
 		return build_response('json')
 
 
+
+
+# Log Daily Entry Data
 @frappe.whitelist(allow_guest=True)
 def daily_entry_submit(a, b, c):
 	doc=frappe.new_doc("TS Subtype")
@@ -70,3 +75,9 @@ def daily_entry_submit(a, b, c):
 		return "Successfully Submitted"
 	except:
 		return "Failed to Submit"
+
+
+@frappe.whitelist(allow_guest=True)
+def icon_list():
+	a=frappe.get_all("TS Subtype", "icon")
+	return a

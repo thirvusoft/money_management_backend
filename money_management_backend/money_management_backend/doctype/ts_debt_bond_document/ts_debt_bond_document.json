@@ -6,28 +6,30 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "ts_bond_document",
+  "ts_document",
   "ts_notes"
  ],
  "fields": [
   {
-   "fieldname": "ts_bond_document",
-   "fieldtype": "Attach Image",
-   "label": "Bond Document"
-  },
-  {
    "fieldname": "ts_notes",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Notes"
+  },
+  {
+   "fieldname": "ts_document",
+   "fieldtype": "Attach",
+   "in_list_view": 1,
+   "label": "Document"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2022-02-25 08:29:13.122485",
+ "modified": "2022-02-26 21:37:27.658425",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
- "name": "TS Bond Document",
+ "name": "TS Debt Bond Document",
  "owner": "Administrator",
  "permissions": [],
  "sort_field": "modified",
