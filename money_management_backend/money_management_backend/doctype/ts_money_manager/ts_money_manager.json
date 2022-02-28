@@ -62,7 +62,38 @@
   "ts_emi_creditor_name",
   "ts_emi_amount",
   "ts_emi_bond_document",
-  "ts_emi_notes"
+  "ts_emi_notes",
+  "section_break_57",
+  "ts_salary_date",
+  "ts_salary_amount",
+  "ts_salary_creditor_name",
+  "ts_credit_type",
+  "ts_bank_name",
+  "ts_role",
+  "section_break_64",
+  "ts_asset_name",
+  "ts_purchased_person_name",
+  "ts_mobile_number",
+  "sold_price",
+  "section_break_69",
+  "ts_rental_amount",
+  "ts_rental_type",
+  "ts_person_name",
+  "ts_number",
+  "section_break_74",
+  "ts_lottery_amount",
+  "ts_lottery_company",
+  "ts_lottery_location",
+  "ts_lottery_credit_type",
+  "ts_lottery_credit_bank",
+  "section_break_80",
+  "ts_company_name",
+  "ts_dividends_location",
+  "ts_share_value",
+  "ts_share_percentage",
+  "ts_share_amount",
+  "credit_type",
+  "data_87"
  ],
  "fields": [
   {
@@ -427,11 +458,165 @@
    "fieldtype": "Data",
    "label": "Warranty Date",
    "mandatory_depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Home Appliance\"], doc.ts_asset_subtype)"
+  },
+  {
+   "fieldname": "section_break_57",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "ts_salary_date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "ts_salary_amount",
+   "fieldtype": "Int",
+   "label": "Salary Amount"
+  },
+  {
+   "fieldname": "ts_salary_creditor_name",
+   "fieldtype": "Data",
+   "label": "Creditor Name"
+  },
+  {
+   "fieldname": "ts_credit_type",
+   "fieldtype": "Select",
+   "label": "Credit Type",
+   "options": "\nCash\nBank"
+  },
+  {
+   "depends_on": "eval.doc.ts_credit_type==\"Bank\"",
+   "fieldname": "ts_bank_name",
+   "fieldtype": "Data",
+   "label": "Bank Name"
+  },
+  {
+   "fieldname": "ts_role",
+   "fieldtype": "Data",
+   "label": "Role"
+  },
+  {
+   "fieldname": "section_break_64",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "ts_asset_name",
+   "fieldtype": "Data",
+   "label": "Asset / Scrap Name"
+  },
+  {
+   "fieldname": "sold_price",
+   "fieldtype": "Data",
+   "label": "Sold Price"
+  },
+  {
+   "fieldname": "section_break_69",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "ts_purchased_person_name",
+   "fieldtype": "Data",
+   "label": "Purchased Person Name"
+  },
+  {
+   "fieldname": "ts_mobile_number",
+   "fieldtype": "Data",
+   "label": "Mobile number",
+   "translatable": 1
+  },
+  {
+   "fieldname": "ts_rental_amount",
+   "fieldtype": "Data",
+   "label": "Rental Amount"
+  },
+  {
+   "fieldname": "ts_rental_type",
+   "fieldtype": "Select",
+   "label": "Rental Type",
+   "options": "\nHome\nCommercial Room\nLand"
+  },
+  {
+   "fieldname": "ts_person_name",
+   "fieldtype": "Data",
+   "label": "Person Name"
+  },
+  {
+   "fieldname": "ts_number",
+   "fieldtype": "Data",
+   "label": "Mobile Number"
+  },
+  {
+   "fieldname": "section_break_74",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "ts_lottery_amount",
+   "fieldtype": "Data",
+   "label": "Lottery Amount"
+  },
+  {
+   "fieldname": "ts_lottery_company",
+   "fieldtype": "Data",
+   "label": "Lottery Company Name"
+  },
+  {
+   "fieldname": "ts_lottery_location",
+   "fieldtype": "Data",
+   "label": "Location"
+  },
+  {
+   "fieldname": "ts_lottery_credit_type",
+   "fieldtype": "Select",
+   "label": "Credit Type",
+   "options": "\nCash\nBank"
+  },
+  {
+   "fieldname": "ts_lottery_credit_bank",
+   "fieldtype": "Data",
+   "label": "Bank Name"
+  },
+  {
+   "fieldname": "section_break_80",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "credit_type",
+   "fieldtype": "Data",
+   "label": "Credit Type"
+  },
+  {
+   "fieldname": "data_87",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "ts_company_name",
+   "fieldtype": "Data",
+   "label": "Company name"
+  },
+  {
+   "fieldname": "ts_dividends_location",
+   "fieldtype": "Data",
+   "label": "Location"
+  },
+  {
+   "fieldname": "ts_share_value",
+   "fieldtype": "Data",
+   "label": "Share Value"
+  },
+  {
+   "fieldname": "ts_share_percentage",
+   "fieldtype": "Data",
+   "label": "Share Percentage"
+  },
+  {
+   "fieldname": "ts_share_amount",
+   "fieldtype": "Data",
+   "label": "Share Amount"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-02-26 21:40:49.325696",
+ "modified": "2022-02-28 22:16:16.875536",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Money Manager",

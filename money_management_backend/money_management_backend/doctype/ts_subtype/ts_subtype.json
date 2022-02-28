@@ -16,23 +16,28 @@
    "fieldname": "ts_subtype",
    "fieldtype": "Data",
    "label": "Subtype",
+   "reqd": 1,
    "unique": 1
   },
   {
    "fieldname": "ts_type",
    "fieldtype": "Select",
+   "in_list_view": 1,
    "label": "Type",
-   "options": "\nAsset\nLiability\nIncome\nExpense\nOthers"
+   "options": "\nAsset\nLiability\nIncome\nExpense\nOthers",
+   "reqd": 1
   },
   {
    "fieldname": "icon_code",
-   "fieldtype": "Data",
-   "label": "Icon Binary Code"
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Icon Binary Code",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-02-26 10:07:31.259864",
+ "modified": "2022-02-28 15:43:35.450742",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Subtype",

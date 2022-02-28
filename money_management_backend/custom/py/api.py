@@ -35,6 +35,8 @@ def login():
 		frappe.local.response["message"] = "Logged In"
 		frappe.local.response["token"] = token
 		frappe.local.response["data"] = get_profile(login_manager.user)
+		icon =frappe.get_all("TS Subtype", "icon_code")
+		frappe.local.response["icon_code"]= icon
 		frappe.db.commit()
 		
 		
@@ -75,9 +77,3 @@ def daily_entry_submit(a, b, c):
 		return "Successfully Submitted"
 	except:
 		return "Failed to Submit"
-
-
-@frappe.whitelist(allow_guest=True)
-def icon_list():
-	a=frappe.get_all("TS Subtype", "icon")
-	return a
