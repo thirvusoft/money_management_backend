@@ -9,7 +9,8 @@
  "field_order": [
   "ts_type",
   "ts_subtype",
-  "icon_code"
+  "icon_code",
+  "ts_image"
  ],
  "fields": [
   {
@@ -33,11 +34,16 @@
    "in_list_view": 1,
    "label": "Icon Binary Code",
    "reqd": 1
+  },
+  {
+   "fieldname": "ts_image",
+   "fieldtype": "Attach",
+   "label": "Image Test"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-01 11:46:24.305108",
+ "modified": "2022-03-01 14:33:30.051265",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Subtype",
