@@ -1,0 +1,37 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-02-22 13:48:50.864246",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "ts_vehicle_document",
+  "ts_notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "ts_vehicle_document",
+   "fieldtype": "Attach",
+   "in_list_view": 1,
+   "label": "Vehicle Document"
+  },
+  {
+   "fieldname": "ts_notes",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2022-02-26 10:13:32.519535",
+ "modified_by": "Administrator",
+ "module": "Money Management Backend",
+ "name": "TS Vehicle Documents",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}
