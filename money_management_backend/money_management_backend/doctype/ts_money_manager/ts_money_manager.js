@@ -27,13 +27,16 @@ frappe.ui.form.on('TS Money Manager', {
 
 
 
-frappe.ui.form.on('TS Money Manager', {
-	ts_entry_type:function(frm) {
+frappe.ui.form.on('TS Money Manager', 
+{
+	ts_entry_type:function(frm)
+	{
 	    frm.set_query("ts_asset_subtype", function() {
            let entry=frm.doc.ts_entry_type;
             return {
-                filters: [
-                    ['ts_subentry_type','=',entry]
+                filters:
+				[
+                    ['ts_type','=',entry]
                 ]
             };
         });

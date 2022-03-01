@@ -12,6 +12,7 @@
   "section_break_3",
   "ts_precious_metal_type",
   "ts_quality",
+  "column_break_6",
   "ts_quantity_type",
   "ts_quantity",
   "section_break_8",
@@ -19,6 +20,7 @@
   "ts_vehicle_name",
   "ts_vehicle_number",
   "ts_vehicle_documents",
+  "column_break_14",
   "ts_insurance_date",
   "ts_fc_due_date",
   "ts_puc_expiry_date",
@@ -26,74 +28,92 @@
   "ts_home_appliance_name",
   "model_name",
   "service_due_date",
+  "column_break_22",
   "amc_renewal_date",
   "ts_warranty_date",
   "section_break_17",
   "ts_machinery_name",
   "ts_machinery_usage",
+  "column_break_28",
   "ts_machinery_service_date",
   "ts_agri_machinery_location",
   "section_break_27",
   "ts_land_location",
   "ts_area_type",
   "ts_land_area",
+  "column_break_35",
   "ts_registered_date",
   "ts_land_documents",
   "section_break_29",
   "ts_purchase_date",
   "ts_purchase_rate",
   "ts_purchase_person_name",
+  "column_break_42",
   "ts_purchase_shop_address",
   "ts_bill_documents",
   "ts_images",
-  "ts_notes",
   "section_break_41",
   "ts_debt_date",
   "ts_debt_creditor_name",
   "ts_debt_credit_amount",
+  "column_break_50",
   "ts_interest_rate",
   "ts_repay_debt_date",
   "ts_debt_bond_upload",
-  "ts_debt_notes",
   "section_break_47",
   "ts_emi_start_date",
   "ts_emi_end_date",
   "ts_emi_product",
+  "column_break_58",
   "ts_emi_creditor_name",
   "ts_emi_amount",
   "ts_emi_bond_document",
-  "ts_emi_notes",
   "section_break_57",
-  "ts_salary_date",
+  "date",
   "ts_salary_amount",
+  "column_break_65",
   "ts_salary_creditor_name",
-  "ts_credit_type",
-  "ts_bank_name",
   "ts_role",
   "section_break_64",
+  "ts_sold_date",
   "ts_asset_name",
+  "ts_sold_price",
+  "column_break_71",
   "ts_purchased_person_name",
   "ts_mobile_number",
-  "sold_price",
   "section_break_69",
-  "ts_rental_amount",
+  "ts_rent_date",
   "ts_rental_type",
+  "ts_rental_location",
+  "ts_rental_amount",
+  "column_break_78",
   "ts_person_name",
   "ts_number",
   "section_break_74",
+  "ts_lottery_date",
   "ts_lottery_amount",
   "ts_lottery_company",
+  "column_break_84",
   "ts_lottery_location",
-  "ts_lottery_credit_type",
-  "ts_lottery_credit_bank",
   "section_break_80",
+  "ts_dcredit_date",
   "ts_company_name",
-  "ts_dividends_location",
-  "ts_share_value",
-  "ts_share_percentage",
   "ts_share_amount",
-  "credit_type",
-  "data_87"
+  "ts_share_value",
+  "column_break_90",
+  "ts_share_percentage",
+  "ts_dividends_location",
+  "section_break_88",
+  "ts_bcredit_date",
+  "ts_bcompany_name",
+  "ts_bprofit_amount",
+  "column_break_96",
+  "ts_bshare_value",
+  "ts_bloction",
+  "section_break_85",
+  "ts_credit_type",
+  "ts_bank_name",
+  "ts_notes"
  ],
  "fields": [
   {
@@ -233,7 +253,8 @@
    "fieldname": "ts_agri_machinery_location",
    "fieldtype": "Data",
    "label": "Location",
-   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Machinery\"], doc.ts_asset_subtype)"
+   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Machinery\"], doc.ts_asset_subtype)",
+   "options": "URL"
   },
   {
    "fieldname": "section_break_27",
@@ -244,7 +265,8 @@
    "fieldname": "ts_land_location",
    "fieldtype": "Data",
    "label": "Land Location",
-   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Agricultural Land\", \"Commercial Land\", \"Residential Land\"], doc.ts_asset_subtype)"
+   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Agricultural Land\", \"Commercial Land\", \"Residential Land\"], doc.ts_asset_subtype)",
+   "options": "URL"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Agricultural Land\", \"Commercial Land\", \"Residential Land\"], doc.ts_asset_subtype)",
@@ -252,7 +274,7 @@
    "fieldtype": "Select",
    "label": "Area Type",
    "mandatory_depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Agricultural Land\", \"Commercial Land\", \"Residential Land\"], doc.ts_asset_subtype)",
-   "options": "\nAcre\nSq.ft"
+   "options": "\nCent\nAcre\nSq.ft"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Agricultural Land\", \"Commercial Land\", \"Residential Land\"], doc.ts_asset_subtype)",
@@ -279,13 +301,13 @@
    "fieldtype": "Section Break"
   },
   {
-   "depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Gold\", \"Silver\", \"Diamond\", \"Platinum\", \"Vehicle\", \"Home Appliance\", \"Machinery\", \"Agricultural Land\", \"Commercial Land\", \"Residential Land\"], doc.ts_asset_subtype)",
+   "depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Gold\", \"Silver\", \"Diamond\", \"Platinum\", \"Vehicle\", \"Home Appliance\", \"Machinery\"], doc.ts_asset_subtype)",
    "fieldname": "ts_purchase_date",
    "fieldtype": "Date",
    "label": "Purchase Date"
   },
   {
-   "depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Gold\", \"Silver\", \"Diamond\", \"Platinum\", \"Vehicle\", \"Home Appliance\", \"Machinery\", \"Agricultural Land\", \"Commercial Land\", \"Residential Land\"], doc.ts_asset_subtype)",
+   "depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Gold\", \"Silver\", \"Diamond\", \"Platinum\", \"Vehicle\", \"Home Appliance\", \"Machinery\"], doc.ts_asset_subtype)",
    "fieldname": "ts_purchase_rate",
    "fieldtype": "Data",
    "label": "Purchase Rate"
@@ -294,7 +316,7 @@
    "depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Vehicle\", \"Home Appliance\", \"Machinery\", \"Agricultural Land\", \"Commercial Land\", \"Residential Land\"], doc.ts_asset_subtype)",
    "fieldname": "ts_purchase_person_name",
    "fieldtype": "Data",
-   "label": "Purchased Person Name"
+   "label": "Seller Name"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Gold\", \"Silver\", \"Diamond\", \"Platinum\", \"Vehicle\", \"Home Appliance\", \"Machinery\"], doc.ts_asset_subtype)",
@@ -303,7 +325,7 @@
    "label": "Purchased Shop Address"
   },
   {
-   "depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Gold\", \"Silver\", \"Diamond\", \"Platinum\", \"Vehicle\", \"Home Appliance\", \"Machinery\", \"Agricultural Land\", \"Commercial Land\", \"Residential Land\"], doc.ts_asset_subtype)",
+   "depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Gold\", \"Silver\", \"Diamond\", \"Platinum\", \"Vehicle\", \"Home Appliance\", \"Machinery\"], doc.ts_asset_subtype)",
    "fieldname": "ts_bill_documents",
    "fieldtype": "Table",
    "label": "Bill Documents",
@@ -317,19 +339,13 @@
    "options": "TS Images"
   },
   {
-   "depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Gold\", \"Silver\", \"Diamond\", \"Platinum\", \"Vehicle\", \"Home Appliance\", \"Machinery\", \"Agricultural Land\", \"Commercial Land\", \"Residential Land\"], doc.ts_asset_subtype)",
-   "fieldname": "ts_notes",
-   "fieldtype": "Small Text",
-   "label": "Notes"
-  },
-  {
-   "depends_on": "eval:in_list([\"Asset\",\"Liability\",\"Income\",\"Expense\",\"Others\"],doc.ts_entry_type)",
+   "depends_on": "eval:in_list([\"Asset\",\"Liability\",\"Expense\",\"Others\",\"Income\"],doc.ts_entry_type)\n",
    "fieldname": "ts_asset_subtype",
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Subtype",
-   "options": "TS Subtype",
-   "reqd": 1
+   "mandatory_depends_on": "eval:in_list([\"Asset\",\"Liability\",\"Income\",\"Expense\",\"Others\"],doc.ts_entry_type)",
+   "options": "TS Subtype"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Machinery\"], doc.ts_asset_subtype)",
@@ -434,18 +450,6 @@
    "label": "Debt Repay Date"
   },
   {
-   "depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.ts_asset_subtype==\"Debt\"",
-   "fieldname": "ts_debt_notes",
-   "fieldtype": "Small Text",
-   "label": "Notes"
-  },
-  {
-   "depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.ts_asset_subtype==\"EMI\"",
-   "fieldname": "ts_emi_notes",
-   "fieldtype": "Small Text",
-   "label": "Notes"
-  },
-  {
    "depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Home Appliance\"], doc.ts_asset_subtype)",
    "fieldname": "ts_home_appliance_name",
    "fieldtype": "Data",
@@ -464,33 +468,35 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "ts_salary_date",
-   "fieldtype": "Date",
-   "label": "Date"
-  },
-  {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Salary\"",
    "fieldname": "ts_salary_amount",
    "fieldtype": "Int",
-   "label": "Salary Amount"
+   "label": "Salary Amount",
+   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Salary\""
   },
   {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Salary\"",
    "fieldname": "ts_salary_creditor_name",
    "fieldtype": "Data",
-   "label": "Creditor Name"
+   "label": "Creditor Name",
+   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Salary\""
   },
   {
+   "depends_on": "eval:in_list([\"Asset\", \"Liability\", \"Income\", \"Expenses\", \"Others\"],doc.ts_entry_type) && in_list([\"Salary\", \"Asset/Scrap Sale\", \"Rental\", \"Dividends\", \"Business Profit\", \"Lottery\"],doc.ts_asset_subtype)",
    "fieldname": "ts_credit_type",
    "fieldtype": "Select",
    "label": "Credit Type",
+   "mandatory_depends_on": "eval:in_list([\"Salary\", \"Asset/Scrap Sale\", \"Rental\", \"Dividends\", \"Business Profit\", \"Lottery\"],doc.ts_asset_subtype)",
    "options": "\nCash\nBank"
   },
   {
-   "depends_on": "eval.doc.ts_credit_type==\"Bank\"",
+   "depends_on": "eval:doc.ts_credit_type==\"Bank\"",
    "fieldname": "ts_bank_name",
    "fieldtype": "Data",
    "label": "Bank Name"
   },
   {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Salary\"",
    "fieldname": "ts_role",
    "fieldtype": "Data",
    "label": "Role"
@@ -500,47 +506,53 @@
    "fieldtype": "Section Break"
   },
   {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Asset/Scrap Sale\"",
    "fieldname": "ts_asset_name",
    "fieldtype": "Data",
-   "label": "Asset / Scrap Name"
-  },
-  {
-   "fieldname": "sold_price",
-   "fieldtype": "Data",
-   "label": "Sold Price"
+   "label": "Asset / Scrap Name",
+   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Asset/Scrap Sale\""
   },
   {
    "fieldname": "section_break_69",
    "fieldtype": "Section Break"
   },
   {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Asset/Scrap Sale\"",
    "fieldname": "ts_purchased_person_name",
    "fieldtype": "Data",
    "label": "Purchased Person Name"
   },
   {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Asset/Scrap Sale\"",
    "fieldname": "ts_mobile_number",
    "fieldtype": "Data",
    "label": "Mobile number",
    "translatable": 1
   },
   {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Rental\"",
    "fieldname": "ts_rental_amount",
-   "fieldtype": "Data",
-   "label": "Rental Amount"
+   "fieldtype": "Int",
+   "label": "Rental Amount",
+   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Rental\""
   },
   {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Rental\"",
    "fieldname": "ts_rental_type",
    "fieldtype": "Select",
    "label": "Rental Type",
+   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Rental\"",
    "options": "\nHome\nCommercial Room\nLand"
   },
   {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Rental\"",
    "fieldname": "ts_person_name",
    "fieldtype": "Data",
-   "label": "Person Name"
+   "label": "Person Name",
+   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Rental\""
   },
   {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Rental\"",
    "fieldname": "ts_number",
    "fieldtype": "Data",
    "label": "Mobile Number"
@@ -550,73 +562,215 @@
    "fieldtype": "Section Break"
   },
   {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Lottery\"",
    "fieldname": "ts_lottery_amount",
-   "fieldtype": "Data",
-   "label": "Lottery Amount"
+   "fieldtype": "Int",
+   "label": "Lottery Amount",
+   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Lottery\""
   },
   {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Lottery\"",
    "fieldname": "ts_lottery_company",
    "fieldtype": "Data",
    "label": "Lottery Company Name"
   },
   {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Lottery\"",
    "fieldname": "ts_lottery_location",
    "fieldtype": "Data",
-   "label": "Location"
-  },
-  {
-   "fieldname": "ts_lottery_credit_type",
-   "fieldtype": "Select",
-   "label": "Credit Type",
-   "options": "\nCash\nBank"
-  },
-  {
-   "fieldname": "ts_lottery_credit_bank",
-   "fieldtype": "Data",
-   "label": "Bank Name"
+   "label": "Location",
+   "options": "URL"
   },
   {
    "fieldname": "section_break_80",
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "credit_type",
-   "fieldtype": "Data",
-   "label": "Credit Type"
-  },
-  {
-   "fieldname": "data_87",
-   "fieldtype": "Section Break"
-  },
-  {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Dividends\"",
    "fieldname": "ts_company_name",
    "fieldtype": "Data",
-   "label": "Company name"
+   "label": "Company name",
+   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Dividends\""
   },
   {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Dividends\"",
    "fieldname": "ts_dividends_location",
    "fieldtype": "Data",
-   "label": "Location"
+   "label": "Location",
+   "options": "URL"
   },
   {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Dividends\"",
    "fieldname": "ts_share_value",
    "fieldtype": "Data",
    "label": "Share Value"
   },
   {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Dividends\"",
    "fieldname": "ts_share_percentage",
    "fieldtype": "Data",
-   "label": "Share Percentage"
+   "label": "Dividends Percentage"
   },
   {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Dividends\"",
    "fieldname": "ts_share_amount",
    "fieldtype": "Data",
-   "label": "Share Amount"
+   "label": "Dividends Amount",
+   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Dividends\""
+  },
+  {
+   "fieldname": "section_break_88",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Business Profit\"",
+   "fieldname": "ts_bcompany_name",
+   "fieldtype": "Data",
+   "label": "Company Name",
+   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Business Profit\""
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Business Profit\"",
+   "fieldname": "ts_bloction",
+   "fieldtype": "Data",
+   "label": "Loction",
+   "options": "URL"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Business Profit\"",
+   "fieldname": "ts_bshare_value",
+   "fieldtype": "Data",
+   "label": "Share Value"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Business Profit\"",
+   "fieldname": "ts_bprofit_amount",
+   "fieldtype": "Data",
+   "label": "Profit Amount",
+   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Business Profit\""
+  },
+  {
+   "fieldname": "section_break_85",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Asset/Scrap Sale\"",
+   "fieldname": "ts_sold_price",
+   "fieldtype": "Int",
+   "label": "Sold Price",
+   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Asset/Scrap Sale\""
+  },
+  {
+   "depends_on": "eval:in_list([\"Asset\", \"Liability\", \"Income\", \"Expenses\", \"Others\"],doc.ts_entry_type) && in_list([\"Gold\", \"Silver\", \"Diamond\", \"Platinum\", \"Machinery\", \"Agricultural Land\", \"Commercial Land\", \"Residential Land\", \"Debt\", \"EMI\", \"Salary\", \"Asset/Scrap Sale\", \"Rental\", \"Dividends\", \"Business Profit\", \"Lottery\"],doc.ts_asset_subtype)",
+   "fieldname": "ts_notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Rental\"",
+   "fieldname": "ts_rental_location",
+   "fieldtype": "Data",
+   "label": "Location",
+   "options": "URL"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Salary\"\n",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Credit Date"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_14",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_22",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_28",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_35",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_42",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_50",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_58",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_65",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_71",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_78",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_84",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_90",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_96",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Asset/Scrap Sale\"",
+   "fieldname": "ts_sold_date",
+   "fieldtype": "Date",
+   "label": "Sold Date",
+   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Asset/Scrap Sale\""
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Rental\"",
+   "fieldname": "ts_rent_date",
+   "fieldtype": "Date",
+   "label": "Credit Date",
+   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Rental\""
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Lottery\"",
+   "fieldname": "ts_lottery_date",
+   "fieldtype": "Date",
+   "label": "Credit Date"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Dividends\"",
+   "fieldname": "ts_dcredit_date",
+   "fieldtype": "Date",
+   "label": "Credit Date"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Business Profit\"",
+   "fieldname": "ts_bcredit_date",
+   "fieldtype": "Date",
+   "label": "Credit Date"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-02-28 22:16:16.875536",
+ "modified": "2022-03-01 13:49:00.917483",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Money Manager",
