@@ -58,7 +58,8 @@ app_license = "MIT"
 
 # before_install = "money_management_backend.install.before_install"
 # after_install = "money_management_backend.install.after_install"
-after_install = "money_management_backend.custom.py.defaults.create_ts_portable"
+
+after_install = "money_management_backend.custom.py.defaults.createdocs"
 
 # Desk Notifications
 # ------------------
