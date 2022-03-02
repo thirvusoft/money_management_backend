@@ -1,0 +1,8 @@
+// Copyright (c) 2022, saheeth and contributors
+// For license information, please see license.txt
+
+frappe.ui.form.on('TS Land Document Type1', {
+	// refresh: function(frm) {
+
+	// }
+});
