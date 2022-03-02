@@ -43,3 +43,16 @@ frappe.ui.form.on('TS Money Manager',
 	}
 })
 
+frappe.ui.form.on('TS Money Manager', {
+	ts_entry_type:function(frm) {
+		cur_frm.set_value("ts_asset_subtype", "")
+	},
+	
+})
+
+frappe.ui.form.on("TS Money Manager", "ts_debt_credit_amount", function(frm) {
+	frm.set_value("ts_interest_amount",flt((frm.doc.ts_debt_credit_amount)*flt(frm.doc.ts_interest_rate))/100);
+}),
+  frappe.ui.form.on("TS Money Manager", "ts_interest_rate", function(frm) {
+	frm.set_value("ts_interest_amount",flt((frm.doc.ts_debt_credit_amount)*flt(frm.doc.ts_interest_rate))/100);
+})

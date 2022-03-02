@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "Asset.###",
+ "autoname": "Asset.####",
  "creation": "2022-02-22 12:03:33.528682",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -48,8 +48,9 @@
   "ts_purchase_date",
   "ts_purchase_rate",
   "ts_purchase_person_name",
-  "ts_purchase_shop_address",
+  "ts_smobile_number",
   "ts_seller_aadhar",
+  "ts_purchase_shop_address",
   "column_break_42",
   "ts_seller_proof",
   "ts_bill_documents",
@@ -220,7 +221,7 @@
   {
    "depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Vehicle\"], doc.ts_asset_subtype)",
    "fieldname": "ts_puc_expiry_date",
-   "fieldtype": "Data",
+   "fieldtype": "Date",
    "label": "PUC Expiry Date"
   },
   {
@@ -317,7 +318,7 @@
   {
    "depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Gold\", \"Silver\", \"Diamond\", \"Platinum\", \"Vehicle\", \"Home Appliance\", \"Machinery\"], doc.ts_asset_subtype)",
    "fieldname": "ts_purchase_rate",
-   "fieldtype": "Data",
+   "fieldtype": "Currency",
    "label": "Purchase Rate"
   },
   {
@@ -382,7 +383,7 @@
   {
    "depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.ts_asset_subtype==\"Debt\"",
    "fieldname": "ts_interest_rate",
-   "fieldtype": "Int",
+   "fieldtype": "Float",
    "label": "Interest Rate"
   },
   {
@@ -406,7 +407,7 @@
   {
    "depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.ts_asset_subtype==\"Debt\"",
    "fieldname": "ts_debt_credit_amount",
-   "fieldtype": "Int",
+   "fieldtype": "Currency",
    "label": "Credited Amount",
    "mandatory_depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.ts_asset_subtype==\"Debt\""
   },
@@ -429,13 +430,6 @@
    "fieldname": "ts_emi_product",
    "fieldtype": "Data",
    "label": "EMI Product Name"
-  },
-  {
-   "depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.ts_asset_subtype==\"EMI\"",
-   "fieldname": "ts_emi_amount",
-   "fieldtype": "Data",
-   "label": "EMI Amount",
-   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.ts_asset_subtype==\"EMI\""
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.ts_asset_subtype==\"EMI\"",
@@ -477,7 +471,7 @@
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Salary\"",
    "fieldname": "ts_salary_amount",
-   "fieldtype": "Int",
+   "fieldtype": "Currency",
    "label": "Salary Amount",
    "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Salary\""
   },
@@ -533,7 +527,7 @@
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Rental\"",
    "fieldname": "ts_rental_amount",
-   "fieldtype": "Int",
+   "fieldtype": "Currency",
    "label": "Rental Amount",
    "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Rental\""
   },
@@ -565,7 +559,7 @@
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Lottery\"",
    "fieldname": "ts_lottery_amount",
-   "fieldtype": "Int",
+   "fieldtype": "Currency",
    "label": "Lottery Amount",
    "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Lottery\""
   },
@@ -602,20 +596,14 @@
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Dividends\"",
-   "fieldname": "ts_share_value",
-   "fieldtype": "Data",
-   "label": "Share Value"
-  },
-  {
-   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Dividends\"",
    "fieldname": "ts_share_percentage",
-   "fieldtype": "Data",
+   "fieldtype": "Float",
    "label": "Dividends Percentage"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Dividends\"",
    "fieldname": "ts_share_amount",
-   "fieldtype": "Data",
+   "fieldtype": "Currency",
    "label": "Dividends Amount",
    "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Dividends\""
   },
@@ -640,13 +628,13 @@
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Business Profit\"",
    "fieldname": "ts_bshare_value",
-   "fieldtype": "Data",
+   "fieldtype": "Float",
    "label": "Share Value"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Business Profit\"",
    "fieldname": "ts_bprofit_amount",
-   "fieldtype": "Data",
+   "fieldtype": "Currency",
    "label": "Profit Amount",
    "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Business Profit\""
   },
@@ -657,7 +645,7 @@
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Asset/Scrap Sale\"",
    "fieldname": "ts_sold_price",
-   "fieldtype": "Int",
+   "fieldtype": "Currency",
    "label": "Sold Price",
    "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Asset/Scrap Sale\""
   },
@@ -841,11 +829,30 @@
    "fieldname": "ts_interest_amount",
    "fieldtype": "Currency",
    "label": "Interest Amount"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.ts_asset_subtype==\"EMI\"",
+   "fieldname": "ts_emi_amount",
+   "fieldtype": "Currency",
+   "label": "EMI Amount",
+   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.ts_asset_subtype==\"EMI\""
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.ts_asset_subtype==\"Dividends\"",
+   "fieldname": "ts_share_value",
+   "fieldtype": "Float",
+   "label": "Share Value"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Gold\", \"Silver\", \"Platinum\", \"Diamond\", \"Vehicle\", \"Home Appliance\", \"Machinery\", \"Agricultural Land\", \"Commercial Land\", \"Residential Land\"], doc.ts_asset_subtype)",
+   "fieldname": "ts_smobile_number",
+   "fieldtype": "Data",
+   "label": "Seller Mobile Number"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-02 12:09:20.140381",
+ "modified": "2022-03-02 19:38:08.639640",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Money Manager",
