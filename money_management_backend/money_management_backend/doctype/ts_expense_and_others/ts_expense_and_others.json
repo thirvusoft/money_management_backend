@@ -101,7 +101,27 @@
   "oaddress",
   "service_type",
   "orthing_name",
-  "oamount"
+  "oamount",
+  "section_break_97",
+  "maintenance_to",
+  "mvehicle_name",
+  "mvehicle_number",
+  "home_appliance_name",
+  "electronics_item_name",
+  "maintenance_type",
+  "problem",
+  "cost",
+  "section_break_106",
+  "cname",
+  "clocation",
+  "contractor_name",
+  "cmobile_number",
+  "aadhar_number",
+  "contractor_address",
+  "contract_amount",
+  "estimated_complete_date",
+  "advance_payment",
+  "data_113"
  ],
  "fields": [
   {
@@ -298,7 +318,7 @@
   {
    "depends_on": "eval:doc.home_need_type==\"Health\"",
    "fieldname": "medical_address",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "Medical Address"
   },
   {
@@ -444,7 +464,8 @@
    "depends_on": "eval:doc.subtype==\"Entertainment\"",
    "fieldname": "elocation",
    "fieldtype": "Data",
-   "label": "Location"
+   "label": "Location",
+   "options": "URL"
   },
   {
    "depends_on": "eval:doc.subtype==\"Entertainment\"",
@@ -664,11 +685,128 @@
    "fieldname": "oamount",
    "fieldtype": "Currency",
    "label": "Amount"
+  },
+  {
+   "fieldname": "section_break_97",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.entry==\"Expense\" && doc.subtype==\"Maintenance\"",
+   "fieldname": "maintenance_to",
+   "fieldtype": "Select",
+   "label": "Maintenance To",
+   "options": "\nVehicle\nHome Appliance\nElectronics"
+  },
+  {
+   "depends_on": "eval:doc.entry==\"Expense\" && doc.subtype==\"Maintenance\" && doc.maintenance_to==\"Vehicle\"",
+   "fieldname": "mvehicle_name",
+   "fieldtype": "Data",
+   "label": "Vehicle Name"
+  },
+  {
+   "depends_on": "eval:doc.entry==\"Expense\" && doc.subtype==\"Maintenance\" && doc.maintenance_to==\"Vehicle\"",
+   "fieldname": "mvehicle_number",
+   "fieldtype": "Data",
+   "label": "Vehicle Number"
+  },
+  {
+   "depends_on": "eval:doc.entry==\"Expense\" && doc.subtype==\"Maintenance\" && doc.maintenance_to==\"Home Appliance\"",
+   "fieldname": "home_appliance_name",
+   "fieldtype": "Data",
+   "label": "Home Appliance Name"
+  },
+  {
+   "depends_on": "eval:doc.entry==\"Expense\" && doc.subtype==\"Maintenance\" && doc.maintenance_to==\"Electronics\"",
+   "fieldname": "electronics_item_name",
+   "fieldtype": "Data",
+   "label": "Electronics Item Name"
+  },
+  {
+   "depends_on": "eval:doc.entry==\"Expense\" && doc.subtype==\"Maintenance\" && doc.maintenance_type==\"Problem\" && in_list([\"Vehicle\", \"Home Appliance\", \"Electronics\"], doc.maintenance_to)",
+   "fieldname": "problem",
+   "fieldtype": "Small Text",
+   "label": "Problem"
+  },
+  {
+   "depends_on": "eval:doc.entry==\"Expense\" && doc.subtype==\"Maintenance\" && in_list([\"Vehicle\", \"Home Appliance\", \"Electronics\"], doc.maintenance_to)",
+   "fieldname": "cost",
+   "fieldtype": "Currency",
+   "label": "Maintenance Cost"
+  },
+  {
+   "depends_on": "eval:doc.entry==\"Expense\" && doc.subtype==\"Maintenance\" && in_list([\"Vehicle\", \"Home Appliance\", \"Electronics\"], doc.maintenance_to)",
+   "fieldname": "maintenance_type",
+   "fieldtype": "Select",
+   "label": "Maintenance Type",
+   "options": "\nRegular Maintenance\nProblem"
+  },
+  {
+   "fieldname": "section_break_106",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.entry==\"Expense\" && doc.subtype==\"Construction\"",
+   "fieldname": "clocation",
+   "fieldtype": "Data",
+   "label": "Location",
+   "options": "URL"
+  },
+  {
+   "depends_on": "eval:doc.entry==\"Expense\" && doc.subtype==\"Construction\"",
+   "fieldname": "contractor_name",
+   "fieldtype": "Data",
+   "label": "Contractor Name"
+  },
+  {
+   "depends_on": "eval:doc.entry==\"Expense\" && doc.subtype==\"Construction\"",
+   "fieldname": "contract_amount",
+   "fieldtype": "Currency",
+   "label": "Contract Amount"
+  },
+  {
+   "depends_on": "eval:doc.entry==\"Expense\" && doc.subtype==\"Construction\"",
+   "fieldname": "estimated_complete_date",
+   "fieldtype": "Date",
+   "label": "Estimated Complete Date"
+  },
+  {
+   "depends_on": "eval:doc.entry==\"Expense\" && doc.subtype==\"Construction\"",
+   "fieldname": "advance_payment",
+   "fieldtype": "Currency",
+   "label": "Advance Payment"
+  },
+  {
+   "depends_on": "eval:doc.entry==\"Expense\" && doc.subtype==\"Construction\"",
+   "fieldname": "cname",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "fieldname": "data_113",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.entry==\"Expense\" && doc.subtype==\"Construction\"",
+   "fieldname": "cmobile_number",
+   "fieldtype": "Data",
+   "label": "Mobile Number"
+  },
+  {
+   "depends_on": "eval:doc.entry==\"Expense\" && doc.subtype==\"Construction\"",
+   "fieldname": "aadhar_number",
+   "fieldtype": "Data",
+   "label": "Aadhar Number"
+  },
+  {
+   "depends_on": "eval:doc.entry==\"Expense\" && doc.subtype==\"Construction\"",
+   "fieldname": "contractor_address",
+   "fieldtype": "Small Text",
+   "label": "Contractor Address"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-03 16:46:09.096818",
+ "modified": "2022-03-03 17:37:35.169830",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Expense and Others",
