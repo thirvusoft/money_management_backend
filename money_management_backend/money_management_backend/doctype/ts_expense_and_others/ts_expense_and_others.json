@@ -113,7 +113,6 @@
   "cost",
   "section_break_106",
   "cname",
-  "clocation",
   "contractor_name",
   "cmobile_number",
   "aadhar_number",
@@ -121,7 +120,17 @@
   "contract_amount",
   "estimated_complete_date",
   "advance_payment",
-  "data_113"
+  "data_113",
+  "clocation",
+  "soil_type",
+  "aexpense_type",
+  "crop_yeild_name",
+  "yeild_expense",
+  "is_affected_by_disease",
+  "used_fertilizer",
+  "maintenance_reason",
+  "fertilizer_expense",
+  "bill_documents"
  ],
  "fields": [
   {
@@ -745,7 +754,7 @@
    "fieldtype": "Section Break"
   },
   {
-   "depends_on": "eval:doc.entry==\"Expense\" && doc.subtype==\"Construction\"",
+   "depends_on": "eval:doc.entry==\"Expense\" && in_list([\"Construction\", \"Agriculture\"], doc.subtype)",
    "fieldname": "clocation",
    "fieldtype": "Data",
    "label": "Location",
@@ -802,11 +811,68 @@
    "fieldname": "contractor_address",
    "fieldtype": "Small Text",
    "label": "Contractor Address"
+  },
+  {
+   "depends_on": "eval:doc.entry==\"Expense\" && doc.subtype==\"Agriculture\"",
+   "fieldname": "soil_type",
+   "fieldtype": "Data",
+   "label": "Soil Type"
+  },
+  {
+   "depends_on": "eval:doc.entry==\"Expense\" && doc.subtype==\"Agriculture\" && doc.aexpense_type==\"Maintenance\"",
+   "fieldname": "is_affected_by_disease",
+   "fieldtype": "Select",
+   "label": "Is Affected By Disease",
+   "options": "\nNo\nYes"
+  },
+  {
+   "depends_on": "eval:doc.entry==\"Expense\" && doc.subtype==\"Agriculture\" && doc.aexpense_type==\"Maintenance\" && doc.is_affected_by_disease==\"Yes\"",
+   "fieldname": "used_fertilizer",
+   "fieldtype": "Data",
+   "label": "Used Fertilizer"
+  },
+  {
+   "depends_on": "eval:doc.entry==\"Expense\" && doc.subtype==\"Agriculture\" && doc.aexpense_type==\"Maintenance\" && doc.is_affected_by_disease==\"Yes\"",
+   "fieldname": "fertilizer_expense",
+   "fieldtype": "Currency",
+   "label": "Expense Amount"
+  },
+  {
+   "depends_on": "eval:doc.entry==\"Expense\" && doc.subtype==\"Agriculture\"",
+   "fieldname": "aexpense_type",
+   "fieldtype": "Select",
+   "label": "Expense Type",
+   "options": "\nYeild\nMaintenance"
+  },
+  {
+   "depends_on": "eval:doc.entry==\"Expense\" && doc.subtype==\"Agriculture\" && doc.aexpense_type==\"Yeild\"",
+   "fieldname": "crop_yeild_name",
+   "fieldtype": "Data",
+   "label": "Crop yeild name"
+  },
+  {
+   "depends_on": "eval:doc.entry==\"Expense\" && doc.subtype==\"Agriculture\" && doc.aexpense_type==\"Yeild\"",
+   "fieldname": "yeild_expense",
+   "fieldtype": "Currency",
+   "label": "Yeild Expense"
+  },
+  {
+   "depends_on": "eval:doc.entry==\"Expense\" && doc.subtype==\"Agriculture\" && in_list([\"Yeild\", \"Maintenance\"], doc.aexpense_type)",
+   "fieldname": "bill_documents",
+   "fieldtype": "Table",
+   "label": "Bill Documents",
+   "options": "TS Agri Bill Document"
+  },
+  {
+   "depends_on": "eval:doc.entry==\"Expense\" && doc.subtype==\"Agriculture\" && doc.aexpense_type==\"Maintenance\" && doc.is_affected_by_disease==\"No\"",
+   "fieldname": "maintenance_reason",
+   "fieldtype": "Small Text",
+   "label": "Maintenance Reason"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-03 17:37:35.169830",
+ "modified": "2022-03-03 18:32:49.352786",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Expense and Others",
