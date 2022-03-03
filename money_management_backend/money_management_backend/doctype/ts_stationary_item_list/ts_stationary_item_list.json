@@ -1,0 +1,37 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-03-03 16:19:33.638358",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item_list",
+  "cost"
+ ],
+ "fields": [
+  {
+   "fieldname": "item_list",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Item List"
+  },
+  {
+   "fieldname": "cost",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Cost"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2022-03-03 16:19:33.638358",
+ "modified_by": "Administrator",
+ "module": "Money Management Backend",
+ "name": "TS Stationary Item List",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

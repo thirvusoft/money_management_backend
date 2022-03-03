@@ -64,15 +64,14 @@ def login():
 # Log Daily Entry Data
 
 @frappe.whitelist(allow_guest=True)
-def daily_entry_submit(Type, Subtype, IconBineryCode, image):
+def daily_entry_submit(Type, Subtype, IconBineryCode):
 	
 	doc=frappe.new_doc("TS Subtype")
 	doc.update(
 		{
 		"ts_type":Type,
 		"ts_subtype":Subtype,
-		"icon_code":IconBineryCode,
-		"ts_image" : image
+		"icon_code":IconBineryCode
 		}),
 	try:
 		doc.insert(ignore_permissions=True)
