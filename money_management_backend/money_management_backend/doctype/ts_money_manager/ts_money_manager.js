@@ -56,3 +56,5 @@ frappe.ui.form.on("TS Money Manager", "ts_debt_credit_amount", function(frm) {
   frappe.ui.form.on("TS Money Manager", "ts_interest_rate", function(frm) {
 	frm.set_value("ts_interest_amount",flt((frm.doc.ts_debt_credit_amount)*flt(frm.doc.ts_interest_rate))/100);
 })
+
+
