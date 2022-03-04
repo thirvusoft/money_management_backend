@@ -14,22 +14,26 @@
   "gshop_name",
   "hmobile_number",
   "location",
+  "column_break_8",
   "grocery_item_list",
   "home_need_image",
   "section_break_12",
   "agency_name",
   "agency_mobile_number",
   "address",
+  "column_break_15",
   "delivery_person_name",
   "mobile_number",
   "delivered_address",
   "section_break_13",
   "consumer_number",
   "units_consumed",
+  "column_break_22",
   "billed_address",
   "section_break_21",
   "phone_number",
   "person_name",
+  "column_break_27",
   "shop_name",
   "shop_address",
   "section_break_26",
@@ -37,12 +41,14 @@
   "reason",
   "hospital_name",
   "hospital_number",
+  "column_break_34",
   "hospital_address",
   "medical_name",
   "medical_address",
   "section_break_33",
   "bperson_name",
   "beautician_name",
+  "column_break_41",
   "bshop_address",
   "shop_phone_number",
   "section_break_39",
@@ -57,30 +63,34 @@
   "to_date",
   "vehicle_type",
   "rental_company_name",
+  "column_break_55",
   "rphone_number",
   "travel_expense_amount",
   "food_expense_amount",
   "other_expense_amount",
   "total_amount",
-  "section_break_57",
+  "sec",
   "entertainment_name",
   "elocation",
+  "column_break_64",
   "expense_amount",
-  "expense_bill_documents",
   "section_break_61",
   "insurance_type",
   "vehicle_number",
   "vehicle_name",
   "name1",
+  "column_break_72",
   "insured_company",
   "insured_amount",
   "company_address",
+  "section_break_77",
   "insurance_document",
+  "column_break_79",
   "iimage",
-  "inotes",
   "section_break_71",
   "tax_type",
   "tax_item",
+  "column_break_82",
   "tax_amount",
   "due_date",
   "section_break_76",
@@ -89,23 +99,28 @@
   "gamount",
   "gifted_to",
   "greason",
+  "column_break_90",
   "person_address",
   "gift_image",
   "section_break_81",
   "expense_type",
+  "sshop_name",
+  "slocation",
   "stationary_item_list",
   "institution_name",
   "institution_address",
+  "column_break_99",
   "expense_to",
   "iamount",
   "section_break_90",
   "sperson_name",
   "oreason",
-  "oaddress",
   "service_type",
   "orthing_name",
-  "thing_image",
+  "column_break_112",
+  "oaddress",
   "oamount",
+  "thing_image",
   "section_break_97",
   "maintenance_to",
   "mvehicle_name",
@@ -114,6 +129,7 @@
   "electronics_item_name",
   "maintenance_type",
   "problem",
+  "column_break_120",
   "cost",
   "mimage",
   "section_break_106",
@@ -122,6 +138,7 @@
   "cmobile_number",
   "aadhar_number",
   "contractor_address",
+  "column_break_129",
   "contract_amount",
   "estimated_complete_date",
   "advance_payment",
@@ -136,8 +153,12 @@
   "used_fertilizer",
   "maintenance_reason",
   "fertilizer_expense",
+  "section_break_148",
+  "expense_bill_documents",
   "image",
+  "column_break145",
   "bill_documents",
+  "column_break_149",
   "notes"
  ],
  "fields": [
@@ -150,72 +171,72 @@
    "fieldtype": "Section Break"
   },
   {
-   "depends_on": "eval:doc.home_need_type==\"Gas\"",
+   "depends_on": "eval:doc.subtype==\"Home Need\" && doc.home_need_type==\"Gas\"",
    "fieldname": "agency_name",
    "fieldtype": "Data",
    "label": "Agency Name"
   },
   {
-   "depends_on": "eval:doc.home_need_type==\"Gas\"",
+   "depends_on": "eval:doc.subtype==\"Home Need\" && doc.home_need_type==\"Gas\"",
    "fieldname": "agency_mobile_number",
    "fieldtype": "Data",
    "label": "Agency Mobile Number",
    "mandatory_depends_on": "eval:doc.home_need_type==\"Gas\""
   },
   {
-   "depends_on": "eval:doc.home_need_type==\"Gas\"",
+   "depends_on": "eval:doc.subtype==\"Home Need\" && doc.home_need_type==\"Gas\"",
    "fieldname": "address",
    "fieldtype": "Small Text",
    "label": "Address"
   },
   {
-   "depends_on": "eval:doc.home_need_type==\"Gas\"",
+   "depends_on": "eval:doc.subtype==\"Home Need\" && doc.home_need_type==\"Gas\"",
    "fieldname": "delivery_person_name",
    "fieldtype": "Data",
    "label": "Delivery Person Name",
    "mandatory_depends_on": "eval:doc.home_need_type==\"Gas\""
   },
   {
-   "depends_on": "eval:doc.home_need_type==\"Gas\"",
+   "depends_on": "eval:doc.subtype==\"Home Need\" && doc.home_need_type==\"Gas\"",
    "fieldname": "delivered_address",
    "fieldtype": "Small Text",
    "label": "Delivered Address"
   },
   {
-   "depends_on": "eval:in_list([\"Grocery\", \"Shopping\", \"Clothing\", \"Electronics\", \"Gas\", \"Electricity\", \"Phone Recharge\", \"Health\", \"Beauty\", \"Food\"], doc.home_need_type)",
+   "depends_on": "eval:doc.sutype==\"Home Need\" && in_list([\"Grocery\", \"Shopping\", \"Clothing\", \"Electronics\", \"Gas\", \"Electricity\", \"Phone Recharge\", \"Health\", \"Beauty\", \"Food\"], doc.home_need_type)",
    "fieldname": "amount",
    "fieldtype": "Currency",
    "label": "Total Amount",
    "mandatory_depends_on": "eval:in_list([\"Grocery\", \"Shopping\", \"Clothing\", \"Electronics\", \"Gas\", \"Electricity\", \"Phone Recharge\", \"Health\", \"Beauty\", \"Food\"], doc.home_need_type)"
   },
   {
-   "depends_on": "eval:in_list([\"Grocery\", \"Shopping\", \"Clothing\", \"Electronics\", \"Gas\", \"Electricity\", \"Phone Recharge\", \"Gift\", \"Health\", \"Beauty\", \"Food\"], doc.home_need_type) || in_list([\"Agriculture\", \"Construction\", \"Education\", \"Entertainment\", \"Gift\", \"Insurance\", \"Maintenance\", \"Social Service\", \"Tax\", \"Travel\"], doc.subtype)",
+   "depends_on": "eval:doc.subtype==\"Home Need\" && in_list([\"Grocery\", \"Shopping\", \"Clothing\", \"Electronics\", \"Gas\", \"Electricity\", \"Phone Recharge\", \"Gift\", \"Health\", \"Beauty\", \"Food\"], doc.home_need_type) || in_list([\"Agriculture\", \"Construction\", \"Education\", \"Entertainment\", \"Gift\", \"Insurance\", \"Maintenance\", \"Social Service\", \"Tax\", \"Travel\"], doc.subtype)",
    "fieldname": "notes",
    "fieldtype": "Small Text",
    "label": "Notes"
   },
   {
-   "depends_on": "eval:doc.home_need_type==\"Gas\"",
+   "depends_on": "eval:doc.subtype==\"Home Need\" && doc.home_need_type==\"Gas\"",
    "fieldname": "mobile_number",
    "fieldtype": "Data",
    "label": "Mobile number"
   },
   {
-   "depends_on": "eval:in_list([\"Grocery\", \"Shopping\", \"Clothing\", \"Electronics\", \"Gas\", \"Electricity\", \"Phone Recharge\", \"Health\", \"Beauty\", \"Food\"], doc.home_need_type) || doc.subtype==\"Entertainment\"",
+   "depends_on": "eval:doc.subtype==\"Home Need\" && in_list([\"Grocery\", \"Shopping\", \"Clothing\", \"Electronics\", \"Gas\", \"Electricity\", \"Phone Recharge\", \"Health\", \"Beauty\", \"Food\"], doc.home_need_type) || in_list([\"Entertainment\", \"Education\", \"Maintenance\", \"Social Service\", \"Tax\", \"Travel\"], doc.subtype)",
    "fieldname": "expense_bill_documents",
    "fieldtype": "Table",
    "label": "Expense Bill Documents",
    "options": "TS Expense Documents"
   },
   {
-   "depends_on": "eval:doc.home_need_type==\"Electricity\"",
+   "depends_on": "eval:doc.subtype==\"Home Need\" && doc.home_need_type==\"Electricity\"",
    "fieldname": "billed_address",
    "fieldtype": "Small Text",
    "label": "Billed Address",
    "mandatory_depends_on": "eval:doc.home_need_type==\"Electricity\""
   },
   {
-   "depends_on": "eval:doc.home_need_type==\"Electricity\"",
+   "depends_on": "eval:doc.subtype==\"Home Need\" && doc.home_need_type==\"Electricity\"",
    "fieldname": "consumer_number",
    "fieldtype": "Data",
    "label": "Consumer Number",
@@ -234,27 +255,27 @@
    "fieldtype": "Section Break"
   },
   {
-   "depends_on": "eval:doc.home_need_type==\"Phone Recharge\"",
+   "depends_on": "eval:doc.subtype==\"Home Need\" && doc.home_need_type==\"Phone Recharge\"",
    "fieldname": "phone_number",
    "fieldtype": "Data",
    "label": "Recharged Phone Number",
    "mandatory_depends_on": "eval:doc.home_need_type==\"Phone Recharge\""
   },
   {
-   "depends_on": "eval:doc.home_need_type==\"Phone Recharge\"",
+   "depends_on": "eval:doc.subtype==\"Home Need\" && doc.home_need_type==\"Phone Recharge\"",
    "fieldname": "person_name",
    "fieldtype": "Data",
    "label": "Person Name",
    "mandatory_depends_on": "eval:doc.home_need_type==\"Phone Recharge\""
   },
   {
-   "depends_on": "eval:doc.home_need_type==\"Phone Recharge\"",
+   "depends_on": "eval:doc.subtype==\"Home Need\" && doc.home_need_type==\"Phone Recharge\"",
    "fieldname": "shop_name",
    "fieldtype": "Data",
    "label": "Shop Name"
   },
   {
-   "depends_on": "eval:doc.home_need_type==\"Phone Recharge\"",
+   "depends_on": "eval:doc.subtype==\"Home Need\" && doc.home_need_type==\"Phone Recharge\"",
    "fieldname": "shop_address",
    "fieldtype": "Small Text",
    "label": "Shop Address"
@@ -379,26 +400,26 @@
    "options": "\nGrocery\nShopping\nClothing\nElectronics\nGas\nElectricity\nPhone Recharge\nHealth\nBeauty\nFood"
   },
   {
-   "depends_on": "eval:in_list([\"Grocery\", \"Shopping\", \"Clothing\", \"Electronics\"],doc.home_need_type)\n",
+   "depends_on": "eval:doc.subtype==\"Home Need\" && in_list([\"Grocery\", \"Shopping\", \"Clothing\", \"Electronics\"],doc.home_need_type)\n",
    "fieldname": "gshop_name",
    "fieldtype": "Data",
    "label": "Shop Name"
   },
   {
-   "depends_on": "eval:in_list([\"Grocery\", \"Shopping\", \"Clothing\", \"Electronics\"],doc.home_need_type)\n",
+   "depends_on": "eval:doc.subtype==\"Home Need\" && in_list([\"Grocery\", \"Shopping\", \"Clothing\", \"Electronics\"],doc.home_need_type)\n",
    "fieldname": "hmobile_number",
    "fieldtype": "Data",
    "label": "Mobile Number"
   },
   {
-   "depends_on": "eval:in_list([\"Grocery\", \"Shopping\", \"Clothing\", \"Electronics\"],doc.home_need_type)\n",
+   "depends_on": "eval:doc.subtype==\"Home Need\" && in_list([\"Grocery\", \"Shopping\", \"Clothing\", \"Electronics\"],doc.home_need_type)\n",
    "fieldname": "location",
    "fieldtype": "Data",
    "label": "Location",
    "options": "URL"
   },
   {
-   "depends_on": "eval:in_list([\"Grocery\", \"Shopping\", \"Clothing\", \"Electronics\"],doc.home_need_type)\n",
+   "depends_on": "eval:doc.subtype==\"Home Need\" && in_list([\"Grocery\", \"Shopping\", \"Clothing\", \"Electronics\"],doc.home_need_type)\n",
    "fieldname": "grocery_item_list",
    "fieldtype": "Table",
    "label": "Bought Item List",
@@ -469,10 +490,6 @@
    "label": "Other Expense Amount"
   },
   {
-   "fieldname": "section_break_57",
-   "fieldtype": "Section Break"
-  },
-  {
    "depends_on": "eval:doc.subtype==\"Entertainment\"",
    "fieldname": "entertainment_name",
    "fieldtype": "Data",
@@ -523,12 +540,6 @@
    "fieldname": "name1",
    "fieldtype": "Data",
    "label": "Name"
-  },
-  {
-   "depends_on": "eval:doc.subtype==\"Insurance\" && in_list([\"Vehicle\", \"Person\", \"Electronic item\", \"livestock\"],doc.insurance_type)",
-   "fieldname": "inotes",
-   "fieldtype": "Small Text",
-   "label": "Notes"
   },
   {
    "depends_on": "eval:doc.subtype==\"Insurance\" && in_list([\"Vehicle\", \"Person\", \"Electronic item\", \"livestock\"],doc.insurance_type)",
@@ -899,14 +910,14 @@
    "label": "Maintenance Reason"
   },
   {
-   "depends_on": "eval:in_list([\"Grocery\", \"Shopping\", \"Clothing\", \"Electronics\"],doc.home_need_type)\n",
+   "depends_on": "eval:doc.subtype==\"Home Need\" && in_list([\"Grocery\", \"Shopping\", \"Clothing\", \"Electronics\"],doc.home_need_type)\n",
    "fieldname": "shopping_date",
    "fieldtype": "Date",
    "label": "Shopping Date",
    "mandatory_depends_on": "eval:doc.subtype==\"Home Need\""
   },
   {
-   "depends_on": "eval:in_list([\"Grocery\", \"Shopping\", \"Clothing\", \"Electronics\"],doc.home_need_type)\n",
+   "depends_on": "eval:doc.subtype==\"Home Need\" && in_list([\"Grocery\", \"Shopping\", \"Clothing\", \"Electronics\"],doc.home_need_type)\n",
    "fieldname": "home_need_image",
    "fieldtype": "Table",
    "label": "Image",
@@ -961,7 +972,7 @@
    "options": "TS Construction Image"
   },
   {
-   "depends_on": "eval:doc.home_need_type==\"Electricity\"",
+   "depends_on": "eval:doc.subtype==\"Home Need\" && doc.home_need_type==\"Electricity\"",
    "fieldname": "units_consumed",
    "fieldtype": "Float",
    "label": "Units Consumed"
@@ -972,11 +983,108 @@
    "fieldtype": "Table",
    "label": "Image",
    "options": "TS Maintenance Image"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_15",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_34",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_41",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_55",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_64",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_72",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_82",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_90",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_120",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_129",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sec",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_99",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_22",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_27",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_149",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Education\" && doc.expense_type==\"Stationary\"",
+   "fieldname": "sshop_name",
+   "fieldtype": "Data",
+   "label": "Shop Name"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Education\" && doc.expense_type==\"Stationary\"",
+   "fieldname": "slocation",
+   "fieldtype": "Data",
+   "label": "Location",
+   "options": "URL"
+  },
+  {
+   "fieldname": "section_break_148",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break145",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_77",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_79",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_112",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-04 11:23:06.993649",
+ "modified": "2022-03-04 13:37:00.850322",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Expense",

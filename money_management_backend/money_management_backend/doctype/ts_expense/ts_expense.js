@@ -63,20 +63,15 @@ frappe.ui.form.on('TS Expense',
 			cur_frm.clear_table("iimage")
 			cur_frm.refresh_fields();
 		}
+	},
+	travel_expense_amount : function(frm) {
+		frm.set_value("total_amount",flt(frm.doc.travel_expense_amount)+flt(frm.doc.food_expense_amount)+flt(frm.doc.other_expense_amount));
+	},
+		food_expense_amount: function(frm) {
+		frm.set_value("total_amount",flt(frm.doc.travel_expense_amount)+flt(frm.doc.food_expense_amount)+flt(frm.doc.other_expense_amount));
+	},
+	other_expense_amount: function(frm) {
+		frm.set_value("total_amount",flt(frm.doc.travel_expense_amount)+flt(frm.doc.food_expense_amount)+flt(frm.doc.other_expense_amount));
+	  
 	}
-})
-
-
-
-frappe.ui.form.on("TS Expense", {
-travel_expense_amount : function(frm) {
-	frm.set_value("total_amount",flt(frm.doc.travel_expense_amount)+flt(frm.doc.food_expense_amount)+flt(frm.doc.other_expense_amount));
-},
-	food_expense_amount: function(frm) {
-	frm.set_value("total_amount",flt(frm.doc.travel_expense_amount)+flt(frm.doc.food_expense_amount)+flt(frm.doc.other_expense_amount));
-},
-other_expense_amount: function(frm) {
-	frm.set_value("total_amount",flt(frm.doc.travel_expense_amount)+flt(frm.doc.food_expense_amount)+flt(frm.doc.other_expense_amount));
-  
-}
 });

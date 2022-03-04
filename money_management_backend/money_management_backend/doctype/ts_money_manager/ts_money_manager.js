@@ -2,7 +2,7 @@
 // For license information, please see license.txt
 
 
-
+//Precious metal quality display based on metal
 frappe.ui.form.on('TS Money Manager', {
 	ts_asset_subtype: function(frm) {
 		if (frm.doc.ts_asset_subtype == "Gold")
@@ -25,7 +25,7 @@ frappe.ui.form.on('TS Money Manager', {
 	}
 });
 
-
+// To display the subtype match to entry type
 
 frappe.ui.form.on('TS Money Manager', 
 {
@@ -40,21 +40,24 @@ frappe.ui.form.on('TS Money Manager',
                 ]
             };
         });
-	}
+	},
+	
 })
+
+
+//refresh the subtype while changing the entry type
+//In Dept - subtype calculate the interest amount automatically
 
 frappe.ui.form.on('TS Money Manager', {
 	ts_entry_type:function(frm) {
 		cur_frm.set_value("ts_asset_subtype", "")
 	},
-	
-})
-
-frappe.ui.form.on("TS Money Manager", "ts_debt_credit_amount", function(frm) {
-	frm.set_value("ts_interest_amount",flt((frm.doc.ts_debt_credit_amount)*flt(frm.doc.ts_interest_rate))/100);
-}),
-  frappe.ui.form.on("TS Money Manager", "ts_interest_rate", function(frm) {
-	frm.set_value("ts_interest_amount",flt((frm.doc.ts_debt_credit_amount)*flt(frm.doc.ts_interest_rate))/100);
-})
+	ts_debt_credit_amount: function(frm) {
+		frm.set_value("ts_interest_amount",flt((frm.doc.ts_debt_credit_amount)*flt(frm.doc.ts_interest_rate))/100);
+	},
+	  ts_interest_rate: function(frm) {
+		frm.set_value("ts_interest_amount",flt((frm.doc.ts_debt_credit_amount)*flt(frm.doc.ts_interest_rate))/100);
+	}
+});
 
 
