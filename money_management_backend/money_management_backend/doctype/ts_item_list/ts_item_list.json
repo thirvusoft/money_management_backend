@@ -1,0 +1,40 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-03-03 09:38:20.454394",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item_list",
+  "cost"
+ ],
+ "fields": [
+  {
+   "fieldname": "item_list",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Item List",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cost",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Cost",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2022-03-03 09:39:35.688090",
+ "modified_by": "Administrator",
+ "module": "Money Management Backend",
+ "name": "TS Item List",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}
