@@ -40,8 +40,9 @@
   },
   {
    "fieldname": "file_upload",
-   "fieldtype": "Attach",
-   "label": "File Upload"
+   "fieldtype": "Table",
+   "label": "File Upload",
+   "options": "TS Daily Entry File"
   },
   {
    "depends_on": "eval:doc.type!=\"Others\"",

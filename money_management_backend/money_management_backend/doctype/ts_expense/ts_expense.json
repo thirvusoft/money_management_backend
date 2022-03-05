@@ -1,0 +1,1108 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "Expense:###",
+ "creation": "2022-03-03 09:04:35.320523",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "subtype",
+  "section_break_3",
+  "home_need_type",
+  "shopping_date",
+  "gshop_name",
+  "hmobile_number",
+  "location",
+  "column_break_8",
+  "grocery_item_list",
+  "home_need_image",
+  "section_break_12",
+  "agency_name",
+  "agency_mobile_number",
+  "address",
+  "column_break_15",
+  "delivery_person_name",
+  "mobile_number",
+  "delivered_address",
+  "section_break_13",
+  "consumer_number",
+  "units_consumed",
+  "column_break_22",
+  "billed_address",
+  "section_break_21",
+  "phone_number",
+  "person_name",
+  "column_break_27",
+  "shop_name",
+  "shop_address",
+  "section_break_26",
+  "affected_person_name",
+  "reason",
+  "hospital_name",
+  "hospital_number",
+  "column_break_34",
+  "hospital_address",
+  "medical_name",
+  "medical_address",
+  "section_break_33",
+  "bperson_name",
+  "beautician_name",
+  "column_break_41",
+  "bshop_address",
+  "shop_phone_number",
+  "section_break_39",
+  "fshop_name",
+  "sshop_address",
+  "shop_location_link",
+  "section_break",
+  "amount",
+  "section_break_47",
+  "travel_location",
+  "from_date",
+  "to_date",
+  "vehicle_type",
+  "rental_company_name",
+  "column_break_55",
+  "rphone_number",
+  "travel_expense_amount",
+  "food_expense_amount",
+  "other_expense_amount",
+  "total_amount",
+  "sec",
+  "entertainment_name",
+  "elocation",
+  "column_break_64",
+  "expense_amount",
+  "section_break_61",
+  "insurance_type",
+  "vehicle_number",
+  "vehicle_name",
+  "name1",
+  "column_break_72",
+  "insured_company",
+  "insured_amount",
+  "company_address",
+  "section_break_77",
+  "insurance_document",
+  "column_break_79",
+  "iimage",
+  "section_break_71",
+  "tax_type",
+  "tax_item",
+  "column_break_82",
+  "tax_amount",
+  "due_date",
+  "section_break_76",
+  "gift_type",
+  "thing_name",
+  "gamount",
+  "gifted_to",
+  "greason",
+  "column_break_90",
+  "person_address",
+  "gift_image",
+  "section_break_81",
+  "expense_type",
+  "sshop_name",
+  "slocation",
+  "stationary_item_list",
+  "institution_name",
+  "institution_address",
+  "column_break_99",
+  "expense_to",
+  "iamount",
+  "section_break_90",
+  "sperson_name",
+  "oreason",
+  "service_type",
+  "orthing_name",
+  "column_break_112",
+  "oaddress",
+  "oamount",
+  "thing_image",
+  "section_break_97",
+  "maintenance_to",
+  "mvehicle_name",
+  "mvehicle_number",
+  "home_appliance_name",
+  "electronics_item_name",
+  "maintenance_type",
+  "problem",
+  "column_break_120",
+  "cost",
+  "mimage",
+  "section_break_106",
+  "cname",
+  "contractor_name",
+  "cmobile_number",
+  "aadhar_number",
+  "contractor_address",
+  "column_break_129",
+  "contract_amount",
+  "estimated_complete_date",
+  "advance_payment",
+  "cimage",
+  "data_113",
+  "clocation",
+  "soil_type",
+  "aexpense_type",
+  "crop_yeild_name",
+  "yeild_expense",
+  "is_affected_by_disease",
+  "used_fertilizer",
+  "maintenance_reason",
+  "fertilizer_expense",
+  "section_break_148",
+  "expense_bill_documents",
+  "image",
+  "column_break145",
+  "bill_documents",
+  "column_break_149",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_3",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_12",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Home Need\" && doc.home_need_type==\"Gas\"",
+   "fieldname": "agency_name",
+   "fieldtype": "Data",
+   "label": "Agency Name"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Home Need\" && doc.home_need_type==\"Gas\"",
+   "fieldname": "agency_mobile_number",
+   "fieldtype": "Data",
+   "label": "Agency Mobile Number",
+   "mandatory_depends_on": "eval:doc.home_need_type==\"Gas\""
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Home Need\" && doc.home_need_type==\"Gas\"",
+   "fieldname": "address",
+   "fieldtype": "Small Text",
+   "label": "Address"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Home Need\" && doc.home_need_type==\"Gas\"",
+   "fieldname": "delivery_person_name",
+   "fieldtype": "Data",
+   "label": "Delivery Person Name",
+   "mandatory_depends_on": "eval:doc.home_need_type==\"Gas\""
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Home Need\" && doc.home_need_type==\"Gas\"",
+   "fieldname": "delivered_address",
+   "fieldtype": "Small Text",
+   "label": "Delivered Address"
+  },
+  {
+   "depends_on": "eval:doc.sutype==\"Home Need\" && in_list([\"Grocery\", \"Shopping\", \"Clothing\", \"Electronics\", \"Gas\", \"Electricity\", \"Phone Recharge\", \"Health\", \"Beauty\", \"Food\"], doc.home_need_type)",
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount",
+   "mandatory_depends_on": "eval:in_list([\"Grocery\", \"Shopping\", \"Clothing\", \"Electronics\", \"Gas\", \"Electricity\", \"Phone Recharge\", \"Health\", \"Beauty\", \"Food\"], doc.home_need_type)"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Home Need\" && in_list([\"Grocery\", \"Shopping\", \"Clothing\", \"Electronics\", \"Gas\", \"Electricity\", \"Phone Recharge\", \"Gift\", \"Health\", \"Beauty\", \"Food\"], doc.home_need_type) || in_list([\"Agriculture\", \"Construction\", \"Education\", \"Entertainment\", \"Gift\", \"Insurance\", \"Maintenance\", \"Social Service\", \"Tax\", \"Travel\"], doc.subtype)",
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Home Need\" && doc.home_need_type==\"Gas\"",
+   "fieldname": "mobile_number",
+   "fieldtype": "Data",
+   "label": "Mobile number"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Home Need\" && in_list([\"Grocery\", \"Shopping\", \"Clothing\", \"Electronics\", \"Gas\", \"Electricity\", \"Phone Recharge\", \"Health\", \"Beauty\", \"Food\"], doc.home_need_type) || in_list([\"Entertainment\", \"Education\", \"Maintenance\", \"Social Service\", \"Tax\", \"Travel\"], doc.subtype)",
+   "fieldname": "expense_bill_documents",
+   "fieldtype": "Table",
+   "label": "Expense Bill Documents",
+   "options": "TS Expense Documents"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Home Need\" && doc.home_need_type==\"Electricity\"",
+   "fieldname": "billed_address",
+   "fieldtype": "Small Text",
+   "label": "Billed Address",
+   "mandatory_depends_on": "eval:doc.home_need_type==\"Electricity\""
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Home Need\" && doc.home_need_type==\"Electricity\"",
+   "fieldname": "consumer_number",
+   "fieldtype": "Data",
+   "label": "Consumer Number",
+   "mandatory_depends_on": "eval:doc.home_need_type==\"Electricity\""
+  },
+  {
+   "fieldname": "section_break_13",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_21",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Home Need\" && doc.home_need_type==\"Phone Recharge\"",
+   "fieldname": "phone_number",
+   "fieldtype": "Data",
+   "label": "Recharged Phone Number",
+   "mandatory_depends_on": "eval:doc.home_need_type==\"Phone Recharge\""
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Home Need\" && doc.home_need_type==\"Phone Recharge\"",
+   "fieldname": "person_name",
+   "fieldtype": "Data",
+   "label": "Person Name",
+   "mandatory_depends_on": "eval:doc.home_need_type==\"Phone Recharge\""
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Home Need\" && doc.home_need_type==\"Phone Recharge\"",
+   "fieldname": "shop_name",
+   "fieldtype": "Data",
+   "label": "Shop Name"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Home Need\" && doc.home_need_type==\"Phone Recharge\"",
+   "fieldname": "shop_address",
+   "fieldtype": "Small Text",
+   "label": "Shop Address"
+  },
+  {
+   "fieldname": "section_break_26",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.home_need_type==\"Health\"",
+   "fieldname": "affected_person_name",
+   "fieldtype": "Data",
+   "label": "Affected Person Name",
+   "mandatory_depends_on": "eval:doc.home_need_type==\"Health\""
+  },
+  {
+   "depends_on": "eval:doc.home_need_type==\"Health\"",
+   "fieldname": "reason",
+   "fieldtype": "Small Text",
+   "label": "Reason",
+   "mandatory_depends_on": "eval:doc.home_need_type==\"Health\""
+  },
+  {
+   "depends_on": "eval:doc.home_need_type==\"Health\"",
+   "fieldname": "hospital_name",
+   "fieldtype": "Data",
+   "label": "Hospital Name",
+   "mandatory_depends_on": "eval:doc.home_need_type==\"Health\""
+  },
+  {
+   "depends_on": "eval:doc.home_need_type==\"Health\"",
+   "fieldname": "medical_name",
+   "fieldtype": "Data",
+   "label": "Medical Name"
+  },
+  {
+   "depends_on": "eval:doc.home_need_type==\"Health\"",
+   "fieldname": "hospital_number",
+   "fieldtype": "Data",
+   "label": "Hospital Number"
+  },
+  {
+   "depends_on": "eval:doc.home_need_type==\"Health\"",
+   "fieldname": "hospital_address",
+   "fieldtype": "Small Text",
+   "label": "Hospital Address"
+  },
+  {
+   "fieldname": "section_break_33",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.home_need_type==\"Beauty\"",
+   "fieldname": "bperson_name",
+   "fieldtype": "Data",
+   "label": "Person Name",
+   "mandatory_depends_on": "eval:doc.home_need_type==\"Beauty\""
+  },
+  {
+   "depends_on": "eval:doc.home_need_type==\"Beauty\"",
+   "fieldname": "bshop_address",
+   "fieldtype": "Small Text",
+   "label": "Shop Address",
+   "mandatory_depends_on": "eval:doc.home_need_type==\"Beauty\""
+  },
+  {
+   "depends_on": "eval:doc.home_need_type==\"Beauty\"",
+   "fieldname": "beautician_name",
+   "fieldtype": "Data",
+   "label": "Beautician Name"
+  },
+  {
+   "depends_on": "eval:doc.home_need_type==\"Beauty\"",
+   "fieldname": "shop_phone_number",
+   "fieldtype": "Data",
+   "label": "Shop Phone Number"
+  },
+  {
+   "depends_on": "eval:doc.home_need_type==\"Health\"",
+   "fieldname": "medical_address",
+   "fieldtype": "Small Text",
+   "label": "Medical Address"
+  },
+  {
+   "fieldname": "section_break_39",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.home_need_type==\"Food\"",
+   "fieldname": "fshop_name",
+   "fieldtype": "Data",
+   "label": "Shop Name",
+   "mandatory_depends_on": "eval:doc.home_need_type==\"Food\""
+  },
+  {
+   "depends_on": "eval:doc.home_need_type==\"Food\"",
+   "fieldname": "sshop_address",
+   "fieldtype": "Small Text",
+   "label": "Shop Address"
+  },
+  {
+   "depends_on": "eval:doc.home_need_type==\"Food\"",
+   "fieldname": "shop_location_link",
+   "fieldtype": "Data",
+   "label": "Shop Location Link",
+   "options": "URL"
+  },
+  {
+   "fieldname": "subtype",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Subtype",
+   "options": "TS Subtype",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Home Need\"",
+   "fieldname": "home_need_type",
+   "fieldtype": "Select",
+   "label": "Home Need type",
+   "mandatory_depends_on": "eval:doc.subtype==\"Home Need\"",
+   "options": "\nGrocery\nShopping\nClothing\nElectronics\nGas\nElectricity\nPhone Recharge\nHealth\nBeauty\nFood"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Home Need\" && in_list([\"Grocery\", \"Shopping\", \"Clothing\", \"Electronics\"],doc.home_need_type)\n",
+   "fieldname": "gshop_name",
+   "fieldtype": "Data",
+   "label": "Shop Name"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Home Need\" && in_list([\"Grocery\", \"Shopping\", \"Clothing\", \"Electronics\"],doc.home_need_type)\n",
+   "fieldname": "hmobile_number",
+   "fieldtype": "Data",
+   "label": "Mobile Number"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Home Need\" && in_list([\"Grocery\", \"Shopping\", \"Clothing\", \"Electronics\"],doc.home_need_type)\n",
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location",
+   "options": "URL"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Home Need\" && in_list([\"Grocery\", \"Shopping\", \"Clothing\", \"Electronics\"],doc.home_need_type)\n",
+   "fieldname": "grocery_item_list",
+   "fieldtype": "Table",
+   "label": "Bought Item List",
+   "options": "TS Item List"
+  },
+  {
+   "fieldname": "section_break_47",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Travel\"",
+   "fieldname": "travel_location",
+   "fieldtype": "Data",
+   "label": "Travel Location",
+   "mandatory_depends_on": "eval:doc.subtype==\"Travel\"",
+   "options": "URL"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Travel\"",
+   "fieldname": "from_date",
+   "fieldtype": "Datetime",
+   "label": "From Date",
+   "mandatory_depends_on": "eval:doc.subtype==\"Travel\""
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Travel\"",
+   "fieldname": "to_date",
+   "fieldtype": "Datetime",
+   "label": "TO Date",
+   "mandatory_depends_on": "eval:doc.subtype==\"Travel\""
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Travel\"",
+   "fieldname": "vehicle_type",
+   "fieldtype": "Select",
+   "label": "Vehicle Type",
+   "mandatory_depends_on": "eval:doc.subtype==\"Travel\"",
+   "options": "\nOwn\nRent"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Travel\"",
+   "fieldname": "travel_expense_amount",
+   "fieldtype": "Currency",
+   "label": "Travel Expense Amount"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Travel\"",
+   "fieldname": "food_expense_amount",
+   "fieldtype": "Currency",
+   "label": "Food Expense Amount"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Travel\" && doc.vehicle_type==\"Rent\"",
+   "fieldname": "rental_company_name",
+   "fieldtype": "Data",
+   "label": "Rental Company Name"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Travel\" && doc.vehicle_type==\"Rent\"",
+   "fieldname": "rphone_number",
+   "fieldtype": "Data",
+   "label": "Phone Number"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Travel\"",
+   "fieldname": "other_expense_amount",
+   "fieldtype": "Currency",
+   "label": "Other Expense Amount"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Entertainment\"",
+   "fieldname": "entertainment_name",
+   "fieldtype": "Data",
+   "label": "Entertainment Name",
+   "mandatory_depends_on": "eval:doc.subtype==\"Entertainment\""
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Entertainment\"",
+   "fieldname": "elocation",
+   "fieldtype": "Data",
+   "label": "Location",
+   "options": "URL"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Entertainment\"",
+   "fieldname": "expense_amount",
+   "fieldtype": "Currency",
+   "label": "Expense Amount",
+   "mandatory_depends_on": "eval:doc.subtype==\"Entertainment\""
+  },
+  {
+   "fieldname": "section_break_61",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Insurance\"",
+   "fieldname": "insurance_type",
+   "fieldtype": "Select",
+   "label": "Insurance Type",
+   "mandatory_depends_on": "eval:doc.subtype==\"Insurance\"",
+   "options": "\nVehicle\nPerson\nElectronic item\nlivestock"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Insurance\" && doc.insurance_type==\"Vehicle\"",
+   "fieldname": "vehicle_number",
+   "fieldtype": "Data",
+   "label": "Vehicle Number",
+   "mandatory_depends_on": "eval:doc.subtype==\"Insurance\" && doc.insurance_type==\"Vehicle\""
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Insurance\" && doc.insurance_type==\"Vehicle\"",
+   "fieldname": "vehicle_name",
+   "fieldtype": "Data",
+   "label": "Vehicle Name"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Insurance\" && in_list([\"Person\", \"Electronic item\", \"livestock\"],doc.insurance_type)",
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Insurance\" && in_list([\"Vehicle\", \"Person\", \"Electronic item\", \"livestock\"],doc.insurance_type)",
+   "fieldname": "insured_company",
+   "fieldtype": "Data",
+   "label": "Insured Company Name",
+   "mandatory_depends_on": "eval:doc.subtype==\"Insurance\" && in_list([\"Vehicle\", \"Person\", \"Electronic item\", \"livestock\"],doc.insurance_type)"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Insurance\" && in_list([\"Vehicle\", \"Person\", \"Electronic item\", \"livestock\"],doc.insurance_type)",
+   "fieldname": "insured_amount",
+   "fieldtype": "Currency",
+   "label": "Insured Amount",
+   "mandatory_depends_on": "eval:doc.subtype==\"Insurance\" && in_list([\"Vehicle\", \"Person\", \"Electronic item\", \"livestock\"],doc.insurance_type)"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Insurance\" && in_list([\"Vehicle\", \"Person\", \"Electronic item\", \"livestock\"],doc.insurance_type)",
+   "fieldname": "company_address",
+   "fieldtype": "Small Text",
+   "label": "Company Address"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Insurance\" && in_list([\"Vehicle\", \"Person\", \"Electronic item\", \"livestock\"],doc.insurance_type)",
+   "fieldname": "insurance_document",
+   "fieldtype": "Table",
+   "label": "Insurance Document",
+   "options": "TS Insurance Document"
+  },
+  {
+   "fieldname": "section_break_71",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Tax\"",
+   "fieldname": "tax_type",
+   "fieldtype": "Select",
+   "label": "Tax Type",
+   "mandatory_depends_on": "eval:doc.subtype==\"Tax\"",
+   "options": "\nSGST\nCGST\nPanchayat"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Tax\"",
+   "fieldname": "tax_item",
+   "fieldtype": "Data",
+   "label": "Tax item"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Tax\"",
+   "fieldname": "tax_amount",
+   "fieldtype": "Currency",
+   "label": "Tax Amount",
+   "mandatory_depends_on": "eval:doc.subtype==\"Tax\""
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Tax\"",
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "label": "Due Date"
+  },
+  {
+   "fieldname": "section_break_76",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Gift\"",
+   "fieldname": "gift_type",
+   "fieldtype": "Select",
+   "label": "Gift type",
+   "mandatory_depends_on": "eval:doc.subtype==\"Gift\"",
+   "options": "\nCash\nThing"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Gift\" && doc.gift_type==\"Thing\"",
+   "fieldname": "thing_name",
+   "fieldtype": "Data",
+   "label": "Thing Name"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Gift\"",
+   "fieldname": "gamount",
+   "fieldtype": "Currency",
+   "label": "Amount",
+   "mandatory_depends_on": "eval:doc.subtype==\"Gift\""
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Gift\"",
+   "fieldname": "gifted_to",
+   "fieldtype": "Data",
+   "label": "Gifted to",
+   "mandatory_depends_on": "eval:doc.subtype==\"Gift\""
+  },
+  {
+   "fieldname": "section_break_81",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Gift\"",
+   "fieldname": "greason",
+   "fieldtype": "Small Text",
+   "label": "Reason"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Gift\"",
+   "fieldname": "person_address",
+   "fieldtype": "Small Text",
+   "label": "Person Address"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Education\"",
+   "fieldname": "expense_type",
+   "fieldtype": "Select",
+   "label": "Expense type",
+   "mandatory_depends_on": "eval:doc.subtype==\"Education\"",
+   "options": "\nStationary\nInstitution"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Education\" && doc.expense_type==\"Institution\"",
+   "fieldname": "institution_name",
+   "fieldtype": "Data",
+   "label": "Institution Name",
+   "mandatory_depends_on": "eval:doc.subtype==\"Education\" && doc.expense_type==\"Institution\""
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Education\" && doc.expense_type==\"Institution\"",
+   "fieldname": "institution_address",
+   "fieldtype": "Small Text",
+   "label": "Institution Address"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Education\"",
+   "fieldname": "expense_to",
+   "fieldtype": "Data",
+   "label": "Expense to"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Education\"",
+   "fieldname": "iamount",
+   "fieldtype": "Currency",
+   "label": "Amount",
+   "mandatory_depends_on": "eval:doc.subtype==\"Education\""
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Education\" && doc.expense_type==\"Stationary\"",
+   "fieldname": "stationary_item_list",
+   "fieldtype": "Table",
+   "label": "Stationary Item List",
+   "options": "TS Stationary Item List"
+  },
+  {
+   "fieldname": "section_break_90",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Social Service\"",
+   "fieldname": "oreason",
+   "fieldtype": "Small Text",
+   "label": "Reason"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Social Service\"",
+   "fieldname": "oaddress",
+   "fieldtype": "Small Text",
+   "label": "Address"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Social Service\"",
+   "fieldname": "service_type",
+   "fieldtype": "Select",
+   "label": "Service Type",
+   "mandatory_depends_on": "eval:doc.subtype==\"Social Service\"",
+   "options": "\nCash\nThing"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Social Service\" && doc.service_type==\"Thing\"",
+   "fieldname": "orthing_name",
+   "fieldtype": "Data",
+   "label": "Thing Name"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Social Service\"",
+   "fieldname": "oamount",
+   "fieldtype": "Currency",
+   "label": "Amount",
+   "mandatory_depends_on": "eval:doc.subtype==\"Social Service\""
+  },
+  {
+   "fieldname": "section_break_97",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Maintenance\"",
+   "fieldname": "maintenance_to",
+   "fieldtype": "Select",
+   "label": "Maintenance To",
+   "options": "\nVehicle\nHome Appliance\nElectronics"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Maintenance\" && doc.maintenance_to==\"Vehicle\"",
+   "fieldname": "mvehicle_name",
+   "fieldtype": "Data",
+   "label": "Vehicle Name",
+   "mandatory_depends_on": "eval:doc.subtype==\"Maintenance\" && doc.maintenance_to==\"Vehicle\""
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Maintenance\" && doc.maintenance_to==\"Vehicle\"",
+   "fieldname": "mvehicle_number",
+   "fieldtype": "Data",
+   "label": "Vehicle Number"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Maintenance\" && doc.maintenance_to==\"Home Appliance\"",
+   "fieldname": "home_appliance_name",
+   "fieldtype": "Data",
+   "label": "Home Appliance Name",
+   "mandatory_depends_on": "eval:doc.subtype==\"Maintenance\" && doc.maintenance_to==\"Home Appliance\""
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Maintenance\" && doc.maintenance_to==\"Electronics\"",
+   "fieldname": "electronics_item_name",
+   "fieldtype": "Data",
+   "label": "Electronics Item Name",
+   "mandatory_depends_on": "eval:doc.subtype==\"Maintenance\" && doc.maintenance_to==\"Electronics\""
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Maintenance\" && doc.maintenance_type==\"Problem\" && in_list([\"Vehicle\", \"Home Appliance\", \"Electronics\"], doc.maintenance_to)",
+   "fieldname": "problem",
+   "fieldtype": "Small Text",
+   "label": "Problem"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Maintenance\" && in_list([\"Vehicle\", \"Home Appliance\", \"Electronics\"], doc.maintenance_to)",
+   "fieldname": "cost",
+   "fieldtype": "Currency",
+   "label": "Maintenance Cost",
+   "mandatory_depends_on": "eval:doc.subtype==\"Maintenance\" && in_list([\"Vehicle\", \"Home Appliance\", \"Electronics\"], doc.maintenance_to)"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Maintenance\" && in_list([\"Vehicle\", \"Home Appliance\", \"Electronics\"], doc.maintenance_to)",
+   "fieldname": "maintenance_type",
+   "fieldtype": "Select",
+   "label": "Maintenance Type",
+   "mandatory_depends_on": "eval:doc.subtype==\"Maintenance\" && in_list([\"Vehicle\", \"Home Appliance\", \"Electronics\"], doc.maintenance_to)",
+   "options": "\nRegular Maintenance\nProblem"
+  },
+  {
+   "fieldname": "section_break_106",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:in_list([\"Construction\", \"Agriculture\"], doc.subtype)",
+   "fieldname": "clocation",
+   "fieldtype": "Data",
+   "label": "Location",
+   "mandatory_depends_on": "eval:in_list([\"Construction\", \"Agriculture\"], doc.subtype)",
+   "options": "URL"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Construction\"",
+   "fieldname": "contractor_name",
+   "fieldtype": "Data",
+   "label": "Contractor Name",
+   "mandatory_depends_on": "eval:doc.subtype==\"Construction\""
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Construction\"",
+   "fieldname": "contract_amount",
+   "fieldtype": "Currency",
+   "label": "Contract Amount"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Construction\"",
+   "fieldname": "estimated_complete_date",
+   "fieldtype": "Date",
+   "label": "Estimated Complete Date"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Construction\"",
+   "fieldname": "advance_payment",
+   "fieldtype": "Currency",
+   "label": "Advance Payment"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Construction\"",
+   "fieldname": "cname",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "fieldname": "data_113",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Construction\"",
+   "fieldname": "cmobile_number",
+   "fieldtype": "Data",
+   "label": "Mobile Number"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Construction\"",
+   "fieldname": "aadhar_number",
+   "fieldtype": "Data",
+   "label": "Aadhar Number"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Construction\"",
+   "fieldname": "contractor_address",
+   "fieldtype": "Small Text",
+   "label": "Contractor Address"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Agriculture\"",
+   "fieldname": "soil_type",
+   "fieldtype": "Data",
+   "label": "Soil Type"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Agriculture\" && doc.aexpense_type==\"Maintenance\"",
+   "fieldname": "is_affected_by_disease",
+   "fieldtype": "Select",
+   "label": "Is Affected By Disease",
+   "options": "\nNo\nYes"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Agriculture\" && doc.aexpense_type==\"Maintenance\" && doc.is_affected_by_disease==\"Yes\"",
+   "fieldname": "used_fertilizer",
+   "fieldtype": "Data",
+   "label": "Used Fertilizer"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Agriculture\" && doc.aexpense_type==\"Maintenance\" && doc.is_affected_by_disease==\"Yes\"",
+   "fieldname": "fertilizer_expense",
+   "fieldtype": "Currency",
+   "label": "Expense Amount",
+   "mandatory_depends_on": "eval:doc.subtype==\"Agriculture\" && doc.aexpense_type==\"Maintenance\" && doc.is_affected_by_disease==\"Yes\""
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Agriculture\"",
+   "fieldname": "aexpense_type",
+   "fieldtype": "Select",
+   "label": "Expense Type",
+   "mandatory_depends_on": "eval:doc.subtype==\"Agriculture\"",
+   "options": "\nYeild\nMaintenance"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Agriculture\" && doc.aexpense_type==\"Yeild\"",
+   "fieldname": "crop_yeild_name",
+   "fieldtype": "Data",
+   "label": "Crop yeild name",
+   "mandatory_depends_on": "eval:doc.subtype==\"Agriculture\" && doc.aexpense_type==\"Yeild\""
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Agriculture\" && doc.aexpense_type==\"Yeild\"",
+   "fieldname": "yeild_expense",
+   "fieldtype": "Currency",
+   "label": "Yeild Expense"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Agriculture\" && in_list([\"Yeild\", \"Maintenance\"], doc.aexpense_type)",
+   "fieldname": "bill_documents",
+   "fieldtype": "Table",
+   "label": "Bill Documents",
+   "options": "TS Agri Bill Document"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Agriculture\" && doc.aexpense_type==\"Maintenance\" && doc.is_affected_by_disease==\"No\"",
+   "fieldname": "maintenance_reason",
+   "fieldtype": "Small Text",
+   "label": "Maintenance Reason"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Home Need\" && in_list([\"Grocery\", \"Shopping\", \"Clothing\", \"Electronics\"],doc.home_need_type)\n",
+   "fieldname": "shopping_date",
+   "fieldtype": "Date",
+   "label": "Shopping Date",
+   "mandatory_depends_on": "eval:doc.subtype==\"Home Need\""
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Home Need\" && in_list([\"Grocery\", \"Shopping\", \"Clothing\", \"Electronics\"],doc.home_need_type)\n",
+   "fieldname": "home_need_image",
+   "fieldtype": "Table",
+   "label": "Image",
+   "options": "TS Home Need Image"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Gift\" && doc.gift_type==\"Thing\"",
+   "fieldname": "gift_image",
+   "fieldtype": "Table",
+   "label": "Gift Image",
+   "options": "TS Gift Image"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Agriculture\" && in_list([\"Yeild\", \"Maintenance\"], doc.aexpense_type)",
+   "fieldname": "image",
+   "fieldtype": "Table",
+   "label": "Image",
+   "options": "TS Agri Image"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Insurance\" && in_list([\"Vehicle\", \"Person\", \"Electronic item\", \"livestock\"],doc.insurance_type)",
+   "fieldname": "iimage",
+   "fieldtype": "Table",
+   "label": "Image",
+   "options": "TS Insured Image"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Social Service\" && doc.service_type==\"Thing\"",
+   "fieldname": "thing_image",
+   "fieldtype": "Table",
+   "label": "Thing Image",
+   "options": "TS Thing Image"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Travel\"",
+   "fieldname": "total_amount",
+   "fieldtype": "Data",
+   "label": "Total Amount"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Social Service\"",
+   "fieldname": "sperson_name",
+   "fieldtype": "Data",
+   "label": "Person / Organization Name",
+   "mandatory_depends_on": "eval:doc.subtype==\"Social Service\""
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Construction\"",
+   "fieldname": "cimage",
+   "fieldtype": "Table",
+   "label": "Image",
+   "options": "TS Construction Image"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Home Need\" && doc.home_need_type==\"Electricity\"",
+   "fieldname": "units_consumed",
+   "fieldtype": "Float",
+   "label": "Units Consumed"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Maintenance\" && in_list([\"Vehicle\", \"Home Appliance\", \"Electronics\"], doc.maintenance_to)",
+   "fieldname": "mimage",
+   "fieldtype": "Table",
+   "label": "Image",
+   "options": "TS Maintenance Image"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_15",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_34",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_41",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_55",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_64",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_72",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_82",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_90",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_120",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_129",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sec",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_99",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_22",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_27",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_149",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Education\" && doc.expense_type==\"Stationary\"",
+   "fieldname": "sshop_name",
+   "fieldtype": "Data",
+   "label": "Shop Name"
+  },
+  {
+   "depends_on": "eval:doc.subtype==\"Education\" && doc.expense_type==\"Stationary\"",
+   "fieldname": "slocation",
+   "fieldtype": "Data",
+   "label": "Location",
+   "options": "URL"
+  },
+  {
+   "fieldname": "section_break_148",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break145",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_77",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_79",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_112",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2022-03-04 13:37:00.850322",
+ "modified_by": "Administrator",
+ "module": "Money Management Backend",
+ "name": "TS Expense",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

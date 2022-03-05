@@ -1,0 +1,152 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-03-05 07:43:34.180359",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "entry_type",
+  "card_holder_name",
+  "business_type",
+  "comapany_name",
+  "section_break_5",
+  "function_name",
+  "relation_catagory_name",
+  "relation_name",
+  "remainder_date",
+  "section_break_10",
+  "profile_name",
+  "job_type",
+  "reason",
+  "section_break_14",
+  "file_upload",
+  "column_break_16",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "entry_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Subtype",
+   "options": "TS Subtype",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.entry_type==\"Visiting Card\"",
+   "fieldname": "card_holder_name",
+   "fieldtype": "Data",
+   "label": "Card Holder Name"
+  },
+  {
+   "depends_on": "eval:doc.entry_type==\"Visiting Card\"",
+   "fieldname": "business_type",
+   "fieldtype": "Data",
+   "label": "Business Type"
+  },
+  {
+   "depends_on": "eval:doc.entry_type==\"Visiting Card\"",
+   "fieldname": "comapany_name",
+   "fieldtype": "Data",
+   "label": "Comapany Name",
+   "mandatory_depends_on": "eval:doc.entry_type==\"Visiting Card\""
+  },
+  {
+   "fieldname": "section_break_5",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.entry_type==\"Invitation\"",
+   "fieldname": "function_name",
+   "fieldtype": "Data",
+   "label": "Function Name",
+   "mandatory_depends_on": "eval:doc.entry_type==\"Invitation\""
+  },
+  {
+   "depends_on": "eval:doc.entry_type==\"Invitation\"",
+   "fieldname": "relation_catagory_name",
+   "fieldtype": "Data",
+   "label": "Relation Catagory Name"
+  },
+  {
+   "depends_on": "eval:doc.entry_type==\"Invitation\"",
+   "fieldname": "relation_name",
+   "fieldtype": "Data",
+   "label": "Relation Name"
+  },
+  {
+   "depends_on": "eval:in_list([\"Invitation\", \"Visiting Card\", \"Profile\"], doc.entry_type)",
+   "fieldname": "file_upload",
+   "fieldtype": "Table",
+   "label": "File Upload",
+   "options": "TS Others Image"
+  },
+  {
+   "depends_on": "eval:in_list([\"Invitation\", \"Visiting Card\", \"Profile\"], doc.entry_type)",
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  },
+  {
+   "depends_on": "eval:doc.entry_type==\"Invitation\"",
+   "fieldname": "remainder_date",
+   "fieldtype": "Date",
+   "label": "Remainder Date"
+  },
+  {
+   "fieldname": "section_break_10",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.entry_type==\"Profile\"",
+   "fieldname": "profile_name",
+   "fieldtype": "Data",
+   "label": "Profile Name",
+   "mandatory_depends_on": "eval:doc.entry_type==\"Profile\""
+  },
+  {
+   "depends_on": "eval:doc.entry_type==\"Profile\"",
+   "fieldname": "job_type",
+   "fieldtype": "Data",
+   "label": "Job Type"
+  },
+  {
+   "depends_on": "eval:doc.entry_type==\"Profile\"",
+   "fieldname": "reason",
+   "fieldtype": "Small Text",
+   "label": "Reason"
+  },
+  {
+   "fieldname": "section_break_14",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_16",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2022-03-05 09:48:27.296033",
+ "modified_by": "Administrator",
+ "module": "Money Management Backend",
+ "name": "TS Others",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

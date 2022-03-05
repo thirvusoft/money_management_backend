@@ -73,7 +73,8 @@ def login():
 
 #apps/money_management_backend/money_management_backend/custom/py/api.py
 
-# Log Daily Entry Data
+# Customize
+
 @frappe.whitelist(allow_guest=True)
 def daily_entry_submit(Date,Type, Subtype,Name,Notes,Amount,Remainder_date):
 	req = frappe.local.form_dict
@@ -112,14 +113,22 @@ def daily_entry_submit(Date,Type, Subtype,Name,Notes,Amount,Remainder_date):
 
 # Other custamization
 @frappe.whitelist(allow_guest=True)
-def other_entry( Subtype,binaryicon):
+# def other_entry( Subtype,binaryicon):
+# 	doc=frappe.new_doc("TS Subtype")
+# 	doc1="Others"
+# 	doc.update(
+# 		{	
+# 		"type":doc1,
+# 		"sub_type_name":Subtype,
+		# "icon":binaryicon
+def custom(Type, Subtype, IconBineryCode):
+	
 	doc=frappe.new_doc("TS Subtype")
-	doc1="Others"
 	doc.update(
-		{	
-		"type":doc1,
-		"sub_type_name":Subtype,
-		"icon":binaryicon
+		{
+		"ts_type":Type,
+		"ts_subtype":Subtype,
+		"icon_code":IconBineryCode
 		}),
 	frappe.local.response.http_status_code = 200
 	frappe.local.response["message"] = "Entered Successfully"
@@ -151,11 +160,12 @@ def subtype (Type):
 	frappe.local.response[Type]= docs
 
 
+#Profile
 @frappe.whitelist(allow_guest=True)
 def profile(email):
-	user_doc = frappe.get_doc("User", email)
-	return {
-			"email": user_doc.email,
-			"full_name": user_doc.full_name,
-			"mobile_number": user_doc.mobile_number
-		}
+    user_doc = frappe.get_doc("User", email)
+    return {
+            "email": user_doc.email,
+            "full_name": user_doc.full_name,
+            "mobile_number": user_doc.mobile_no
+        }

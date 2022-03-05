@@ -1,0 +1,49 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-02-23 08:31:07.956697",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "ts_documents",
+  "ts_notes",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "ts_documents",
+   "fieldtype": "Attach",
+   "in_list_view": 1,
+   "label": "Documents"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "TS Land Document",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "ts_notes",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Docment Type",
+   "options": "TS Land Document Type"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2022-03-02 11:13:59.305649",
+ "modified_by": "Administrator",
+ "module": "Money Management Backend",
+ "name": "TS Land Document",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}
