@@ -64,7 +64,7 @@ def login():
 # Customize
 
 @frappe.whitelist(allow_guest=True)
-def daily_entry_submit(Type, Subtype, IconBineryCode):
+def custom(Type, Subtype, IconBineryCode):
 	
 	doc=frappe.new_doc("TS Subtype")
 	doc.update(
@@ -79,3 +79,14 @@ def daily_entry_submit(Type, Subtype, IconBineryCode):
 		return "Successfully Submitted"
 	except:
 		return "Failed to Submit"
+
+
+
+@frappe.whitelist(allow_guest=True)
+def profile(email):
+    user_doc = frappe.get_doc("User", email)
+    return {
+            "email": user_doc.email,
+            "full_name": user_doc.full_name,
+            "mobile_number": user_doc.mobile_no
+        }
