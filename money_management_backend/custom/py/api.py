@@ -1,3 +1,4 @@
+from dataclasses import fields
 from pydoc import doc
 import frappe
 from frappe.auth import LoginManager
@@ -34,20 +35,30 @@ def login():
 		frappe.local.response.http_status_code = 200
 		frappe.local.response["message"] = "Logged In"
 		frappe.local.response["token"] = token
-		frappe.local.response["data"] = get_profile(login_manager.user)
-		icon =frappe.get_all("TS Subtype", "icon_code")
-		frappe.local.response["icon_code"]= icon
+		frappe.local.response["data"] = get_profile(login_manager.user)	
 		frappe.db.commit()
+
 		
 		
-	except frappe.AuthenticationError:
+	except frappe.AuthenticationError as e:
 		frappe.db.rollback()
 		frappe.local.response.http_status_code = 401
+		frappe.local.response["message"] = str(e)
 
 	except frappe.SecurityException as e:
 		frappe.db.rollback()
 		frappe.local.response.http_status_code = 403
 		frappe.local.response["message"] = str(e)
+
+	except frappe.ValidationError as e:
+		frappe.db.rollback()
+		frappe.local.response.http_status_code = 417
+		frappe.local.response["message"] = str(e)
+
+	except frappe.SessionStopped as e:
+		frappe.db.rollback()
+		frappe.local.response.http_status_code = 503
+		frappe.local.response["message"] = str(e)		
 	
 	except Exception:
 		frappe.db.rollback()
@@ -57,13 +68,59 @@ def login():
 
 	finally:
 		return build_response('json')
+	
 
 
-
+#apps/money_management_backend/money_management_backend/custom/py/api.py
 
 # Customize
 
 @frappe.whitelist(allow_guest=True)
+def daily_entry_submit(Date,Type, Subtype,Name,Notes,Amount,Remainder_date):
+	req = frappe.local.form_dict
+	doc=frappe.new_doc("TS Daily Entry Sheet")
+	doc.update(
+		{
+		"date":Date,	
+		"type":Type,
+		"sub_type":Subtype,
+		"entry_name":Name,
+		"notes":Notes,
+		"amount":Amount,
+		"remainder_date":Remainder_date
+		
+		}),
+	
+	try:
+		doc.insert(ignore_permissions=True)
+		frappe.db.commit()
+		
+		
+	except frappe.ValidationError as e:
+		frappe.db.rollback()
+		frappe.local.response.http_status_code = 417
+		frappe.local.response["message"] = str(e)
+
+    	
+	except Exception:
+		frappe.db.rollback()
+		frappe.local.response.http_status_code = 500
+		frappe.local.response["message"] = "Submit failed"
+		frappe.log_error(title=req.cmd, message = f'{str(req)} \n {frappe.get_traceback()}')
+
+	finally:
+		return build_response('json')	
+
+# Other custamization
+@frappe.whitelist(allow_guest=True)
+# def other_entry( Subtype,binaryicon):
+# 	doc=frappe.new_doc("TS Subtype")
+# 	doc1="Others"
+# 	doc.update(
+# 		{	
+# 		"type":doc1,
+# 		"sub_type_name":Subtype,
+		# "icon":binaryicon
 def custom(Type, Subtype, IconBineryCode):
 	
 	doc=frappe.new_doc("TS Subtype")
@@ -73,15 +130,37 @@ def custom(Type, Subtype, IconBineryCode):
 		"ts_subtype":Subtype,
 		"icon_code":IconBineryCode
 		}),
+	frappe.local.response.http_status_code = 200
+	frappe.local.response["message"] = "Entered Successfully"
 	try:
 		doc.insert(ignore_permissions=True)
 		frappe.db.commit()
-		return "Successfully Submitted"
-	except:
-		return "Failed to Submit"
+		
+	except frappe.InternalServerError as e:
+		frappe.db.rollback()
+		frappe.local.response.http_status_code = 500
+		frappe.local.response["message"] = str(e)	
 
 
+	except frappe.ValidationError as e:
+		frappe.db.rollback()
+		frappe.local.response.http_status_code = 417
+		frappe.local.response["message"] = str(e)
 
+	
+	finally:
+		return build_response('json')		
+
+
+@frappe.whitelist(allow_guest=True)
+def subtype (Type):
+	docs = frappe.get_all("TS Subtype", filters={"type":Type},fields=["sub_type_name","icon"])	
+	for i in range(len(docs)):
+		docs[i]['icon'] = hex(int(docs[i]['icon']))
+	frappe.local.response[Type]= docs
+
+
+#Profile
 @frappe.whitelist(allow_guest=True)
 def profile(email):
     user_doc = frappe.get_doc("User", email)
