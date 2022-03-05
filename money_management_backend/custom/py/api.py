@@ -142,3 +142,20 @@ def other_entry( Subtype,binaryicon):
 	finally:
 		return build_response('json')		
 
+
+@frappe.whitelist(allow_guest=True)
+def subtype (Type):
+	docs = frappe.get_all("TS Subtype", filters={"type":Type},fields=["sub_type_name","icon"])	
+	for i in range(len(docs)):
+		docs[i]['icon'] = hex(int(docs[i]['icon']))
+	frappe.local.response[Type]= docs
+
+
+@frappe.whitelist(allow_guest=True)
+def profile(email):
+	user_doc = frappe.get_doc("User", email)
+	return {
+			"email": user_doc.email,
+			"full_name": user_doc.full_name,
+			"mobile_number": user_doc.mobile_number
+		}
