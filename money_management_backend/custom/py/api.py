@@ -35,13 +35,7 @@ def login():
 		frappe.local.response.http_status_code = 200
 		frappe.local.response["message"] = "Logged In"
 		frappe.local.response["token"] = token
-		frappe.local.response["data"] = get_profile(login_manager.user)
-		
-		for types in ["Asset","Liability","Income","Expense","Others","Custom"]:
-			docs = frappe.get_all("TS Subtype", filters={"type":types},fields=["sub_type_name","icon"])	
-			for i in range(len(docs)):
-				docs[i]['icon'] = hex(int(docs[i]['icon']))
-			frappe.local.response[types]= docs		
+		frappe.local.response["data"] = get_profile(login_manager.user)	
 		frappe.db.commit()
 
 		
@@ -82,6 +76,7 @@ def login():
 # Log Daily Entry Data
 @frappe.whitelist(allow_guest=True)
 def daily_entry_submit(Date,Type, Subtype,Name,Notes,Amount,Remainder_date):
+	req = frappe.local.form_dict
 	doc=frappe.new_doc("TS Daily Entry Sheet")
 	doc.update(
 		{
@@ -94,26 +89,24 @@ def daily_entry_submit(Date,Type, Subtype,Name,Notes,Amount,Remainder_date):
 		"remainder_date":Remainder_date
 		
 		}),
-	frappe.local.response.http_status_code = 200
-	frappe.local.response["message"] = "Entered Successfully"
+	
 	try:
 		doc.insert(ignore_permissions=True)
 		frappe.db.commit()
 		
-		 
-
-	except frappe.InternalServerError as e:
-		frappe.db.rollback()
-		frappe.local.response.http_status_code = 500
-		frappe.local.response["message"] = str(e)	
-
-
+		
 	except frappe.ValidationError as e:
 		frappe.db.rollback()
 		frappe.local.response.http_status_code = 417
 		frappe.local.response["message"] = str(e)
 
     	
+	except Exception:
+		frappe.db.rollback()
+		frappe.local.response.http_status_code = 500
+		frappe.local.response["message"] = "Submit failed"
+		frappe.log_error(title=req.cmd, message = f'{str(req)} \n {frappe.get_traceback()}')
+
 	finally:
 		return build_response('json')	
 
@@ -148,3 +141,4 @@ def other_entry( Subtype,binaryicon):
 	
 	finally:
 		return build_response('json')		
+
