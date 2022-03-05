@@ -28,7 +28,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Type",
-   "options": "Asset\nLiability\nIncome\nExpense\nOthers",
+   "options": "\nAsset\nLiability\nIncome\nExpense\nOthers",
    "reqd": 1
   },
   {
@@ -46,8 +46,9 @@
   },
   {
    "fieldname": "file_upload",
-   "fieldtype": "Attach",
-   "label": "File Upload"
+   "fieldtype": "Table",
+   "label": "File Upload",
+   "options": "TS Daily Entry File"
   },
   {
    "depends_on": "eval:doc.type!=\"Others\"",
@@ -69,7 +70,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-02-23 13:25:41.842715",
+ "modified": "2022-03-05 09:03:20.417414",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Daily Entry Sheet",

@@ -27,10 +27,10 @@
  "fields": [
   {
    "fieldname": "entry_type",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Entry Type",
-   "options": "\nVisiting Card\nInvitation\nProfile",
+   "label": "Subtype",
+   "options": "TS Subtype",
    "reqd": 1
   },
   {
@@ -128,7 +128,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-05 08:19:27.327222",
+ "modified": "2022-03-05 09:48:27.296033",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Others",

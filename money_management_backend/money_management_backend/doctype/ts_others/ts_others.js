@@ -14,3 +14,20 @@ entry_type: function(frm,cdt,cdn)
 		}
 	 }
 });
+
+frappe.ui.form.on('TS Others', 
+{
+	onload:function(frm)
+	
+	{
+	    frm.set_query("entry_type", function() {
+
+            return {
+                filters:
+				[
+                    ['ts_type','=',"Others"]
+                ]
+            };
+        });
+	}
+});

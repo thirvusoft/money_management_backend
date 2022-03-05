@@ -61,7 +61,7 @@ def login():
 
 
 
-# Log Daily Entry Data
+# Customize
 
 @frappe.whitelist(allow_guest=True)
 def daily_entry_submit(Type, Subtype, IconBineryCode):
