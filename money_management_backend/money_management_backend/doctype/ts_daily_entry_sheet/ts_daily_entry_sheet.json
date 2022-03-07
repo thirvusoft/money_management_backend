@@ -1,7 +1,6 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:entry_name",
  "creation": "2022-02-21 16:16:56.308680",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -10,7 +9,7 @@
   "date",
   "type",
   "sub_type",
-  "entry_name",
+  "name1",
   "file_upload",
   "notes",
   "amount",
@@ -29,14 +28,15 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Type",
-   "options": "Asset\nLiability\nIncome\nExpense\nOthers\nCustom",
+   "options": "\nAsset\nLiability\nIncome\nExpense\nOthers",
    "reqd": 1
   },
   {
    "fieldname": "sub_type",
    "fieldtype": "Link",
    "label": "Sub Type",
-   "options": "TS Subtype"
+   "options": "TS Subtype",
+   "reqd": 1
   },
   {
    "fieldname": "file_upload",
@@ -62,15 +62,16 @@
    "label": "Remainder Date"
   },
   {
-   "fieldname": "entry_name",
+   "depends_on": "eval:doc.type==\"Others\"",
+   "fieldname": "name1",
    "fieldtype": "Data",
-   "label": "Entry Name",
-   "unique": 1
+   "in_list_view": 1,
+   "label": "Name"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-04 11:21:04.562267",
+ "modified": "2022-03-07 08:36:56.020998",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Daily Entry Sheet",

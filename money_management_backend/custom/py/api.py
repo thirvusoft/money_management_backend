@@ -71,10 +71,7 @@ def login():
 	
 
 
-#apps/money_management_backend/money_management_backend/custom/py/api.py
-
-# Customize
-
+#Daily Entry
 @frappe.whitelist(allow_guest=True)
 def daily_entry_submit(Date,Type, Subtype,Name,Notes,Amount,Remainder_date):
 	req = frappe.local.form_dict
@@ -88,12 +85,12 @@ def daily_entry_submit(Date,Type, Subtype,Name,Notes,Amount,Remainder_date):
 		"notes":Notes,
 		"amount":Amount,
 		"remainder_date":Remainder_date
-		
 		}),
 	
 	try:
 		doc.insert(ignore_permissions=True)
 		frappe.db.commit()
+		frappe.local.response["message"]="Success"
 		
 		
 	except frappe.ValidationError as e:
@@ -113,14 +110,6 @@ def daily_entry_submit(Date,Type, Subtype,Name,Notes,Amount,Remainder_date):
 
 # Other custamization
 @frappe.whitelist(allow_guest=True)
-# def other_entry( Subtype,binaryicon):
-# 	doc=frappe.new_doc("TS Subtype")
-# 	doc1="Others"
-# 	doc.update(
-# 		{	
-# 		"type":doc1,
-# 		"sub_type_name":Subtype,
-		# "icon":binaryicon
 def custom(Type, Subtype, IconBineryCode):
 	
 	doc=frappe.new_doc("TS Subtype")
@@ -151,12 +140,12 @@ def custom(Type, Subtype, IconBineryCode):
 	finally:
 		return build_response('json')		
 
-
+#Icon List
 @frappe.whitelist(allow_guest=True)
 def subtype (Type):
-	docs = frappe.get_all("TS Subtype", filters={"type":Type},fields=["sub_type_name","icon"])	
+	docs = frappe.get_all("TS Subtype", filters={"ts_type":Type},fields=["ts_subtype","icon_code"])	
 	for i in range(len(docs)):
-		docs[i]['icon'] = hex(int(docs[i]['icon']))
+		docs[i]['icon_code'] = hex(int(docs[i]['icon_code']))
 	frappe.local.response[Type]= docs
 
 
@@ -169,3 +158,4 @@ def profile(email):
             "full_name": user_doc.full_name,
             "mobile_number": user_doc.mobile_no
         }
+		
