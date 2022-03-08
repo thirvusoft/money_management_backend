@@ -1,6 +1,6 @@
 
 
-fields=["type","sub_type_name","icon"]
+fields=["ts_type","ts_subtype","icon_code"]
 Asset=[
         ["Gold","987727"],
         ["Silver","987727"],

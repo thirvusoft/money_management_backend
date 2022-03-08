@@ -133,7 +133,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Entry",
-   "options": "\nAsset\nLiability\nIncome\nExpense\nOthers",
+   "options": "\nAsset\nLiability\nIncome",
    "reqd": 1
   },
   {
@@ -852,7 +852,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-02 19:38:08.639640",
+ "modified": "2022-03-08 17:45:15.727216",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Money Manager",

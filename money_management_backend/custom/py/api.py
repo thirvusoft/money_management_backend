@@ -27,6 +27,9 @@ def get_profile(current_user):
 @frappe.whitelist(allow_guest=True)
 def login():
 	req = frappe.local.form_dict
+	# docs = frappe.get_list("TS Subtype",fields=["icon"])
+	# frappe.local.response[docs]
+	
 	try:
 		frappe.db.begin()
 		login_manager = LoginManager()
@@ -36,6 +39,13 @@ def login():
 		frappe.local.response["message"] = "Logged In"
 		frappe.local.response["token"] = token
 		frappe.local.response["data"] = get_profile(login_manager.user)	
+		# docs = frappe.get_all("TS Subtype",filters={"ts_type":"Asset"},fields=["ts_subtype","icon_code"])
+		# for i in docs:
+		# 	frappe.local.response["Asset"]=docs
+		docs = frappe.get_all("TS Subtype", filters={"ts_type":"Asset"},fields=["icon_code"])	
+		for i in range(len(docs)):
+			docs[i]['icon_code'] = hex(int(docs[i]['icon_code']))
+		frappe.local.response["Asset"]= docs
 		frappe.db.commit()
 
 		
@@ -76,12 +86,11 @@ def login():
 # Customize
 
 @frappe.whitelist(allow_guest=True)
-def daily_entry_submit(Date,Type, Subtype,Name,Notes,Amount,Remainder_date):
+def daily_entry_submit(Type, Subtype,Name,Notes,Amount,Remainder_date):
 	req = frappe.local.form_dict
 	doc=frappe.new_doc("TS Daily Entry Sheet")
 	doc.update(
-		{
-		"date":Date,	
+		{	
 		"type":Type,
 		"sub_type":Subtype,
 		"entry_name":Name,
@@ -111,7 +120,7 @@ def daily_entry_submit(Date,Type, Subtype,Name,Notes,Amount,Remainder_date):
 	finally:
 		return build_response('json')	
 
-# Other custamization
+# customization
 @frappe.whitelist(allow_guest=True)
 # def other_entry( Subtype,binaryicon):
 # 	doc=frappe.new_doc("TS Subtype")
@@ -122,20 +131,28 @@ def daily_entry_submit(Date,Type, Subtype,Name,Notes,Amount,Remainder_date):
 # 		"sub_type_name":Subtype,
 		# "icon":binaryicon
 def custom(Type, Subtype, IconBineryCode):
-	
+	req = frappe.local.form_dict
 	doc=frappe.new_doc("TS Subtype")
+	
 	doc.update(
 		{
 		"ts_type":Type,
 		"ts_subtype":Subtype,
 		"icon_code":IconBineryCode
 		}),
-	frappe.local.response.http_status_code = 200
-	frappe.local.response["message"] = "Entered Successfully"
+	
+	# frappe.local.response.http_status_code = 200
+	# frappe.local.response["message"] = "Entered Successfully"
 	try:
-		doc.insert(ignore_permissions=True)
-		frappe.db.commit()
-		
+		duplicate=frappe.db.get_value('TS Subtype', {'ts_subtype':Subtype})
+		if duplicate:
+			frappe.local.response.http_status_code = 500
+			frappe.local.response["message"] = "Duplicate Entry"
+		else:
+			doc.insert(ignore_permissions=True)
+			frappe.db.commit()
+			frappe.local.response.http_status_code = 200
+			frappe.local.response["message"] = "success"
 	except frappe.InternalServerError as e:
 		frappe.db.rollback()
 		frappe.local.response.http_status_code = 500
@@ -146,7 +163,16 @@ def custom(Type, Subtype, IconBineryCode):
 		frappe.db.rollback()
 		frappe.local.response.http_status_code = 417
 		frappe.local.response["message"] = str(e)
-
+	
+	except frappe.DuplicateEntryError as e:
+		# print("duplicate----------------------------------------------------------------------------------------------************************")
+		frappe.local.response["message"] = str(e)
+		
+	except Exception:
+		frappe.db.rollback()
+		frappe.local.response.http_status_code = 500
+		frappe.local.response["message"] = "Submit failed"
+		frappe.log_error(title=req.cmd, message = f'{str(req)} \n {frappe.get_traceback()}')
 	
 	finally:
 		return build_response('json')		
