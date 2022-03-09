@@ -1,0 +1,29 @@
+{
+ "cards": [],
+ "charts": [
+  {
+   "chart": "Income Report",
+   "width": "Half"
+  },
+  {
+   "chart": "Expense Report",
+   "width": "Half"
+  },
+  {
+   "chart": "Profit and Loss",
+   "width": "Half"
+  }
+ ],
+ "creation": "2022-03-09 09:17:59.701713",
+ "dashboard_name": "Daily Entry ",
+ "docstatus": 0,
+ "doctype": "Dashboard",
+ "idx": 0,
+ "is_default": 0,
+ "is_standard": 1,
+ "modified": "2022-03-09 09:20:31.557477",
+ "modified_by": "Administrator",
+ "module": "Money Management Backend",
+ "name": "Daily Entry",
+ "owner": "Administrator"
+}

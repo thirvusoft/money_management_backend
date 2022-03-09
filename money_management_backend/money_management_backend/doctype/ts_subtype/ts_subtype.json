@@ -1,8 +1,8 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:ts_subtype",
- "creation": "2022-02-22 08:08:40.744257",
+ "autoname": "Subtype.####",
+ "creation": "2022-03-09 13:35:47.380330",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
@@ -14,40 +14,37 @@
  ],
  "fields": [
   {
-   "depends_on": "eval:doc.type != \"others\"",
    "fieldname": "ts_type",
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Type",
-   "options": "Asset\nLiability\nIncome\nExpense\nOthers",
+   "options": "\nAsset\nLiability\nIncome\nExpense\nOthers",
    "reqd": 1
   },
   {
    "fieldname": "ts_subtype",
    "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Sub Type Name",
-   "reqd": 1,
-   "unique": 1
+   "label": "SubType"
   },
   {
    "fieldname": "icon_code",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Icon ",
+   "label": "Icon",
    "reqd": 1
   },
   {
    "default": "0",
    "fieldname": "flutter",
    "fieldtype": "Check",
+   "in_list_view": 1,
    "label": "Flutter",
    "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-08 18:16:40.086240",
+ "modified": "2022-03-09 13:35:47.380330",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Subtype",

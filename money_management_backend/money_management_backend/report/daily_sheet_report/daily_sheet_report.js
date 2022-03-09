@@ -8,7 +8,7 @@ frappe.query_reports["daily sheet Report"] = {
 			"fieldname" :"ts_type",
 			"label" : __("choose the Type"),
 			"fieldtype" : "Select",
-			"options" : ['Asset','Expense','Liability','Others'],
+			"options" : ['Asset','Expense','Income','Liability','Others'],
 			"default": frappe.defaults.get_user_default("Asset"),
 			"reqd":1
 		}

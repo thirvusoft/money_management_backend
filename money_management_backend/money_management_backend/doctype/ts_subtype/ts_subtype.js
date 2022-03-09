@@ -6,5 +6,3 @@ frappe.ui.form.on('TS Subtype', {
 
 	// }
 });
-
-

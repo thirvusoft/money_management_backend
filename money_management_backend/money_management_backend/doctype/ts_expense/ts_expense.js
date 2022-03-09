@@ -10,7 +10,8 @@ frappe.ui.form.on('TS Expense',
             return {
                 filters:
 				[
-                    ['ts_type','=',"Expense"]
+                    ['ts_type','=',"Expense"],
+					['flutter','=',"0"]
                 ]
             };
         });

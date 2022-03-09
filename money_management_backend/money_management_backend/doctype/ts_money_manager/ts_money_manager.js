@@ -36,7 +36,8 @@ frappe.ui.form.on('TS Money Manager',
             return {
                 filters:
 				[
-                    ['ts_type','=',entry]
+                    ['ts_type','=',entry],
+					['flutter','=',"0"]
                 ]
             };
         });

@@ -54,28 +54,17 @@
    "label": "Remainder Date"
   },
   {
-<<<<<<< Updated upstream
-   "fieldname": "entry_name",
-   "fieldtype": "Data",
-   "label": "Entry Name",
-=======
-   "depends_on": "eval:doc.type==\"Others\"",
    "fieldname": "entry_name",
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Name",
    "reqd": 1,
->>>>>>> Stashed changes
    "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
-<<<<<<< Updated upstream
- "modified": "2022-03-04 11:21:04.562267",
-=======
- "modified": "2022-03-08 17:54:02.379163",
->>>>>>> Stashed changes
+ "modified": "2022-03-09 09:04:58.459064",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Daily Entry Sheet",

@@ -43,8 +43,6 @@ def login():
 		# for i in docs:
 		# 	frappe.local.response["Asset"]=docs
 		docs = frappe.get_all("TS Subtype", filters={"ts_type":"Asset"},fields=["icon_code"])	
-		for i in range(len(docs)):
-			docs[i]['icon_code'] = hex(int(docs[i]['icon_code']))
 		frappe.local.response["Asset"]= docs
 		frappe.db.commit()
 
@@ -102,6 +100,8 @@ def daily_entry_submit(Type, Subtype,Name,Notes,Amount,Remainder_date):
 	
 	try:
 		doc.insert(ignore_permissions=True)
+		frappe.local.response.http_status_code = 200
+		frappe.local.response["message"] = "success"
 		frappe.db.commit()
 		
 		
@@ -180,9 +180,7 @@ def custom(Type, Subtype, IconBineryCode):
 
 @frappe.whitelist(allow_guest=True)
 def subtype (Type):
-	docs = frappe.get_all("TS Subtype", filters={"type":Type},fields=["sub_type_name","icon"])	
-	for i in range(len(docs)):
-		docs[i]['icon'] = hex(int(docs[i]['icon']))
+	docs = frappe.get_all("TS Subtype", filters={"ts_type":Type},fields=["ts_subtype","icon_code"])	
 	frappe.local.response[Type]= docs
 
 

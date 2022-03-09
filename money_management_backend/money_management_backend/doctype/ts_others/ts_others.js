@@ -25,7 +25,8 @@ frappe.ui.form.on('TS Others',
             return {
                 filters:
 				[
-                    ['ts_type','=',"Others"]
+                    ['ts_type','=',"Others"],
+					['flutter','=',"0"]
                 ]
             };
         });
