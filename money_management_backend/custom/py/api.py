@@ -90,7 +90,7 @@ def daily_entry_submit(Type, Subtype,Name,Notes,Amount,Remainder_date):
 	doc.update(
 		{	
 		"type":Type,
-		"sub_type":Subtype,
+		"ts_subtype":Subtype,
 		"entry_name":Name,
 		"notes":Notes,
 		"amount":Amount,

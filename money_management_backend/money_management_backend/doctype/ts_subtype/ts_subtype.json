@@ -30,8 +30,7 @@
    "fieldname": "icon_code",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Icon",
-   "reqd": 1
+   "label": "Icon"
   },
   {
    "default": "0",
@@ -44,7 +43,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-09 13:35:47.380330",
+ "modified": "2022-03-09 14:03:56.516451",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Subtype",
@@ -64,6 +63,7 @@
   }
  ],
  "quick_entry": 1,
+ "search_fields": "ts_subtype",
  "sort_field": "modified",
  "sort_order": "DESC"
 }
