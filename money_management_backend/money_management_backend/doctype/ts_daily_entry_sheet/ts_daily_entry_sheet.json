@@ -32,9 +32,8 @@
   },
   {
    "fieldname": "file_upload",
-   "fieldtype": "Table",
-   "label": "File Upload",
-   "options": "TS Daily Entry File"
+   "fieldtype": "Attach",
+   "label": "Attach Image"
   },
   {
    "depends_on": "eval:doc.type!=\"Others\"",
@@ -64,7 +63,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-09 09:04:58.459064",
+ "modified": "2022-03-10 18:38:11.596043",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Daily Entry Sheet",

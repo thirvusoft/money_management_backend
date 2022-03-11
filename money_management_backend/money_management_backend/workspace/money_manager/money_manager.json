@@ -23,7 +23,7 @@
  "is_standard": 1,
  "label": "Money Manager",
  "links": [],
- "modified": "2022-03-09 16:06:05.280795",
+ "modified": "2022-03-09 17:47:49.143955",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "Money Manager",
@@ -47,6 +47,12 @@
    "doc_view": "",
    "label": "Others",
    "link_to": "TS Others",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "Daily Entry",
+   "link_to": "TS Daily Entry Sheet",
    "type": "DocType"
   }
  ]

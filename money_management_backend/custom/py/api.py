@@ -4,6 +4,8 @@ import frappe
 from frappe.auth import LoginManager
 from frappe.utils.response import build_response
 import json
+from frappe.handler import upload_file
+
 def generate_token(user):
 	user_details = frappe.get_doc("User", user)
 	api_key = user_details.api_key
@@ -94,7 +96,8 @@ def daily_entry_submit(Type, Subtype,Name,Notes,Amount,Remainder_date):
 		"entry_name":Name,
 		"notes":Notes,
 		"amount":Amount,
-		"remainder_date":Remainder_date
+		"remainder_date":Remainder_date,
+		#"file_upload":Image
 		
 		}),
 	
@@ -179,10 +182,15 @@ def custom(Type, Subtype, IconBineryCode):
 
 
 @frappe.whitelist(allow_guest=True)
-def subtype (Type):
-	docs = frappe.get_all("TS Subtype", filters={"ts_type":Type},fields=["ts_subtype","icon_code"])	
+def withsubtype (Type):
+	docs = frappe.get_all("TS Subtype", filters={"ts_type":Type,"ts_subtype":['!=',""],"flutter":"1"},fields=["ts_subtype","icon_code"], as_list = 1)
 	frappe.local.response[Type]= docs
 
+
+@frappe.whitelist(allow_guest=True)
+def withoutsubtype (Type):
+	docs = frappe.get_all("TS Subtype", filters={"ts_type":Type,"flutter":"1"},fields=["icon_code"])
+	frappe.local.response[Type]= docs
 
 #Profile
 @frappe.whitelist(allow_guest=True)
@@ -193,3 +201,64 @@ def profile(email):
             "full_name": user_doc.full_name,
             "mobile_number": user_doc.mobile_no
         }
+
+
+#Image 
+
+# def upload_profile_image():
+#     req = frappe.local.form_dict
+# 	print(req)
+# 	#frappe.local.response[message]=re
+@frappe.whitelist(allow_guest=True)	
+def upload_profile_image():
+	print("**************************************************")
+	req = frappe.local.form_dict
+	print("**************************************************")
+	print(req)
+# def upload_profile_image():
+# 	req = frappe.local.form_dict
+# 	if frappe.local.form_dict.data is None:
+# 		data = json.loads(frappe.local.request.get_data())
+# 	else:
+# 		data = json.loads(frappe.local.form_dict.data)
+
+# 	frappe.local.response["Message"]= data
+
+
+@frappe.whitelist(allow_guest=True)
+def upload_profile_image():
+    req = frappe.local.form_dict
+    try:
+        frappe.db.begin()
+        if not frappe.request.files['file'].__dict__.get('filename',None):
+            raise FileNotFoundError
+        #current_user = frappe.session.user
+        frappe.form_dict.doctype = 'TS Daily Entry Sheet'
+        #frappe.form_dict.docname = current_user
+        frappe.form_dict.fieldname = 'file_upload'
+        # existing_file = frappe.db.get_value('File',{'attached_to_doctype':'TS Daily Entry Sheet',
+        #                 'attached_to_name': current_user, 'attached_to_field': 'file_upload'})
+        # if existing_file:
+        #     frappe.delete_doc("File", existing_file, ignore_permissions=True)
+        new_file = upload_file()
+        frappe.db.set_value('TS Daily Entry Sheet','file_upload', new_file.file_url)
+        frappe.local.response.http_status_code = 200
+        frappe.local.response["message"] = "Image Uploaded Successfully"
+        #frappe.local.response["data"] = get_profile(current_user)
+        frappe.db.commit()
+    except frappe.FileNotFoundError:
+        frappe.db.rollback()
+        frappe.local.response.http_status_code = 404
+        frappe.local.response["message"] = "Kindly Upload a File to Proceed"
+    except Exception:
+        frappe.db.rollback()
+        frappe.local.response.http_status_code = 500
+        frappe.local.response["message"] = "Image Upload Failed"
+        #frappe.log_error(title=req.cmd, message = f'{str(req)} \n {frappe.get_traceback()}')
+    finally:
+        return build_response('json')
+	
+
+
+
+# apps/frappe/frappe/handler.py

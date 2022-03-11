@@ -71,9 +71,9 @@
   "other_expense_amount",
   "total_amount",
   "sec",
+  "travel_documents",
   "entertainment_name",
   "elocation",
-  "column_break_64",
   "expense_amount",
   "section_break_61",
   "insurance_type",
@@ -1006,10 +1006,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "column_break_64",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "column_break_72",
    "fieldtype": "Column Break"
   },
@@ -1087,11 +1083,18 @@
    "fieldname": "subtype_name",
    "fieldtype": "Data",
    "label": "Subtype Name"
+  },
+  {
+   "depends_on": "eval:doc.subtype_name==\"Travel\"",
+   "fieldname": "travel_documents",
+   "fieldtype": "Table",
+   "label": "Travel Documents",
+   "options": "TS Traveldocuments"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-09 22:18:16.928924",
+ "modified": "2022-03-10 15:54:57.339510",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Expense",
