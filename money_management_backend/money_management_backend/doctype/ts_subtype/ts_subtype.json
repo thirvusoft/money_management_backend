@@ -1,39 +1,46 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:sub_type_name",
+ "autoname": "field:ts_subtype",
  "creation": "2022-02-22 08:08:40.744257",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "type",
-  "sub_type_name",
-  "icon"
+  "ts_type",
+  "ts_subtype",
+  "icon_code",
+  "is_custom_icon"
  ],
  "fields": [
   {
-   "depends_on": "eval:doc.type != \"others\"",
-   "fieldname": "type",
-   "fieldtype": "Select",
-   "label": "Type",
-   "options": "Asset\nLiability\nIncome\nExpense\nOthers\nCustom"
+   "default": "0",
+   "fieldname": "is_custom_icon",
+   "fieldtype": "Check",
+   "label": "Is Custom Icon"
   },
   {
-   "fieldname": "sub_type_name",
+   "fieldname": "ts_subtype",
    "fieldtype": "Data",
-   "label": "Sub Type Name",
+   "label": "Sub Type",
    "unique": 1
   },
   {
-   "fieldname": "icon",
+   "fieldname": "icon_code",
    "fieldtype": "Read Only",
    "label": "Icon "
+  },
+  {
+   "depends_on": "eval:doc.type != \"others\"",
+   "fieldname": "ts_type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "Asset\nLiability\nIncome\nExpense\nOthers\nCustom"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-04 11:27:04.631704",
+ "modified": "2022-03-15 00:28:47.244272",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Subtype",
