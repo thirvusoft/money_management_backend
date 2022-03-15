@@ -1,5 +1,3 @@
-from dataclasses import fields
-from pydoc import doc
 import frappe
 from frappe.auth import LoginManager
 from frappe.utils.response import build_response
@@ -29,8 +27,7 @@ def get_profile(current_user):
 @frappe.whitelist(allow_guest=True)
 def login():
 	req = frappe.local.form_dict
-	# docs = frappe.get_list("TS Subtype",fields=["icon"])
-	# frappe.local.response[docs]
+
 	
 	try:
 		frappe.db.begin()
@@ -41,9 +38,6 @@ def login():
 		frappe.local.response["message"] = "Logged In"
 		frappe.local.response["token"] = token
 		frappe.local.response["data"] = get_profile(login_manager.user)	
-		# docs = frappe.get_all("TS Subtype",filters={"ts_type":"Asset"},fields=["ts_subtype","icon_code"])
-		# for i in docs:
-		# 	frappe.local.response["Asset"]=docs
 		docs = frappe.get_all("TS Subtype", filters={"ts_type":"Asset"},fields=["icon_code"])	
 		frappe.local.response["Asset"]= docs
 		frappe.db.commit()
@@ -76,14 +70,16 @@ def login():
 		frappe.local.response["message"] = "Login Failed"
 		frappe.log_error(title=req.cmd, message = f'{str(req)} \n {frappe.get_traceback()}')
 
+	except frappe.u as e:
+		frappe.db.rollback()
+		frappe.local.response.http_status_code = 503
+		frappe.local.response["message"] = str(e)	
+
 	finally:
 		return build_response('json')
 	
 
-
-#apps/money_management_backend/money_management_backend/custom/py/api.py
-
-# Customize
+# Daily Entry
 
 @frappe.whitelist(allow_guest=True)
 def daily_entry_submit(Type, Subtype,Name,Notes,Amount,Remainder_date):
@@ -96,8 +92,7 @@ def daily_entry_submit(Type, Subtype,Name,Notes,Amount,Remainder_date):
 		"entry_name":Name,
 		"notes":Notes,
 		"amount":Amount,
-		"remainder_date":Remainder_date,
-		#"file_upload":Image
+		"remainder_date":Remainder_date
 		
 		}),
 	
@@ -125,14 +120,7 @@ def daily_entry_submit(Type, Subtype,Name,Notes,Amount,Remainder_date):
 
 # customization
 @frappe.whitelist(allow_guest=True)
-# def other_entry( Subtype,binaryicon):
-# 	doc=frappe.new_doc("TS Subtype")
-# 	doc1="Others"
-# 	doc.update(
-# 		{	
-# 		"type":doc1,
-# 		"sub_type_name":Subtype,
-		# "icon":binaryicon
+
 def custom(Type, Subtype, IconBineryCode):
 	req = frappe.local.form_dict
 	doc=frappe.new_doc("TS Subtype")
@@ -144,8 +132,6 @@ def custom(Type, Subtype, IconBineryCode):
 		"icon_code":IconBineryCode
 		}),
 	
-	# frappe.local.response.http_status_code = 200
-	# frappe.local.response["message"] = "Entered Successfully"
 	try:
 		duplicate=frappe.db.get_value('TS Subtype', {'ts_subtype':Subtype})
 		if duplicate:
@@ -168,7 +154,6 @@ def custom(Type, Subtype, IconBineryCode):
 		frappe.local.response["message"] = str(e)
 	
 	except frappe.DuplicateEntryError as e:
-		# print("duplicate----------------------------------------------------------------------------------------------************************")
 		frappe.local.response["message"] = str(e)
 		
 	except Exception:
@@ -180,13 +165,13 @@ def custom(Type, Subtype, IconBineryCode):
 	finally:
 		return build_response('json')		
 
-
+#Pass Icon list with subtype
 @frappe.whitelist(allow_guest=True)
 def withsubtype (Type):
 	docs = frappe.get_all("TS Subtype", filters={"ts_type":Type,"ts_subtype":['!=',""],"flutter":"1"},fields=["ts_subtype","icon_code"], as_list = 1)
 	frappe.local.response[Type]= docs
 
-
+#Pass icon list with and without subtype
 @frappe.whitelist(allow_guest=True)
 def withoutsubtype (Type):
 	docs = frappe.get_all("TS Subtype", filters={"ts_type":Type,"flutter":"1"},fields=["icon_code"])
@@ -202,50 +187,20 @@ def profile(email):
             "mobile_number": user_doc.mobile_no
         }
 
-
-#Image 
-
-# def upload_profile_image():
-#     req = frappe.local.form_dict
-# 	print(req)
-# 	#frappe.local.response[message]=re
+#Image Passing
 @frappe.whitelist(allow_guest=True)	
-def upload_profile_image():
-	print("**************************************************")
-	req = frappe.local.form_dict
-	print("**************************************************")
-	print(req)
-# def upload_profile_image():
-# 	req = frappe.local.form_dict
-# 	if frappe.local.form_dict.data is None:
-# 		data = json.loads(frappe.local.request.get_data())
-# 	else:
-# 		data = json.loads(frappe.local.form_dict.data)
-
-# 	frappe.local.response["Message"]= data
-
-
-@frappe.whitelist(allow_guest=True)
 def upload_profile_image():
     req = frappe.local.form_dict
     try:
         frappe.db.begin()
-        if not frappe.request.files['file'].__dict__.get('filename',None):
-            raise FileNotFoundError
-        #current_user = frappe.session.user
-        frappe.form_dict.doctype = 'TS Daily Entry Sheet'
-        #frappe.form_dict.docname = current_user
-        frappe.form_dict.fieldname = 'file_upload'
-        # existing_file = frappe.db.get_value('File',{'attached_to_doctype':'TS Daily Entry Sheet',
-        #                 'attached_to_name': current_user, 'attached_to_field': 'file_upload'})
-        # if existing_file:
-        #     frappe.delete_doc("File", existing_file, ignore_permissions=True)
+        current_user = frappe.session.user
+        frappe.form_dict.doctype = 'User'
+        frappe.form_dict.docname = current_user
+        frappe.form_dict.fieldname = 'user_image'
+        print('Test')
         new_file = upload_file()
-        frappe.db.set_value('TS Daily Entry Sheet','file_upload', new_file.file_url)
-        frappe.local.response.http_status_code = 200
-        frappe.local.response["message"] = "Image Uploaded Successfully"
-        #frappe.local.response["data"] = get_profile(current_user)
-        frappe.db.commit()
+        print(new_file)
+        print('Done')
     except frappe.FileNotFoundError:
         frappe.db.rollback()
         frappe.local.response.http_status_code = 404
@@ -254,11 +209,6 @@ def upload_profile_image():
         frappe.db.rollback()
         frappe.local.response.http_status_code = 500
         frappe.local.response["message"] = "Image Upload Failed"
-        #frappe.log_error(title=req.cmd, message = f'{str(req)} \n {frappe.get_traceback()}')
+        frappe.log_error(title=req.cmd, message = f'{str(req)} \n {frappe.get_traceback()}')
     finally:
         return build_response('json')
-	
-
-
-
-# apps/frappe/frappe/handler.py

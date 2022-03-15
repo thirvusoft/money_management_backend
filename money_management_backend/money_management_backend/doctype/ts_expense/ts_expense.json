@@ -1079,6 +1079,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "depends_on": "eval:in_list([\"Subtype0254\"], doc.subtype)",
    "fetch_from": "subtype.ts_subtype",
    "fieldname": "subtype_name",
    "fieldtype": "Data",
@@ -1094,7 +1095,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-10 15:54:57.339510",
+ "modified": "2022-03-12 17:02:08.804705",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Expense",
