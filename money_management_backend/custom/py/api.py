@@ -1,9 +1,10 @@
+from dataclasses import fields
+from pydoc import doc
 import frappe
 from frappe.auth import LoginManager
 from frappe.utils.response import build_response
 import json
 from frappe.handler import upload_file
-
 def generate_token(user):
 	user_details = frappe.get_doc("User", user)
 	api_key = user_details.api_key
@@ -17,37 +18,36 @@ def generate_token(user):
 
 	return f'token {api_key}:{api_secret}'
 
-def get_profile(current_user):
-	user_doc = frappe.get_doc("User", current_user)
-	return {
-			"email": user_doc.email,
-			"full_name": user_doc.full_name
-		}
-
 @frappe.whitelist(allow_guest=True)
 def login():
 	req = frappe.local.form_dict
-
-	
 	try:
 		frappe.db.begin()
 		login_manager = LoginManager()
 		login_manager.authenticate(req.email, req.password)
 		token = generate_token(login_manager.user)
 		frappe.local.response.http_status_code = 200
-		frappe.local.response["message"] = "Logged In"
+		frappe.local.response["message"] = "Logged In Successfully"
 		frappe.local.response["token"] = token
-		frappe.local.response["data"] = get_profile(login_manager.user)	
-		docs = frappe.get_all("TS Subtype", filters={"ts_type":"Asset"},fields=["icon_code"])	
-		frappe.local.response["Asset"]= docs
+		ts_subtype = frappe.get_all("TS Subtype", filters={"ts_type":"Asset","ts_subtype":['!=',""],"flutter":"1"},fields=["ts_subtype","icon_code"], as_list = 1)
+		final_ts_subtype_list = []
+		for val in ts_subtype:
+			val = list(val)
+			final_ts_subtype_list.append(val)
+
+		frappe.local.response["asset"] = final_ts_subtype_list
 		frappe.db.commit()
 
 		
 		
 	except frappe.AuthenticationError as e:
 		frappe.db.rollback()
-		frappe.local.response.http_status_code = 401
-		frappe.local.response["message"] = str(e)
+		if not frappe.db.exists('User', req.email):
+			frappe.local.response.http_status_code = 401
+			frappe.local.response["message"] = "User Not Found"
+		else:
+			frappe.local.response.http_status_code = 401
+			frappe.local.response["message"] = "Invalid Password"
 
 	except frappe.SecurityException as e:
 		frappe.db.rollback()
@@ -70,42 +70,41 @@ def login():
 		frappe.local.response["message"] = "Login Failed"
 		frappe.log_error(title=req.cmd, message = f'{str(req)} \n {frappe.get_traceback()}')
 
-	except frappe.u as e:
-		frappe.db.rollback()
-		frappe.local.response.http_status_code = 503
-		frappe.local.response["message"] = str(e)	
-
 	finally:
 		return build_response('json')
 	
 
-# Daily Entry
 
+#Daily Entry
 @frappe.whitelist(allow_guest=True)
-def daily_entry_submit(Type, Subtype,Name,Notes,Amount,Remainder_date):
+def daily_entry_submit(Date,Type, Subtype,Name,Notes,Amount,Remainder_date):
 	req = frappe.local.form_dict
 	doc=frappe.new_doc("TS Daily Entry Sheet")
 	doc.update(
-		{	
+		{
+		"date":Date,	
 		"type":Type,
-		"ts_subtype":Subtype,
+		"sub_type":Subtype,
 		"entry_name":Name,
 		"notes":Notes,
 		"amount":Amount,
 		"remainder_date":Remainder_date
-		
 		}),
 	
 	try:
 		doc.insert(ignore_permissions=True)
-		frappe.local.response.http_status_code = 200
-		frappe.local.response["message"] = "success"
 		frappe.db.commit()
+		frappe.local.response["message"]="Success"
 		
 		
 	except frappe.ValidationError as e:
 		frappe.db.rollback()
 		frappe.local.response.http_status_code = 417
+		frappe.local.response["message"] = str(e)
+	
+	except frappe.PermissionError as e:
+		frappe.db.rollback()
+		frappe.local.response.http_status_code = 403
 		frappe.local.response["message"] = str(e)
 
     	
@@ -118,30 +117,23 @@ def daily_entry_submit(Type, Subtype,Name,Notes,Amount,Remainder_date):
 	finally:
 		return build_response('json')	
 
-# customization
+# Other customization
 @frappe.whitelist(allow_guest=True)
-
 def custom(Type, Subtype, IconBineryCode):
-	req = frappe.local.form_dict
-	doc=frappe.new_doc("TS Subtype")
 	
+	doc=frappe.new_doc("TS Subtype")
 	doc.update(
 		{
 		"ts_type":Type,
 		"ts_subtype":Subtype,
 		"icon_code":IconBineryCode
 		}),
-	
+	frappe.local.response.http_status_code = 200
+	frappe.local.response["message"] = "Entered Successfully"
 	try:
-		duplicate=frappe.db.get_value('TS Subtype', {'ts_subtype':Subtype})
-		if duplicate:
-			frappe.local.response.http_status_code = 500
-			frappe.local.response["message"] = "Duplicate Entry"
-		else:
-			doc.insert(ignore_permissions=True)
-			frappe.db.commit()
-			frappe.local.response.http_status_code = 200
-			frappe.local.response["message"] = "success"
+		doc.insert(ignore_permissions=True)
+		frappe.db.commit()
+		
 	except frappe.InternalServerError as e:
 		frappe.db.rollback()
 		frappe.local.response.http_status_code = 500
@@ -152,63 +144,77 @@ def custom(Type, Subtype, IconBineryCode):
 		frappe.db.rollback()
 		frappe.local.response.http_status_code = 417
 		frappe.local.response["message"] = str(e)
-	
-	except frappe.DuplicateEntryError as e:
-		frappe.local.response["message"] = str(e)
-		
-	except Exception:
-		frappe.db.rollback()
-		frappe.local.response.http_status_code = 500
-		frappe.local.response["message"] = "Submit failed"
-		frappe.log_error(title=req.cmd, message = f'{str(req)} \n {frappe.get_traceback()}')
+
 	
 	finally:
 		return build_response('json')		
 
-#Pass Icon list with subtype
+#With subtype
 @frappe.whitelist(allow_guest=True)
 def withsubtype (Type):
 	docs = frappe.get_all("TS Subtype", filters={"ts_type":Type,"ts_subtype":['!=',""],"flutter":"1"},fields=["ts_subtype","icon_code"], as_list = 1)
 	frappe.local.response[Type]= docs
+			
+	
 
-#Pass icon list with and without subtype
+#With and Without Subtype
 @frappe.whitelist(allow_guest=True)
 def withoutsubtype (Type):
 	docs = frappe.get_all("TS Subtype", filters={"ts_type":Type,"flutter":"1"},fields=["icon_code"])
 	frappe.local.response[Type]= docs
 
+
+
+
 #Profile
 @frappe.whitelist(allow_guest=True)
 def profile(email):
-    user_doc = frappe.get_doc("User", email)
-    return {
-            "email": user_doc.email,
-            "full_name": user_doc.full_name,
-            "mobile_number": user_doc.mobile_no
-        }
+	try:
+		user_doc = frappe.get_doc("User", email)
+		return {
+				"email": user_doc.email,
+				"full_name": user_doc.full_name,
+				"mobile_number": user_doc.mobile_no
+			}
+	except frappe.DoesNotExistError:
+		frappe.db.rollback()
+		frappe.local.response.http_status_code = 404
+		frappe.local.response["message"] = "User Not Found"
+	finally:
+		return build_response('json')	
+
 
 #Image Passing
-@frappe.whitelist(allow_guest=True)	
+@frappe.whitelist()
 def upload_profile_image():
-    req = frappe.local.form_dict
-    try:
-        frappe.db.begin()
-        current_user = frappe.session.user
-        frappe.form_dict.doctype = 'User'
-        frappe.form_dict.docname = current_user
-        frappe.form_dict.fieldname = 'user_image'
-        print('Test')
-        new_file = upload_file()
-        print(new_file)
-        print('Done')
-    except frappe.FileNotFoundError:
-        frappe.db.rollback()
-        frappe.local.response.http_status_code = 404
-        frappe.local.response["message"] = "Kindly Upload a File to Proceed"
-    except Exception:
-        frappe.db.rollback()
-        frappe.local.response.http_status_code = 500
-        frappe.local.response["message"] = "Image Upload Failed"
-        frappe.log_error(title=req.cmd, message = f'{str(req)} \n {frappe.get_traceback()}')
-    finally:
-        return build_response('json')
+	req = frappe.local.form_dict
+	try:
+		frappe.db.begin()
+		if not frappe.request.files['file'].__dict__.get('filename',None):
+			raise FileNotFoundError
+		current_user = frappe.session.user
+		frappe.form_dict.doctype = 'User'
+		frappe.form_dict.docname = current_user
+		frappe.form_dict.fieldname = 'user_image'
+		existing_file = frappe.db.get_value('File',{'attached_to_doctype':'User',
+						'attached_to_name': current_user, 'attached_to_field': 'user_image'})
+		if existing_file:
+			frappe.delete_doc("File", existing_file, ignore_permissions=True)
+		new_file = upload_file()
+		print(new_file)
+		frappe.db.set_value('User',current_user,'user_image', new_file.file_url)
+		frappe.local.response.http_status_code = 200
+		frappe.local.response["message"] = "Image Uploaded Successfully"
+		frappe.db.commit()
+	except frappe.FileNotFoundError:
+		frappe.db.rollback()
+		frappe.local.response.http_status_code = 404
+		frappe.local.response["message"] = "Kindly Upload a File to Proceed"
+	except Exception:
+		frappe.db.rollback()
+		frappe.local.response.http_status_code = 500
+		frappe.local.response["message"] = "Image Upload Failed"
+		frappe.log_error(title=req.cmd, message = f'{str(req)} \n {frappe.get_traceback()}')
+
+	finally:
+		return build_response('json')
