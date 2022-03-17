@@ -26,9 +26,14 @@ frappe.ui.form.on('TS Others',
                 filters:
 				[
                     ['ts_type','=',"Others"],
-					['flutter','=',"0"]
+					['fromfe','=',"0"]
                 ]
             };
         });
+	},
+	entry_type:function(frm){
+		if(cur_frm.doc.entry_type==null){
+			cur_frm.set_value('subtype_name','')
+		}
 	}
 });

@@ -93,7 +93,7 @@
    "depends_on": "eval:doc.subtype_name==\"Invitation\"",
    "fieldname": "remainder_date",
    "fieldtype": "Date",
-   "label": "Remainder Date"
+   "label": "Reminder Date"
   },
   {
    "fieldname": "section_break_10",
@@ -135,7 +135,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-09 18:44:15.794456",
+ "modified": "2022-03-17 17:11:25.474925",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Others",

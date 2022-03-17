@@ -11,10 +11,16 @@ frappe.ui.form.on('TS Expense',
                 filters:
 				[
                     ['ts_type','=',"Expense"],
-					['flutter','=',"0"]
+					['fromfe','=',"0"]
                 ]
             };
         });
+	},
+
+	subtype:function(frm){
+		if(cur_frm.doc.subtype==null){
+			cur_frm.set_value('subtype_name','')
+		}
 	}
 });
 

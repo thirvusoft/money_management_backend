@@ -1,6 +1,6 @@
 
 
-fields=["ts_type","ts_subtype","icon_code" ,"flutter"]
+fields=["ts_type","ts_subtype","icon_code" ,"fromfe"]
 Asset=[
         ["Gold","0xf1dd", "1"],
         ["Silver","0xf1dd","1"],

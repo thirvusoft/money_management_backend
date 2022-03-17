@@ -388,7 +388,7 @@
    "fieldname": "subtype",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "subtype",
+   "label": "Subtype",
    "options": "TS Subtype",
    "reqd": 1
   },
@@ -449,7 +449,7 @@
    "depends_on": "eval:doc.subtype_name==\"Travel\"",
    "fieldname": "to_date",
    "fieldtype": "Datetime",
-   "label": "TO Date",
+   "label": "To Date",
    "mandatory_depends_on": "eval:doc.subtype_name==\"Travel\""
   },
   {
@@ -608,7 +608,7 @@
    "depends_on": "eval:doc.subtype_name==\"Gift\"",
    "fieldname": "gift_type",
    "fieldtype": "Select",
-   "label": "Gift type",
+   "label": "Gift Type",
    "mandatory_depends_on": "eval:doc.subtype_name==\"Gift\"",
    "options": "\nCash\nThing"
   },
@@ -1095,7 +1095,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-12 17:02:08.804705",
+ "modified": "2022-03-17 17:07:14.333491",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Expense",

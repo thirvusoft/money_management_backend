@@ -29,7 +29,7 @@ def login():
 		frappe.local.response.http_status_code = 200
 		frappe.local.response["message"] = "Logged In Successfully"
 		frappe.local.response["token"] = token
-		ts_subtype = frappe.get_all("TS Subtype", filters={"ts_type":"Asset","ts_subtype":['!=',""],"flutter":"1"},fields=["ts_subtype","icon_code"], as_list = 1)
+		ts_subtype = frappe.get_all("TS Subtype", filters={"ts_type":"Asset","ts_subtype":['!=',""],"fromfe":1},fields=["ts_subtype","icon_code"], as_list = 1)
 		final_ts_subtype_list = []
 		for val in ts_subtype:
 			val = list(val)
@@ -52,17 +52,17 @@ def login():
 	except frappe.SecurityException as e:
 		frappe.db.rollback()
 		frappe.local.response.http_status_code = 403
-		frappe.local.response["message"] = str(e)
+		frappe.local.response["message"] = "You do not have enough permission to access this server"
 
 	except frappe.ValidationError as e:
 		frappe.db.rollback()
 		frappe.local.response.http_status_code = 417
-		frappe.local.response["message"] = str(e)
+		frappe.local.response["message"] = "Validation Failed"
 
 	except frappe.SessionStopped as e:
 		frappe.db.rollback()
 		frappe.local.response.http_status_code = 503
-		frappe.local.response["message"] = str(e)		
+		frappe.local.response["message"] = "Your Session was Expired"		
 	
 	except Exception:
 		frappe.db.rollback()
@@ -79,6 +79,13 @@ def login():
 @frappe.whitelist(allow_guest=True)
 def daily_entry_submit(Date,Type, Subtype,Name,Notes,Amount,Remainder_date):
 	req = frappe.local.form_dict
+	try:
+		frappe.get_doc("TS Daily Entry Sheet",Name)
+		frappe.local.response.http_status_code = 409
+		frappe.local.response["message"] = "File already exists with this name"
+		return build_response('json')
+	except:
+		pass
 	doc=frappe.new_doc("TS Daily Entry Sheet")
 	doc.update(
 		{
@@ -100,18 +107,18 @@ def daily_entry_submit(Date,Type, Subtype,Name,Notes,Amount,Remainder_date):
 	except frappe.ValidationError as e:
 		frappe.db.rollback()
 		frappe.local.response.http_status_code = 417
-		frappe.local.response["message"] = str(e)
+		frappe.local.response["message"] = "Validation Failed"
 	
 	except frappe.PermissionError as e:
 		frappe.db.rollback()
 		frappe.local.response.http_status_code = 403
-		frappe.local.response["message"] = str(e)
+		frappe.local.response["message"] = "You do not have enough permission to access this server"
 
     	
 	except Exception:
 		frappe.db.rollback()
 		frappe.local.response.http_status_code = 500
-		frappe.local.response["message"] = "Submit failed"
+		frappe.local.response["message"] ="Couldn't Save the file"
 		frappe.log_error(title=req.cmd, message = f'{str(req)} \n {frappe.get_traceback()}')
 
 	finally:
@@ -119,31 +126,31 @@ def daily_entry_submit(Date,Type, Subtype,Name,Notes,Amount,Remainder_date):
 
 # Other customization
 @frappe.whitelist(allow_guest=True)
-def custom(Type, Subtype, IconBineryCode):
-	
+def custom(Type , Subtype , IconBineryCode):
 	doc=frappe.new_doc("TS Subtype")
 	doc.update(
 		{
 		"ts_type":Type,
 		"ts_subtype":Subtype,
-		"icon_code":IconBineryCode
+		"icon_code":IconBineryCode,
+		"fromfe":1
 		}),
-	frappe.local.response.http_status_code = 200
-	frappe.local.response["message"] = "Entered Successfully"
+	
 	try:
 		doc.insert(ignore_permissions=True)
 		frappe.db.commit()
-		
+		frappe.local.response.http_status_code = 200
+		frappe.local.response["message"] = "Entered Successfully"
 	except frappe.InternalServerError as e:
 		frappe.db.rollback()
 		frappe.local.response.http_status_code = 500
-		frappe.local.response["message"] = str(e)	
+		frappe.local.response["message"] = "Server Error"	
 
 
 	except frappe.ValidationError as e:
 		frappe.db.rollback()
 		frappe.local.response.http_status_code = 417
-		frappe.local.response["message"] = str(e)
+		frappe.local.response["message"] = "Validation Failed"
 
 	
 	finally:
@@ -152,7 +159,7 @@ def custom(Type, Subtype, IconBineryCode):
 #With subtype
 @frappe.whitelist(allow_guest=True)
 def withsubtype (Type):
-	docs = frappe.get_all("TS Subtype", filters={"ts_type":Type,"ts_subtype":['!=',""],"flutter":"1"},fields=["ts_subtype","icon_code"], as_list = 1)
+	docs = frappe.get_all("TS Subtype", filters={"ts_type":Type,"ts_subtype":['!=',""],"fromfe":1},fields=["ts_subtype","icon_code"], as_list = 1)
 	frappe.local.response[Type]= docs
 			
 	
@@ -160,7 +167,7 @@ def withsubtype (Type):
 #With and Without Subtype
 @frappe.whitelist(allow_guest=True)
 def withoutsubtype (Type):
-	docs = frappe.get_all("TS Subtype", filters={"ts_type":Type,"flutter":"1"},fields=["icon_code"])
+	docs = frappe.get_all("TS Subtype", filters={"ts_type":Type,"fromfe":"1"},fields=["icon_code"])
 	frappe.local.response[Type]= docs
 
 
@@ -171,11 +178,12 @@ def withoutsubtype (Type):
 def profile(email):
 	try:
 		user_doc = frappe.get_doc("User", email)
-		return {
+		response={
 				"email": user_doc.email,
 				"full_name": user_doc.full_name,
 				"mobile_number": user_doc.mobile_no
 			}
+		frappe.local.response["message"]= response
 	except frappe.DoesNotExistError:
 		frappe.db.rollback()
 		frappe.local.response.http_status_code = 404

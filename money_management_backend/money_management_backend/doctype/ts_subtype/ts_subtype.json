@@ -10,7 +10,7 @@
   "ts_type",
   "ts_subtype",
   "icon_code",
-  "flutter"
+  "fromfe"
  ],
  "fields": [
   {
@@ -34,16 +34,15 @@
   },
   {
    "default": "0",
-   "fieldname": "flutter",
+   "fieldname": "fromfe",
    "fieldtype": "Check",
    "in_list_view": 1,
-   "label": "Flutter",
-   "reqd": 1
+   "label": "Created From App"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-09 14:03:56.516451",
+ "modified": "2022-03-17 16:13:50.025348",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Subtype",
