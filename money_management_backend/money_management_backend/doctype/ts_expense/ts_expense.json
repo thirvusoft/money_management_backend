@@ -72,6 +72,11 @@
   "total_amount",
   "sec",
   "travel_documents",
+  "column_break_66",
+  "tinsurance",
+  "tinsurance_date",
+  "visa",
+  "visa_expiry_date",
   "entertainment_name",
   "elocation",
   "expense_amount",
@@ -956,7 +961,8 @@
    "depends_on": "eval:doc.subtype_name==\"Travel\"",
    "fieldname": "total_amount",
    "fieldtype": "Data",
-   "label": "Total Amount"
+   "label": "Total Amount",
+   "read_only": 1
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Social Service\"",
@@ -1091,11 +1097,39 @@
    "fieldtype": "Table",
    "label": "Travel Documents",
    "options": "TS Traveldocuments"
+  },
+  {
+   "fieldname": "column_break_66",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.subtype_name==\"Travel\"",
+   "fieldname": "tinsurance",
+   "fieldtype": "Attach",
+   "label": "Travel Insurance"
+  },
+  {
+   "depends_on": "eval:doc.subtype_name==\"Travel\"",
+   "fieldname": "tinsurance_date",
+   "fieldtype": "Date",
+   "label": "Travel Insurance renewal date"
+  },
+  {
+   "depends_on": "eval:doc.subtype_name==\"Travel\"",
+   "fieldname": "visa",
+   "fieldtype": "Attach",
+   "label": "Visa"
+  },
+  {
+   "depends_on": "eval:doc.subtype_name==\"Travel\"",
+   "fieldname": "visa_expiry_date",
+   "fieldtype": "Date",
+   "label": "Visa Expiry date"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-17 17:07:14.333491",
+ "modified": "2022-03-18 11:23:59.002652",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Expense",
