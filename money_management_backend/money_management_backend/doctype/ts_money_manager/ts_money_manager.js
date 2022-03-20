@@ -5,19 +5,19 @@
 //Precious metal quality display based on metal
 frappe.ui.form.on('TS Money Manager', {
 	ts_asset_subtype: function(frm) {
-		if (frm.doc.ts_asset_subtype == "Gold")
+		if (frm.doc.sub_type_name == "Gold")
 			{
-			frm.set_df_property('ts_quality','options', [' ', '24 karat','22 karat', '20 Karat', '18 karat', '14 Karat', '10 Karat'])
+			cur_frm.set_df_property('ts_quality','options', [' ', '24 karat','22 karat', '20 Karat', '18 karat', '14 Karat', '10 Karat'])
 		}
-		else if (frm.doc.ts_asset_subtype == "Silver")
+		else if (frm.doc.sub_type_name == "Silver")
 		{
 			frm.set_df_property('ts_quality', 'options', [ 'Fine Silver', 'Sterling Silver','Non-Tarnish Silver', 'Britannia Silver', 'Coin Silver', 'European Silver', 'Silver-Filled', 'Silver Plated', 'Tibetan Silver', 'Tribal Silver', 'Nickel Silver' ])
 		}
-		else if (frm.doc.ts_asset_subtype == "Platinum")
+		else if (frm.doc.sub_type_name == "Platinum")
 		{
 			frm.set_df_property('ts_quality', 'options', [ 'Eternal', 'Pure', 'Rare', 'Versatile' ])
 		}
-		else if (frm.doc.ts_asset_subtype == "Diamond")
+		else if (frm.doc.sub_type_name == "Diamond")
 		{
 			frm.set_df_property('ts_quality', 'options', [ 'Heavily Included', 'Included', 'Slightly Included', 'Very Slightly Included', 'Very Very Slightly Included', 'Internally Flawless', 'Flawless' ])
 			
@@ -37,9 +37,19 @@ frappe.ui.form.on('TS Money Manager',
                 filters:
 				[
                     ['ts_type','=',entry]
-                ]
+				]
             };
         });
+	},
+	ts_asset_subtype:function(frm)
+	{	
+	    if(frm.doc.ts_asset_subtype=="" || cur_frm.doc.ts_asset_subtype==null){
+			cur_frm.set_value('sub_type_name','');
+			cur_frm.set_df_property('sub_type_name','hidden',1);
+		}
+		else{
+			cur_frm.set_df_property('sub_type_name','hidden',0);
+		}
 	},
 	
 })

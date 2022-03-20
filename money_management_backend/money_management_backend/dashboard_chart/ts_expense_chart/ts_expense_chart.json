@@ -1,0 +1,31 @@
+{
+ "chart_name": "TS Expense Chart",
+ "chart_type": "Report",
+ "creation": "2022-03-08 13:50:07.799671",
+ "docstatus": 0,
+ "doctype": "Dashboard Chart",
+ "dynamic_filters_json": "{}",
+ "filters_json": "{\"ts_type\":\"Expense\"}",
+ "group_by_type": "Count",
+ "idx": 0,
+ "is_public": 0,
+ "is_standard": 1,
+ "modified": "2022-03-08 13:50:07.799671",
+ "modified_by": "Administrator",
+ "module": "Money Management Backend",
+ "name": "TS Expense Chart",
+ "number_of_groups": 0,
+ "owner": "Administrator",
+ "report_name": "daily sheet Report",
+ "time_interval": "Yearly",
+ "timeseries": 0,
+ "timespan": "Last Year",
+ "type": "Bar",
+ "use_report_chart": 0,
+ "x_field": "entry_name",
+ "y_axis": [
+  {
+   "y_field": "amount"
+  }
+ ]
+}

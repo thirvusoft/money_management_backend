@@ -6,7 +6,6 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "date",
   "type",
   "sub_type",
   "name1",
@@ -16,13 +15,6 @@
   "remainder_date"
  ],
  "fields": [
-  {
-   "fieldname": "date",
-   "fieldtype": "Date",
-   "in_list_view": 1,
-   "label": "Date",
-   "reqd": 1
-  },
   {
    "fieldname": "type",
    "fieldtype": "Select",
@@ -40,9 +32,8 @@
   },
   {
    "fieldname": "file_upload",
-   "fieldtype": "Table",
-   "label": "File Upload",
-   "options": "TS Daily Entry File"
+   "fieldtype": "Attach",
+   "label": "Attach Image"
   },
   {
    "depends_on": "eval:doc.type!=\"Others\"",
@@ -56,7 +47,7 @@
    "label": "Notes"
   },
   {
-   "depends_on": "eval:doc.type==\"Others\"",
+   "depends_on": "eval:in_list([\"Liability\", \"Others\"], doc.type)",
    "fieldname": "remainder_date",
    "fieldtype": "Date",
    "label": "Remainder Date"
@@ -66,12 +57,14 @@
    "fieldname": "name1",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Name"
+   "label": "Name",
+   "reqd": 1,
+   "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-07 08:36:56.020998",
+ "modified": "2022-03-10 18:38:11.596043",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Daily Entry Sheet",
