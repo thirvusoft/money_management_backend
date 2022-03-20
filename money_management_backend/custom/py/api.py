@@ -173,8 +173,9 @@ def withoutsubtype (Type):
 
 
 
+
 #Profile
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def profile(email):
 	try:
 		user_doc = frappe.get_doc("User", email)

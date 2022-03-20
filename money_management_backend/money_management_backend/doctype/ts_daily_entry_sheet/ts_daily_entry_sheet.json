@@ -1,7 +1,6 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:entry_name",
  "creation": "2022-02-21 16:16:56.308680",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -9,7 +8,7 @@
  "field_order": [
   "type",
   "sub_type",
-  "entry_name",
+  "name1",
   "file_upload",
   "notes",
   "amount",
@@ -21,14 +20,15 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Type",
-   "options": "Asset\nLiability\nIncome\nExpense\nOthers\nCustom",
+   "options": "\nAsset\nLiability\nIncome\nExpense\nOthers",
    "reqd": 1
   },
   {
    "fieldname": "sub_type",
    "fieldtype": "Link",
    "label": "Sub Type",
-   "options": "TS Subtype"
+   "options": "TS Subtype",
+   "reqd": 1
   },
   {
    "fieldname": "file_upload",
@@ -53,7 +53,8 @@
    "label": "Remainder Date"
   },
   {
-   "fieldname": "entry_name",
+   "depends_on": "eval:doc.type==\"Others\"",
+   "fieldname": "name1",
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Name",
