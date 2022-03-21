@@ -59,6 +59,8 @@ app_license = "MIT"
 # before_install = "money_management_backend.install.before_install"
 # after_install = "money_management_backend.install.after_install"
 
+after_install = "money_management_backend.custom.py.defaults.createdocs"
+
 # Desk Notifications
 # ------------------
 # See frappe.core.notifications.get_notification_config

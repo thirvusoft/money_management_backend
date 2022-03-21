@@ -1,8 +1,8 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:ts_subtype",
- "creation": "2022-02-25 09:47:02.372447",
+ "autoname": "Subtype.####",
+ "creation": "2022-03-09 13:35:47.380330",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
@@ -10,16 +10,9 @@
   "ts_type",
   "ts_subtype",
   "icon_code",
-  "ts_image"
+  "fromfe"
  ],
  "fields": [
-  {
-   "fieldname": "ts_subtype",
-   "fieldtype": "Data",
-   "label": "Subtype",
-   "reqd": 1,
-   "unique": 1
-  },
   {
    "fieldname": "ts_type",
    "fieldtype": "Select",
@@ -29,21 +22,27 @@
    "reqd": 1
   },
   {
-   "fieldname": "icon_code",
-   "fieldtype": "Int",
-   "in_list_view": 1,
-   "label": "Icon Binary Code",
-   "reqd": 1
+   "fieldname": "ts_subtype",
+   "fieldtype": "Data",
+   "label": "SubType"
   },
   {
-   "fieldname": "ts_image",
-   "fieldtype": "Attach",
-   "label": "Image Test"
+   "fieldname": "icon_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Icon"
+  },
+  {
+   "default": "0",
+   "fieldname": "fromfe",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Created From App"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-01 14:33:30.051265",
+ "modified": "2022-03-17 16:13:50.025348",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Subtype",
@@ -63,6 +62,7 @@
   }
  ],
  "quick_entry": 1,
+ "search_fields": "ts_subtype",
  "sort_field": "modified",
  "sort_order": "DESC"
 }
