@@ -76,7 +76,7 @@ def login():
 
 
 #Daily Entry
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def daily_entry_submit(Date,Type, Subtype,Name,Notes,Amount,Remainder_date):
 	req = frappe.local.form_dict
 	try:
@@ -125,7 +125,7 @@ def daily_entry_submit(Date,Type, Subtype,Name,Notes,Amount,Remainder_date):
 		return build_response('json')	
 
 # Other customization
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def custom(Type , Subtype , IconBineryCode):
 	doc=frappe.new_doc("TS Subtype")
 	doc.update(
@@ -157,7 +157,7 @@ def custom(Type , Subtype , IconBineryCode):
 		return build_response('json')		
 
 #With subtype
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def withsubtype (Type):
 	docs = frappe.get_all("TS Subtype", filters={"ts_type":Type,"ts_subtype":['!=',""],"fromfe":1},fields=["ts_subtype","icon_code"], as_list = 1)
 	frappe.local.response[Type]= docs
@@ -165,7 +165,7 @@ def withsubtype (Type):
 	
 
 #With and Without Subtype
-@frappe.whitelist(allow_guest=True)
+@frappe.whitelist()
 def withoutsubtype (Type):
 	docs = frappe.get_all("TS Subtype", filters={"ts_type":Type,"fromfe":"1"},fields=["icon_code"])
 	frappe.local.response[Type]= docs
