@@ -153,6 +153,7 @@
   "clocation",
   "soil_type",
   "aexpense_type",
+  "column_break_143",
   "crop_yeild_name",
   "yeild_expense",
   "is_affected_by_disease",
@@ -1085,6 +1086,7 @@
    "fieldtype": "Column Break"
   },
   {
+
    "depends_on": "eval:in_list([\"Subtype0254\"], doc.subtype)",
    "fetch_from": "subtype.ts_subtype",
    "fieldname": "subtype_name",
@@ -1125,11 +1127,14 @@
    "fieldname": "visa_expiry_date",
    "fieldtype": "Date",
    "label": "Visa Expiry date"
+
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-18 11:23:59.002652",
+
+ "modified": "2022-03-05 11:59:21.625803",
+
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Expense",

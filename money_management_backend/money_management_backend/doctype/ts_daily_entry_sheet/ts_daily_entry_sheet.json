@@ -8,7 +8,7 @@
  "field_order": [
   "type",
   "sub_type",
-  "name1",
+  "entry_name",
   "file_upload",
   "notes",
   "amount",
@@ -54,7 +54,7 @@
   },
   {
    "depends_on": "eval:doc.type==\"Others\"",
-   "fieldname": "name1",
+   "fieldname": "entry_name",
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Name",
@@ -64,7 +64,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-10 18:38:11.596043",
+ "modified": "2022-03-21 09:46:40.547723",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Daily Entry Sheet",
