@@ -131,7 +131,7 @@ def custom(Type, Subtype, IconBineryCode):
 		{
 		"ts_type":Type,
 		"ts_subtype":Subtype,
-		"icon_code":IconBineryCode,
+		"icon_code":hex(int(IconBineryCode)),
 		"fromfe":1
 		}),
 	
@@ -144,6 +144,10 @@ def custom(Type, Subtype, IconBineryCode):
 		frappe.db.rollback()
 		frappe.local.response.http_status_code = 500
 		frappe.local.response["message"] = "Server Error"	
+	except frappe.InternalServerError as e:
+		frappe.db.rollback()
+		frappe.local.response.http_status_code = 550
+		frappe.local.response["message"] = "Name Already Exist"	
 
 
 	except frappe.ValidationError as e:
