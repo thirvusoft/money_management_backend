@@ -28,6 +28,7 @@ def get_columns(filters):
             "fieldtype":"Data",
             "fieldname": "entry_name",
             "width": 130
+            
         },
         {
             "label": ("Amount"),

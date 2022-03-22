@@ -24,8 +24,17 @@ Asset=[
         ["","0xee35","1"],
         ["","0xf2e9","1"],
         ["","0xf108","1"],
-        ["","0xf05ce","1"]
-
+        ["","0xf05ce","1"],
+        ["Gold","","0"],
+        ["Silver","","0"],
+        ["Platinum","","0"],
+        ["Diamond","","0"],
+        ["Vehicle","","0"],
+        ["Home Appliance","","0"],
+        ["Machinery","","0"],
+        ["Agricultural Land","","0"],
+        ["Residential Land","","0"],
+        ["Commercial Land","","0"]
     ]
 Liability=[
     ["Debt","0xeea2","1"],
@@ -34,7 +43,9 @@ Liability=[
     ["","0xf2d1","1"],
     ["","0xe13c","1"],
     ["","0xf0de","1"],
-    ["","0xf05ff","1"]
+    ["","0xf05ff","1"],
+    ["Debt","","0"],
+    ["EMI","","0"],
 
 ]
 Income=[
@@ -55,7 +66,13 @@ Income=[
     ["","0xf3f6","1"],
     ["","0xf3e8","1"],
     ["","0xf0617","1"],
-    ["","0xee35","1"]
+    ["","0xee35","1"],
+    ["Salary","","0"],
+    ["Asset/Scrap Sale","","0"],
+    ["Rental","","0"],
+    ["Lottery","", "0"],
+    ["Dividends","","0"],
+    ["Business Profit","","0"]
 ]
 Expense=[
     ["Food","0xf2e9","1"],
@@ -82,7 +99,18 @@ Expense=[
     ["","0xf2e9","1"],
     ["","0xf172","1"],
     ["","0xf37d","1"],
-    ["","0xf3cf","1"]
+    ["","0xf3cf","1"],
+    ["Home Need","","0"],
+    ["Travel","","0"],
+    ["Insurance","","0"],
+    ["Tax","","0"],
+    ["Gift","","0"],
+    ["Education","","0"],
+    ["Social Service","","0"],
+    ["Maintenance","","0"],
+    ["Construction","","0"],
+    ["Agriculture","","0"],
+
 ]
 Others=[
     ["Invitation","0xf12f","1"],
@@ -95,7 +123,10 @@ Others=[
     ["","0xf197","1"],
     ["","0xf128","1"],
     ["","0xf440","1"],
-    ["","0xf14f","1"]
+    ["","0xf14f","1"],
+    ["Invitation","","0"],
+    ["Profile","","0"],
+    ["Visiting Card","","0"],
 ]
 
 subtype=[ [[i]+j for j in eval(i)] for i in ["Asset","Liability","Income","Expense","Others"]]
@@ -105,6 +136,8 @@ for i in subtype:
         subtype_list.append(j)
 subtype_list_dict=[dict(zip(fields,i))   for i in subtype_list]
 print(subtype_list_dict)
+
+
 '''
 typeless_list=[]
 for i in Custom:
