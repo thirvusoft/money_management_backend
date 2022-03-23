@@ -10,7 +10,8 @@
   "ts_type",
   "ts_subtype",
   "icon_code",
-  "fromfe"
+  "fromfe",
+  "account"
  ],
  "fields": [
   {
@@ -38,11 +39,16 @@
    "fieldtype": "Check",
    "in_list_view": 1,
    "label": "Created From App"
+  },
+  {
+   "fieldname": "account",
+   "fieldtype": "Data",
+   "label": "Account"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-17 16:13:50.025348",
+ "modified": "2022-03-23 19:18:12.449520",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Subtype",
