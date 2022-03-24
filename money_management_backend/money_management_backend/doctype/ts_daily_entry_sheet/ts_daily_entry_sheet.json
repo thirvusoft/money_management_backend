@@ -53,18 +53,16 @@
    "label": "Remainder Date"
   },
   {
-   "depends_on": "eval:doc.type==\"Others\"",
    "fieldname": "entry_name",
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Name",
-   "reqd": 1,
    "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-22 14:46:32.548954",
+ "modified": "2022-03-22 21:13:19.327260",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Daily Entry Sheet",
