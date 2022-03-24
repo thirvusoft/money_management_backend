@@ -95,7 +95,7 @@ Expense=[
   ["Electronic","0xef0d","1","Electronic - MM"],
   ["Gift","0xef2d","1","Gift - MM"],
   ["Education","0xf33c","1","Education - MM"],
-  ["Maintenan","0xf108","1","Maintanen - MM"],
+  ["Maintain","0xf108","1","Maintain - MM"],
   ["Social","0xf06a4","1","Social - MM"],
   ["Building","0xf109","1","Building - MM"],
   ["Crop","0xf05ce","1","Crop -MM"],
