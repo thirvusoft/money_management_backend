@@ -11,7 +11,7 @@ frappe.ui.form.on('TS Expense',
                 filters:
 				[
                     ['ts_type','=',"Expense"],
-					['fromfe','=',"0"]
+					['fromfe','=',0]
                 ]
             };
         });
