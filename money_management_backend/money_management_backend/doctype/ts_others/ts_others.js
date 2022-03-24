@@ -26,7 +26,7 @@ frappe.ui.form.on('TS Others',
                 filters:
 				[
                     ['ts_type','=',"Others"],
-					['fromfe','=',"0"]
+					['fromfe','=',0]
                 ]
             };
         });

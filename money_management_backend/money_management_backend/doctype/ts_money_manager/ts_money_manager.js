@@ -37,7 +37,7 @@ frappe.ui.form.on('TS Money Manager',
                 filters:
 				[
                     ['ts_type','=',entry],
-					['fromfe','=',"0"]
+					['fromfe','=',0]
 				]
             };
         });
