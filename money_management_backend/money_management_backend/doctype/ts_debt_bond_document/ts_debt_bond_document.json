@@ -7,6 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "ts_document",
+  "document_name",
   "ts_notes"
  ],
  "fields": [
@@ -21,12 +22,18 @@
    "fieldtype": "Attach",
    "in_list_view": 1,
    "label": "Document"
+  },
+  {
+   "fieldname": "document_name",
+   "fieldtype": "Link",
+   "label": "Document Name",
+   "options": "TS Documents list"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2022-02-26 21:37:27.658425",
+ "modified": "2022-03-25 14:03:31.982527",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Debt Bond Document",

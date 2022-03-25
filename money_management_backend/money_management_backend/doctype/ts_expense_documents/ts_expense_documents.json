@@ -7,6 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "bill_document",
+  "document_name",
   "notes"
  ],
  "fields": [
@@ -21,12 +22,18 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Notes"
+  },
+  {
+   "fieldname": "document_name",
+   "fieldtype": "Link",
+   "label": "Document Name",
+   "options": "TS Documents list"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2022-03-03 09:58:00.711149",
+ "modified": "2022-03-25 14:26:17.219245",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Expense Documents",

@@ -186,16 +186,18 @@
   {
    "depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Vehicle\"], doc.sub_type_name)",
    "fieldname": "ts_vehicle_name",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Vehicle Name",
-   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Vehicle\"], doc.sub_type_name)"
+   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Vehicle\"], doc.sub_type_name)",
+   "options": "TS Vehicle Name"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Vehicle\"], doc.sub_type_name)",
    "fieldname": "ts_vehicle_number",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Vehicle Number",
-   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Vehicle\"], doc.sub_type_name)"
+   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Vehicle\"], doc.sub_type_name)",
+   "options": "TS Vehicle Number"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Vehicle\"], doc.sub_type_name)",
@@ -860,8 +862,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
-
- "modified": "2022-03-18 12:56:21.331040",
+ "modified": "2022-03-25 11:56:16.326828",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Money Manager",

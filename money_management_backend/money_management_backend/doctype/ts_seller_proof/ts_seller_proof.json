@@ -7,6 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "ts_proof",
+  "proof_name",
   "ts_note"
  ],
  "fields": [
@@ -21,12 +22,18 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Note"
+  },
+  {
+   "fieldname": "proof_name",
+   "fieldtype": "Link",
+   "label": "Proof name",
+   "options": "TS Documents list"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2022-03-02 09:55:48.453659",
+ "modified": "2022-03-25 13:54:51.176423",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Seller Proof",
