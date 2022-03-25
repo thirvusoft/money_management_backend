@@ -531,15 +531,17 @@
   {
    "depends_on": "eval:doc.subtype_name==\"Insurance\" && doc.insurance_type==\"Vehicle\"",
    "fieldname": "vehicle_number",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Vehicle Number",
-   "mandatory_depends_on": "eval:doc.subtype_name==\"Insurance\" && doc.insurance_type==\"Vehicle\""
+   "mandatory_depends_on": "eval:doc.subtype_name==\"Insurance\" && doc.insurance_type==\"Vehicle\"",
+   "options": "TS Vehicle Number"
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Insurance\" && doc.insurance_type==\"Vehicle\"",
    "fieldname": "vehicle_name",
-   "fieldtype": "Data",
-   "label": "Vehicle Name"
+   "fieldtype": "Link",
+   "label": "Vehicle Name",
+   "options": "TS Vehicle Name"
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Insurance\" && in_list([\"Person\", \"Electronic item\", \"livestock\"],doc.insurance_type)",
@@ -745,15 +747,17 @@
   {
    "depends_on": "eval:doc.subtype_name==\"Maintenance\" && doc.maintenance_to==\"Vehicle\"",
    "fieldname": "mvehicle_name",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Vehicle Name",
-   "mandatory_depends_on": "eval:doc.subtype_name==\"Maintenance\" && doc.maintenance_to==\"Vehicle\""
+   "mandatory_depends_on": "eval:doc.subtype_name==\"Maintenance\" && doc.maintenance_to==\"Vehicle\"",
+   "options": "TS Vehicle Name"
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Maintenance\" && doc.maintenance_to==\"Vehicle\"",
    "fieldname": "mvehicle_number",
-   "fieldtype": "Data",
-   "label": "Vehicle Number"
+   "fieldtype": "Link",
+   "label": "Vehicle Number",
+   "options": "TS Vehicle Number"
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Maintenance\" && doc.maintenance_to==\"Home Appliance\"",
@@ -887,23 +891,23 @@
    "fieldtype": "Select",
    "label": "Expense Type",
    "mandatory_depends_on": "eval:doc.subtype_name==\"Agriculture\"",
-   "options": "\nYeild\nMaintenance"
+   "options": "\nYield\nMaintenance"
   },
   {
-   "depends_on": "eval:doc.subtype_name==\"Agriculture\" && doc.aexpense_type==\"Yeild\"",
+   "depends_on": "eval:doc.subtype_name==\"Agriculture\" && doc.aexpense_type==\"Yield\"",
    "fieldname": "crop_yeild_name",
    "fieldtype": "Data",
-   "label": "Crop yeild name",
+   "label": "Crop Yield name",
    "mandatory_depends_on": "eval:doc.subtype_name==\"Agriculture\" && doc.aexpense_type==\"Yeild\""
   },
   {
-   "depends_on": "eval:doc.subtype_name==\"Agriculture\" && doc.aexpense_type==\"Yeild\"",
+   "depends_on": "eval:doc.subtype_name==\"Agriculture\" && doc.aexpense_type==\"Yield\"",
    "fieldname": "yeild_expense",
    "fieldtype": "Currency",
-   "label": "Yeild Expense"
+   "label": "Yield Expense"
   },
   {
-   "depends_on": "eval:doc.subtype_name==\"Agriculture\" && in_list([\"Yeild\", \"Maintenance\"], doc.aexpense_type)",
+   "depends_on": "eval:doc.subtype_name==\"Agriculture\" && in_list([\"Yield\", \"Maintenance\"], doc.aexpense_type)",
    "fieldname": "bill_documents",
    "fieldtype": "Table",
    "label": "Bill Documents",
@@ -937,7 +941,7 @@
    "options": "TS Gift Image"
   },
   {
-   "depends_on": "eval:doc.subtype_name==\"Agriculture\" && in_list([\"Yeild\", \"Maintenance\"], doc.aexpense_type)",
+   "depends_on": "eval:doc.subtype_name==\"Agriculture\" && in_list([\"Yield\", \"Maintenance\"], doc.aexpense_type)",
    "fieldname": "image",
    "fieldtype": "Table",
    "label": "Image",
@@ -1129,7 +1133,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-22 16:29:42.380793",
+ "modified": "2022-03-25 14:59:11.082147",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Expense",
