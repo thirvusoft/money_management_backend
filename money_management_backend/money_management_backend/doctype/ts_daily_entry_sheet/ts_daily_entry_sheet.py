@@ -2,7 +2,8 @@
 # For license information, please see license.txt
 
 import frappe
-from frappe.model.document import Document
+from frappe.model.document 
+import Document
 from datetime import date
 class TSDailyEntrySheet(Document):
 	def after_insert(self):
