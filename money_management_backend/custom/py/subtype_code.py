@@ -1,4 +1,4 @@
- 
+
  
 fields=["ts_type","ts_subtype","icon_code" ,"fromfe","account"]
 Asset=[
@@ -30,20 +30,11 @@ Asset=[
       ["Platinum","","0"],
       ["Diamond","","0"],
       ["Vehicle","","0"],
-<<<<<<< HEAD
-      ["Home","","0"],
-      ["Machinery","","0"],
-      ["Agri Land","","0"],
-      ["Estate","","0"],
-      ["Commercial","","0"]
-
-=======
       ["Home Appliance","","0"],
       ["Machinery","","0"],
       ["Agricultural Land","","0"],
       ["Residential Land","","0"],
       ["Commercial Land","","0"]
->>>>>>> 1f3271cf9616509ecea0c0b19ae7882199c64785
  
    ]
 Liability=[
@@ -82,13 +73,8 @@ Income=[
   ["Asset/Scrap Sale","","0"],
   ["Rental","","0"],
   ["Lottery","", "0"],
-<<<<<<< HEAD
-  ["Dividend","","0"],
-  ["Revenue","","0"]
-=======
   ["Dividends","","0"],
   ["Business Profit","","0"]
->>>>>>> 1f3271cf9616509ecea0c0b19ae7882199c64785
 ]
  
 Expense=[
@@ -127,11 +113,7 @@ Expense=[
   ["Social Service","","0"],
   ["Maintenance","","0"],
   ["Construction","","0"],
-<<<<<<< HEAD
-  ["Agriculture","","0"],
-=======
   ["Agriculture","","0"]
->>>>>>> 1f3271cf9616509ecea0c0b19ae7882199c64785
 ]
  
 Others=[
@@ -148,13 +130,8 @@ Others=[
   ["","0xf14f","1"],
   ["Invitation","","0"],
   ["Profile","","0"],
-<<<<<<< HEAD
-  ["Visiting Card","","0"],
-=======
   ["Visiting Card","","0"]
->>>>>>> 1f3271cf9616509ecea0c0b19ae7882199c64785
 ]
- 
  
 subtype=[ [[i]+j for j in eval(i)] for i in ["Asset","Liability","Income","Expense","Others"]]
 subtype_list=[]
@@ -163,18 +140,3 @@ for i in subtype:
        subtype_list.append(j)
 subtype_list_dict=[dict(zip(fields,i))   for i in subtype_list]
 print(subtype_list_dict)
-'''
-typeless_list=[]
-for i in Custom:
-   typeless_list.append(['']+i)
-typeless_list_dict=[dict(zip(fields,i))   for i in typeless_list]
-#print(typeless_list_dict)
-print(subtype_list_dict+typeless_list_dict)
-'''
- 
- 
- 
- 
- 
- 
-

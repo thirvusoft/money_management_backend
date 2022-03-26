@@ -9,5 +9,6 @@ def createdocs():
        st.update(subtype)
        st.update({"doctype":"TS Subtype"})
        st.save()
+       
  
 
