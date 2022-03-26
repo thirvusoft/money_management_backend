@@ -30,12 +30,11 @@ Asset=[
       ["Platinum","","0"],
       ["Diamond","","0"],
       ["Vehicle","","0"],
-      ["Home","","0"],
+      ["Home Appliance","","0"],
       ["Machinery","","0"],
-      ["Agri Land","","0"],
-      ["Estate","","0"],
-      ["Commercial","","0"]
-
+      ["Agricultural Land","","0"],
+      ["Residential Land","","0"],
+      ["Commercial Land","","0"]
  
    ]
 Liability=[
@@ -74,8 +73,8 @@ Income=[
   ["Asset/Scrap Sale","","0"],
   ["Rental","","0"],
   ["Lottery","", "0"],
-  ["Dividend","","0"],
-  ["Revenue","","0"]
+  ["Dividends","","0"],
+  ["Business Profit","","0"]
 ]
  
 Expense=[
@@ -114,7 +113,7 @@ Expense=[
   ["Social Service","","0"],
   ["Maintenance","","0"],
   ["Construction","","0"],
-  ["Agriculture","","0"],
+  ["Agriculture","","0"]
 ]
  
 Others=[
@@ -131,7 +130,7 @@ Others=[
   ["","0xf14f","1"],
   ["Invitation","","0"],
   ["Profile","","0"],
-  ["Visiting Card","","0"],
+  ["Visiting Card","","0"]
 ]
  
  
