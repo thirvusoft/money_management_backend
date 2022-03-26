@@ -35,8 +35,6 @@ Asset=[
       ["Agri Land","","0"],
       ["Estate","","0"],
       ["Commercial","","0"]
-
- 
    ]
 Liability=[
    ["Debt","0xeea2","1","Debt - MM"],
@@ -142,6 +140,7 @@ for i in subtype:
        subtype_list.append(j)
 subtype_list_dict=[dict(zip(fields,i))   for i in subtype_list]
 print(subtype_list_dict)
+
 '''
 typeless_list=[]
 for i in Custom:
@@ -150,10 +149,3 @@ typeless_list_dict=[dict(zip(fields,i))   for i in typeless_list]
 #print(typeless_list_dict)
 print(subtype_list_dict+typeless_list_dict)
 '''
- 
- 
- 
- 
- 
- 
-
