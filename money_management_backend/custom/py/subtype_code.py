@@ -35,7 +35,6 @@ Asset=[
       ["Agri Land","","0"],
       ["Estate","","0"],
       ["Commercial","","0"]
-
    ]
 Liability=[
    ["Debt","0xeea2","1","Debt - MM"],
