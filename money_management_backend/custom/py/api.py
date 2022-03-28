@@ -101,6 +101,7 @@ def daily_entry_submit(Type, Subtype,Name,Notes,Amount,Remainder_date=None):
 		doc.insert(ignore_permissions=True)
 		frappe.db.commit()
 		frappe.local.response["message"]="Success"
+		frappe.local.response["docname"]=doc.name
 		
 		
 	except frappe.ValidationError as e:
@@ -192,41 +193,5 @@ def get_profile_data(email):
 		frappe.db.rollback()
 		frappe.local.response.http_status_code = 404
 		frappe.local.response["message"] = "User Not Found"
-	finally:
-		return build_response('json')	
-
-
-#Image Passing
-@frappe.whitelist()
-def upload_profile_image():
-	req = frappe.local.form_dict
-	try:
-		frappe.db.begin()
-		if not frappe.request.files['file'].__dict__.get('filename',None):
-			raise FileNotFoundError
-		current_user = frappe.session.user
-		frappe.form_dict.doctype = 'User'
-		frappe.form_dict.docname = current_user
-		frappe.form_dict.fieldname = 'user_image'
-		existing_file = frappe.db.get_value('File',{'attached_to_doctype':'User',
-						'attached_to_name': current_user, 'attached_to_field': 'user_image'})
-		if existing_file:
-			frappe.delete_doc("File", existing_file, ignore_permissions=True)
-		new_file = upload_file()
-		print(new_file)
-		frappe.db.set_value('User',current_user,'user_image', new_file.file_url)
-		frappe.local.response.http_status_code = 200
-		frappe.local.response["message"] = "Image Uploaded Successfully"
-		frappe.db.commit()
-	except frappe.FileNotFoundError:
-		frappe.db.rollback()
-		frappe.local.response.http_status_code = 404
-		frappe.local.response["message"] = "Kindly Upload a File to Proceed"
-	except Exception:
-		frappe.db.rollback()
-		frappe.local.response.http_status_code = 500
-		frappe.local.response["message"] = "Image Upload Failed"
-		frappe.log_error(title=req.cmd, message = f'{str(req)} \n {frappe.get_traceback()}')
-
 	finally:
 		return build_response('json')
