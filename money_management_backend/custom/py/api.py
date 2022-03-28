@@ -125,7 +125,7 @@ def daily_entry_submit(Type, Subtype,Name,Notes,Amount,Remainder_date=None):
 
 # Other customization
 @frappe.whitelist()
-def custom(Type, Subtype, IconBineryCode):
+def create_new_subtype(Type, Subtype, IconBineryCode):
 	doc=frappe.new_doc("TS Subtype")
 	doc.update(
 		{
@@ -161,7 +161,7 @@ def custom(Type, Subtype, IconBineryCode):
 
 #With subtype
 @frappe.whitelist()
-def withsubtype (Type):
+def subtype_list (Type):
 	docs = frappe.get_all("TS Subtype", filters={"ts_type":Type,"ts_subtype":['!=',""],"fromfe":1},fields=["ts_subtype","icon_code","Name"], as_list = 1)
 	frappe.local.response[Type]= docs
 			
@@ -169,8 +169,8 @@ def withsubtype (Type):
 
 #With and Without Subtype
 @frappe.whitelist()
-def withoutsubtype (Type):
-	docs = frappe.get_all("TS Subtype", filters={"ts_type":Type,"fromfe":"1"},fields=["icon_code"], as_list = 1)
+def icon_list (Type):
+	docs = frappe.get_all("TS Subtype", filters={"ts_type":Type,"fromfe":1},fields=["icon_code"], as_list = 1)
 	frappe.local.response[Type]= docs
 
 
@@ -179,7 +179,7 @@ def withoutsubtype (Type):
 
 #Profile
 @frappe.whitelist()
-def profile(email):
+def get_profile_data(email):
 	try:
 		user_doc = frappe.get_doc("User", email)
 		response={
