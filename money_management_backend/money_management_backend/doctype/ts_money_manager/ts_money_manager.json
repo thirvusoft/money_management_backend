@@ -18,7 +18,7 @@
   "ts_quantity",
   "section_break_8",
   "ts_vehicle_type",
-  "ts_vehicle_name",
+  "vehicle_name",
   "ts_vehicle_number",
   "ts_vehicle_documents",
   "column_break_14",
@@ -182,14 +182,6 @@
    "label": "Vehicle Type",
    "mandatory_depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Vehicle\"], doc.sub_type_name)",
    "options": "\nTwo Wheeler\nFour Wheeler\nHeavy Vehicles"
-  },
-  {
-   "depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Vehicle\"], doc.sub_type_name)",
-   "fieldname": "ts_vehicle_name",
-   "fieldtype": "Link",
-   "label": "Vehicle Name",
-   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Vehicle\"], doc.sub_type_name)",
-   "options": "TS Vehicle Name"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Vehicle\"], doc.sub_type_name)",
@@ -858,11 +850,19 @@
    "fieldtype": "Data",
    "label": "Sub Type Name",
    "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Vehicle\"], doc.sub_type_name)",
+   "fieldname": "vehicle_name",
+   "fieldtype": "Link",
+   "label": "Vehicle Name",
+   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Vehicle\"], doc.sub_type_name)",
+   "options": "TS Vehicle Name"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-25 11:56:16.326828",
+ "modified": "2022-03-28 08:44:33.780884",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Money Manager",
