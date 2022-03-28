@@ -6,11 +6,12 @@ frappe.ui.form.on('TS Daily Entry Sheet',
 	type :function(frm)
 	{
 		frm.set_query("sub_type", function(){
-			let custom=frm.doc.type;
+			let type=frm.doc.type;
 			return{
 				filters:
 				[
-					['ts_type', '=',custom]
+					['ts_type', '=',type],
+					['fromfe', '=',1]
 				]
 			};
 		});                             
