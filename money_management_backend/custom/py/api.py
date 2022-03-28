@@ -131,7 +131,7 @@ def custom(Type, Subtype, IconBineryCode):
 		{
 		"ts_type":Type,
 		"ts_subtype":Subtype,
-		"icon_code":hex(int(IconBineryCode)),
+		"icon_code":IconBineryCode,
 		"fromfe":1
 		}),
 	
