@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2022-03-28 08:43:11.307464",
+ "creation": "2022-03-28 08:40:53.171501",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
@@ -19,26 +19,12 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-28 08:43:11.307464",
+ "modified": "2022-03-28 08:42:35.310868",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
- "name": "TS Vehicle Name",
+ "name": "TS Vehicle Names",
  "owner": "Administrator",
- "permissions": [
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "System Manager",
-   "share": 1,
-   "write": 1
-  }
- ],
- "quick_entry": 1,
+ "permissions": [],
  "sort_field": "modified",
  "sort_order": "DESC"
 }
