@@ -25,6 +25,7 @@ frappe.ui.form.on('Budget', {
 		erpnext.accounts.dimensions.setup_dimension_filters(frm, frm.doctype);
 	},
 
+	
 	refresh: function(frm) {
 		frm.trigger("toggle_reqd_fields")
 	},

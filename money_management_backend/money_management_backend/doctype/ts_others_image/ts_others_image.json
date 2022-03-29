@@ -7,6 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "image",
+  "ts_name",
   "notes"
  ],
  "fields": [
@@ -21,12 +22,18 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Notes"
+  },
+  {
+   "fieldname": "ts_name",
+   "fieldtype": "Link",
+   "label": "Name",
+   "options": "TS Others file name"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2022-03-05 07:45:35.116231",
+ "modified": "2022-03-29 15:01:58.784420",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Others Image",
