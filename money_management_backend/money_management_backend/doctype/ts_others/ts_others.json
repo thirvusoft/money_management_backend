@@ -11,6 +11,11 @@
   "card_holder_name",
   "business_type",
   "comapany_name",
+  "column_break_6",
+  "business_area",
+  "mobile",
+  "location",
+  "address",
   "section_break_5",
   "function_name",
   "relation_catagory_name",
@@ -43,15 +48,17 @@
   {
    "depends_on": "eval:doc.subtype_name==\"Visiting Card\"",
    "fieldname": "business_type",
-   "fieldtype": "Data",
-   "label": "Business Type"
+   "fieldtype": "Link",
+   "label": "Business Type",
+   "options": "TS Business Type"
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Visiting Card\"",
    "fieldname": "comapany_name",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Comapany Name",
-   "mandatory_depends_on": "eval:doc.subtype_name==\"Visiting Card\""
+   "mandatory_depends_on": "eval:doc.subtype_name==\"Visiting Card\"",
+   "options": "TS Company Name"
   },
   {
    "fieldname": "section_break_5",
@@ -132,11 +139,41 @@
    "fieldname": "subtype_name",
    "fieldtype": "Data",
    "label": "Subtype Name"
+  },
+  {
+   "depends_on": "eval:doc.subtype_name==\"Visiting Card\"",
+   "fieldname": "business_area",
+   "fieldtype": "Link",
+   "label": "Business area",
+   "options": "TS Business area"
+  },
+  {
+   "depends_on": "eval:doc.subtype_name==\"Visiting Card\"",
+   "fieldname": "mobile",
+   "fieldtype": "Data",
+   "label": "Mobile"
+  },
+  {
+   "depends_on": "eval:doc.subtype_name==\"Visiting Card\"",
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location",
+   "options": "URL"
+  },
+  {
+   "depends_on": "eval:doc.subtype_name==\"Visiting Card\"",
+   "fieldname": "address",
+   "fieldtype": "Small Text",
+   "label": "Address"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-22 16:28:33.789195",
+ "modified": "2022-03-29 15:08:35.141371",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Others",
