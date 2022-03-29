@@ -11,6 +11,7 @@
   "card_holder_name",
   "business_type",
   "comapany_name",
+<<<<<<< HEAD
   "column_break_6",
   "business_area",
   "mobile",
@@ -20,6 +21,12 @@
   "function_name",
   "relation_name",
   "relation_catagory_name",
+=======
+  "section_break_5",
+  "function_name",
+  "relation_catagory_name",
+  "relation_name",
+>>>>>>> 02dba95e76fa204daf39298b226935dca4d160e2
   "remainder_date",
   "section_break_10",
   "profile_name",
@@ -42,24 +49,40 @@
   {
    "depends_on": "eval:doc.subtype_name==\"Visiting Card\"",
    "fieldname": "card_holder_name",
+<<<<<<< HEAD
    "fieldtype": "Link",
    "label": "Card Holder Name",
    "options": "TS Card Holder Name"
+=======
+   "fieldtype": "Data",
+   "label": "Card Holder Name"
+>>>>>>> 02dba95e76fa204daf39298b226935dca4d160e2
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Visiting Card\"",
    "fieldname": "business_type",
+<<<<<<< HEAD
    "fieldtype": "Link",
    "label": "Business Type",
    "options": "TS Business Type"
+=======
+   "fieldtype": "Data",
+   "label": "Business Type"
+>>>>>>> 02dba95e76fa204daf39298b226935dca4d160e2
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Visiting Card\"",
    "fieldname": "comapany_name",
+<<<<<<< HEAD
    "fieldtype": "Link",
    "label": "Comapany Name",
    "mandatory_depends_on": "eval:doc.subtype_name==\"Visiting Card\"",
    "options": "TS Visiting Card Company"
+=======
+   "fieldtype": "Data",
+   "label": "Comapany Name",
+   "mandatory_depends_on": "eval:doc.subtype_name==\"Visiting Card\""
+>>>>>>> 02dba95e76fa204daf39298b226935dca4d160e2
   },
   {
    "fieldname": "section_break_5",
@@ -68,17 +91,28 @@
   {
    "depends_on": "eval:doc.subtype_name==\"Invitation\"",
    "fieldname": "function_name",
+<<<<<<< HEAD
    "fieldtype": "Link",
    "label": "Function Name",
    "mandatory_depends_on": "eval:doc.subtype_name==\"Invitation\"",
    "options": "TS Function Name"
+=======
+   "fieldtype": "Data",
+   "label": "Function Name",
+   "mandatory_depends_on": "eval:doc.subtype_name==\"Invitation\""
+>>>>>>> 02dba95e76fa204daf39298b226935dca4d160e2
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Invitation\"",
    "fieldname": "relation_catagory_name",
+<<<<<<< HEAD
    "fieldtype": "Link",
    "label": "Catagory",
    "options": "TS Relation Catagory"
+=======
+   "fieldtype": "Data",
+   "label": "Relation Catagory Name"
+>>>>>>> 02dba95e76fa204daf39298b226935dca4d160e2
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Invitation\"",
@@ -142,6 +176,7 @@
    "fieldname": "subtype_name",
    "fieldtype": "Data",
    "label": "Subtype Name"
+<<<<<<< HEAD
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Visiting Card\"",
@@ -172,11 +207,17 @@
   {
    "fieldname": "column_break_6",
    "fieldtype": "Column Break"
+=======
+>>>>>>> 02dba95e76fa204daf39298b226935dca4d160e2
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
+<<<<<<< HEAD
  "modified": "2022-03-29 12:06:15.182192",
+=======
+ "modified": "2022-03-22 16:28:33.789195",
+>>>>>>> 02dba95e76fa204daf39298b226935dca4d160e2
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Others",

@@ -1,8 +1,12 @@
 {
  "actions": [],
  "allow_rename": 1,
+<<<<<<< HEAD
  "autoname": "field:vehicle_name",
  "creation": "2022-03-27 17:38:12.671622",
+=======
+ "creation": "2022-03-28 08:43:11.307464",
+>>>>>>> 02dba95e76fa204daf39298b226935dca4d160e2
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
@@ -13,13 +17,23 @@
   {
    "fieldname": "vehicle_name",
    "fieldtype": "Data",
+<<<<<<< HEAD
    "label": "Vehicle Name",
    "unique": 1
+=======
+   "in_list_view": 1,
+   "label": "Vehicle Name",
+   "reqd": 1
+>>>>>>> 02dba95e76fa204daf39298b226935dca4d160e2
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
+<<<<<<< HEAD
  "modified": "2022-03-27 17:38:12.671622",
+=======
+ "modified": "2022-03-28 08:43:11.307464",
+>>>>>>> 02dba95e76fa204daf39298b226935dca4d160e2
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Vehicle Name",

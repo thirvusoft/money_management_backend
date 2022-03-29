@@ -101,6 +101,10 @@ def daily_entry_submit(Type, Subtype,Name,Notes,Amount,Remainder_date=None):
 		doc.insert(ignore_permissions=True)
 		frappe.db.commit()
 		frappe.local.response["message"]="Success"
+<<<<<<< HEAD
+=======
+		frappe.local.response["docname"]=doc.name
+>>>>>>> 02dba95e76fa204daf39298b226935dca4d160e2
 		
 		
 	except frappe.ValidationError as e:
@@ -125,13 +129,21 @@ def daily_entry_submit(Type, Subtype,Name,Notes,Amount,Remainder_date=None):
 
 # Other customization
 @frappe.whitelist()
+<<<<<<< HEAD
 def custom(Type, Subtype, IconBineryCode):
+=======
+def create_new_subtype(Type, Subtype, IconBineryCode):
+>>>>>>> 02dba95e76fa204daf39298b226935dca4d160e2
 	doc=frappe.new_doc("TS Subtype")
 	doc.update(
 		{
 		"ts_type":Type,
 		"ts_subtype":Subtype,
+<<<<<<< HEAD
 		"icon_code":hex(int(IconBineryCode)),
+=======
+		"icon_code":IconBineryCode,
+>>>>>>> 02dba95e76fa204daf39298b226935dca4d160e2
 		"fromfe":1
 		}),
 	
@@ -161,7 +173,11 @@ def custom(Type, Subtype, IconBineryCode):
 
 #With subtype
 @frappe.whitelist()
+<<<<<<< HEAD
 def withsubtype (Type):
+=======
+def subtype_list (Type):
+>>>>>>> 02dba95e76fa204daf39298b226935dca4d160e2
 	docs = frappe.get_all("TS Subtype", filters={"ts_type":Type,"ts_subtype":['!=',""],"fromfe":1},fields=["ts_subtype","icon_code","Name"], as_list = 1)
 	frappe.local.response[Type]= docs
 			
@@ -169,8 +185,13 @@ def withsubtype (Type):
 
 #With and Without Subtype
 @frappe.whitelist()
+<<<<<<< HEAD
 def withoutsubtype (Type):
 	docs = frappe.get_all("TS Subtype", filters={"ts_type":Type,"fromfe":"1"},fields=["icon_code"], as_list = 1)
+=======
+def icon_list (Type):
+	docs = frappe.get_all("TS Subtype", filters={"ts_type":Type,"fromfe":1},fields=["icon_code"], as_list = 1)
+>>>>>>> 02dba95e76fa204daf39298b226935dca4d160e2
 	frappe.local.response[Type]= docs
 
 
@@ -179,7 +200,11 @@ def withoutsubtype (Type):
 
 #Profile
 @frappe.whitelist()
+<<<<<<< HEAD
 def profile(email):
+=======
+def get_profile_data(email):
+>>>>>>> 02dba95e76fa204daf39298b226935dca4d160e2
 	try:
 		user_doc = frappe.get_doc("User", email)
 		response={
@@ -193,6 +218,7 @@ def profile(email):
 		frappe.local.response.http_status_code = 404
 		frappe.local.response["message"] = "User Not Found"
 	finally:
+<<<<<<< HEAD
 		return build_response('json')	
 
 
@@ -229,4 +255,6 @@ def upload_profile_image():
 		frappe.log_error(title=req.cmd, message = f'{str(req)} \n {frappe.get_traceback()}')
 
 	finally:
+=======
+>>>>>>> 02dba95e76fa204daf39298b226935dca4d160e2
 		return build_response('json')

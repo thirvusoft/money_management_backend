@@ -7,8 +7,13 @@ frappe.ui.form.on('Budget', {
 		frm.set_query("account", "accounts", function() {
 			return {
 				filters: {
+<<<<<<< HEAD
 					//company: frm.doc.company,
 					//report_type: "Profit and Loss",
+=======
+					// company: frm.doc.company,
+					// report_type: "Profit and Loss",
+>>>>>>> 02dba95e76fa204daf39298b226935dca4d160e2
 					is_group: 0
 				}
 			};
@@ -46,4 +51,8 @@ frappe.ui.form.on('Budget', {
 		frm.toggle_reqd("cost_center", frm.doc.budget_against=="Cost Center");
 		frm.toggle_reqd("project", frm.doc.budget_against=="Project");
 	}
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> 02dba95e76fa204daf39298b226935dca4d160e2
