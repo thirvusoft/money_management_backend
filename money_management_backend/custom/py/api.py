@@ -77,10 +77,10 @@ def login():
 
 #Daily Entry
 @frappe.whitelist()
-def daily_entry_submit(Type, Subtype,Name,Notes,Amount,Remainder_date=None):
+def daily_entry_submit(type, subtype,name,notes,amount,remainder_date=None):
 	req = frappe.local.form_dict
 	try:
-		frappe.get_doc("TS Daily Entry Sheet",Name)
+		frappe.get_doc("TS Daily Entry Sheet",name)
 		frappe.local.response.http_status_code = 409
 		frappe.local.response["message"] = "File already exists with this name"
 		return build_response('json')
@@ -89,12 +89,12 @@ def daily_entry_submit(Type, Subtype,Name,Notes,Amount,Remainder_date=None):
 	doc=frappe.new_doc("TS Daily Entry Sheet")
 	doc.update(
 		{	
-		"type":Type,
-		"sub_type":Subtype,
-		"entry_name":Name,
-		"notes":Notes,
-		"amount":Amount,
-		"remainder_date":Remainder_date
+		"type":type,
+		"sub_type":subtype,
+		"entry_name":name,
+		"notes":notes,
+		"amount":amount,
+		"remainder_date":remainder_date
 		}),
 	
 	try:
@@ -126,19 +126,19 @@ def daily_entry_submit(Type, Subtype,Name,Notes,Amount,Remainder_date=None):
 
 # Other customization
 @frappe.whitelist()
-def create_new_subtype(Type, Subtype, IconBineryCode):
+def create_new_subtype(type, subtype, iconbinerycode):
 	doc=frappe.new_doc("TS Subtype")
 	doc.update(
 		{
-		"ts_type":Type,
-		"ts_subtype":Subtype,
-		"icon_code":IconBineryCode,
+		"ts_type":type,
+		"ts_subtype":subtype,
+		"icon_code":iconbinerycode,
 		"fromfe":1
-		}),
+		})
 	
 	try:
 		doc.insert(ignore_permissions=True)
-		frappe.db.commit()
+		frappe.db.commit() 
 		frappe.local.response.http_status_code = 200
 		frappe.local.response["message"] = "Entered Successfully"
 	except frappe.InternalServerError as e:
@@ -162,17 +162,17 @@ def create_new_subtype(Type, Subtype, IconBineryCode):
 
 #With subtype
 @frappe.whitelist()
-def subtype_list (Type):
-	docs = frappe.get_all("TS Subtype", filters={"ts_type":Type,"ts_subtype":['!=',""],"fromfe":1},fields=["ts_subtype","icon_code","Name"], as_list = 1)
-	frappe.local.response[Type]= docs
+def subtype_list (type):
+	docs = frappe.get_all("TS Subtype", filters={"ts_type":type,"ts_subtype":['!=',""],"fromfe":1},fields=["ts_subtype","icon_code","Name"], as_list = 1)
+	frappe.local.response[type]= docs
 			
 	
 
 #With and Without Subtype
 @frappe.whitelist()
-def icon_list (Type):
-	docs = frappe.get_all("TS Subtype", filters={"ts_type":Type,"fromfe":1},fields=["icon_code"], as_list = 1)
-	frappe.local.response[Type]= docs
+def icon_list (type):
+	docs = frappe.get_all("TS Subtype", filters={"ts_type":type,"fromfe":1},fields=["icon_code"], as_list = 1)
+	frappe.local.response[type]= docs
 
 
 
