@@ -11,3 +11,11 @@ class TSSubtype(Document):
 			frappe.local.response.http_status_code = 550
 			frappe.local.response["Message"]="Name Already Exist"
 			frappe.throw("Name Already Exist")
+		return	
+		if(self.account==None):
+			acc=frappe.new_doc('Account')
+			acc.update(dict(
+				
+			))
+			acc.save()
+			self.account=acc.name
