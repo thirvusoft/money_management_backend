@@ -11,3 +11,4 @@ class TSVehicleNumber(Document):
 			frappe.throw(frappe._("Invalid Vehicle Number. {0} is not 10 digit.").format(vehicle), frappe.InvalidPhoneNumberError)
 		else :
 			pass
+		

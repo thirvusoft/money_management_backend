@@ -26,3 +26,4 @@ class TSMoneyManager(Document):
 						frappe.throw(frappe._("{0} is more or less then 16 digit. Enter a valid Aadhar Number.").format(selleradhar), frappe.InvalidPhoneNumberError)
 		else:
 			Pass
+			
