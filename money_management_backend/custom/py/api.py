@@ -33,6 +33,7 @@ def login():
 		final_ts_subtype_list = []
 		for val in ts_subtype:
 			val = list(val)
+			val.append(val[0][0].upper())
 			final_ts_subtype_list.append(val)
 
 		frappe.local.response["asset"] = final_ts_subtype_list
@@ -164,7 +165,13 @@ def create_new_subtype(type, subtype, iconbinerycode):
 @frappe.whitelist()
 def subtype_list (type):
 	docs = frappe.get_all("TS Subtype", filters={"ts_type":type,"ts_subtype":['!=',""],"fromfe":1},fields=["ts_subtype","icon_code","Name"], as_list = 1)
-	frappe.local.response[type]= docs
+	final_list = []
+	for doc in docs:
+		doc = list(doc)
+		doc.append(doc[0][0].upper())
+		final_list.append(doc)
+
+	frappe.local.response[type]= final_list
 			
 	
 
