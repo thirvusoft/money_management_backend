@@ -587,9 +587,10 @@
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Dividends\"",
    "fieldname": "ts_company_name",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Company name",
-   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Dividends\""
+   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Dividends\"",
+   "options": "TS Company Name"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Dividends\"",
@@ -873,7 +874,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-04 16:36:21.265603",
+ "modified": "2022-04-04 17:09:30.337810",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Money Manager",
