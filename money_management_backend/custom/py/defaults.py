@@ -7,9 +7,9 @@ def createdocs():
        st.update({"doctype":"TS Subtype"})
        st.save()
        
-# setting_doc=frappe.new_doc('TS Settings')
-# setting_doc.update({
-#     'doctype': 'TS Settings',
-#     'account_to_credit': 'Buildings - MM'
-# })
-# setting_doc.save()
+setting_doc=frappe.new_doc('TS Settings')
+setting_doc.update({
+    'doctype': 'TS Settings',
+    'account_to_credit': 'Buildings - MM'
+})
+setting_doc.save()
