@@ -1,30 +1,27 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:vehicle_name",
- "creation": "2022-03-28 08:43:11.307464",
+ "autoname": "filed:ts_bank_name",
+ "creation": "2022-04-04 14:25:55.888209",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "vehicle_name"
+  "ts_bank_name"
  ],
  "fields": [
   {
-   "fieldname": "vehicle_name",
+   "fieldname": "ts_bank_name",
    "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Vehicle Name",
-   "reqd": 1,
-   "unique": 1
+   "label": "bank name"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-04 14:38:42.691504",
+ "modified": "2022-04-04 14:25:55.888209",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
- "name": "TS Vehicle Name",
+ "name": "TS Bank Name",
  "owner": "Administrator",
  "permissions": [
   {
@@ -42,5 +39,6 @@
  ],
  "quick_entry": 1,
  "sort_field": "modified",
- "sort_order": "DESC"
+ "sort_order": "DESC",
+ "track_changes": 1
 }

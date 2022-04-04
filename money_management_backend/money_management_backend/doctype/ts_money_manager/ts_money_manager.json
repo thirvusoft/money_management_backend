@@ -356,9 +356,11 @@
   {
    "depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Machinery\"], doc.sub_type_name)",
    "fieldname": "ts_machinery_name",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Name",
-   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Machinery\"], doc.sub_type_name)"
+   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Machinery\"], doc.sub_type_name)",
+   "options": "TS Machine Name"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Machinery\"], doc.sub_type_name)",
@@ -397,9 +399,10 @@
   {
    "depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.sub_type_name==\"Debt\"",
    "fieldname": "ts_debt_creditor_name",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Creditor Name",
-   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.sub_type_name==\"Debt\""
+   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.sub_type_name==\"Debt\"",
+   "options": "TS Creditor Name"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.sub_type_name==\"Debt\"",
@@ -411,9 +414,10 @@
   {
    "depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.sub_type_name==\"EMI\"",
    "fieldname": "ts_emi_creditor_name",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Creditor Name",
-   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.sub_type_name==\"EMI\""
+   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.sub_type_name==\"EMI\"",
+   "options": "TS Creditor Name"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.sub_type_name==\"EMI\"",
@@ -425,8 +429,9 @@
   {
    "depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.sub_type_name==\"EMI\"",
    "fieldname": "ts_emi_product",
-   "fieldtype": "Data",
-   "label": "EMI Product Name"
+   "fieldtype": "Link",
+   "label": "EMI Product Name",
+   "options": "TS EMI Product Name"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.sub_type_name==\"EMI\"",
@@ -484,8 +489,9 @@
   {
    "depends_on": "eval:doc.ts_credit_type==\"Bank\"",
    "fieldname": "ts_bank_name",
-   "fieldtype": "Data",
-   "label": "Bank Name"
+   "fieldtype": "Link",
+   "label": "Bank Name",
+   "options": "TS Bank Name"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Salary\"",
@@ -581,9 +587,10 @@
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Dividends\"",
    "fieldname": "ts_company_name",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Company name",
-   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Dividends\""
+   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Dividends\"",
+   "options": "TS Company Name"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Dividends\"",
@@ -612,9 +619,10 @@
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Business Profit\"",
    "fieldname": "ts_bcompany_name",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Company Name",
-   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Business Profit\""
+   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Business Profit\"",
+   "options": "TS Company Name"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Business Profit\"",
@@ -794,9 +802,10 @@
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Salary\"",
    "fieldname": "ts_scompany_name",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Company Name",
-   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Salary\""
+   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Salary\"",
+   "options": "TS Company Name"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Rental\"",
@@ -865,7 +874,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-29 18:42:53.046219",
+ "modified": "2022-04-04 17:09:30.337810",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Money Manager",
