@@ -132,7 +132,7 @@ def create_new_subtype(type, subtype, iconbinerycode):
 	doc.update(
 		{
 		"ts_type":type,
-		"ts_subtype":subtype,
+		"ts_subtype":subtype.title(),
 		"icon_code":iconbinerycode,
 		"fromfe":1
 		})
