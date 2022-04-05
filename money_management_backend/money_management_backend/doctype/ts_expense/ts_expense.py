@@ -2,7 +2,14 @@
 # For license information, please see license.txt
 
 # import frappe
+import frappe
 from frappe.model.document import Document
 
 class TSExpense(Document):
-	pass
+	def validate(doc):
+		aadhar=doc.ts_aadhar_number
+		if aadhar or aadhar==0:
+			if not aadhar.isdigit() or len(aadhar) != 16:
+				frappe.throw(frappe._("Invalid Aadhar Number. {0} is not 16 digit.").format(aadhar), frappe.InvalidPhoneNumberError)
+			else :
+				pass

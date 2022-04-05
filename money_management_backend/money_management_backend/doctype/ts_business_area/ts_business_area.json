@@ -13,13 +13,15 @@
   {
    "fieldname": "area",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Area",
+   "reqd": 1,
    "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-29 15:08:12.599720",
+ "modified": "2022-04-05 20:19:11.055919",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Business area",

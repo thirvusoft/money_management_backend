@@ -13,13 +13,15 @@
   {
    "fieldname": "ts_soil_type",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Soil Type",
+   "reqd": 1,
    "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-05 12:05:27.243929",
+ "modified": "2022-04-05 20:15:59.233319",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Soil Type",

@@ -7,7 +7,8 @@ from frappe.model.document import Document
 class TSOthers(Document):
 	def validate(doc):
 		aadhar=doc.ts_aadhar
-		if not aadhar.isdigit() or len(aadhar) != 16:
-			frappe.throw(frappe._("Invalid Aadhar Number. {0} is not 16 digit.").format(aadhar), frappe.InvalidPhoneNumberError)
-		else :
-			pass
+		if aadhar or aadhar==0:
+			if not aadhar.isdigit() or len(aadhar) != 16:
+				frappe.throw(frappe._("Invalid Aadhar Number. {0} is not 16 digit.").format(aadhar), frappe.InvalidPhoneNumberError)
+			else :
+				pass

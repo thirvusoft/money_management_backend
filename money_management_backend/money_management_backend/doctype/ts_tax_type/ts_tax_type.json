@@ -13,13 +13,15 @@
   {
    "fieldname": "ts_tax_type",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Tax Type",
+   "reqd": 1,
    "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-05 11:33:46.433304",
+ "modified": "2022-04-05 20:15:04.239040",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Tax Type",

@@ -13,13 +13,15 @@
   {
    "fieldname": "ts_crypro_currency_name",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Crypto Currrency Name",
+   "reqd": 1,
    "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-05 10:16:17.364156",
+ "modified": "2022-04-05 20:15:27.821437",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Crypto Name",

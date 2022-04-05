@@ -125,6 +125,7 @@
   "ts_bloction",
   "section_break_85",
   "ts_credit_type",
+  "ts_bank",
   "ts_crypto_name",
   "ts_currency",
   "ts_status",
@@ -912,11 +913,18 @@
    "fieldtype": "Select",
    "label": "Status",
    "options": "Profit\nLoss"
+  },
+  {
+   "depends_on": "eval:doc.ts_credit_type==\"Bank\"",
+   "fieldname": "ts_bank",
+   "fieldtype": "Link",
+   "label": "Bank Name",
+   "options": "TS Bank Name"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-05 18:15:12.763529",
+ "modified": "2022-04-05 20:08:05.138537",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Money Manager",

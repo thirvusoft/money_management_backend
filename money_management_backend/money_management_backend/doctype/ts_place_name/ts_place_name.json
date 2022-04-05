@@ -13,13 +13,15 @@
   {
    "fieldname": "ts_place_name",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Place Name",
+   "reqd": 1,
    "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-05 12:03:38.494380",
+ "modified": "2022-04-05 20:15:44.859109",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Place Name",

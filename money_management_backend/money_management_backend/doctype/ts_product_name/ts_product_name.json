@@ -13,16 +13,18 @@
   {
    "fieldname": "ts_thing_name",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Thing Name",
+   "reqd": 1,
    "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-05 11:59:39.639629",
+ "modified": "2022-04-05 20:14:55.879592",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
- "name": "TS Thing Name",
+ "name": "TS Product Name",
  "owner": "Administrator",
  "permissions": [
   {
