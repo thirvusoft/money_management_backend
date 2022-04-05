@@ -2,8 +2,11 @@ from dataclasses import fields
 from pydoc import doc
 import frappe
 from frappe.auth import LoginManager
+from frappe.exceptions import DoesNotExistError
+from money_management_backend.money_management_backend.doctype.ts_daily_entry_sheet.ts_daily_entry_sheet import AmountisZero
 from frappe.utils.response import build_response
 import json
+from erpnext.accounts.doctype.budget.budget import BudgetError
 from frappe.handler import upload_file
 def generate_token(user):
 	user_details = frappe.get_doc("User", user)
@@ -37,8 +40,6 @@ def login():
 
 		frappe.local.response["asset"] = final_ts_subtype_list
 		frappe.db.commit()
-
-		
 		
 	except frappe.AuthenticationError as e:
 		frappe.db.rollback()
@@ -73,19 +74,10 @@ def login():
 	finally:
 		return build_response('json')
 	
-
-
 #Daily Entry
 @frappe.whitelist()
 def daily_entry_submit(type, subtype,name,notes,amount,remainder_date=None):
 	req = frappe.local.form_dict
-	try:
-		frappe.get_doc("TS Daily Entry Sheet",name)
-		frappe.local.response.http_status_code = 409
-		frappe.local.response["message"] = "File already exists with this name"
-		return build_response('json')
-	except:
-		pass
 	doc=frappe.new_doc("TS Daily Entry Sheet")
 	doc.update(
 		{	
@@ -103,7 +95,21 @@ def daily_entry_submit(type, subtype,name,notes,amount,remainder_date=None):
 		frappe.local.response["message"]="Success"
 		frappe.local.response["docname"]=doc.name
 		
+	except BudgetError as e:
+			frappe.db.rollback()
+			frappe.local.response.http_status_code=429
+			frappe.local.response['message']='Budget Limit Exceeded'
+			
+	except AmountisZero as e:
+			frappe.db.rollback()
+			frappe.local.response.http_status_code=417
+			frappe.local.response['message']='Amount Must be Greater than Zero.'
 		
+	except DoesNotExistError as e:
+			frappe.db.rollback()
+			frappe.local.response.http_status_code=404
+			frappe.local.response['message']=f'Account does not exist for {subtype}'
+			
 	except frappe.ValidationError as e:
 		frappe.db.rollback()
 		frappe.local.response.http_status_code = 417
@@ -164,19 +170,13 @@ def create_new_subtype(type, subtype, iconbinerycode):
 @frappe.whitelist()
 def subtype_list (type):
 	docs = frappe.get_all("TS Subtype", filters={"ts_type":type,"ts_subtype":['!=',""],"fromfe":1},fields=["ts_subtype","icon_code","Name"], as_list = 1)
-	frappe.local.response[type]= docs
-			
-	
+	frappe.local.response[type]= docs	
 
 #With and Without Subtype
 @frappe.whitelist()
 def icon_list (type):
 	docs = frappe.get_all("TS Subtype", filters={"ts_type":type,"fromfe":1},fields=["icon_code"], as_list = 1)
 	frappe.local.response[type]= docs
-
-
-
-
 
 #Profile
 @frappe.whitelist()
