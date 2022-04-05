@@ -42,9 +42,8 @@
   },
   {
    "fieldname": "account",
-   "fieldtype": "Link",
-   "label": "Account",
-   "options": "Account"
+   "fieldtype": "Data",
+   "label": "Account"
   }
  ],
  "index_web_pages_for_search": 1,

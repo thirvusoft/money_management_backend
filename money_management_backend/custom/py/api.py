@@ -36,6 +36,7 @@ def login():
 		final_ts_subtype_list = []
 		for val in ts_subtype:
 			val = list(val)
+			val.append(val[0][0].upper())
 			final_ts_subtype_list.append(val)
 
 		frappe.local.response["asset"] = final_ts_subtype_list
@@ -137,7 +138,7 @@ def create_new_subtype(type, subtype, iconbinerycode):
 	doc.update(
 		{
 		"ts_type":type,
-		"ts_subtype":subtype,
+		"ts_subtype":subtype.title(),
 		"icon_code":iconbinerycode,
 		"fromfe":1
 		})

@@ -12,9 +12,10 @@
  "fields": [
   {
    "fieldname": "item_list",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Item List"
+   "label": "Item List",
+   "options": "TS Item Name List"
   },
   {
    "fieldname": "cost",
@@ -26,7 +27,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2022-03-03 16:19:33.638358",
+ "modified": "2022-04-05 11:53:24.923231",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Stationary Item List",

@@ -126,6 +126,12 @@
   "section_break_85",
   "ts_credit_type",
   "ts_bank_name",
+  "ts_crypto_name",
+  "ts_currency",
+  "ts_status",
+  "ts_amount",
+  "ts_date",
+  "ts_document",
   "ts_notes"
  ],
  "fields": [
@@ -356,9 +362,11 @@
   {
    "depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Machinery\"], doc.sub_type_name)",
    "fieldname": "ts_machinery_name",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Name",
-   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Machinery\"], doc.sub_type_name)"
+   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Machinery\"], doc.sub_type_name)",
+   "options": "TS Machine Name"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Machinery\"], doc.sub_type_name)",
@@ -397,9 +405,10 @@
   {
    "depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.sub_type_name==\"Debt\"",
    "fieldname": "ts_debt_creditor_name",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Creditor Name",
-   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.sub_type_name==\"Debt\""
+   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.sub_type_name==\"Debt\"",
+   "options": "TS Creditor Name"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.sub_type_name==\"Debt\"",
@@ -411,9 +420,10 @@
   {
    "depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.sub_type_name==\"EMI\"",
    "fieldname": "ts_emi_creditor_name",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Creditor Name",
-   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.sub_type_name==\"EMI\""
+   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.sub_type_name==\"EMI\"",
+   "options": "TS Creditor Name"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.sub_type_name==\"EMI\"",
@@ -425,8 +435,9 @@
   {
    "depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.sub_type_name==\"EMI\"",
    "fieldname": "ts_emi_product",
-   "fieldtype": "Data",
-   "label": "EMI Product Name"
+   "fieldtype": "Link",
+   "label": "EMI Product Name",
+   "options": "TS EMI Product Name"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.sub_type_name==\"EMI\"",
@@ -484,8 +495,9 @@
   {
    "depends_on": "eval:doc.ts_credit_type==\"Bank\"",
    "fieldname": "ts_bank_name",
-   "fieldtype": "Data",
-   "label": "Bank Name"
+   "fieldtype": "Link",
+   "label": "Bank Name",
+   "options": "TS Bank Name"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Salary\"",
@@ -501,9 +513,10 @@
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Asset/Scrap Sale\"",
    "fieldname": "ts_asset_name",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Asset / Scrap Name",
-   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Asset/Scrap Sale\""
+   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Asset/Scrap Sale\"",
+   "options": "TS Asset Scrap Name List"
   },
   {
    "fieldname": "section_break_69",
@@ -512,8 +525,9 @@
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Asset/Scrap Sale\"",
    "fieldname": "ts_purchased_person_name",
-   "fieldtype": "Data",
-   "label": "Purchased Person Name"
+   "fieldtype": "Link",
+   "label": "Purchased Person Name",
+   "options": "TS Person Name"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Asset/Scrap Sale\"",
@@ -540,9 +554,10 @@
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Rental\"",
    "fieldname": "ts_person_name",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Person Name",
-   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Rental\""
+   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Rental\"",
+   "options": "TS Person Name"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Rental\"",
@@ -564,8 +579,9 @@
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Lottery\"",
    "fieldname": "ts_lottery_company",
-   "fieldtype": "Data",
-   "label": "Lottery Company Name"
+   "fieldtype": "Link",
+   "label": "Lottery Company Name",
+   "options": "TS Company Name"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Lottery\"",
@@ -581,9 +597,10 @@
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Dividends\"",
    "fieldname": "ts_company_name",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Company name",
-   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Dividends\""
+   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Dividends\"",
+   "options": "TS Company Name"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Dividends\"",
@@ -612,9 +629,10 @@
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Business Profit\"",
    "fieldname": "ts_bcompany_name",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Company Name",
-   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Business Profit\""
+   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Business Profit\"",
+   "options": "TS Company Name"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Business Profit\"",
@@ -648,7 +666,7 @@
    "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Asset/Scrap Sale\""
   },
   {
-   "depends_on": "eval:in_list([\"Asset\", \"Liability\", \"Income\", \"Expenses\", \"Others\"],doc.ts_entry_type) && in_list([\"Gold\", \"Silver\", \"Diamond\", \"Platinum\", \"Vehicle\", \"Home Appliance\", \"Machinery\", \"Agricultural Land\", \"Commercial Land\", \"Residential Land\", \"Debt\", \"EMI\", \"Salary\", \"Asset/Scrap Sale\", \"Rental\", \"Dividends\", \"Business Profit\", \"Lottery\"],doc.sub_type_name)",
+   "depends_on": "eval:in_list([\"Asset\", \"Liability\", \"Income\", \"Expenses\", \"Others\"],doc.ts_entry_type) && in_list([\"Gold\", \"Silver\", \"Diamond\", \"Platinum\", \"Vehicle\", \"Home Appliance\", \"Machinery\", \"Agricultural Land\", \"Commercial Land\", \"Residential Land\", \"Debt\", \"EMI\", \"Salary\", \"Asset/Scrap Sale\", \"Rental\", \"Dividends\", \"Business Profit\", \"Lottery\",\"Crypto\",\"Crypto Currency\"],doc.sub_type_name)",
    "fieldname": "ts_notes",
    "fieldtype": "Small Text",
    "label": "Notes"
@@ -794,9 +812,10 @@
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Salary\"",
    "fieldname": "ts_scompany_name",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Company Name",
-   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Salary\""
+   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Salary\"",
+   "options": "TS Company Name"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Rental\"",
@@ -861,11 +880,51 @@
    "label": "Vehicle Name",
    "mandatory_depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Vehicle\"], doc.sub_type_name)",
    "options": "TS Vehicle Name"
+  },
+  {
+   "depends_on": "eval:in_list([\"Crypto\",\"Crypto Currency\"],doc.sub_type_name)&&in_list([\"Asset\",\"Income\"],doc.ts_entry_type)",
+   "fieldname": "ts_crypto_name",
+   "fieldtype": "Link",
+   "label": "Crypto Name",
+   "options": "TS Crypto Name"
+  },
+  {
+   "depends_on": "eval:in_list([\"Crypto\",\"Crypto Currency\"],doc.sub_type_name)&&in_list([\"Asset\",\"Income\"],doc.ts_entry_type)",
+   "fieldname": "ts_currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency"
+  },
+  {
+   "depends_on": "eval:in_list([\"Crypto\",\"Crypto Currency\"],doc.sub_type_name)&&in_list([\"Asset\",\"Income\"],doc.ts_entry_type)",
+   "fieldname": "ts_amount",
+   "fieldtype": "Currency",
+   "label": "Amount"
+  },
+  {
+   "depends_on": "eval:in_list([\"Crypto\",\"Crypto Currency\"],doc.sub_type_name)&&in_list([\"Asset\",\"Income\"],doc.ts_entry_type)",
+   "fieldname": "ts_document",
+   "fieldtype": "Table",
+   "label": "Document",
+   "options": "TS Currency Document"
+  },
+  {
+   "depends_on": "eval:in_list([\"Crypto\",\"Crypto Currency\"],doc.sub_type_name)&&in_list([\"Asset\",\"Income\"],doc.ts_entry_type)",
+   "fieldname": "ts_date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Crypto\"",
+   "fieldname": "ts_status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Profit\nLoss"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-29 18:42:53.046219",
+ "modified": "2022-04-05 12:52:02.103926",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Money Manager",
