@@ -126,6 +126,12 @@
   "section_break_85",
   "ts_credit_type",
   "ts_bank_name",
+  "ts_crypto_name",
+  "ts_currency",
+  "ts_status",
+  "ts_amount",
+  "ts_date",
+  "ts_document",
   "ts_notes"
  ],
  "fields": [
@@ -507,9 +513,10 @@
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Asset/Scrap Sale\"",
    "fieldname": "ts_asset_name",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Asset / Scrap Name",
-   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Asset/Scrap Sale\""
+   "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Asset/Scrap Sale\"",
+   "options": "TS Asset Scrap Name List"
   },
   {
    "fieldname": "section_break_69",
@@ -518,8 +525,9 @@
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Asset/Scrap Sale\"",
    "fieldname": "ts_purchased_person_name",
-   "fieldtype": "Data",
-   "label": "Purchased Person Name"
+   "fieldtype": "Link",
+   "label": "Purchased Person Name",
+   "options": "TS Person Name"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Asset/Scrap Sale\"",
@@ -571,8 +579,9 @@
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Lottery\"",
    "fieldname": "ts_lottery_company",
-   "fieldtype": "Data",
-   "label": "Lottery Company Name"
+   "fieldtype": "Link",
+   "label": "Lottery Company Name",
+   "options": "TS Company Name"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Lottery\"",
@@ -657,7 +666,7 @@
    "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Asset/Scrap Sale\""
   },
   {
-   "depends_on": "eval:in_list([\"Asset\", \"Liability\", \"Income\", \"Expenses\", \"Others\"],doc.ts_entry_type) && in_list([\"Gold\", \"Silver\", \"Diamond\", \"Platinum\", \"Vehicle\", \"Home Appliance\", \"Machinery\", \"Agricultural Land\", \"Commercial Land\", \"Residential Land\", \"Debt\", \"EMI\", \"Salary\", \"Asset/Scrap Sale\", \"Rental\", \"Dividends\", \"Business Profit\", \"Lottery\"],doc.sub_type_name)",
+   "depends_on": "eval:in_list([\"Asset\", \"Liability\", \"Income\", \"Expenses\", \"Others\"],doc.ts_entry_type) && in_list([\"Gold\", \"Silver\", \"Diamond\", \"Platinum\", \"Vehicle\", \"Home Appliance\", \"Machinery\", \"Agricultural Land\", \"Commercial Land\", \"Residential Land\", \"Debt\", \"EMI\", \"Salary\", \"Asset/Scrap Sale\", \"Rental\", \"Dividends\", \"Business Profit\", \"Lottery\",\"Crypto\",\"Crypto Currency\"],doc.sub_type_name)",
    "fieldname": "ts_notes",
    "fieldtype": "Small Text",
    "label": "Notes"
@@ -871,11 +880,51 @@
    "label": "Vehicle Name",
    "mandatory_depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Vehicle\"], doc.sub_type_name)",
    "options": "TS Vehicle Name"
+  },
+  {
+   "depends_on": "eval:in_list([\"Crypto\",\"Crypto Currency\"],doc.sub_type_name)&&in_list([\"Asset\",\"Income\"],doc.ts_entry_type)",
+   "fieldname": "ts_crypto_name",
+   "fieldtype": "Link",
+   "label": "Crypto Name",
+   "options": "TS Crypto Name"
+  },
+  {
+   "depends_on": "eval:in_list([\"Crypto\",\"Crypto Currency\"],doc.sub_type_name)&&in_list([\"Asset\",\"Income\"],doc.ts_entry_type)",
+   "fieldname": "ts_currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency"
+  },
+  {
+   "depends_on": "eval:in_list([\"Crypto\",\"Crypto Currency\"],doc.sub_type_name)&&in_list([\"Asset\",\"Income\"],doc.ts_entry_type)",
+   "fieldname": "ts_amount",
+   "fieldtype": "Currency",
+   "label": "Amount"
+  },
+  {
+   "depends_on": "eval:in_list([\"Crypto\",\"Crypto Currency\"],doc.sub_type_name)&&in_list([\"Asset\",\"Income\"],doc.ts_entry_type)",
+   "fieldname": "ts_document",
+   "fieldtype": "Table",
+   "label": "Document",
+   "options": "TS Currency Document"
+  },
+  {
+   "depends_on": "eval:in_list([\"Crypto\",\"Crypto Currency\"],doc.sub_type_name)&&in_list([\"Asset\",\"Income\"],doc.ts_entry_type)",
+   "fieldname": "ts_date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Crypto\"",
+   "fieldname": "ts_status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Profit\nLoss"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-04 17:23:36.940456",
+ "modified": "2022-04-05 12:52:02.103926",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Money Manager",

@@ -1,36 +1,43 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2022-03-03 16:19:33.638358",
+ "creation": "2022-04-05 10:27:30.936672",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "item_list",
-  "cost"
+  "bill_document",
+  "document_name",
+  "notes"
  ],
  "fields": [
   {
-   "fieldname": "item_list",
-   "fieldtype": "Link",
+   "fieldname": "bill_document",
+   "fieldtype": "Attach",
    "in_list_view": 1,
-   "label": "Item List",
-   "options": "TS Item Name List"
+   "label": "Document"
   },
   {
-   "fieldname": "cost",
-   "fieldtype": "Currency",
+   "fieldname": "document_name",
+   "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Cost"
+   "label": "Document Name",
+   "options": "TS Documents list"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Notes"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2022-04-05 11:53:24.923231",
+ "modified": "2022-04-05 10:32:02.333956",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
- "name": "TS Stationary Item List",
+ "name": "TS Currency Document",
  "owner": "Administrator",
  "permissions": [],
  "sort_field": "modified",
