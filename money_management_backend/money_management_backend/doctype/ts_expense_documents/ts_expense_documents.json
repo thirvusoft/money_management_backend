@@ -26,6 +26,7 @@
   {
    "fieldname": "document_name",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Document Name",
    "options": "TS Documents list"
   }
@@ -33,7 +34,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2022-03-25 14:26:17.219245",
+ "modified": "2022-04-04 17:45:32.586893",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Expense Documents",

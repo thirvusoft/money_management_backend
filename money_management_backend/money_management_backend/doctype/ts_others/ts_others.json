@@ -82,8 +82,9 @@
   {
    "depends_on": "eval:doc.subtype_name==\"Invitation\"",
    "fieldname": "relation_name",
-   "fieldtype": "Data",
-   "label": "Relation Name"
+   "fieldtype": "Link",
+   "label": "Relation Name",
+   "options": "TS Person Name"
   },
   {
    "depends_on": "eval:in_list([\"Invitation\", \"Visiting Card\", \"Profile\"], doc.subtype_name)",
@@ -111,15 +112,17 @@
   {
    "depends_on": "eval:doc.subtype_name==\"Profile\"",
    "fieldname": "profile_name",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Profile Name",
-   "mandatory_depends_on": "eval:doc.subtype_name==\"Profile\""
+   "mandatory_depends_on": "eval:doc.subtype_name==\"Profile\"",
+   "options": "TS Profile Name"
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Profile\"",
    "fieldname": "job_type",
-   "fieldtype": "Data",
-   "label": "Job Type"
+   "fieldtype": "Link",
+   "label": "Job Type",
+   "options": "TS Job Type"
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Profile\"",
@@ -175,7 +178,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-29 15:18:01.510263",
+ "modified": "2022-04-05 12:14:46.361730",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Others",

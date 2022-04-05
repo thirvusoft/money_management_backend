@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:vehicle_name",
  "creation": "2022-03-28 08:43:11.307464",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -14,12 +15,13 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Vehicle Name",
-   "reqd": 1
+   "reqd": 1,
+   "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-28 08:43:11.307464",
+ "modified": "2022-04-04 14:38:42.691504",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Vehicle Name",
