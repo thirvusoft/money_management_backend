@@ -649,9 +649,10 @@
   {
    "depends_on": "eval:doc.subtype_name==\"Gift\"",
    "fieldname": "gifted_to",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Gifted to",
-   "mandatory_depends_on": "eval:doc.subtype_name==\"Gift\""
+   "mandatory_depends_on": "eval:doc.subtype_name==\"Gift\"",
+   "options": "TS Person Name"
   },
   {
    "fieldname": "section_break_81",
@@ -680,9 +681,10 @@
   {
    "depends_on": "eval:doc.subtype_name==\"Education\" && doc.expense_type==\"Institution\"",
    "fieldname": "institution_name",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Institution Name",
-   "mandatory_depends_on": "eval:doc.subtype_name==\"Education\" && doc.expense_type==\"Institution\""
+   "mandatory_depends_on": "eval:doc.subtype_name==\"Education\" && doc.expense_type==\"Institution\"",
+   "options": "TS Institution Name"
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Education\" && doc.expense_type==\"Institution\"",
@@ -693,8 +695,9 @@
   {
    "depends_on": "eval:doc.subtype_name==\"Education\"",
    "fieldname": "expense_to",
-   "fieldtype": "Data",
-   "label": "Expense to"
+   "fieldtype": "Link",
+   "label": "Expense to",
+   "options": "TS Person Name"
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Education\"",
@@ -737,8 +740,9 @@
   {
    "depends_on": "eval:doc.subtype_name==\"Social Service\" && doc.service_type==\"Thing\"",
    "fieldname": "orthing_name",
-   "fieldtype": "Data",
-   "label": "Thing Name"
+   "fieldtype": "Link",
+   "label": "Thing Name",
+   "options": "TS Thing Name"
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Social Service\"",
@@ -823,9 +827,10 @@
   {
    "depends_on": "eval:doc.subtype_name==\"Construction\"",
    "fieldname": "contractor_name",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Contractor Name",
-   "mandatory_depends_on": "eval:doc.subtype_name==\"Construction\""
+   "mandatory_depends_on": "eval:doc.subtype_name==\"Construction\"",
+   "options": "TS Person Name"
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Construction\"",
@@ -848,8 +853,9 @@
   {
    "depends_on": "eval:doc.subtype_name==\"Construction\"",
    "fieldname": "cname",
-   "fieldtype": "Data",
-   "label": "Name"
+   "fieldtype": "Link",
+   "label": "Place Name",
+   "options": "TS Place Name"
   },
   {
    "fieldname": "data_113",
@@ -876,8 +882,9 @@
   {
    "depends_on": "eval:doc.subtype_name==\"Agriculture\"",
    "fieldname": "soil_type",
-   "fieldtype": "Data",
-   "label": "Soil Type"
+   "fieldtype": "Link",
+   "label": "Soil Type",
+   "options": "TS Soil Type"
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Agriculture\" && doc.aexpense_type==\"Maintenance\"",
@@ -889,8 +896,9 @@
   {
    "depends_on": "eval:doc.subtype_name==\"Agriculture\" && doc.aexpense_type==\"Maintenance\" && doc.is_affected_by_disease==\"Yes\"",
    "fieldname": "used_fertilizer",
-   "fieldtype": "Data",
-   "label": "Used Fertilizer"
+   "fieldtype": "Link",
+   "label": "Used Fertilizer",
+   "options": "TS Used Fertilizer"
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Agriculture\" && doc.aexpense_type==\"Maintenance\" && doc.is_affected_by_disease==\"Yes\"",
@@ -910,9 +918,10 @@
   {
    "depends_on": "eval:doc.subtype_name==\"Agriculture\" && doc.aexpense_type==\"Yield\"",
    "fieldname": "crop_yeild_name",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Crop Yield name",
-   "mandatory_depends_on": "eval:doc.subtype_name==\"Agriculture\" && doc.aexpense_type==\"Yeild\""
+   "mandatory_depends_on": "eval:doc.subtype_name==\"Agriculture\" && doc.aexpense_type==\"Yeild\"",
+   "options": "TS Crop Yield name"
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Agriculture\" && doc.aexpense_type==\"Yield\"",
@@ -985,9 +994,10 @@
   {
    "depends_on": "eval:doc.subtype_name==\"Social Service\"",
    "fieldname": "sperson_name",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Person / Organization Name",
-   "mandatory_depends_on": "eval:doc.subtype_name==\"Social Service\""
+   "mandatory_depends_on": "eval:doc.subtype_name==\"Social Service\"",
+   "options": "TS Person Name"
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Construction\"",
@@ -1072,8 +1082,9 @@
   {
    "depends_on": "eval:doc.subtype_name==\"Education\" && doc.expense_type==\"Stationary\"",
    "fieldname": "sshop_name",
-   "fieldtype": "Data",
-   "label": "Shop Name"
+   "fieldtype": "Link",
+   "label": "Shop Name",
+   "options": "TS Shop Name"
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Education\" && doc.expense_type==\"Stationary\"",
@@ -1147,7 +1158,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-05 11:33:51.627801",
+ "modified": "2022-04-05 12:08:59.254729",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Expense",

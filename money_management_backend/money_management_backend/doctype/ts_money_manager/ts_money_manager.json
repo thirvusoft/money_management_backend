@@ -883,7 +883,7 @@
    "options": "TS Vehicle Name"
   },
   {
-   "depends_on": "eval:doc.ts_entry_type==\"Asset\"&& doc.sub_type_name==\"Crypto Currency\"",
+   "depends_on": "eval: doc.sub_type_name==\"Crypto Currency\"&&in_list([\"Asset\",\"Income\"],doc.ts_entry_type)",
    "fieldname": "ts_crypto_name",
    "fieldtype": "Link",
    "label": "Crypto Name",
@@ -931,7 +931,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-05 11:23:57.944946",
+ "modified": "2022-04-05 12:32:31.210319",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Money Manager",
