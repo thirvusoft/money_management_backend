@@ -179,8 +179,9 @@
   {
    "depends_on": "eval:doc.subtype_name==\"Home Need\" && doc.home_need_type==\"Gas\"",
    "fieldname": "agency_name",
-   "fieldtype": "Data",
-   "label": "Agency Name"
+   "fieldtype": "Link",
+   "label": "Agency Name",
+   "options": "TS Agency Name"
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Home Need\" && doc.home_need_type==\"Gas\"",
@@ -198,9 +199,10 @@
   {
    "depends_on": "eval:doc.subtype_name==\"Home Need\" && doc.home_need_type==\"Gas\"",
    "fieldname": "delivery_person_name",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Delivery Person Name",
-   "mandatory_depends_on": "eval:doc.home_need_type==\"Gas\""
+   "mandatory_depends_on": "eval:doc.home_need_type==\"Gas\"",
+   "options": "TS Delivery Person Name"
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Home Need\" && doc.home_need_type==\"Gas\"",
@@ -270,15 +272,17 @@
   {
    "depends_on": "eval:doc.subtype_name==\"Home Need\" && doc.home_need_type==\"Phone Recharge\"",
    "fieldname": "person_name",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Person Name",
-   "mandatory_depends_on": "eval:doc.home_need_type==\"Phone Recharge\""
+   "mandatory_depends_on": "eval:doc.home_need_type==\"Phone Recharge\"",
+   "options": "TS Person Name"
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Home Need\" && doc.home_need_type==\"Phone Recharge\"",
    "fieldname": "shop_name",
-   "fieldtype": "Data",
-   "label": "Shop Name"
+   "fieldtype": "Link",
+   "label": "Shop Name",
+   "options": "TS Shop Name"
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Home Need\" && doc.home_need_type==\"Phone Recharge\"",
@@ -307,15 +311,17 @@
   {
    "depends_on": "eval:doc.home_need_type==\"Health\"",
    "fieldname": "hospital_name",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Hospital Name",
-   "mandatory_depends_on": "eval:doc.home_need_type==\"Health\""
+   "mandatory_depends_on": "eval:doc.home_need_type==\"Health\"",
+   "options": "TS Hospital Name"
   },
   {
    "depends_on": "eval:doc.home_need_type==\"Health\"",
    "fieldname": "medical_name",
-   "fieldtype": "Data",
-   "label": "Medical Name"
+   "fieldtype": "Link",
+   "label": "Medical Name",
+   "options": "TS Medical Name"
   },
   {
    "depends_on": "eval:doc.home_need_type==\"Health\"",
@@ -336,9 +342,10 @@
   {
    "depends_on": "eval:doc.home_need_type==\"Beauty\"",
    "fieldname": "bperson_name",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Person Name",
-   "mandatory_depends_on": "eval:doc.home_need_type==\"Beauty\""
+   "mandatory_depends_on": "eval:doc.home_need_type==\"Beauty\"",
+   "options": "TS Person Name"
   },
   {
    "depends_on": "eval:doc.home_need_type==\"Beauty\"",
@@ -372,9 +379,10 @@
   {
    "depends_on": "eval:doc.home_need_type==\"Food\"",
    "fieldname": "fshop_name",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Shop Name",
-   "mandatory_depends_on": "eval:doc.home_need_type==\"Food\""
+   "mandatory_depends_on": "eval:doc.home_need_type==\"Food\"",
+   "options": "TS Shop Name"
   },
   {
    "depends_on": "eval:doc.home_need_type==\"Food\"",
@@ -408,8 +416,9 @@
   {
    "depends_on": "eval:doc.subtype_name==\"Home Need\" && in_list([\"Grocery\", \"Shopping\", \"Clothing\", \"Electronics\"],doc.home_need_type)\n",
    "fieldname": "gshop_name",
-   "fieldtype": "Data",
-   "label": "Shop Name"
+   "fieldtype": "Link",
+   "label": "Shop Name",
+   "options": "TS Shop Name"
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Home Need\" && in_list([\"Grocery\", \"Shopping\", \"Clothing\", \"Electronics\"],doc.home_need_type)\n",
@@ -552,9 +561,10 @@
   {
    "depends_on": "eval:doc.subtype_name==\"Insurance\" && in_list([\"Vehicle\", \"Person\", \"Electronic item\", \"livestock\"],doc.insurance_type)",
    "fieldname": "insured_company",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Insured Company Name",
-   "mandatory_depends_on": "eval:doc.subtype_name==\"Insurance\" && in_list([\"Vehicle\", \"Person\", \"Electronic item\", \"livestock\"],doc.insurance_type)"
+   "mandatory_depends_on": "eval:doc.subtype_name==\"Insurance\" && in_list([\"Vehicle\", \"Person\", \"Electronic item\", \"livestock\"],doc.insurance_type)",
+   "options": "TS Insured Company Name"
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Insurance\" && in_list([\"Vehicle\", \"Person\", \"Electronic item\", \"livestock\"],doc.insurance_type)",
@@ -1133,7 +1143,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-25 14:59:11.082147",
+ "modified": "2022-04-04 18:10:03.774165",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Expense",
