@@ -25,7 +25,17 @@ def terminate_user(user,subtype):
   user_list=[usr.user for usr in users]
   if  user in user_list:
     {
-      'allow_user':frappe.db.delete['user', user]
+    
+    
+      'allow_user':users.remove([{'user':user}])for user in users
+      
+      
     }
-   
+  else:
+    {
+      frappe.throw("This User Role Not Appear in Subtype")
+    }
     doc.save()
+
+
+  
