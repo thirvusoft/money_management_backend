@@ -13,13 +13,15 @@
   {
    "fieldname": "ts_shop_name",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Shop Name",
+   "reqd": 1,
    "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-04 17:50:57.295408",
+ "modified": "2022-04-05 20:17:21.292291",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Shop Name",

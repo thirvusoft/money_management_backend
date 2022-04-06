@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "Expense:###",
+ "autoname": "Expense.###",
  "creation": "2022-03-03 09:04:35.320523",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -120,6 +120,8 @@
   "iamount",
   "section_break_90",
   "sperson_name",
+  "contact",
+  "ts_aadhar_number",
   "oreason",
   "service_type",
   "orthing_name",
@@ -605,8 +607,9 @@
   {
    "depends_on": "eval:doc.subtype_name==\"Tax\"",
    "fieldname": "tax_item",
-   "fieldtype": "Data",
-   "label": "Tax item"
+   "fieldtype": "Link",
+   "label": "Tax item",
+   "options": "TS Product Name"
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Tax\"",
@@ -636,8 +639,9 @@
   {
    "depends_on": "eval:doc.subtype_name==\"Gift\" && doc.gift_type==\"Thing\"",
    "fieldname": "thing_name",
-   "fieldtype": "Data",
-   "label": "Thing Name"
+   "fieldtype": "Link",
+   "label": "Thing Name",
+   "options": "TS Product Name"
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Gift\"",
@@ -742,7 +746,7 @@
    "fieldname": "orthing_name",
    "fieldtype": "Link",
    "label": "Thing Name",
-   "options": "TS Thing Name"
+   "options": "TS Product Name"
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Social Service\"",
@@ -1154,11 +1158,23 @@
    "fieldname": "visa_expiry_date",
    "fieldtype": "Date",
    "label": "Visa Expiry date"
+  },
+  {
+   "depends_on": "eval:doc.subtype_name==\"Social Service\"",
+   "fieldname": "contact",
+   "fieldtype": "Data",
+   "label": "Contact"
+  },
+  {
+   "depends_on": "eval:doc.subtype_name==\"Social Service\"",
+   "fieldname": "ts_aadhar_number",
+   "fieldtype": "Data",
+   "label": "Aadhar Number"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-05 12:08:59.254729",
+ "modified": "2022-04-05 20:22:35.521733",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Expense",

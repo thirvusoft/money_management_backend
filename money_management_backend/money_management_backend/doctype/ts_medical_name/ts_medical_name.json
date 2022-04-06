@@ -13,13 +13,15 @@
   {
    "fieldname": "ts_medical_name",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Medical Name",
+   "reqd": 1,
    "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-04 18:02:28.826608",
+ "modified": "2022-04-05 20:17:08.528137",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Medical Name",

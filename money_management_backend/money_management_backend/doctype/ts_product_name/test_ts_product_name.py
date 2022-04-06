@@ -4,5 +4,5 @@
 # import frappe
 import unittest
 
-class TestTSEMIProductName(unittest.TestCase):
+class TestTSProductName(unittest.TestCase):
 	pass

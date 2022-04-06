@@ -125,7 +125,7 @@
   "ts_bloction",
   "section_break_85",
   "ts_credit_type",
-  "ts_bank_name",
+  "ts_bank",
   "ts_crypto_name",
   "ts_currency",
   "ts_status",
@@ -437,7 +437,7 @@
    "fieldname": "ts_emi_product",
    "fieldtype": "Link",
    "label": "EMI Product Name",
-   "options": "TS EMI Product Name"
+   "options": "TS Asset Scrap Name List"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.sub_type_name==\"EMI\"",
@@ -485,19 +485,12 @@
    "mandatory_depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Salary\""
   },
   {
-   "depends_on": "eval:in_list([\"Asset\", \"Liability\", \"Income\", \"Expenses\", \"Others\"],doc.ts_entry_type) && in_list([\"Salary\", \"Asset/Scrap Sale\", \"Rental\", \"Dividends\", \"Business Profit\", \"Lottery\"],doc.sub_type_name)",
+   "depends_on": "eval:in_list([\"Asset\", \"Liability\", \"Income\", \"Expenses\", \"Others\"],doc.ts_entry_type) && in_list([\"Salary\", \"Asset/Scrap Sale\", \"Rental\", \"Dividends\", \"Business Profit\", \"Lottery\",\"Crypto\",\"Crypto Currency\"],doc.sub_type_name)",
    "fieldname": "ts_credit_type",
    "fieldtype": "Select",
    "label": "Credit Type",
    "mandatory_depends_on": "eval:in_list([\"Salary\", \"Asset/Scrap Sale\", \"Rental\", \"Dividends\", \"Business Profit\", \"Lottery\"],doc.sub_type_name)",
    "options": "\nCash\nBank\nCheque"
-  },
-  {
-   "depends_on": "eval:doc.ts_credit_type==\"Bank\"",
-   "fieldname": "ts_bank_name",
-   "fieldtype": "Link",
-   "label": "Bank Name",
-   "options": "TS Bank Name"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Salary\"",
@@ -920,11 +913,18 @@
    "fieldtype": "Select",
    "label": "Status",
    "options": "Profit\nLoss"
+  },
+  {
+   "depends_on": "eval:doc.ts_credit_type==\"Bank\"",
+   "fieldname": "ts_bank",
+   "fieldtype": "Link",
+   "label": "Bank Name",
+   "options": "TS Bank Name"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-05 12:52:02.103926",
+ "modified": "2022-04-05 20:08:05.138537",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Money Manager",

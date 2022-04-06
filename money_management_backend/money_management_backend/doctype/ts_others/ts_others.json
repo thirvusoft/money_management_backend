@@ -20,9 +20,14 @@
   "function_name",
   "relation_catagory_name",
   "relation_name",
+  "relation_contact",
   "remainder_date",
+  "relation_address",
   "section_break_10",
   "profile_name",
+  "ts_aadhar",
+  "seller_name",
+  "contact",
   "job_type",
   "reason",
   "section_break_14",
@@ -42,8 +47,9 @@
   {
    "depends_on": "eval:doc.subtype_name==\"Visiting Card\"",
    "fieldname": "card_holder_name",
-   "fieldtype": "Data",
-   "label": "Card Holder Name"
+   "fieldtype": "Link",
+   "label": "Card Holder Name",
+   "options": "TS Person Name"
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Visiting Card\"",
@@ -174,11 +180,42 @@
   {
    "fieldname": "column_break_6",
    "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.subtype_name==\"Invitation\"",
+   "fieldname": "relation_contact",
+   "fieldtype": "Int",
+   "label": "Relation Contact"
+  },
+  {
+   "depends_on": "eval:doc.subtype_name==\"Invitation\"",
+   "fieldname": "relation_address",
+   "fieldtype": "Small Text",
+   "label": "Relation Address"
+  },
+  {
+   "depends_on": "eval:doc.subtype_name==\"Profile\"",
+   "fieldname": "ts_aadhar",
+   "fieldtype": "Data",
+   "label": "Aadhar"
+  },
+  {
+   "depends_on": "eval:doc.subtype_name==\"Profile\"",
+   "fieldname": "seller_name",
+   "fieldtype": "Link",
+   "label": "Seller Name",
+   "options": "TS Seller Name"
+  },
+  {
+   "depends_on": "eval:doc.subtype_name==\"Profile\"",
+   "fieldname": "contact",
+   "fieldtype": "Int",
+   "label": "Contact"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-05 12:14:46.361730",
+ "modified": "2022-04-05 19:13:06.978686",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Others",
