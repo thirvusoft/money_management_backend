@@ -11,7 +11,8 @@
   "ts_subtype",
   "icon_code",
   "fromfe",
-  "account"
+  "account",
+  "allow_user"
  ],
  "fields": [
   {
@@ -44,15 +45,20 @@
    "fieldname": "account",
    "fieldtype": "Data",
    "label": "Account"
+  },
+  {
+   "fieldname": "allow_user",
+   "fieldtype": "Table",
+   "label": "Allow User",
+   "options": "TS User"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-03-29 10:14:41.096645",
+ "modified": "2022-04-06 14:40:12.410792",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Subtype",
- "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {
@@ -71,6 +77,5 @@
  "quick_entry": 1,
  "search_fields": "ts_subtype",
  "sort_field": "modified",
- "sort_order": "DESC",
- "states": []
+ "sort_order": "DESC"
 }
