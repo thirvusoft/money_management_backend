@@ -23,7 +23,7 @@ frappe.ui.form.on('TS Money Management Settings', {
 				})
 
 			});
-			cur_frm.add_custom_button(__('Terminate User '),function(){
+			cur_frm.add_custom_button(__('Remove '),function(){
 				frappe.call({
 					method:"money_management_backend.custom.money_settings.terminate_user",
 					args:{
@@ -31,7 +31,9 @@ frappe.ui.form.on('TS Money Management Settings', {
 						'subtype':cur_frm.doc.sub_type
 					},
 					callback: function(r){
-						frappe.set_route("ts-subtype",frm.doc.sub_type)
+							frappe.set_route("ts-subtype",frm.doc.sub_type)
+
+						
 					}
 				})
 				 

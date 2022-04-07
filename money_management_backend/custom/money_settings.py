@@ -10,10 +10,8 @@ def add_user(user, subtype):
       'allow_user':users+[{'user':user}]
     })
   else:
-    {
        frappe.throw(("This User Already Exits"))
-    }
-    doc.save()
+  doc.save()
     
   
 
@@ -24,18 +22,16 @@ def terminate_user(user,subtype):
   users=doc.allow_user
   user_list=[usr.user for usr in users]
   if  user in user_list:
-    {
-    
-    
-      'allow_user':users.remove([{'user':user}])for user in users
-      
-      
-    }
+    for usr in users:
+      if(usr.user==user):
+        users.remove(usr)
   else:
-    {
-      frappe.throw("This User Role Not Appear in Subtype")
-    }
-    doc.save()
+    frappe.throw("Role Not assigned for this User")
+ 
+  doc.update({
+    'allow_user':users
+  })
+  doc.save()
 
 
   
