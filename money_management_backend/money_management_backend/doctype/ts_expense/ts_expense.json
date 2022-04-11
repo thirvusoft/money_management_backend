@@ -85,6 +85,8 @@
   "vehicle_number",
   "vehicle_name",
   "name1",
+  "ts_electronic_name",
+  "ts_livestock_name",
   "column_break_72",
   "insured_company",
   "insured_amount",
@@ -108,6 +110,8 @@
   "column_break_90",
   "person_address",
   "gift_image",
+  "ts_mobile_no",
+  "ts_aadhar_no",
   "section_break_81",
   "expense_type",
   "sshop_name",
@@ -150,6 +154,7 @@
   "contract_amount",
   "estimated_complete_date",
   "advance_payment",
+  "ts_expense_bill_amount",
   "cimage",
   "data_113",
   "clocation",
@@ -559,10 +564,11 @@
    "options": "TS Vehicle Name"
   },
   {
-   "depends_on": "eval:doc.subtype_name==\"Insurance\" && in_list([\"Person\", \"Electronic item\", \"livestock\"],doc.insurance_type)",
+   "depends_on": "eval:doc.subtype_name==\"Insurance\" && doc.insurance_type==\"Person\"",
    "fieldname": "name1",
-   "fieldtype": "Data",
-   "label": "Name"
+   "fieldtype": "Link",
+   "label": "Name",
+   "options": "TS Person Name"
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Insurance\" && in_list([\"Vehicle\", \"Person\", \"Electronic item\", \"livestock\"],doc.insurance_type)",
@@ -1170,11 +1176,43 @@
    "fieldname": "ts_aadhar_number",
    "fieldtype": "Data",
    "label": "Aadhar Number"
+  },
+  {
+   "depends_on": "eval:doc.subtype_name==\"Insurance\" && doc.insurance_type==\"Electronic item\"",
+   "fieldname": "ts_electronic_name",
+   "fieldtype": "Link",
+   "label": "Name",
+   "options": "TS Product Name"
+  },
+  {
+   "depends_on": "eval:doc.subtype_name==\"Insurance\" && doc.insurance_type==\"livestock\"",
+   "fieldname": "ts_livestock_name",
+   "fieldtype": "Link",
+   "label": "Livestock Name",
+   "options": "TS Livestock Name"
+  },
+  {
+   "depends_on": "eval:doc.subtype_name==\"Construction\"",
+   "fieldname": "ts_expense_bill_amount",
+   "fieldtype": "Currency",
+   "label": "Expense Bill Amount"
+  },
+  {
+   "depends_on": "eval:doc.subtype_name==\"Gift\"",
+   "fieldname": "ts_mobile_no",
+   "fieldtype": "Data",
+   "label": "Mobile No"
+  },
+  {
+   "depends_on": "eval:doc.subtype_name==\"Gift\"",
+   "fieldname": "ts_aadhar_no",
+   "fieldtype": "Data",
+   "label": "Aadhar No"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-05 20:22:35.521733",
+ "modified": "2022-04-11 15:47:53.223188",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Expense",
