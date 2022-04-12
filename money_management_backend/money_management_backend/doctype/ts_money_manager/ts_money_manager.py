@@ -4,6 +4,7 @@
 from ast import Pass
 import frappe
 from frappe.model.document import Document
+from frappe.model.naming import make_autoname
 
 class TSMoneyManager(Document):
 	def validate(self):
@@ -35,3 +36,14 @@ class TSMoneyManager(Document):
 					frappe.throw(frappe._("Invalid Aadhar Number. {0} is not 16 digit.").format(interest_aadhar), frappe.InvalidPhoneNumberError)
 		else:
 			Pass
+
+	def autoname(doc):
+		if doc.ts_entry_type == "Income": 
+			doc.name = make_autoname(doc.ts_entry_type + ".####")
+		elif doc.ts_entry_type == "Asset": 
+			doc.name = make_autoname(doc.ts_entry_type + ".####")
+		elif doc.ts_entry_type == "Liability": 
+			doc.name = make_autoname(doc.ts_entry_type + ".####")
+
+
+
