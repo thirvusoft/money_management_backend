@@ -28,5 +28,10 @@ class TSMoneyManager(Document):
 			if selleradhar or selleradhar==0:
 				if not selleradhar.isdigit() or len(selleradhar) != 16:
 					frappe.throw(frappe._("{0} is more or less then 16 digit. Enter a valid Aadhar Number.").format(selleradhar), frappe.InvalidPhoneNumberError)
+		elif self.sub_type_name == "Interest Collection":
+			interest_aadhar=self.ts_iaadhar_no
+			if interest_aadhar or interest_aadhar==0:
+				if not interest_aadhar.isdigit() or len(interest_aadhar) != 16:
+					frappe.throw(frappe._("Invalid Aadhar Number. {0} is not 16 digit.").format(interest_aadhar), frappe.InvalidPhoneNumberError)
 		else:
 			Pass
