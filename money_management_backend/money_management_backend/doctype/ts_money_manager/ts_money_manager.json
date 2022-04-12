@@ -125,6 +125,7 @@
   "ts_bloction",
   "section_break_85",
   "ts_credit_type",
+  "ts_typesof_interest_received",
   "ts_bank",
   "ts_crypto_name",
   "ts_currency",
@@ -132,7 +133,16 @@
   "ts_amount",
   "ts_date",
   "ts_document",
-  "ts_notes"
+  "ts_notes",
+  "ts_interest_person_name",
+  "ts_interest_mobile_no",
+  "ts_iaadhar_no",
+  "ts_interest_person_address",
+  "column_break_132",
+  "ts_inter_amount",
+  "ts_interest_date",
+  "ts_interest_document",
+  "ts_interest_notes"
  ],
  "fields": [
   {
@@ -915,16 +925,78 @@
    "options": "Profit\nLoss"
   },
   {
-   "depends_on": "eval:doc.ts_credit_type==\"Bank\"",
+   "depends_on": "eval:doc.ts_credit_type==\"Bank\" ||doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Interest Collection\" && doc.ts_typesof_interest_received==\"Bank\"",
    "fieldname": "ts_bank",
    "fieldtype": "Link",
    "label": "Bank Name",
    "options": "TS Bank Name"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Interest Collection\"",
+   "fieldname": "ts_typesof_interest_received",
+   "fieldtype": "Select",
+   "label": "Type of Interest Received",
+   "options": "\nCash\nOnline Payment\nBank"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Interest Collection\"",
+   "fieldname": "ts_interest_person_name",
+   "fieldtype": "Link",
+   "label": "Person Name",
+   "options": "TS Person Name"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Interest Collection\"",
+   "fieldname": "ts_interest_mobile_no",
+   "fieldtype": "Data",
+   "label": "Mobile No"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Interest Collection\"",
+   "fieldname": "ts_interest_person_address",
+   "fieldtype": "Small Text",
+   "label": "Person Address"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Interest Collection\"",
+   "fieldname": "column_break_132",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Interest Collection\"",
+   "fieldname": "ts_inter_amount",
+   "fieldtype": "Currency",
+   "label": "Amount"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Interest Collection\"",
+   "fieldname": "ts_interest_date",
+   "fieldtype": "Datetime",
+   "label": "Date"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Interest Collection\"",
+   "fieldname": "ts_interest_document",
+   "fieldtype": "Table",
+   "label": "Document",
+   "options": "TS Bill Document"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Interest Collection\"",
+   "fieldname": "ts_interest_notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Interest Collection\"",
+   "fieldname": "ts_iaadhar_no",
+   "fieldtype": "Data",
+   "label": "Aadhar No"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-05 20:08:05.138537",
+ "modified": "2022-04-12 10:40:24.690814",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Money Manager",

@@ -172,17 +172,7 @@
   "column_break145",
   "bill_documents",
   "column_break_149",
-  "notes",
-  "ts_typeof_interest_received",
-  "ts_interest_person_name",
-  "ts_interest_mobile_no",
-  "ts_interest_aadhar_no",
-  "ts_interest_person_address",
-  "column_break_171",
-  "ts_amount",
-  "ts_date",
-  "ts_biil_document",
-  "ts_notes"
+  "notes"
  ],
  "fields": [
   {
@@ -1218,73 +1208,11 @@
    "fieldname": "ts_aadhar_no",
    "fieldtype": "Data",
    "label": "Aadhar No"
-  },
-  {
-   "depends_on": "eval:doc.subtype_name == \"Interest Collection\"",
-   "fieldname": "ts_typeof_interest_received",
-   "fieldtype": "Select",
-   "label": "Type of Interest Received",
-   "options": "\nCash\nOnline Payment"
-  },
-  {
-   "depends_on": "eval:doc.subtype_name == \"Interest Collection\"",
-   "fieldname": "ts_interest_person_name",
-   "fieldtype": "Link",
-   "label": "Person Name",
-   "options": "TS Person Name"
-  },
-  {
-   "depends_on": "eval:doc.subtype_name == \"Interest Collection\"",
-   "fieldname": "ts_interest_mobile_no",
-   "fieldtype": "Data",
-   "label": "Mobile No"
-  },
-  {
-   "depends_on": "eval:doc.subtype_name == \"Interest Collection\"",
-   "fieldname": "ts_amount",
-   "fieldtype": "Currency",
-   "label": "Amount"
-  },
-  {
-   "depends_on": "eval:doc.subtype_name == \"Interest Collection\"",
-   "fieldname": "column_break_171",
-   "fieldtype": "Column Break"
-  },
-  {
-   "depends_on": "eval:doc.subtype_name == \"Interest Collection\"",
-   "fieldname": "ts_date",
-   "fieldtype": "Date",
-   "label": "Date"
-  },
-  {
-   "depends_on": "eval:doc.subtype_name == \"Interest Collection\"",
-   "fieldname": "ts_biil_document",
-   "fieldtype": "Table",
-   "label": "Bill Document",
-   "options": "TS Bill Document"
-  },
-  {
-   "depends_on": "eval:doc.subtype_name == \"Interest Collection\"",
-   "fieldname": "ts_notes",
-   "fieldtype": "Small Text",
-   "label": "Notes"
-  },
-  {
-   "depends_on": "eval:doc.subtype_name == \"Interest Collection\"",
-   "fieldname": "ts_interest_person_address",
-   "fieldtype": "Small Text",
-   "label": "Person Address"
-  },
-  {
-   "depends_on": "eval:doc.subtype_name == \"Interest Collection\"",
-   "fieldname": "ts_interest_aadhar_no",
-   "fieldtype": "Data",
-   "label": "Aadhar No"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-11 20:41:21.171489",
+ "modified": "2022-04-12 10:47:42.766449",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Expense",

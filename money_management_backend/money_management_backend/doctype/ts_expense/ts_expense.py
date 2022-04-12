@@ -14,14 +14,9 @@ class TSExpense(Document):
 				if not aadhar.isdigit() or len(aadhar) != 16:
 					frappe.throw(frappe._("Invalid Aadhar Number. {0} is not 16 digit.").format(aadhar), frappe.InvalidPhoneNumberError)
 		elif doc.subtype_name == "Gift":
-			giftaadhar=doc.ts_aadhar_no
-			if giftaadhar or giftaadhar==0:
-				if not giftaadhar.isdigit() or len(giftaadhar) != 16:
-					frappe.throw(frappe._("Invalid Aadhar Number. {0} is not 16 digit.").format(giftaadhar), frappe.InvalidPhoneNumberError)
-		elif doc.subtype_name == "Interest Collection":
-			interestaadhar=doc.ts_interest_aadhar_no
-			if interestaadhar or interestaadhar==0:
-				if not interestaadhar.isdigit() or len(interestaadhar) != 16:
-					frappe.throw(frappe._("Invalid Aadhar Number. {0} is not 16 digit.").format(interestaadhar), frappe.InvalidPhoneNumberError)
+			gift_aadhar=doc.ts_aadhar_no
+			if gift_aadhar or gift_aadhar==0:
+				if not gift_aadhar.isdigit() or len(gift_aadhar) != 16:
+					frappe.throw(frappe._("Invalid Aadhar Number. {0} is not 16 digit.").format(gift_aadhar), frappe.InvalidPhoneNumberError)
 		else :
 			pass
