@@ -1,7 +1,6 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "Asset.####",
  "creation": "2022-02-22 12:03:33.528682",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -120,7 +119,6 @@
   "ts_bcredit_date",
   "ts_bcompany_name",
   "ts_bprofit_amount",
-  "column_break_96",
   "ts_bshare_value",
   "ts_bloction",
   "section_break_85",
@@ -132,15 +130,19 @@
   "ts_status",
   "ts_amount",
   "ts_date",
+  "column_break_124",
   "ts_document",
   "ts_notes",
+  "section_break_128",
   "ts_interest_person_name",
   "ts_interest_mobile_no",
   "ts_iaadhar_no",
   "ts_interest_person_address",
-  "column_break_132",
-  "ts_inter_amount",
   "ts_interest_date",
+  "ts_inter_amount",
+  "column_break_134",
+  "ts_interestamount",
+  "month_of_interest",
   "ts_interest_document",
   "ts_interest_notes"
  ],
@@ -500,7 +502,7 @@
    "fieldtype": "Select",
    "label": "Credit Type",
    "mandatory_depends_on": "eval:in_list([\"Salary\", \"Asset/Scrap Sale\", \"Rental\", \"Dividends\", \"Business Profit\", \"Lottery\"],doc.sub_type_name)",
-   "options": "\nCash\nBank\nCheque"
+   "options": "\nCash\nBank"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Salary\"",
@@ -740,10 +742,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "column_break_96",
-   "fieldtype": "Column Break"
-  },
-  {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Asset/Scrap Sale\"",
    "fieldname": "ts_sold_date",
    "fieldtype": "Date",
@@ -936,7 +934,7 @@
    "fieldname": "ts_typesof_interest_received",
    "fieldtype": "Select",
    "label": "Type of Interest Received",
-   "options": "\nCash\nOnline Payment\nBank"
+   "options": "\nCash\nCheque\nBank"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Interest Collection\"",
@@ -959,19 +957,14 @@
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Interest Collection\"",
-   "fieldname": "column_break_132",
-   "fieldtype": "Column Break"
-  },
-  {
-   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Interest Collection\"",
    "fieldname": "ts_inter_amount",
    "fieldtype": "Currency",
-   "label": "Amount"
+   "label": "Principal Amount"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Interest Collection\"",
    "fieldname": "ts_interest_date",
-   "fieldtype": "Datetime",
+   "fieldtype": "Date",
    "label": "Date"
   },
   {
@@ -979,7 +972,7 @@
    "fieldname": "ts_interest_document",
    "fieldtype": "Table",
    "label": "Document",
-   "options": "TS Bill Document"
+   "options": "TS Currency Document"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Interest Collection\"",
@@ -992,11 +985,38 @@
    "fieldname": "ts_iaadhar_no",
    "fieldtype": "Data",
    "label": "Aadhar No"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Interest Collection\"",
+   "fieldname": "ts_interestamount",
+   "fieldtype": "Currency",
+   "label": "Interest Amount"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Interest Collection\"",
+   "description": "Example = 2\n(2nd Month Installment)",
+   "fieldname": "month_of_interest",
+   "fieldtype": "Data",
+   "label": "Month of Interest"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Crypto\"",
+   "fieldname": "column_break_124",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_128",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.ts_entry_type==\"Income\"&& doc.sub_type_name==\"Interest Collection\"",
+   "fieldname": "column_break_134",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-12 10:40:24.690814",
+ "modified": "2022-04-12 14:44:57.200502",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Money Manager",
