@@ -172,7 +172,16 @@
   "column_break145",
   "bill_documents",
   "column_break_149",
-  "notes"
+  "notes",
+  "section_break_167",
+  "ts_person_name1",
+  "ts_mobile1",
+  "ts_aadhar_number1",
+  "ts_address",
+  "column_break_172",
+  "ts_amount",
+  "ts_date",
+  "ts_bill_document"
  ],
  "fields": [
   {
@@ -1208,11 +1217,63 @@
    "fieldname": "ts_aadhar_no",
    "fieldtype": "Data",
    "label": "Aadhar No"
+  },
+  {
+   "depends_on": "eval:!in_list([\"Agriculture\",\"Construction\",\"Maintenance\",\"SocialService\",\"Education\",\"Gift\",\"Tax\",\"Insurance\",\"Travel\",\"Home Need\",\"Building\",\"Social\",\"Maintain\"],doc.subtype_name)&& doc.subtype_name",
+   "fieldname": "ts_person_name1",
+   "fieldtype": "Link",
+   "label": "Person Name",
+   "options": "TS Person Name"
+  },
+  {
+   "depends_on": "eval:!in_list([\"Agriculture\",\"Construction\",\"Maintenance\",\"SocialService\",\"Education\",\"Gift\",\"Tax\",\"Insurance\",\"Travel\",\"Home Need\",\"Building\",\"Social\",\"Maintain\"],doc.subtype_name)&& doc.subtype_name",
+   "fieldname": "ts_mobile1",
+   "fieldtype": "Data",
+   "label": "Mobile"
+  },
+  {
+   "depends_on": "eval:!in_list([\"Agriculture\",\"Construction\",\"Maintenance\",\"SocialService\",\"Education\",\"Gift\",\"Tax\",\"Insurance\",\"Travel\",\"Home Need\",\"Building\",\"Social\",\"Maintain\"],doc.subtype_name)&& doc.subtype_name",
+   "fieldname": "ts_aadhar_number1",
+   "fieldtype": "Data",
+   "label": "Aadhar No"
+  },
+  {
+   "depends_on": "eval:!in_list([\"Agriculture\",\"Construction\",\"Maintenance\",\"SocialService\",\"Education\",\"Gift\",\"Tax\",\"Insurance\",\"Travel\",\"Home Need\",\"Building\",\"Social\",\"Maintain\"],doc.subtype_name)&& doc.subtype_name",
+   "fieldname": "ts_address",
+   "fieldtype": "Small Text",
+   "label": "Address"
+  },
+  {
+   "fieldname": "column_break_172",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:!in_list([\"Agriculture\",\"Construction\",\"Maintenance\",\"SocialService\",\"Education\",\"Gift\",\"Tax\",\"Insurance\",\"Travel\",\"Home Need\",\"Building\",\"Social\",\"Maintain\"],doc.subtype_name)&& doc.subtype_name",
+   "fieldname": "ts_amount",
+   "fieldtype": "Currency",
+   "label": "Amount"
+  },
+  {
+   "depends_on": "eval:!in_list([\"Agriculture\",\"Construction\",\"Maintenance\",\"SocialService\",\"Education\",\"Gift\",\"Tax\",\"Insurance\",\"Travel\",\"Home Need\",\"Building\",\"Social\",\"Maintain\"],doc.subtype_name)&& doc.subtype_name",
+   "fieldname": "ts_date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "depends_on": "eval:!in_list([\"Agriculture\",\"Construction\",\"Maintenance\",\"SocialService\",\"Education\",\"Gift\",\"Tax\",\"Insurance\",\"Travel\",\"Home Need\",\"Building\",\"Social\",\"Maintain\"],doc.subtype_name)&& doc.subtype_name",
+   "fieldname": "ts_bill_document",
+   "fieldtype": "Link",
+   "label": "Document",
+   "options": "TS Bill Document"
+  },
+  {
+   "fieldname": "section_break_167",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-12 10:47:42.766449",
+ "modified": "2022-04-12 20:35:59.333941",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Expense",

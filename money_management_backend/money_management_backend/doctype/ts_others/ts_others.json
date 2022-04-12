@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:subtype_name",
  "creation": "2022-03-05 07:43:34.180359",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -21,6 +22,7 @@
   "relation_catagory_name",
   "relation_name",
   "relation_contact",
+  "column_break_17",
   "remainder_date",
   "relation_address",
   "section_break_10",
@@ -28,11 +30,20 @@
   "ts_aadhar",
   "contact",
   "job_type",
+  "column_break_23",
   "reason",
   "section_break_14",
   "file_upload",
   "column_break_16",
-  "notes"
+  "notes",
+  "section_break_28",
+  "ts_person_name",
+  "ts_mobile_no",
+  "ts_aadhar_no",
+  "ts_address",
+  "column_break_33",
+  "ts_file_upload",
+  "ts_notes"
  ],
  "fields": [
   {
@@ -148,7 +159,8 @@
    "fetch_from": "entry_type.ts_subtype",
    "fieldname": "subtype_name",
    "fieldtype": "Data",
-   "label": "Subtype Name"
+   "label": "Subtype Name",
+   "unique": 1
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Visiting Card\"",
@@ -203,11 +215,65 @@
    "fieldname": "contact",
    "fieldtype": "Int",
    "label": "Contact"
+  },
+  {
+   "fieldname": "section_break_28",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:!in_list([\"Visiting Card\",\"Profile\",\"Invitation\"],doc.subtype_name) && doc.subtype_name",
+   "fieldname": "ts_person_name",
+   "fieldtype": "Link",
+   "label": "Person Name",
+   "options": "TS Person Name"
+  },
+  {
+   "depends_on": "eval:!in_list([\"Visiting Card\",\"Profile\",\"Invitation\"],doc.subtype_name) && doc.subtype_name",
+   "fieldname": "ts_mobile_no",
+   "fieldtype": "Data",
+   "label": "Mobile No"
+  },
+  {
+   "depends_on": "eval:!in_list([\"Visiting Card\",\"Profile\",\"Invitation\"],doc.subtype_name) && doc.subtype_name",
+   "fieldname": "ts_aadhar_no",
+   "fieldtype": "Data",
+   "label": "Aadhar No"
+  },
+  {
+   "depends_on": "eval:!in_list([\"Visiting Card\",\"Profile\",\"Invitation\"],doc.subtype_name) && doc.subtype_name",
+   "fieldname": "ts_address",
+   "fieldtype": "Small Text",
+   "label": "Address"
+  },
+  {
+   "fieldname": "column_break_33",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:!in_list([\"Visiting Card\",\"Profile\",\"Invitation\"],doc.subtype_name) && doc.subtype_name",
+   "fieldname": "ts_notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "column_break_23",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:!in_list([\"Visiting Card\",\"Profile\",\"Invitation\"],doc.subtype_name) && doc.subtype_name",
+   "fieldname": "ts_file_upload",
+   "fieldtype": "Table",
+   "label": "File Upload",
+   "options": "TS Others Image"
+  },
+  {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-11 16:11:26.577594",
+ "modified": "2022-04-12 21:25:57.830366",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Others",
