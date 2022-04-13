@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:subtype_name",
+ "autoname": "format:{subtype_name}-{####}",
  "creation": "2022-03-05 07:43:34.180359",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -159,8 +159,7 @@
    "fetch_from": "entry_type.ts_subtype",
    "fieldname": "subtype_name",
    "fieldtype": "Data",
-   "label": "Subtype Name",
-   "unique": 1
+   "label": "Subtype Name"
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Visiting Card\"",
@@ -225,6 +224,7 @@
    "fieldname": "ts_person_name",
    "fieldtype": "Link",
    "label": "Person Name",
+   "mandatory_depends_on": "eval:!in_list([\"Visiting Card\",\"Profile\",\"Invitation\"],doc.subtype_name) && doc.subtype_name",
    "options": "TS Person Name"
   },
   {
@@ -273,7 +273,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-12 21:25:57.830366",
+ "modified": "2022-04-13 08:47:09.967606",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Others",
