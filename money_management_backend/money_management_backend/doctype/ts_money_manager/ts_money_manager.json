@@ -896,6 +896,7 @@
    "fieldname": "ts_crypto_name",
    "fieldtype": "Link",
    "label": "Crypto Name",
+   "mandatory_depends_on": "eval:in_list([\"Crypto\",\"Crypto Currency\"],doc.sub_type_name)&&in_list([\"Asset\",\"Income\"],doc.ts_entry_type)",
    "options": "TS Crypto Name"
   },
   {
@@ -909,7 +910,8 @@
    "depends_on": "eval:in_list([\"Crypto\",\"Crypto Currency\"],doc.sub_type_name)&&in_list([\"Asset\",\"Income\"],doc.ts_entry_type)",
    "fieldname": "ts_amount",
    "fieldtype": "Currency",
-   "label": "Amount"
+   "label": "Amount",
+   "mandatory_depends_on": "eval:in_list([\"Crypto\",\"Crypto Currency\"],doc.sub_type_name)&&in_list([\"Asset\",\"Income\"],doc.ts_entry_type)"
   },
   {
    "depends_on": "eval:in_list([\"Crypto\",\"Crypto Currency\"],doc.sub_type_name)&&in_list([\"Asset\",\"Income\"],doc.ts_entry_type)",
@@ -1079,7 +1081,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-13 10:58:18.664174",
+ "modified": "2022-04-13 14:02:42.313034",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Money Manager",
