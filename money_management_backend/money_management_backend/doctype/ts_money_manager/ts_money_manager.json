@@ -333,13 +333,13 @@
    "fieldtype": "Section Break"
   },
   {
-   "depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Gold\", \"Silver\", \"Diamond\", \"Platinum\", \"Vehicle\", \"Home Appliance\", \"Machinery\"], doc.sub_type_name)",
+   "depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Gold\", \"Silver\", \"Diamond\", \"Platinum\", \"Vehicle\", \"Home Appliance\", \"Machinery\",\"Agricultural Land\",\"Residential Land\",\"Commercial Land\"], doc.sub_type_name)",
    "fieldname": "ts_purchase_date",
    "fieldtype": "Date",
    "label": "Purchase Date"
   },
   {
-   "depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Gold\", \"Silver\", \"Diamond\", \"Platinum\", \"Vehicle\", \"Home Appliance\", \"Machinery\"], doc.sub_type_name)",
+   "depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Gold\", \"Silver\", \"Diamond\", \"Platinum\", \"Vehicle\", \"Home Appliance\", \"Machinery\",\"Agricultural Land\",\"Residential Land\",\"Commercial Land\"], doc.sub_type_name)",
    "fieldname": "ts_purchase_rate",
    "fieldtype": "Currency",
    "label": "Purchase Rate"
@@ -1081,7 +1081,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-13 14:02:42.313034",
+ "modified": "2022-04-18 19:35:03.251297",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Money Manager",

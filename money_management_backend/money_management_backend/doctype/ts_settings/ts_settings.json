@@ -7,7 +7,9 @@
  "engine": "InnoDB",
  "field_order": [
   "account_to_credit",
-  "parent_acc"
+  "parent_acc",
+  "column_break_3",
+  "account_to_debit"
  ],
  "fields": [
   {
@@ -24,12 +26,23 @@
    "label": "Parent Account For Subtype",
    "options": "Account",
    "reqd": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "account_to_debit",
+   "fieldtype": "Link",
+   "label": "Account to Debit",
+   "options": "Account",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2022-03-29 10:23:25.467056",
+ "modified": "2022-04-18 16:49:01.070583",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Settings",
@@ -47,6 +60,5 @@
   }
  ],
  "sort_field": "modified",
- "sort_order": "DESC",
- "states": []
+ "sort_order": "DESC"
 }
