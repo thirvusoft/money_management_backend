@@ -5,6 +5,11 @@ from ast import Pass
 import frappe
 from frappe.model.document import Document
 from frappe.model.naming import make_autoname
+from datetime import date
+
+
+class AmountisZero(Exception):
+	http_status_code = 417
 
 class TSMoneyManager(Document):
 	def validate(self):
@@ -50,5 +55,46 @@ class TSMoneyManager(Document):
 		elif doc.ts_entry_type == "Liability": 
 			doc.name = make_autoname(doc.ts_entry_type + ".####")
 
+	def after_insert(self):
+		if(self.sub_type_name in ["Gold","Silver","Platinum","Diamond","Vehicle","Home Appliance","Machinery","Agricultural Land","Residential Land","Commercial Land"]):
+			amount = self.ts_purchase_rate
+		else:
+			try:
+				total_amount = {"Crypto Currency":"ts_amount","Debt":"ts_debt_credit_amount","EMI":"ts_emi_amount","Salary":"ts_salary_amount","Crypto":"ts_amount",
+				"Interest Collection":"ts_interestamount","Asset/Scrap Sale":"ts_sold_price","Rental":"ts_rental_amount","Lottery":"ts_lottery_amount",
+				"Dividends":"ts_share_amount","Business Profit":"ts_bprofit_amount"}
+				amount = eval("self."+total_amount[self.sub_type_name])
+			except:
+				amount = self.ts_amount1
+		if(not int(amount)):
+			frappe.throw('Amount is Mandatory',AmountisZero)
+		credit_account=frappe.db.get_single_value('TS Settings','account_to_credit')
+		debit_account=frappe.db.get_single_value('TS Settings','account_to_debit')
+		company=frappe.db.get_single_value('Global Defaults','default_company')
+		account= frappe.get_value("TS Subtype", self.ts_asset_subtype,"account")
+		if(not account):
+			frappe.throw(f'Account does not exist for {self.ts_asset_subtype}.',frappe.DoesNotExistError)
+		else:
+			frappe.get_doc('Account',account)
+			
+		doc=frappe.new_doc("Journal Entry")
+		if(self.ts_entry_type in ['Liability']):
+			account = debit_account
+		acc=[{
+			"account": account,
+			"debit_in_account_currency":amount
+		},
+		{
+			"account": credit_account,
+			"credit_in_account_currency":amount
+		}]
+		doc.update({
+			"company":company,
+			"voucher_type":"Journal Entry",
+			"posting_date":date.today(),
+			"accounts": acc
+			})
 
-
+		doc.insert()
+		doc.submit()
+		frappe.db.commit()

@@ -5,6 +5,10 @@
 import frappe
 from frappe import _
 from frappe.model.document import Document
+from datetime import date
+
+class AmountisZero(Exception):
+    http_status_code = 417
 
 class TSExpense(Document):
 	def validate(doc):
@@ -25,3 +29,43 @@ class TSExpense(Document):
 					frappe.throw(frappe._("Invalid Aadhar Number. {0} is not 16 digit.").format(aadhar_no), frappe.InvalidPhoneNumberError)
 		else :
 			pass
+
+	def after_insert(self):
+		total_amount = {"Home Need":"amount","Travel":"total_amount","Insurance":"insured_amount","Tax":"tax_amount","Gift":"gamount","Education":"iamount","Social Service":"oamount","Maintenance":"cost","Construction":"ts_expense_bill_amount"}
+		try:
+			amount = eval("self."+total_amount[self.subtype_name])
+		except:
+			try:
+				amount = self.yeild_expense
+			except:
+				try:
+					amount = self.fertilizer_expense
+				except:
+					amount = self.ts_amount
+		if(not int(amount)):
+			frappe.throw('Amount is Mandatory',AmountisZero)
+		credit_account=frappe.db.get_single_value('TS Settings','account_to_credit')
+		company=frappe.db.get_single_value('Global Defaults','default_company')
+		account= frappe.get_value("TS Subtype", self.subtype,"account")
+		if(not account):
+			frappe.throw(f'Account does not exist for {self.subtype}.',frappe.DoesNotExistError)
+		else:
+			frappe.get_doc('Account',account)
+		doc=frappe.new_doc("Journal Entry")
+		acc=[{
+			"account": account,
+			"debit_in_account_currency":amount
+		},
+		{
+			"account": credit_account,
+			"credit_in_account_currency":amount
+		}]
+		doc.update({
+			"company":company,
+			"voucher_type":"Journal Entry",
+			"posting_date":date.today(),
+			"accounts": acc
+			})
+		doc.insert()
+		doc.submit()
+		frappe.db.commit()
