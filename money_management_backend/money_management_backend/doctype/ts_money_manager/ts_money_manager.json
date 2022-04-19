@@ -1033,7 +1033,7 @@
    "fieldname": "ts_person_name1",
    "fieldtype": "Link",
    "label": "Person Name",
-   "mandatory_depends_on": "eval:!in_list([\"Business Profit\",\"Dividends\",\"Lottery\",\"Rental\",\"Asset/Scrap Sale\",\"Salary\",\"Revenue\",\"Dividend\",\"Lottery\",\"Coupons\",\"Refunds\",\"Rental\",\"Scrap Sale\",\"Asset Sale\",\"Salary\",\"Commercial Land\",\"Residential Land\",\"Agricultural Land\",\"Machinery\",\"Home Appliance\",\"Vehicle\",\"Diamond\",\"Platinum\",\"Silver\",\"Gold\", \"EMI\",\"Debt\"],doc.sub_type_name)&&in_list([\"Asset\",\"Income\",\"Liability\"],doc.ts_entry_type) && doc.sub_type_name",
+   "mandatory_depends_on": "eval:!in_list([\"Business Profit\",\"Crypto\",\"Crypto Currency\",\"Interest Collection\",\"Dividends\",\"Lottery\",\"Rental\",\"Asset/Scrap Sale\",\"Salary\",\"Revenue\",\"Dividend\",\"Lottery\",\"Coupons\",\"Refunds\",\"Rental\",\"Scrap Sale\",\"Asset Sale\",\"Salary\",\"Commercial Land\",\"Residential Land\",\"Agricultural Land\",\"Machinery\",\"Home Appliance\",\"Vehicle\",\"Diamond\",\"Platinum\",\"Silver\",\"Gold\", \"EMI\",\"Debt\"],doc.sub_type_name)&&in_list([\"Asset\",\"Income\",\"Liability\"],doc.ts_entry_type) && doc.sub_type_name",
    "options": "TS Person Name"
   },
   {
@@ -1059,7 +1059,7 @@
    "fieldname": "ts_amount1",
    "fieldtype": "Currency",
    "label": "Amount",
-   "mandatory_depends_on": "eval:!in_list([\"Business Profit\",\"Dividends\",\"Lottery\",\"Rental\",\"Asset/Scrap Sale\",\"Salary\",\"Revenue\",\"Dividend\",\"Lottery\",\"Coupons\",\"Refunds\",\"Rental\",\"Scrap Sale\",\"Asset Sale\",\"Salary\",\"Commercial Land\",\"Residential Land\",\"Agricultural Land\",\"Machinery\",\"Home Appliance\",\"Vehicle\",\"Diamond\",\"Platinum\",\"Silver\",\"Gold\", \"EMI\",\"Debt\"],doc.sub_type_name)&&in_list([\"Asset\",\"Income\",\"Liability\"],doc.ts_entry_type) && doc.sub_type_name"
+   "mandatory_depends_on": "eval:!in_list([\"Business Profit\",\"Crypto\",\"Crypto Currency\",\"Interest Collection\",\"Dividends\",\"Lottery\",\"Rental\",\"Asset/Scrap Sale\",\"Salary\",\"Revenue\",\"Dividend\",\"Lottery\",\"Coupons\",\"Refunds\",\"Rental\",\"Scrap Sale\",\"Asset Sale\",\"Salary\",\"Commercial Land\",\"Residential Land\",\"Agricultural Land\",\"Machinery\",\"Home Appliance\",\"Vehicle\",\"Diamond\",\"Platinum\",\"Silver\",\"Gold\", \"EMI\",\"Debt\"],doc.sub_type_name)&&in_list([\"Asset\",\"Income\",\"Liability\"],doc.ts_entry_type) && doc.sub_type_name"
   },
   {
    "fieldname": "column_break_145",
@@ -1081,7 +1081,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-18 19:35:03.251297",
+ "modified": "2022-04-19 08:18:31.598461",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Money Manager",
