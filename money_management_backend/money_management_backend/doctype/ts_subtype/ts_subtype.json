@@ -43,8 +43,9 @@
   },
   {
    "fieldname": "account",
-   "fieldtype": "Data",
-   "label": "Account"
+   "fieldtype": "Link",
+   "label": "Account",
+   "options": "Account"
   },
   {
    "fieldname": "allow_user",
@@ -55,7 +56,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-06 14:40:12.410792",
+ "modified": "2022-04-18 16:04:45.150562",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Subtype",
