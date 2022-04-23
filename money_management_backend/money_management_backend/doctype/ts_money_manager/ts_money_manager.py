@@ -68,8 +68,8 @@ class TSMoneyManager(Document):
 				amount = self.ts_amount1 or 0
 		if(not int(amount)):
 			frappe.throw('Amount is Mandatory',AmountisZero)
-		credit_account=frappe.db.get_single_value('TS Settings','account_to_credit')
-		debit_account=frappe.db.get_single_value('TS Settings','account_to_debit')
+		credit_account=frappe.db.get_single_value('Thirvu Settings','account_to_credit')
+		debit_account=frappe.db.get_single_value('Thirvu Settings','account_to_debit')
 		company=frappe.db.get_single_value('Global Defaults','default_company')
 		account= frappe.get_value("TS Subtype", self.ts_asset_subtype,"account")
 		if(not account):
@@ -78,15 +78,13 @@ class TSMoneyManager(Document):
 			frappe.get_doc('Account',account)
 			
 		doc=frappe.new_doc("Journal Entry")
-		if(self.ts_entry_type in ['Liability']):
-			account = debit_account
 		acc=[{
 			"account": account,
-			"debit_in_account_currency":amount
+			"credit_in_account_currency":amount
 		},
 		{
-			"account": credit_account,
-			"credit_in_account_currency":amount
+			"account": debit_account,
+			"debit_in_account_currency":amount
 		}]
 		doc.update({
 			"company":company,
