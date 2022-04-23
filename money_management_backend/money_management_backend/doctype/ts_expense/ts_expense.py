@@ -44,7 +44,7 @@ class TSExpense(Document):
 					amount = self.ts_amount
 		if(not int(amount)):
 			frappe.throw('Amount is Mandatory',AmountisZero)
-		credit_account=frappe.db.get_single_value('TS Settings','account_to_credit')
+		debit_account=frappe.db.get_single_value('Thirvu Settings','account_to_debit')
 		company=frappe.db.get_single_value('Global Defaults','default_company')
 		account= frappe.get_value("TS Subtype", self.subtype,"account")
 		if(not account):
@@ -54,11 +54,11 @@ class TSExpense(Document):
 		doc=frappe.new_doc("Journal Entry")
 		acc=[{
 			"account": account,
-			"debit_in_account_currency":amount
+			"credit_in_account_currency":amount
 		},
 		{
-			"account": credit_account,
-			"credit_in_account_currency":amount
+			"account": debit_account,
+			"debit_in_account_currency":amount
 		}]
 		doc.update({
 			"company":company,
