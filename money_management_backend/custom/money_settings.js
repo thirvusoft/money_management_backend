@@ -18,7 +18,7 @@ frappe.ui.form.on('TS Money Management Settings', {
 						'subtype':cur_frm.doc.sub_type
 					},
 					callback: function(r){
-						frappe.set_route("user-permission")
+						frappe.msgprint(__(" {0} - User Assigned for {1}",[cur_frm.doc.user ,  r.message]));
 					}
 				})
 
@@ -31,7 +31,9 @@ frappe.ui.form.on('TS Money Management Settings', {
 						'subtype':cur_frm.doc.sub_type
 					},
 					callback: function(r){
-						    frappe.set_route("user-permission")
+						     
+						    frappe.msgprint(__(" {0} - User Permission Removed for {2}",[cur_frm.doc.user , cur_frm.doc.sub_type, r.message]));
+						    //frappe.set_route("user-permission")
 							//frappe.set_route("ts-subtype",frm.doc.sub_type)
 
 						

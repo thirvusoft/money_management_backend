@@ -3,6 +3,9 @@ import frappe
 @frappe.whitelist(allow_guest=True)
 def add_user(user, subtype):
   doc=frappe.new_doc("User Permission")
+  doc_sub=frappe.get_doc("TS Subtype",subtype)
+  sub_name=doc_sub.ts_subtype
+  frappe.errprint(sub_name)
   doc.update({
     'allow':'TS Subtype',
     'user':user,
@@ -10,6 +13,7 @@ def add_user(user, subtype):
 
   })
   doc.insert(ignore_permissions=True)
+  return sub_name
   #return doc.name
   
   # doc=frappe.get_doc('TS Subtype', subtype)
@@ -29,11 +33,16 @@ def add_user(user, subtype):
 @frappe.whitelist(allow_guest=True)
 def terminate_user(user,subtype):
   doc=frappe.get_all("User Permission", pluck="name",filters={"user":user,"for_value":subtype})
+  doc_sub=frappe.get_doc("TS Subtype",subtype)
+  sub_name=doc_sub.ts_subtype
+  frappe.errprint(sub_name)
   frappe.errprint(user)
   if len(doc):
     for i in doc:
       frappe.delete_doc("User Permission",i ,force=1)
-  
+  else:
+    frappe.throw(("This User Permission Already Removed"))
+  return sub_name
   # doc=frappe.get_doc('User Permission', subtype)
   # users=doc.allow_user
   # user_list=[usr.user for usr in users]
