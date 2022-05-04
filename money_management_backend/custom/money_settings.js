@@ -18,7 +18,7 @@ frappe.ui.form.on('TS Money Management Settings', {
 						'subtype':cur_frm.doc.sub_type
 					},
 					callback: function(r){
-						frappe.set_route("ts-subtype",frm.doc.sub_type)
+						frappe.set_route("user-permission")
 					}
 				})
 
@@ -31,7 +31,8 @@ frappe.ui.form.on('TS Money Management Settings', {
 						'subtype':cur_frm.doc.sub_type
 					},
 					callback: function(r){
-							frappe.set_route("ts-subtype",frm.doc.sub_type)
+						    frappe.set_route("user-permission")
+							//frappe.set_route("ts-subtype",frm.doc.sub_type)
 
 						
 					}
