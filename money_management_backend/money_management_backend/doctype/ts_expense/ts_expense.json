@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "EXPENSE-.####",
+ "autoname": "Expense.###",
  "creation": "2022-03-03 09:04:35.320523",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -85,13 +85,15 @@
   "vehicle_number",
   "vehicle_name",
   "name1",
-  "ts_electronic_name",
-  "ts_livestock_name",
   "column_break_72",
   "insured_company",
   "insured_amount",
   "company_address",
-  "section_break_77",
+  "section_break_83",
+  "start_date",
+  "end_date",
+  "policy_no",
+  "total_insured_value",
   "insurance_document",
   "column_break_79",
   "iimage",
@@ -110,8 +112,6 @@
   "column_break_90",
   "person_address",
   "gift_image",
-  "ts_mobile_no",
-  "ts_aadhar_no",
   "section_break_81",
   "expense_type",
   "sshop_name",
@@ -154,7 +154,6 @@
   "contract_amount",
   "estimated_complete_date",
   "advance_payment",
-  "ts_expense_bill_amount",
   "cimage",
   "data_113",
   "clocation",
@@ -172,16 +171,7 @@
   "column_break145",
   "bill_documents",
   "column_break_149",
-  "notes",
-  "section_break_167",
-  "ts_person_name1",
-  "ts_mobile1",
-  "ts_aadhar_number1",
-  "ts_address",
-  "column_break_172",
-  "ts_amount",
-  "ts_date",
-  "ts_bill_document1"
+  "notes"
  ],
  "fields": [
   {
@@ -227,7 +217,7 @@
    "label": "Delivered Address"
   },
   {
-   "depends_on": "eval:doc.subtype_name==\"Home Need\" && in_list([\"Grocery\", \"Shopping\", \"Clothing\", \"Electronics\", \"Gas\", \"Electricity\", \"Phone Recharge\", \"Health\", \"Beauty\", \"Food\"], doc.home_need_type)",
+   "depends_on": "eval:doc.sutype==\"Home Need\" && in_list([\"Grocery\", \"Shopping\", \"Clothing\", \"Electronics\", \"Gas\", \"Electricity\", \"Phone Recharge\", \"Health\", \"Beauty\", \"Food\"], doc.home_need_type)",
    "fieldname": "amount",
    "fieldtype": "Currency",
    "label": "Total Amount",
@@ -573,11 +563,10 @@
    "options": "TS Vehicle Name"
   },
   {
-   "depends_on": "eval:doc.subtype_name==\"Insurance\" && doc.insurance_type==\"Person\"",
+   "depends_on": "eval:doc.subtype_name==\"Insurance\" && in_list([\"Person\", \"Electronic item\", \"livestock\"],doc.insurance_type)",
    "fieldname": "name1",
-   "fieldtype": "Link",
-   "label": "Name",
-   "options": "TS Person Name"
+   "fieldtype": "Data",
+   "label": "Name"
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Insurance\" && in_list([\"Vehicle\", \"Person\", \"Electronic item\", \"livestock\"],doc.insurance_type)",
@@ -1121,10 +1110,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "section_break_77",
-   "fieldtype": "Section Break"
-  },
-  {
    "fieldname": "column_break_79",
    "fieldtype": "Column Break"
   },
@@ -1137,8 +1122,7 @@
    "fetch_from": "subtype.ts_subtype",
    "fieldname": "subtype_name",
    "fieldtype": "Data",
-   "label": "Subtype Name",
-   "read_only": 1
+   "label": "Subtype Name"
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Travel\"",
@@ -1188,95 +1172,37 @@
    "label": "Aadhar Number"
   },
   {
-   "depends_on": "eval:doc.subtype_name==\"Insurance\" && doc.insurance_type==\"Electronic item\"",
-   "fieldname": "ts_electronic_name",
-   "fieldtype": "Link",
-   "label": "Name",
-   "options": "TS Product Name"
-  },
-  {
-   "depends_on": "eval:doc.subtype_name==\"Insurance\" && doc.insurance_type==\"livestock\"",
-   "fieldname": "ts_livestock_name",
-   "fieldtype": "Link",
-   "label": "Name",
-   "options": "TS Livestock Name"
-  },
-  {
-   "depends_on": "eval:doc.subtype_name==\"Construction\"",
-   "fieldname": "ts_expense_bill_amount",
-   "fieldtype": "Currency",
-   "label": "Expense Bill Amount"
-  },
-  {
-   "depends_on": "eval:doc.subtype_name==\"Gift\"",
-   "fieldname": "ts_mobile_no",
-   "fieldtype": "Data",
-   "label": "Mobile No"
-  },
-  {
-   "depends_on": "eval:doc.subtype_name==\"Gift\"",
-   "fieldname": "ts_aadhar_no",
-   "fieldtype": "Data",
-   "label": "Aadhar No"
-  },
-  {
-   "depends_on": "eval:!in_list([\"Agriculture\",\"Construction\",\"Maintenance\",\"Social Service\",\"Education\",\"Gift\",\"Tax\",\"Insurance\",\"Travel\",\"Home Need\",\"Building\",\"Social\",\"Maintain\"],doc.subtype_name)&& doc.subtype_name",
-   "fieldname": "ts_person_name1",
-   "fieldtype": "Link",
-   "label": "Person Name",
-   "mandatory_depends_on": "eval:!in_list([\"Agriculture\",\"Construction\",\"Maintenance\",\"SocialService\",\"Education\",\"Gift\",\"Tax\",\"Insurance\",\"Travel\",\"Home Need\",\"Building\",\"Social\",\"Maintain\"],doc.subtype_name)&& doc.subtype_name",
-   "options": "TS Person Name"
-  },
-  {
-   "depends_on": "eval:!in_list([\"Agriculture\",\"Construction\",\"Maintenance\",\"Social Service\",\"Education\",\"Gift\",\"Tax\",\"Insurance\",\"Travel\",\"Home Need\",\"Building\",\"Social\",\"Maintain\"],doc.subtype_name)&& doc.subtype_name",
-   "fieldname": "ts_mobile1",
-   "fieldtype": "Data",
-   "label": "Mobile"
-  },
-  {
-   "depends_on": "eval:!in_list([\"Agriculture\",\"Construction\",\"Maintenance\",\"SocialService\",\"Education\",\"Gift\",\"Tax\",\"Insurance\",\"Travel\",\"Home Need\",\"Building\",\"Social\",\"Maintain\"],doc.subtype_name)&& doc.subtype_name",
-   "fieldname": "ts_aadhar_number1",
-   "fieldtype": "Data",
-   "label": "Aadhar No"
-  },
-  {
-   "depends_on": "eval:!in_list([\"Agriculture\",\"Construction\",\"Maintenance\",\"Social Service\",\"Education\",\"Gift\",\"Tax\",\"Insurance\",\"Travel\",\"Home Need\",\"Building\",\"Social\",\"Maintain\"],doc.subtype_name)&& doc.subtype_name",
-   "fieldname": "ts_address",
-   "fieldtype": "Small Text",
-   "label": "Address"
-  },
-  {
-   "fieldname": "column_break_172",
-   "fieldtype": "Column Break"
-  },
-  {
-   "depends_on": "eval:!in_list([\"Agriculture\",\"Construction\",\"Maintenance\",\"Social Service\",\"Education\",\"Gift\",\"Tax\",\"Insurance\",\"Travel\",\"Home Need\",\"Building\",\"Social\",\"Maintain\"],doc.subtype_name)&& doc.subtype_name",
-   "fieldname": "ts_amount",
-   "fieldtype": "Currency",
-   "label": "Amount",
-   "mandatory_depends_on": "eval:!in_list([\"Agriculture\",\"Construction\",\"Maintenance\",\"SocialService\",\"Education\",\"Gift\",\"Tax\",\"Insurance\",\"Travel\",\"Home Need\",\"Building\",\"Social\",\"Maintain\"],doc.subtype_name)&& doc.subtype_name"
-  },
-  {
-   "depends_on": "eval:!in_list([\"Agriculture\",\"Construction\",\"Maintenance\",\"Social Service\",\"Education\",\"Gift\",\"Tax\",\"Insurance\",\"Travel\",\"Home Need\",\"Building\",\"Social\",\"Maintain\"],doc.subtype_name)&& doc.subtype_name",
-   "fieldname": "ts_date",
-   "fieldtype": "Date",
-   "label": "Date"
-  },
-  {
-   "fieldname": "section_break_167",
+   "fieldname": "section_break_83",
    "fieldtype": "Section Break"
   },
   {
-   "depends_on": "eval:!in_list([\"Agriculture\",\"Construction\",\"Maintenance\",\"Social Service\",\"Education\",\"Gift\",\"Tax\",\"Insurance\",\"Travel\",\"Home Need\",\"Building\",\"Social\",\"Maintain\"],doc.subtype_name)&& doc.subtype_name",
-   "fieldname": "ts_bill_document1",
-   "fieldtype": "Table",
-   "label": "Bill Document",
-   "options": "TS Bill Document"
+   "depends_on": "eval:doc.subtype_name==\"Insurance\" && in_list([\"Vehicle\", \"Person\", \"Electronic item\", \"livestock\"],doc.insurance_type)",
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date"
+  },
+  {
+   "depends_on": "eval:doc.subtype_name==\"Insurance\" && in_list([\"Vehicle\", \"Person\", \"Electronic item\", \"livestock\"],doc.insurance_type)",
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End Date"
+  },
+  {
+   "depends_on": "eval:doc.subtype_name==\"Insurance\" && in_list([\"Vehicle\", \"Person\", \"Electronic item\", \"livestock\"],doc.insurance_type)",
+   "fieldname": "policy_no",
+   "fieldtype": "Data",
+   "label": "Policy No"
+  },
+  {
+   "depends_on": "eval:doc.subtype_name==\"Insurance\" && in_list([\"Vehicle\", \"Person\", \"Electronic item\", \"livestock\"],doc.insurance_type)",
+   "fieldname": "total_insured_value",
+   "fieldtype": "Currency",
+   "label": "Total Insured Value"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-26 16:41:46.528081",
+ "modified": "2022-05-05 16:47:33.904970",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Expense",
