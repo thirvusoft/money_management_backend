@@ -1,52 +1,46 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2022-03-28 19:40:42.364618",
+ "autoname": "field:ts_livestock_name",
+ "creation": "2022-04-11 12:35:22.625392",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "account_to_credit",
-  "parent_acc"
+  "ts_livestock_name"
  ],
  "fields": [
   {
-   "fieldname": "account_to_credit",
-   "fieldtype": "Link",
+   "fieldname": "ts_livestock_name",
+   "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Account to Credit",
-   "options": "Account",
-   "reqd": 1
-  },
-  {
-   "fieldname": "parent_acc",
-   "fieldtype": "Link",
-   "label": "Parent Account For Subtype",
-   "options": "Account",
-   "reqd": 1
+   "label": "LiveStock Name",
+   "reqd": 1,
+   "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
- "issingle": 1,
  "links": [],
- "modified": "2022-03-29 10:23:25.467056",
+ "modified": "2022-04-11 12:49:09.586978",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
- "name": "TS Settings",
+ "name": "TS Livestock Name",
  "owner": "Administrator",
  "permissions": [
   {
    "create": 1,
    "delete": 1,
    "email": 1,
+   "export": 1,
    "print": 1,
    "read": 1,
+   "report": 1,
    "role": "System Manager",
    "share": 1,
    "write": 1
   }
  ],
+ "quick_entry": 1,
  "sort_field": "modified",
- "sort_order": "DESC",
- "states": []
+ "sort_order": "DESC"
 }

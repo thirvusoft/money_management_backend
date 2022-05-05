@@ -4,5 +4,5 @@
 # import frappe
 import unittest
 
-class TestTSMoneyManagementSettings(unittest.TestCase):
+class TestTSLivestockName(unittest.TestCase):
 	pass
