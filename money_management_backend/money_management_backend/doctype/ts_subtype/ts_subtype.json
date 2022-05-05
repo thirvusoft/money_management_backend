@@ -12,7 +12,11 @@
   "icon_code",
   "fromfe",
   "account",
-  "allow_user"
+  "allow_user",
+  "link_subtype_section",
+  "link_type",
+  "link_subtype",
+  "link_doc_subtype"
  ],
  "fields": [
   {
@@ -52,11 +56,31 @@
    "fieldtype": "Table",
    "label": "Allow User",
    "options": "TS User"
+  },
+  {
+   "fieldname": "link_subtype_section",
+   "fieldtype": "Section Break",
+   "label": "Link Subtype"
+  },
+  {
+   "fieldname": "link_type",
+   "fieldtype": "Data",
+   "label": "Link Type"
+  },
+  {
+   "fieldname": "link_subtype",
+   "fieldtype": "Data",
+   "label": "Link Subtype"
+  },
+  {
+   "fieldname": "link_doc_subtype",
+   "fieldtype": "Data",
+   "label": "Link doc Subtype"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-18 16:04:45.150562",
+ "modified": "2022-05-05 14:20:06.358905",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Subtype",

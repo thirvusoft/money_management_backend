@@ -3,7 +3,8 @@ frappe.ui.form.on('TS User Assign Setting', {
 	frm.set_query("sub_type", function() {
 		return {
 			filters: {
-				'ts_type': frm.doc.type
+				'ts_type': frm.doc.type,
+				'fromfe':1
 			}
 		}
 	});
@@ -15,7 +16,8 @@ frappe.ui.form.on('TS User Assign Setting', {
 					method:"money_management_backend.custom.money_settings.add_user",
 					args:{
 						'user':cur_frm.doc.user,
-						'subtype':cur_frm.doc.sub_type
+						'subtype':cur_frm.doc.sub_type,
+						'type':cur_frm.doc.type
 					},
 					callback: function(r){
 						frappe.msgprint(__(" {0} - User Assigned for {1} Subtype",[cur_frm.doc.user ,  r.message]));
