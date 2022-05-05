@@ -1,4 +1,4 @@
-frappe.ui.form.on('TS Money Management Settings', {
+frappe.ui.form.on('TS User Assign Setting', {
 	type: function(frm) {
 	frm.set_query("sub_type", function() {
 		return {
@@ -18,7 +18,7 @@ frappe.ui.form.on('TS Money Management Settings', {
 						'subtype':cur_frm.doc.sub_type
 					},
 					callback: function(r){
-						frappe.msgprint(__(" {0} - User Assigned for {1}",[cur_frm.doc.user ,  r.message]));
+						frappe.msgprint(__(" {0} - User Assigned for {1} Subtype",[cur_frm.doc.user ,  r.message]));
 					}
 				})
 
@@ -32,7 +32,7 @@ frappe.ui.form.on('TS Money Management Settings', {
 					},
 					callback: function(r){
 						     
-						    frappe.msgprint(__(" {0} - User Permission Removed for {2}",[cur_frm.doc.user , cur_frm.doc.sub_type, r.message]));
+						    frappe.msgprint(__(" {0} - User Permission Removed for {2} Subtype",[cur_frm.doc.user , cur_frm.doc.sub_type, r.message]));
 						    //frappe.set_route("user-permission")
 							//frappe.set_route("ts-subtype",frm.doc.sub_type)
 
@@ -41,7 +41,9 @@ frappe.ui.form.on('TS Money Management Settings', {
 				})
 				 
 			});
+			frm.disable_save();
 	},
+	
 	
 	
 })

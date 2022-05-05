@@ -32,7 +32,7 @@ app_license = "MIT"
 
 # include js in doctype views
 doctype_js = {
-	"TS Money Management Settings" : "/custom/money_settings.js" ,
+	"TS User Assign Setting" : "/custom/money_settings.js" ,
 	}
 # doctype_js = {"doctype" : "public/js/doctype.js"}
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
