@@ -47,8 +47,9 @@
   },
   {
    "fieldname": "account",
-   "fieldtype": "Data",
-   "label": "Account"
+   "fieldtype": "Link",
+   "label": "Account",
+   "options": "Account"
   },
   {
    "fieldname": "allow_user",
