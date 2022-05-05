@@ -1,9 +1,23 @@
 import frappe
 
 @frappe.whitelist(allow_guest=True)
-def add_user(user, subtype):
+def add_user(user, subtype, type):
   doc=frappe.new_doc("User Permission")
+
   doc_sub=frappe.get_doc("TS Subtype",subtype)
+  backend_sub=frappe.get_all("TS Subtype",filters={'ts_subtype':type,'fromfe':0})
+  frappe.errprint(backend_sub)
+ 
+  doc_sub.update({
+    'link_type':doc_sub.ts_type,
+    'link_subtype':doc_sub.ts_subtype,
+    'link_doc_subtype':backend_sub
+ 
+  })
+  frappe.errprint("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+  doc_sub.save()
+  
+
   sub_name=doc_sub.ts_subtype
   frappe.errprint(sub_name)
   doc.update({
