@@ -59,6 +59,7 @@
   "section_break",
   "amount",
   "section_break_47",
+  "ts_aadhar_number1",
   "travel_location",
   "from_date",
   "to_date",
@@ -1198,11 +1199,17 @@
    "fieldname": "total_insured_value",
    "fieldtype": "Currency",
    "label": "Total Insured Value"
+  },
+  {
+   "depends_on": "eval:doc.subtype!=in_list[\"Agriculture\",\"Construction\",\"Maintenance\",\"SocialService\",\"Education\",\"Gift\",\"Tax\",\"Insurance\",\"Travel\",\"Home Need\",\"Building\",\"Social Service\",\"Maintanance\"]",
+   "fieldname": "ts_aadhar_number1",
+   "fieldtype": "Int",
+   "label": "Aadhar Number"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-05-05 16:47:33.904970",
+ "modified": "2022-05-05 17:05:32.145192",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Expense",

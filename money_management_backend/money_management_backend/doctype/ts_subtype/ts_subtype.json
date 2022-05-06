@@ -16,7 +16,8 @@
   "link_subtype_section",
   "link_type",
   "link_subtype",
-  "link_doc_subtype"
+  "link_doc_subtype",
+  "link_user"
  ],
  "fields": [
   {
@@ -47,9 +48,8 @@
   },
   {
    "fieldname": "account",
-   "fieldtype": "Link",
-   "label": "Account",
-   "options": "Account"
+   "fieldtype": "Data",
+   "label": "Account"
   },
   {
    "fieldname": "allow_user",
@@ -76,11 +76,16 @@
    "fieldname": "link_doc_subtype",
    "fieldtype": "Data",
    "label": "Link doc Subtype"
+  },
+  {
+   "fieldname": "link_user",
+   "fieldtype": "Data",
+   "label": "Link User"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-05-05 14:20:06.358905",
+ "modified": "2022-05-06 11:46:11.942094",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Subtype",
