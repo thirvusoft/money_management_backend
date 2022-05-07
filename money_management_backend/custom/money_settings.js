@@ -11,12 +11,20 @@ frappe.ui.form.on('TS User Assign Setting', {
 },
 	type:function(frm)
 	{	
-	    if(frm.doc.type=="" || cur_frm.doc.type!=null){
+	    if(frm.doc.type==""){
 			cur_frm.set_value('sub_type','');
 			cur_frm.set_df_property('sub_type');
 		}
 		else{
-			cur_frm.set_df_property('sub_type');
+			cur_frm.set_value('sub_type','')
+			frm.set_query("sub_type", function() {
+				return {
+					filters: {
+						'ts_type': frm.doc.type,
+						'fromfe':1
+					}
+				}
+			});
 		}
 	},
 	refresh: function(frm) {
