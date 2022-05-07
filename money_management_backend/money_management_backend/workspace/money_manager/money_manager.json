@@ -1,16 +1,13 @@
 {
+ "cards_label": "Accounts",
  "category": "Modules",
  "charts": [
   {
-   "chart_name": "Income Report",
-   "label": "Income Report"
-  },
-  {
-   "chart_name": "Expense Report",
-   "label": "Expense Report"
+   "chart_name": "Profit and Loss",
+   "label": "Profit and Loss"
   }
  ],
- "charts_label": "Dashboards",
+ "charts_label": "Report",
  "creation": "2022-03-09 15:18:14.978446",
  "developer_mode_only": 0,
  "disable_user_customization": 0,
@@ -22,9 +19,19 @@
  "is_default": 0,
  "is_standard": 1,
  "label": "Money Manager",
- "links": [],
- "modified": "2022-03-09 17:47:49.143955",
- "modified_by": "Administrator",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Chart of Accounts ",
+   "link_to": "Account",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2022-05-06 18:00:47.658650",
+ "modified_by": "admin@gmail.com",
  "module": "Money Management Backend",
  "name": "Money Manager",
  "owner": "Administrator",
@@ -54,6 +61,49 @@
    "label": "Daily Entry",
    "link_to": "TS Daily Entry Sheet",
    "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "Thirvu Settings",
+   "link_to": "Thirvu Settings",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "User Assign setting",
+   "link_to": "TS User Assign Setting",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "Subtype",
+   "link_to": "TS Subtype",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "User List",
+   "link_to": "User",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "General Ledger",
+   "link_to": "General Ledger",
+   "type": "Report"
+  },
+  {
+   "doc_view": "",
+   "label": "Profit and Loss Statement",
+   "link_to": "Profit and Loss Statement",
+   "type": "Report"
+  },
+  {
+   "doc_view": "",
+   "label": "Journal Entry",
+   "link_to": "Journal Entry",
+   "type": "DocType"
   }
- ]
+ ],
+ "shortcuts_label": "Money Manager"
 }

@@ -70,6 +70,7 @@
   "food_expense_amount",
   "other_expense_amount",
   "total_amount",
+  "ts_aadhar_number1",
   "sec",
   "travel_documents",
   "column_break_66",
@@ -217,7 +218,7 @@
    "label": "Delivered Address"
   },
   {
-   "depends_on": "eval:doc.subtype==\"Home Need\" && in_list([\"Grocery\", \"Shopping\", \"Clothing\", \"Electronics\", \"Gas\", \"Electricity\", \"Phone Recharge\", \"Health\", \"Beauty\", \"Food\"], doc.home_need_type)",
+   "depends_on": "eval:doc.subtype_name==\"Home Need\" && in_list([\"Grocery\", \"Shopping\", \"Clothing\", \"Electronics\", \"Gas\", \"Electricity\", \"Phone Recharge\", \"Health\", \"Beauty\", \"Food\"], doc.home_need_type)",
    "fieldname": "amount",
    "fieldtype": "Currency",
    "label": "Total Amount",
@@ -1198,11 +1199,17 @@
    "fieldname": "total_insured_value",
    "fieldtype": "Currency",
    "label": "Total Insured Value"
+  },
+  {
+   "depends_on": "eval:!in_list([\"Agriculture\",\"Construction\",\"Maintenance\",\"SocialService\",\"Education\",\"Gift\",\"Tax\",\"Insurance\",\"Travel\",\"Home Need\",\"Building\",\"Social Service\",\"Maintanance\"], doc.subtype_name) && doc.subtype_name",
+   "fieldname": "ts_aadhar_number1",
+   "fieldtype": "Int",
+   "label": "Aadhar Number"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-05-05 16:52:02.570229",
+ "modified": "2022-05-05 17:15:41.018863",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Expense",
