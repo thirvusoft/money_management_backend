@@ -59,6 +59,14 @@ def add_user(user, subtype):
            
         else:
             frappe.errprint(doc_sub.link_doc_subtype)
+            doc_sub.update({
+           
+              'link_user':user
+          
+              })
+            doc_sub.save()
+            
+      
             link_user=doc_sub.link_user
             link_subtype=doc_sub.link_doc_subtype
             docsecond=frappe.new_doc("User Permission")
