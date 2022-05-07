@@ -70,7 +70,6 @@
   "food_expense_amount",
   "other_expense_amount",
   "total_amount",
-  "ts_aadhar_number1",
   "sec",
   "travel_documents",
   "column_break_66",
@@ -109,6 +108,7 @@
   "thing_name",
   "gamount",
   "gifted_to",
+  "ts_aadhar_no",
   "greason",
   "column_break_90",
   "person_address",
@@ -172,7 +172,15 @@
   "column_break145",
   "bill_documents",
   "column_break_149",
-  "notes"
+  "notes",
+  "person_name1",
+  "mobile1",
+  "ts_aadhar_number1",
+  "address1",
+  "column_break_170",
+  "amount1",
+  "date",
+  "document2"
  ],
  "fields": [
   {
@@ -565,7 +573,7 @@
    "read_only": 1
   },
   {
-   "depends_on": "eval:!in_list([\"Agriculture\",\"Construction\",\"Maintenance\",\"SocialService\",\"Education\",\"Gift\",\"Tax\",\"Insurance\",\"Travel\",\"Home Need\",\"Building\",\"Social Service\",\"Maintanance\"], doc.subtype_name) && doc.subtype_name",
+   "depends_on": "eval:!in_list([\"Home Need\", \"Gift\", \"Travel\",\"Insurance\",\"Tax\",\"Education\",\"Social Service\",\"Maintenance\",\"Construction\",\"Agriculture\"],doc.subtype_name) && doc.subtype",
    "fieldname": "ts_aadhar_number1",
    "fieldtype": "Int",
    "label": "Aadhar Number"
@@ -1090,7 +1098,8 @@
    "depends_on": "eval:doc.subtype_name==\"Construction\"",
    "fieldname": "advance_payment",
    "fieldtype": "Currency",
-   "label": "Advance Payment"
+   "label": "Advance Payment",
+   "mandatory_depends_on": "eval:doc.subtype_name==\"Construction\""
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Construction\"",
@@ -1205,12 +1214,61 @@
    "fieldname": "notes",
    "fieldtype": "Small Text",
    "label": "Notes"
+  },
+  {
+   "depends_on": "eval:!in_list([\"Home Need\", \"Gift\", \"Travel\",\"Insurance\",\"Tax\",\"Education\",\"Social Service\",\"Maintenance\",\"Construction\",\"Agriculture\"],doc.subtype_name) && doc.subtype",
+   "fieldname": "person_name1",
+   "fieldtype": "Link",
+   "label": "Person Name",
+   "mandatory_depends_on": "eval:!in_list([\"Home Need\", \"Gift\", \"Travel\",\"Insurance\",\"Tax\",\"Education\",\"Social Service\",\"Maintenance\",\"Construction\",\"Agriculture\"],doc.subtype_name) && doc.subtype",
+   "options": "TS Person Name"
+  },
+  {
+   "depends_on": "eval:!in_list([\"Home Need\", \"Gift\", \"Travel\",\"Insurance\",\"Tax\",\"Education\",\"Social Service\",\"Maintenance\",\"Construction\",\"Agriculture\"],doc.subtype_name) && doc.subtype",
+   "fieldname": "address1",
+   "fieldtype": "Small Text",
+   "label": "Address"
+  },
+  {
+   "fieldname": "column_break_170",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:!in_list([\"Home Need\", \"Gift\", \"Travel\",\"Insurance\",\"Tax\",\"Education\",\"Social Service\",\"Maintenance\",\"Construction\",\"Agriculture\"],doc.subtype_name) && doc.subtype",
+   "fieldname": "amount1",
+   "fieldtype": "Currency",
+   "label": "Amount",
+   "mandatory_depends_on": "eval:!in_list([\"Home Need\", \"Gift\", \"Travel\",\"Insurance\",\"Tax\",\"Education\",\"Social Service\",\"Maintenance\",\"Construction\",\"Agriculture\"],doc.subtype_name) && doc.subtype"
+  },
+  {
+   "depends_on": "eval:!in_list([\"Home Need\", \"Gift\", \"Travel\",\"Insurance\",\"Tax\",\"Education\",\"Social Service\",\"Maintenance\",\"Construction\",\"Agriculture\"],doc.subtype_name) && doc.subtype",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "depends_on": "eval:!in_list([\"Home Need\", \"Gift\", \"Travel\",\"Insurance\",\"Tax\",\"Education\",\"Social Service\",\"Maintenance\",\"Construction\",\"Agriculture\"],doc.subtype_name) && doc.subtype",
+   "fieldname": "document2",
+   "fieldtype": "Table",
+   "label": "Document",
+   "options": "TS Bill Document"
+  },
+  {
+   "depends_on": "eval:!in_list([\"Home Need\", \"Gift\", \"Travel\",\"Insurance\",\"Tax\",\"Education\",\"Social Service\",\"Maintenance\",\"Construction\",\"Agriculture\"],doc.subtype_name) && doc.subtype",
+   "fieldname": "mobile1",
+   "fieldtype": "Int",
+   "label": "Mobile"
+  },
+  {
+   "depends_on": "eval:doc.subtype_name==\"Gift\"",
+   "fieldname": "ts_aadhar_no",
+   "fieldtype": "Data",
+   "label": "Aadhar Number"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
-
- "modified": "2022-05-07 10:48:14.201761",
+ "modified": "2022-05-07 13:51:07.964768",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Expense",

@@ -16,22 +16,22 @@ class TSExpense(Document):
 			aadhar=doc.ts_aadhar_number
 			if aadhar or aadhar==0:
 				if not aadhar.isdigit() or len(aadhar) != 12:
-					frappe.throw(frappe._("Invalid Aadhar Number. {0} is not 16 digit.").format(aadhar), frappe.InvalidPhoneNumberError)
+					frappe.throw(frappe._("Invalid Aadhar Number. {0} is not 12 digit.").format(aadhar), frappe.InvalidPhoneNumberError)
 		elif doc.subtype_name == "Gift":
 			gift_aadhar=doc.ts_aadhar_no
 			if gift_aadhar or gift_aadhar==0:
 				if not gift_aadhar.isdigit() or len(gift_aadhar) != 12:
-					frappe.throw(frappe._("Invalid Aadhar Number. {0} is not 16 digit.").format(gift_aadhar), frappe.InvalidPhoneNumberError)
+					frappe.throw(frappe._("Invalid Aadhar Number. {0} is not 12 digit.").format(gift_aadhar), frappe.InvalidPhoneNumberError)
 		elif doc.subtype_name != ["Agriculture","Construction","Maintenance","SocialService","Education","Gift","Tax","Insurance","Travel","Home Need","Building","Social Service","Maintanance"]:
 			aadhar_no=doc.ts_aadhar_number1
 			if aadhar_no or aadhar_no==0:
 				if not aadhar_no.isdigit() or len(aadhar_no) != 12:
-					frappe.throw(frappe._("Invalid Aadhar Number. {0} is not 16 digit.").format(aadhar_no), frappe.InvalidPhoneNumberError)
+					frappe.throw(frappe._("Invalid Aadhar Number. {0} is not 12 digit.").format(aadhar_no), frappe.InvalidPhoneNumberError)
 		else :
 			pass
 
 	def after_insert(self):
-		total_amount = {"Home Need":"amount","Travel":"total_amount","Insurance":"insured_amount","Tax":"tax_amount","Gift":"gamount","Education":"iamount","Social Service":"oamount","Maintenance":"cost","Construction":"ts_expense_bill_amount"}
+		total_amount = {"Home Need":"amount","Travel":"total_amount","Insurance":"insured_amount","Tax":"tax_amount","Gift":"gamount","Education":"iamount","Social Service":"oamount","Maintenance":"cost","Construction":"advance_payment"}
 		try:
 			amount = eval("self."+total_amount[self.subtype_name])
 		except:
