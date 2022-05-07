@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "fieldts_item_name_list",
+ "autoname": "field:ts_item_name_list",
  "creation": "2022-04-05 11:53:18.134473",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -13,12 +13,13 @@
   {
    "fieldname": "ts_item_name_list",
    "fieldtype": "Data",
-   "label": "Item Name List"
+   "label": "Item Name List",
+   "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-05 11:53:18.134473",
+ "modified": "2022-05-07 13:38:53.521185",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Item Name List",

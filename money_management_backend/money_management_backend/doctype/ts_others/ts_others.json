@@ -194,7 +194,7 @@
   {
    "depends_on": "eval:doc.subtype_name==\"Invitation\"",
    "fieldname": "relation_contact",
-   "fieldtype": "Int",
+   "fieldtype": "Data",
    "label": "Relation Contact"
   },
   {
@@ -273,7 +273,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-26 16:40:42.363238",
+ "modified": "2022-05-07 13:52:53.368884",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Others",
