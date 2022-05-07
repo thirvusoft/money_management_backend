@@ -21,7 +21,7 @@
    "fieldname": "type",
    "fieldtype": "Select",
    "label": "Type",
-   "options": "Asset\nLiability\nIncome\nExpense\nOthers"
+   "options": "\nAsset\nLiability\nIncome\nExpense\nOthers"
   },
   {
    "fieldname": "sub_type",
@@ -33,7 +33,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2022-05-06 10:17:02.701546",
+ "modified": "2022-05-07 10:29:45.766582",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS User Assign Setting",

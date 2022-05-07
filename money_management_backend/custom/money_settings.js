@@ -9,6 +9,16 @@ frappe.ui.form.on('TS User Assign Setting', {
 		}
 	});
 },
+	type:function(frm)
+	{	
+	    if(frm.doc.type=="" || cur_frm.doc.type!=null){
+			cur_frm.set_value('sub_type','');
+			cur_frm.set_df_property('sub_type');
+		}
+		else{
+			cur_frm.set_df_property('sub_type');
+		}
+	},
 	refresh: function(frm) {
 
 			cur_frm.add_custom_button(__('Assign '),function(){
@@ -47,4 +57,13 @@ frappe.ui.form.on('TS User Assign Setting', {
 	
 	
 	
+})
+
+frappe.ui.form.on('TS User Assign Setting', {
+	refresh: function(frm) {
+		    let a = ''
+			cur_frm.set_value("user",a) 
+			cur_frm.set_value("type",a) 
+			cur_frm.set_value("sub_type",a) 
+	     },	
 })
