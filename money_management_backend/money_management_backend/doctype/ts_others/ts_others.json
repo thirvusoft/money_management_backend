@@ -2,7 +2,7 @@
  "actions": [],
  "allow_rename": 1,
  "autoname": "OTHERS-.####",
- "creation": "2022-03-05 07:43:34.180359",
+ "creation": "2022-05-19 21:11:35.831573",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
@@ -56,6 +56,13 @@
    "reqd": 1
   },
   {
+   "depends_on": "eval:doc.entry_type",
+   "fetch_from": "entry_type.ts_subtype",
+   "fieldname": "subtype_name",
+   "fieldtype": "Data",
+   "label": "Subtype Name"
+  },
+  {
    "depends_on": "eval:doc.subtype_name==\"Visiting Card\"",
    "fieldname": "card_holder_name",
    "fieldtype": "Link",
@@ -78,89 +85,8 @@
    "options": "TS Company Name"
   },
   {
-   "fieldname": "section_break_5",
-   "fieldtype": "Section Break"
-  },
-  {
-   "depends_on": "eval:doc.subtype_name==\"Invitation\"",
-   "fieldname": "function_name",
-   "fieldtype": "Link",
-   "label": "Function Name",
-   "mandatory_depends_on": "eval:doc.subtype_name==\"Invitation\"",
-   "options": "TS Function Name"
-  },
-  {
-   "depends_on": "eval:doc.subtype_name==\"Invitation\"",
-   "fieldname": "relation_catagory_name",
-   "fieldtype": "Link",
-   "label": "Catagory",
-   "options": "TS Catagory"
-  },
-  {
-   "depends_on": "eval:doc.subtype_name==\"Invitation\"",
-   "fieldname": "relation_name",
-   "fieldtype": "Link",
-   "label": "Relation Name",
-   "options": "TS Person Name"
-  },
-  {
-   "depends_on": "eval:in_list([\"Invitation\", \"Visiting Card\", \"Profile\"], doc.subtype_name)",
-   "fieldname": "file_upload",
-   "fieldtype": "Table",
-   "label": "File Upload",
-   "options": "TS Others Image"
-  },
-  {
-   "depends_on": "eval:in_list([\"Invitation\", \"Visiting Card\", \"Profile\"], doc.subtype_name)",
-   "fieldname": "notes",
-   "fieldtype": "Small Text",
-   "label": "Notes"
-  },
-  {
-   "depends_on": "eval:doc.subtype_name==\"Invitation\"",
-   "fieldname": "remainder_date",
-   "fieldtype": "Date",
-   "label": "Reminder Date"
-  },
-  {
-   "fieldname": "section_break_10",
-   "fieldtype": "Section Break"
-  },
-  {
-   "depends_on": "eval:doc.subtype_name==\"Profile\"",
-   "fieldname": "profile_name",
-   "fieldtype": "Link",
-   "label": "Profile Name",
-   "mandatory_depends_on": "eval:doc.subtype_name==\"Profile\"",
-   "options": "TS Profile Name"
-  },
-  {
-   "depends_on": "eval:doc.subtype_name==\"Profile\"",
-   "fieldname": "job_type",
-   "fieldtype": "Link",
-   "label": "Job Type",
-   "options": "TS Job Type"
-  },
-  {
-   "depends_on": "eval:doc.subtype_name==\"Profile\"",
-   "fieldname": "reason",
-   "fieldtype": "Small Text",
-   "label": "Reason"
-  },
-  {
-   "fieldname": "section_break_14",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "column_break_16",
+   "fieldname": "column_break_6",
    "fieldtype": "Column Break"
-  },
-  {
-   "depends_on": "eval:doc.entry_type",
-   "fetch_from": "entry_type.ts_subtype",
-   "fieldname": "subtype_name",
-   "fieldtype": "Data",
-   "label": "Subtype Name"
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Visiting Card\"",
@@ -189,8 +115,30 @@
    "label": "Address"
   },
   {
-   "fieldname": "column_break_6",
-   "fieldtype": "Column Break"
+   "fieldname": "section_break_5",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.subtype_name==\"Invitation\"",
+   "fieldname": "function_name",
+   "fieldtype": "Link",
+   "label": "Function Name",
+   "mandatory_depends_on": "eval:doc.subtype_name==\"Invitation\"",
+   "options": "TS Function Name"
+  },
+  {
+   "depends_on": "eval:doc.subtype_name==\"Invitation\"",
+   "fieldname": "relation_catagory_name",
+   "fieldtype": "Link",
+   "label": "Catagory",
+   "options": "TS Catagory"
+  },
+  {
+   "depends_on": "eval:doc.subtype_name==\"Invitation\"",
+   "fieldname": "relation_name",
+   "fieldtype": "Link",
+   "label": "Relation Name",
+   "options": "TS Person Name"
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Invitation\"",
@@ -199,10 +147,32 @@
    "label": "Relation Contact"
   },
   {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.subtype_name==\"Invitation\"",
+   "fieldname": "remainder_date",
+   "fieldtype": "Date",
+   "label": "Reminder Date"
+  },
+  {
    "depends_on": "eval:doc.subtype_name==\"Invitation\"",
    "fieldname": "relation_address",
    "fieldtype": "Small Text",
    "label": "Relation Address"
+  },
+  {
+   "fieldname": "section_break_10",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.subtype_name==\"Profile\"",
+   "fieldname": "profile_name",
+   "fieldtype": "Link",
+   "label": "Profile Name",
+   "mandatory_depends_on": "eval:doc.subtype_name==\"Profile\"",
+   "options": "TS Profile Name"
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Profile\"",
@@ -215,6 +185,44 @@
    "fieldname": "contact",
    "fieldtype": "Int",
    "label": "Contact"
+  },
+  {
+   "depends_on": "eval:doc.subtype_name==\"Profile\"",
+   "fieldname": "job_type",
+   "fieldtype": "Link",
+   "label": "Job Type",
+   "options": "TS Job Type"
+  },
+  {
+   "fieldname": "column_break_23",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.subtype_name==\"Profile\"",
+   "fieldname": "reason",
+   "fieldtype": "Small Text",
+   "label": "Reason"
+  },
+  {
+   "fieldname": "section_break_14",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:in_list([\"Invitation\", \"Visiting Card\", \"Profile\"], doc.subtype_name)",
+   "fieldname": "file_upload",
+   "fieldtype": "Table",
+   "label": "File Upload",
+   "options": "TS Others Image"
+  },
+  {
+   "fieldname": "column_break_16",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:in_list([\"Invitation\", \"Visiting Card\", \"Profile\"], doc.subtype_name)",
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
   },
   {
    "fieldname": "section_break_28",
@@ -252,24 +260,16 @@
   },
   {
    "depends_on": "eval:!in_list([\"Visiting Card\",\"Profile\",\"Invitation\"],doc.subtype_name) && doc.subtype_name",
-   "fieldname": "ts_notes",
-   "fieldtype": "Small Text",
-   "label": "Notes"
-  },
-  {
-   "fieldname": "column_break_23",
-   "fieldtype": "Column Break"
-  },
-  {
-   "depends_on": "eval:!in_list([\"Visiting Card\",\"Profile\",\"Invitation\"],doc.subtype_name) && doc.subtype_name",
    "fieldname": "ts_file_upload",
    "fieldtype": "Table",
    "label": "File Upload",
    "options": "TS Others Image"
   },
   {
-   "fieldname": "column_break_17",
-   "fieldtype": "Column Break"
+   "depends_on": "eval:!in_list([\"Visiting Card\",\"Profile\",\"Invitation\"],doc.subtype_name) && doc.subtype_name",
+   "fieldname": "ts_notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
   },
   {
    "depends_on": "eval:doc.subtype_name==\"GOVERMENT ID PROOF\"",
@@ -281,12 +281,25 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-05-19 20:02:08.670347",
+ "modified": "2022-05-19 21:11:35.831573",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Others",
  "owner": "Administrator",
- "permissions": [],
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
  "sort_field": "modified",
  "sort_order": "DESC"
 }

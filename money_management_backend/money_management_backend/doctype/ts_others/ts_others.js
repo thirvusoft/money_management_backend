@@ -1,6 +1,3 @@
-
-// For license information, please see license.txt
-
 let others=""
 frappe.ui.form.on('TS Others', {
 entry_type: function(frm,cdt,cdn)
