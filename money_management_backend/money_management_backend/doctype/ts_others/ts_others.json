@@ -43,7 +43,8 @@
   "ts_address",
   "column_break_33",
   "ts_file_upload",
-  "ts_notes"
+  "ts_notes",
+  "attachment"
  ],
  "fields": [
   {
@@ -269,29 +270,23 @@
   {
    "fieldname": "column_break_17",
    "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.subtype_name==\"GOVERMENT ID PROOF\"",
+   "fieldname": "attachment",
+   "fieldtype": "Table",
+   "label": "ATTACHMENT",
+   "options": "GOVERMENT ID PROOF"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-05-07 13:52:53.368884",
+ "modified": "2022-05-19 20:02:08.670347",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Others",
  "owner": "Administrator",
- "permissions": [
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "System Manager",
-   "share": 1,
-   "write": 1
-  }
- ],
+ "permissions": [],
  "sort_field": "modified",
  "sort_order": "DESC"
 }

@@ -1,0 +1,44 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-05-16 09:54:31.984375",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "id_proof_name",
+  "attachment",
+  "notes"
+ ],
+ "fields": [
+  {
+   "depends_on": "eval:in_list([\"GOVERMENT ID PROOF\"], doc.subtype_name)",
+   "fieldname": "id_proof_name",
+   "fieldtype": "Attach",
+   "in_list_view": 1,
+   "label": "ATTACHMENT"
+  },
+  {
+   "fieldname": "attachment",
+   "fieldtype": "Link",
+   "label": "ID PROOF",
+   "options": "TS OTHERS ID PROOF"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Data",
+   "label": "NOTES"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2022-05-19 11:34:48.646010",
+ "modified_by": "Administrator",
+ "module": "Money Management Backend",
+ "name": "GOVERMENT ID PROOF",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

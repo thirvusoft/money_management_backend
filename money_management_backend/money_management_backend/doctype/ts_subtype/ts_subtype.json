@@ -85,13 +85,14 @@
   {
    "fieldname": "link_user",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Link User",
    "options": "User"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-05-07 13:26:39.730380",
+ "modified": "2022-05-07 16:10:33.952194",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Subtype",

@@ -30,7 +30,7 @@
    "type": "Link"
   }
  ],
- "modified": "2022-05-06 18:00:47.658650",
+ "modified": "2022-05-07 15:51:51.809044",
  "modified_by": "admin@gmail.com",
  "module": "Money Management Backend",
  "name": "Money Manager",
@@ -64,8 +64,8 @@
   },
   {
    "doc_view": "",
-   "label": "Thirvu Settings",
-   "link_to": "Thirvu Settings",
+   "label": "User List",
+   "link_to": "User",
    "type": "DocType"
   },
   {
@@ -76,14 +76,14 @@
   },
   {
    "doc_view": "",
-   "label": "Subtype",
-   "link_to": "TS Subtype",
+   "label": "User Permission List",
+   "link_to": "User Permission",
    "type": "DocType"
   },
   {
    "doc_view": "",
-   "label": "User List",
-   "link_to": "User",
+   "label": "Subtype",
+   "link_to": "TS Subtype",
    "type": "DocType"
   },
   {
@@ -102,6 +102,12 @@
    "doc_view": "",
    "label": "Journal Entry",
    "link_to": "Journal Entry",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "",
+   "label": "Thirvu Settings",
+   "link_to": "Thirvu Settings",
    "type": "DocType"
   }
  ],

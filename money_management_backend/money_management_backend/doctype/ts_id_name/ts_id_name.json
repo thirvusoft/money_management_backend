@@ -1,0 +1,31 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-05-18 12:46:32.790203",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "id_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "id_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "ID NAME",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2022-05-18 17:30:23.069000",
+ "modified_by": "Administrator",
+ "module": "Money Management Backend",
+ "name": "TS ID NAME",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

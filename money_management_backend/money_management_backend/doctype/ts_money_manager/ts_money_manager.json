@@ -153,7 +153,13 @@
   "column_break_145",
   "ts_amount1",
   "ts_date1",
-  "ts_bill_document"
+  "ts_bill_document",
+  "sum_insured",
+  "maturity",
+  "next_due",
+  "yearly_term",
+  "insurance_company_name",
+  "insurence_type"
  ],
  "fields": [
   {
@@ -1077,11 +1083,48 @@
    "fieldtype": "Table",
    "label": "Document",
    "options": "TS Bill Document"
+  },
+  {
+   "depends_on": "eval:doc.sub_type_name==\"INSURANCE\"",
+   "fieldname": "sum_insured",
+   "fieldtype": "Small Text",
+   "label": "SUM INSURED"
+  },
+  {
+   "depends_on": "eval:doc.sub_type_name==\"INSURANCE\"",
+   "fieldname": "maturity",
+   "fieldtype": "Small Text",
+   "label": "MATURITY"
+  },
+  {
+   "depends_on": "eval:doc.sub_type_name==\"INSURANCE\"",
+   "fieldname": "next_due",
+   "fieldtype": "Small Text",
+   "label": "NEXT DUE"
+  },
+  {
+   "depends_on": "eval:doc.sub_type_name==\"INSURANCE\"",
+   "fieldname": "yearly_term",
+   "fieldtype": "Int",
+   "label": "YEARLY TERM"
+  },
+  {
+   "depends_on": "eval:doc.sub_type_name==\"INSURANCE\"",
+   "fieldname": "insurance_company_name",
+   "fieldtype": "Data",
+   "label": "INSURANCE COMPANY NAME"
+  },
+  {
+   "depends_on": "eval:doc.sub_type_name==\"INSURANCE\"",
+   "fieldname": "insurence_type",
+   "fieldtype": "Select",
+   "label": "INSURENCE TYPE",
+   "options": "PERSONAL\nTWO WHEELER"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-19 08:18:31.598461",
+ "modified": "2022-05-10 13:01:46.319767",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Money Manager",
