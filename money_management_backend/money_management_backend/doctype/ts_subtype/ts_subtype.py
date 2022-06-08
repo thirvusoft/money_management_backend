@@ -7,7 +7,7 @@ from frappe.model.document import Document
 class TSSubtype(Document):
 
 	def before_insert(self):
-		docs=[i['ts_subtype'] for i in frappe.get_all("TS Subtype", {"fromfe":self.fromfe}, ["ts_subtype"])]
+		docs=[i['ts_subtype'] for i in frappe.get_all("TS Subtype", {"fromfe":self.fromfe,"ts_type":self.ts_type}, ["ts_subtype"])]
 		if self.ts_subtype in docs and self.ts_subtype!="":
 			frappe.local.response.http_status_code = 550
 			frappe.local.response["Message"]="Name Already Exist"

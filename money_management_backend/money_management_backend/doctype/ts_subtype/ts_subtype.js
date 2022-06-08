@@ -5,11 +5,7 @@ frappe.ui.form.on('TS Subtype', {
 	refresh: function(frm) {
 		    let a =cur_frm.doc.ts_type
 			cur_frm.set_value("link_type",a) 
-		
-			console.log(a)
-			console.log(cur_frm.doc.link_type)
-		
-	     },
+		 },
 	link_type: function(frm) {
 		frm.set_query("link_doc_subtype", function() {
 			return {

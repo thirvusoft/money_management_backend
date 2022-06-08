@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "Subtype.####",
+ "autoname": "Subtype.#####",
  "creation": "2022-03-09 13:35:47.380330",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -92,7 +92,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-05-07 16:10:33.952194",
+ "modified": "2022-06-06 15:39:35.598930",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Subtype",
