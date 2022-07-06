@@ -10,8 +10,8 @@ class TSDailyEntrySheet(Document):
 		if(self.type in ['Expense','Asset','Liability','Income']):
 			if(not int(self.amount)):
 				frappe.throw('Amount is Mandatory',AmountisZero)
-			credit_account=frappe.db.get_single_value('TS Settings','account_to_credit')
-			debit_account=frappe.db.get_single_value('TS Settings','account_to_debit')
+			credit_account=frappe.db.get_single_value('Thirvu Settings','account_to_credit')
+			debit_account=frappe.db.get_single_value('Thirvu Settings','account_to_debit')
 			company=frappe.db.get_single_value('Global Defaults','default_company')
 			account= frappe.get_value("TS Subtype", self.sub_type,"account")
 			if(not account):
