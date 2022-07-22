@@ -7,7 +7,9 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "ts_person_name"
+  "ts_person_name",
+  "aadhar_number",
+  "mobile_number"
  ],
  "fields": [
   {
@@ -17,11 +19,23 @@
    "label": "Person Name",
    "reqd": 1,
    "unique": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "aadhar_number",
+   "fieldtype": "Data",
+   "label": "Aadhar Number"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "mobile_number",
+   "fieldtype": "Data",
+   "label": "Mobile Number"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-04-05 20:17:47.278696",
+ "modified": "2022-07-22 15:59:43.285019",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Person Name",
