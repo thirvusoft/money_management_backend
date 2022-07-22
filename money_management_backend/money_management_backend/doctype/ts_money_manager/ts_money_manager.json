@@ -9,6 +9,9 @@
   "ts_entry_type",
   "ts_asset_subtype",
   "sub_type_name",
+  "column_break_4",
+  "ts_purchase_date",
+  "ts_purchase_rate",
   "section_break_3",
   "ts_precious_metal_type",
   "ts_quality",
@@ -45,8 +48,6 @@
   "ts_registered_date",
   "ts_land_documents",
   "section_break_29",
-  "ts_purchase_date",
-  "ts_purchase_rate",
   "ts_purchase_person_name",
   "ts_smobile_number",
   "ts_seller_aadhar",
@@ -371,7 +372,7 @@
    "options": "TS Bill Document"
   },
   {
-   "depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Gold\", \"Silver\", \"Diamond\", \"Platinum\", \"Vehicle\", \"Home Appliance\", \"Machinery\", \"Agricultural Land\", \"Commercial Land\", \"Residential Land\"], doc.sub_type_name)",
+   "depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Gold\", \"Silver\", \"Diamond\", \"Platinum\", \"Vehicle\", \"Home Appliance\", \"Machinery\", \"Commercial Land\", \"Residential Land\"], doc.sub_type_name)",
    "fieldname": "ts_images",
    "fieldtype": "Table",
    "label": "Images",
@@ -789,7 +790,7 @@
    "label": "Credit Date"
   },
   {
-   "depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Vehicle\", \"Home Appliance\", \"Machinery\", \"Agricultural Land\", \"Commercial Land\", \"Residential Land\"], doc.sub_type_name)",
+   "depends_on": "eval:doc.ts_entry_type==\"Asset\" && in_list([\"Vehicle\", \"Home Appliance\", \"Machinery\", \"Commercial Land\", \"Residential Land\"], doc.sub_type_name)",
    "fieldname": "ts_seller_proof",
    "fieldtype": "Table",
    "label": "Seller Proof",
@@ -1120,11 +1121,15 @@
    "fieldtype": "Select",
    "label": "INSURENCE TYPE",
    "options": "PERSONAL\nTWO WHEELER"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-05-10 13:01:46.319767",
+ "modified": "2022-07-22 13:47:09.692491",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Money Manager",
