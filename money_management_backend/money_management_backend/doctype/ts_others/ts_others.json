@@ -238,12 +238,14 @@
   },
   {
    "depends_on": "eval:!in_list([\"Visiting Card\",\"Profile\",\"Invitation\"],doc.subtype_name) && doc.subtype_name",
+   "fetch_from": "ts_person_name.mobile_number",
    "fieldname": "ts_mobile_no",
    "fieldtype": "Data",
    "label": "Mobile No"
   },
   {
    "depends_on": "eval:!in_list([\"Visiting Card\",\"Profile\",\"Invitation\"],doc.subtype_name) && doc.subtype_name",
+   "fetch_from": "ts_person_name.aadhar_number",
    "fieldname": "ts_aadhar_no",
    "fieldtype": "Data",
    "label": "Aadhar No"
@@ -281,7 +283,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-05-19 21:11:35.831573",
+ "modified": "2022-07-22 16:53:54.484920",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Others",
