@@ -458,6 +458,7 @@
   },
   {
    "depends_on": "eval:doc.home_need_type==\"Beauty\"",
+   "fetch_from": "beautician_name.mobile_number",
    "fieldname": "shop_phone_number",
    "fieldtype": "Data",
    "label": "Shop Phone Number"
@@ -576,6 +577,7 @@
   },
   {
    "depends_on": "eval:!in_list([\"Home Need\", \"Gift\", \"Travel\",\"Insurance\",\"Tax\",\"Education\",\"Social Service\",\"Maintenance\",\"Construction\",\"Agriculture\"],doc.subtype_name) && doc.subtype",
+   "fetch_from": "person_name1.aadhar_number",
    "fieldname": "ts_aadhar_number1",
    "fieldtype": "Int",
    "label": "Aadhar Number"
@@ -922,6 +924,7 @@
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Social Service\"",
+   "fetch_from": "sperson_name.aadhar_number",
    "fieldname": "ts_aadhar_number",
    "fieldtype": "Data",
    "label": "Aadhar Number"
@@ -1064,12 +1067,14 @@
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Construction\"",
+   "fetch_from": "contractor_name.mobile_number",
    "fieldname": "cmobile_number",
    "fieldtype": "Data",
    "label": "Mobile Number"
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Construction\"",
+   "fetch_from": "contractor_name.aadhar_number",
    "fieldname": "aadhar_number",
    "fieldtype": "Data",
    "label": "Aadhar Number"
@@ -1257,12 +1262,14 @@
   },
   {
    "depends_on": "eval:!in_list([\"Home Need\", \"Gift\", \"Travel\",\"Insurance\",\"Tax\",\"Education\",\"Social Service\",\"Maintenance\",\"Construction\",\"Agriculture\"],doc.subtype_name) && doc.subtype",
+   "fetch_from": "person_name1.mobile_number",
    "fieldname": "mobile1",
    "fieldtype": "Int",
    "label": "Mobile"
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Gift\"",
+   "fetch_from": "gifted_to.aadhar_number",
    "fieldname": "ts_aadhar_no",
    "fieldtype": "Data",
    "label": "Aadhar Number"
@@ -1280,7 +1287,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-06-26 20:37:39.949120",
+ "modified": "2022-07-22 16:48:15.898874",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Expense",
