@@ -1,0 +1,50 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-06-25 18:35:36.600742",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "function_date",
+  "venue",
+  "location",
+  "relative"
+ ],
+ "fields": [
+  {
+   "fieldname": "function_date",
+   "fieldtype": "Date",
+   "label": "Function date"
+  },
+  {
+   "fieldname": "venue",
+   "fieldtype": "Data",
+   "label": "venue"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "label": "location",
+   "options": "TS OTHERS LOCATION"
+  },
+  {
+   "fieldname": "relative",
+   "fieldtype": "Link",
+   "label": "Relative",
+   "options": "TS OTHERS RELATIVE"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2022-06-25 18:54:18.701493",
+ "modified_by": "Administrator",
+ "module": "Money Management Backend",
+ "name": "TS OTHERS INVITATION",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

@@ -7,8 +7,12 @@
  "engine": "InnoDB",
  "field_order": [
   "image",
+  "travel_location",
   "travel_start_date",
-  "travel_end_date"
+  "travel_end_date",
+  "document_name",
+  "travel_end_location",
+  "other_name"
  ],
  "fields": [
   {
@@ -21,19 +25,45 @@
    "fieldname": "travel_start_date",
    "fieldtype": "Date",
    "in_list_view": 1,
-   "label": "TRAVEL START DATE"
+   "label": "START DATE"
   },
   {
    "fieldname": "travel_end_date",
    "fieldtype": "Date",
    "in_list_view": 1,
-   "label": "TRAVEL END DATE"
+   "label": " END DATE"
+  },
+  {
+   "fieldname": "travel_location",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": " START ",
+   "options": "TS Place Name"
+  },
+  {
+   "fieldname": "document_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "DOCUMENT NAME",
+   "options": "TS Documents list"
+  },
+  {
+   "fieldname": "travel_end_location",
+   "fieldtype": "Link",
+   "label": " END ",
+   "options": "TS Place Name"
+  },
+  {
+   "fieldname": "other_name",
+   "fieldtype": "Link",
+   "label": "OTHER NAME",
+   "options": "TS OTHERS HOTEL FLIGHT NAME"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2022-05-18 13:01:45.593133",
+ "modified": "2022-07-13 18:51:38.848329",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS OTHERS TRAVEL",

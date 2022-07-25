@@ -44,7 +44,11 @@
   "column_break_33",
   "ts_file_upload",
   "ts_notes",
-  "attachment"
+  "attachment",
+  "travel_details",
+  "medical_records",
+  "insurance",
+  "email"
  ],
  "fields": [
   {
@@ -256,7 +260,7 @@
   },
   {
    "fieldname": "column_break_33",
-   "fieldtype": "Column Break"
+   "fieldtype": "Section Break"
   },
   {
    "depends_on": "eval:!in_list([\"Visiting Card\",\"Profile\",\"Invitation\"],doc.subtype_name) && doc.subtype_name",
@@ -277,11 +281,39 @@
    "fieldtype": "Table",
    "label": "ATTACHMENT",
    "options": "GOVERMENT ID PROOF"
+  },
+  {
+   "depends_on": "eval:in_list([\"TRAVEL\"], doc.subtype_name)",
+   "fieldname": "travel_details",
+   "fieldtype": "Table",
+   "label": "TRAVEL DETAILS",
+   "options": "TS OTHERS TRAVEL"
+  },
+  {
+   "depends_on": "eval:in_list([\"MEDICAL RECORDS\"], doc.subtype_name)",
+   "fieldname": "medical_records",
+   "fieldtype": "Table",
+   "label": "MEDICAL RECORDS",
+   "options": "TS OTHERS MEDICAL RECORDS"
+  },
+  {
+   "depends_on": "eval:in_list([\"Insurance\"], doc.subtype_name)",
+   "fieldname": "insurance",
+   "fieldtype": "Table",
+   "label": "INSURANCE",
+   "options": "TS OTHERS INSURANCE TYPE"
+  },
+  {
+   "depends_on": "eval:in_list([\"E MAIL ID\"], doc.subtype_name)",
+   "fieldname": "email",
+   "fieldtype": "Table",
+   "label": "E MAIL & WEBSITE DETAILS",
+   "options": "TS OTHERS E MAIL ID"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-05-19 21:11:35.831573",
+ "modified": "2022-06-24 19:06:12.602672",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Others",

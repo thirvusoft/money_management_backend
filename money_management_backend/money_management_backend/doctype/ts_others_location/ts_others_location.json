@@ -1,40 +1,28 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:creditor_name",
- "creation": "2022-04-04 14:12:16.695903",
+ "autoname": "field:location",
+ "creation": "2022-06-25 18:46:55.306251",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "creditor_name",
-  "aadhar_number",
-  "mobile_number"
+  "location"
  ],
  "fields": [
   {
-   "fieldname": "creditor_name",
+   "fieldname": "location",
    "fieldtype": "Data",
-   "label": "Creditor Name",
+   "label": "LOCATION",
    "unique": 1
-  },
-  {
-   "fieldname": "aadhar_number",
-   "fieldtype": "Data",
-   "label": "Aadhar Number"
-  },
-  {
-   "fieldname": "mobile_number",
-   "fieldtype": "Data",
-   "label": "Mobile Number"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-22 16:43:35.213595",
+ "modified": "2022-06-27 12:16:24.944244",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
- "name": "TS Creditor Name",
+ "name": "TS OTHERS LOCATION",
  "owner": "Administrator",
  "permissions": [
   {
@@ -50,8 +38,6 @@
    "write": 1
   }
  ],
- "quick_entry": 1,
  "sort_field": "modified",
- "sort_order": "DESC",
- "track_changes": 1
+ "sort_order": "DESC"
 }

@@ -1,40 +1,28 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:creditor_name",
- "creation": "2022-04-04 14:12:16.695903",
+ "autoname": "field:data_1",
+ "creation": "2022-06-08 17:02:14.465040",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "creditor_name",
-  "aadhar_number",
-  "mobile_number"
+  "data_1"
  ],
  "fields": [
   {
-   "fieldname": "creditor_name",
+   "fieldname": "data_1",
    "fieldtype": "Data",
-   "label": "Creditor Name",
+   "label": "POLICY NO",
    "unique": 1
-  },
-  {
-   "fieldname": "aadhar_number",
-   "fieldtype": "Data",
-   "label": "Aadhar Number"
-  },
-  {
-   "fieldname": "mobile_number",
-   "fieldtype": "Data",
-   "label": "Mobile Number"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-22 16:43:35.213595",
+ "modified": "2022-06-08 18:15:50.474595",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
- "name": "TS Creditor Name",
+ "name": "TS INSURANCE POLICY NO",
  "owner": "Administrator",
  "permissions": [
   {
@@ -52,6 +40,5 @@
  ],
  "quick_entry": 1,
  "sort_field": "modified",
- "sort_order": "DESC",
- "track_changes": 1
+ "sort_order": "DESC"
 }

@@ -1,0 +1,63 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-06-08 17:41:14.023937",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "insurance_type",
+  "policy_no",
+  "company",
+  "policy_start",
+  "policy_renewal",
+  "sum_insured"
+ ],
+ "fields": [
+  {
+   "fieldname": "insurance_type",
+   "fieldtype": "Link",
+   "label": "INSURANCE TYPE",
+   "options": "TS INSURANCE TYPE"
+  },
+  {
+   "fieldname": "policy_no",
+   "fieldtype": "Link",
+   "label": "POLICY NO",
+   "options": "TS INSURANCE POLICY NO"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "COMPANY",
+   "options": "TS OTHERS INSURANCE COMPANY NAME"
+  },
+  {
+   "fieldname": "policy_start",
+   "fieldtype": "Date",
+   "label": "POLICY START "
+  },
+  {
+   "fieldname": "policy_renewal",
+   "fieldtype": "Date",
+   "label": "POLICY RENEWAL"
+  },
+  {
+   "fieldname": "sum_insured",
+   "fieldtype": "Int",
+   "label": "SUM INSURED"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2022-06-08 20:21:31.429973",
+ "modified_by": "Administrator",
+ "module": "Money Management Backend",
+ "name": "TS OTHERS INSURANCE TYPE",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

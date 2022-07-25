@@ -55,7 +55,6 @@
   "ts_seller_proof",
   "ts_bill_documents",
   "ts_images",
-  "section_break_41",
   "ts_debt_date",
   "ts_debt_creditor_name",
   "ts_debt_credit_amount",
@@ -159,7 +158,28 @@
   "next_due",
   "yearly_term",
   "insurance_company_name",
-  "insurence_type"
+  "insurence_type",
+  "column_break_155",
+  "bank_name",
+  "bank_account_no",
+  "deposit_no",
+  "deposit_date",
+  "maturity_date",
+  "maturity_value",
+  "nominee",
+  "interest",
+  "current_deposit_value",
+  "column_break_164",
+  "images_bore",
+  "section_break_166",
+  "purchase_date",
+  "section_break_168",
+  "investment_name",
+  "units",
+  "buyvalue",
+  "buying_date",
+  "market_value",
+  "market_value_date"
  ],
  "fields": [
   {
@@ -378,7 +398,7 @@
    "options": "TS Images"
   },
   {
-   "depends_on": "eval:in_list([\"Asset\",\"Liability\",\"Expense\",\"Others\",\"Income\"],doc.ts_entry_type)\n",
+   "depends_on": "eval:in_list([\"Asset\",\"Liability\",\"Expense\",\"Others\",\"Income\"], doc.ts_entry_type)\n",
    "fieldname": "ts_asset_subtype",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -400,10 +420,6 @@
    "fieldname": "ts_machinery_usage",
    "fieldtype": "Data",
    "label": "Usage"
-  },
-  {
-   "fieldname": "section_break_41",
-   "fieldtype": "Section Break"
   },
   {
    "depends_on": "eval:doc.ts_entry_type==\"Liability\"&& doc.sub_type_name==\"Debt\"",
@@ -1120,11 +1136,131 @@
    "fieldtype": "Select",
    "label": "INSURENCE TYPE",
    "options": "PERSONAL\nTWO WHEELER"
+  },
+  {
+   "depends_on": "eval:in_list([\"BANK DEPOSIT\"], doc.sub_type_name)",
+   "fieldname": "bank_name",
+   "fieldtype": "Link",
+   "label": "BANK NAME",
+   "options": "TS Bank Name"
+  },
+  {
+   "fieldname": "column_break_155",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:in_list([\"BANK ACCOUNT NO\"], doc.sub_type_name)",
+   "fieldname": "bank_account_no",
+   "fieldtype": "Link",
+   "label": "BANK ACCOUNT NO",
+   "options": "BANK ACCOUNT NO"
+  },
+  {
+   "depends_on": "eval:in_list([\"BANK DEPOSIT\",\"GOLD BONDS\"], doc.sub_type_name)",
+   "fieldname": "deposit_no",
+   "fieldtype": "Data",
+   "label": "DEPOSIT NO"
+  },
+  {
+   "depends_on": "eval:in_list([\"BANK DEPOSIT\"], doc.sub_type_name)",
+   "fieldname": "deposit_date",
+   "fieldtype": "Date",
+   "label": "DEPOSIT DATE"
+  },
+  {
+   "depends_on": "eval:in_list([\"BANK DEPOSIT\"], doc.sub_type_name)",
+   "fieldname": "maturity_date",
+   "fieldtype": "Date",
+   "label": "MATURITY DATE"
+  },
+  {
+   "depends_on": "eval:in_list([\"BANK DEPOSIT\"], doc.sub_type_name)",
+   "fieldname": "maturity_value",
+   "fieldtype": "Data",
+   "label": "MATURITY VALUE"
+  },
+  {
+   "depends_on": "eval:in_list([\"BANK DEPOSIT\"], doc.sub_type_name)",
+   "fieldname": "nominee",
+   "fieldtype": "Data",
+   "label": "NOMINEE"
+  },
+  {
+   "depends_on": "eval:in_list([\"BANK DEPOSIT\"], doc.sub_type_name)",
+   "fieldname": "interest",
+   "fieldtype": "Percent",
+   "label": "INTEREST"
+  },
+  {
+   "depends_on": "eval:in_list([\"BANK DEPOSIT\"], doc.sub_type_name)",
+   "fieldname": "current_deposit_value",
+   "fieldtype": "Data",
+   "label": "CURRENT DEPOSIT VALUE"
+  },
+  {
+   "fieldname": "column_break_164",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_166",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:in_list([\"BOREWELL\"], doc.sub_type_name)",
+   "fieldname": "purchase_date",
+   "fieldtype": "Date",
+   "label": "PURCHASE DATE"
+  },
+  {
+   "fieldname": "section_break_168",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:in_list([\"GOLD BONDS\"], doc.sub_type_name)",
+   "fieldname": "investment_name",
+   "fieldtype": "Data",
+   "label": "INVESTMENT NAME"
+  },
+  {
+   "depends_on": "eval:in_list([\"GOLD BONDS\"], doc.sub_type_name)",
+   "fieldname": "units",
+   "fieldtype": "Int",
+   "label": "UNITS"
+  },
+  {
+   "depends_on": "eval:in_list([\"GOLD BONDS\"], doc.sub_type_name)",
+   "fieldname": "buyvalue",
+   "fieldtype": "Date",
+   "label": "BUYVALUE"
+  },
+  {
+   "depends_on": "eval:in_list([\"GOLD BONDS\"], doc.sub_type_name)",
+   "fieldname": "buying_date",
+   "fieldtype": "Date",
+   "label": "BUYING DATE"
+  },
+  {
+   "depends_on": "eval:in_list([\"GOLD BONDS\"], doc.sub_type_name)",
+   "fieldname": "market_value",
+   "fieldtype": "Data",
+   "label": "MARKET VALUE"
+  },
+  {
+   "depends_on": "eval:in_list([\"GOLD BONDS\"], doc.sub_type_name)",
+   "fieldname": "market_value_date",
+   "fieldtype": "Date",
+   "label": "MARKET VALUE DATE"
+  },
+  {
+   "depends_on": "eval:in_list([\"BANK DEPOSIT\"], doc.sub_type_name)",
+   "fieldname": "images_bore",
+   "fieldtype": "Attach",
+   "label": "IMAGES"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-05-10 13:01:46.319767",
+ "modified": "2022-06-26 17:08:42.269277",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Money Manager",

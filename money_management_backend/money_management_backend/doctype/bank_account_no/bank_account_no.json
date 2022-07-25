@@ -1,0 +1,31 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-06-15 11:31:22.201738",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "bank_account_no"
+ ],
+ "fields": [
+  {
+   "fieldname": "bank_account_no",
+   "fieldtype": "Link",
+   "label": "BANK ACCOUNT NO",
+   "options": "BANK ACCOUNT NO"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2022-06-26 17:06:55.887736",
+ "modified_by": "Administrator",
+ "module": "Money Management Backend",
+ "name": "BANK ACCOUNT NO",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

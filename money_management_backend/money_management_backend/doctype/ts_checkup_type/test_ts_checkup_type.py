@@ -4,5 +4,5 @@
 # import frappe
 import unittest
 
-class TestTSInsuredCompanyName(unittest.TestCase):
+class TestTSCHECKUPTYPE(unittest.TestCase):
 	pass

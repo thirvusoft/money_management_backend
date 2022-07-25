@@ -180,7 +180,9 @@
   "column_break_170",
   "amount1",
   "date",
-  "document2"
+  "document2",
+  "section_break_175",
+  "function_name"
  ],
  "fields": [
   {
@@ -681,7 +683,7 @@
    "fieldtype": "Link",
    "label": "Insured Company Name",
    "mandatory_depends_on": "eval:doc.subtype_name==\"Insurance\" && in_list([\"Vehicle\", \"Person\", \"Electronic item\", \"livestock\"],doc.insurance_type)",
-   "options": "TS Insured Company Name"
+   "options": "TS OTHERS INSURANCE COMPANY NAME"
   },
   {
    "depends_on": "eval:doc.subtype_name==\"Insurance\" && in_list([\"Vehicle\", \"Person\", \"Electronic item\", \"livestock\"],doc.insurance_type)",
@@ -1264,11 +1266,21 @@
    "fieldname": "ts_aadhar_no",
    "fieldtype": "Data",
    "label": "Aadhar Number"
+  },
+  {
+   "fieldname": "section_break_175",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "function_name",
+   "fieldtype": "Table",
+   "label": "FUNCTION NAME",
+   "options": "TS OTHERS FUNCTION NAME"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-05-07 13:51:07.964768",
+ "modified": "2022-06-26 20:37:39.949120",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Expense",
