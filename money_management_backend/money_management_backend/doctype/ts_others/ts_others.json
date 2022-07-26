@@ -43,12 +43,12 @@
   "ts_address",
   "column_break_33",
   "ts_file_upload",
-  "ts_notes",
   "attachment",
   "travel_details",
   "medical_records",
   "insurance",
-  "email"
+  "email",
+  "ts_notes"
  ],
  "fields": [
   {
@@ -245,17 +245,19 @@
    "fetch_from": "ts_person_name.mobile_number",
    "fieldname": "ts_mobile_no",
    "fieldtype": "Data",
-   "label": "Mobile No"
+   "label": "Mobile No",
+   "read_only": 1
   },
   {
    "depends_on": "eval:!in_list([\"Visiting Card\",\"Profile\",\"Invitation\"],doc.subtype_name) && doc.subtype_name",
    "fetch_from": "ts_person_name.aadhar_number",
    "fieldname": "ts_aadhar_no",
    "fieldtype": "Data",
-   "label": "Aadhar No"
+   "label": "Aadhar No",
+   "read_only": 1
   },
   {
-   "depends_on": "eval:!in_list([\"Visiting Card\",\"Profile\",\"Invitation\"],doc.subtype_name) && doc.subtype_name",
+   "depends_on": "eval:!in_list([\"Visiting Card\",\"Profile\",\"Invitation\",'GOVERMENT ID PROOF','MEDICAL RECORDS','TRAVEL','Insurance'],doc.subtype_name) && doc.subtype_name",
    "fieldname": "ts_address",
    "fieldtype": "Small Text",
    "label": "Address"
@@ -265,7 +267,7 @@
    "fieldtype": "Section Break"
   },
   {
-   "depends_on": "eval:!in_list([\"Visiting Card\",\"Profile\",\"Invitation\"],doc.subtype_name) && doc.subtype_name",
+   "depends_on": "eval:!in_list([\"Visiting Card\",\"Profile\",'GOVERMENT ID PROOF',\"Invitation\",\"MEDICAL RECORDS\",'TRAVEL','Insurance'],doc.subtype_name) && doc.subtype_name",
    "fieldname": "ts_file_upload",
    "fieldtype": "Table",
    "label": "File Upload",
@@ -281,7 +283,7 @@
    "depends_on": "eval:doc.subtype_name==\"GOVERMENT ID PROOF\"",
    "fieldname": "attachment",
    "fieldtype": "Table",
-   "label": "ATTACHMENT",
+   "label": "ATTACHMENTS",
    "options": "GOVERMENT ID PROOF"
   },
   {
@@ -315,7 +317,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-07-22 16:53:54.484920",
+ "modified": "2022-07-25 17:31:34.452696",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "TS Others",

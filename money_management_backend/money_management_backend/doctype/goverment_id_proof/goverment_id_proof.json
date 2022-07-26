@@ -7,6 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "id_proof_name",
+  "description",
   "attachment",
   "notes"
  ],
@@ -28,12 +29,18 @@
    "fieldname": "notes",
    "fieldtype": "Data",
    "label": "NOTES"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Link",
+   "label": "Description",
+   "options": "TS Description"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2022-05-19 11:34:48.646010",
+ "modified": "2022-07-26 14:10:07.579120",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "GOVERMENT ID PROOF",
