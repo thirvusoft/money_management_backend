@@ -32,14 +32,15 @@
   },
   {
    "fieldname": "description",
-   "fieldtype": "Data",
-   "label": "Description"
+   "fieldtype": "Link",
+   "label": "Description",
+   "options": "TS Description"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2022-07-25 17:31:50.857321",
+ "modified": "2022-07-26 14:10:07.579120",
  "modified_by": "Administrator",
  "module": "Money Management Backend",
  "name": "GOVERMENT ID PROOF",
